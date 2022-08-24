@@ -1,12 +1,142 @@
 ---
-title: "Chapter6"
-author: "Haydeé"
-date: "`r Sys.Date()`"
-output: pdf_document
+# Preámbulo con paquetes y definiciones básicas
+# Se incluyen los comandos mínimos de LaTeX
+#title: Equipo4
+author:
+ - Andrés Arredondo (email_1@gmail.com)
+ - Adriana Haydé Contreras Peruyero (haydeeperuyero@gmail.com)
+ - David Alberto García Estrada (@gmail.com)
+header-includes:
+  - \usepackage{mathtools}
+  - \usepackage{amsthm}
+  - \usepackage{amssymb}
+  - \usepackage{eufrak}
+  - \usepackage{mathrsfs}
+  - \usepackage{color}
+  - \usepackage[spanish]{babel}
+  - \usepackage{fancyhdr}
+  - \usepackage{array}
+  - \usepackage{subfigure} %para incluir mas de una figura en un solo espacio
+  - \usepackage{graphicx}
+  - \allowdisplaybreaks #% para permitir rompimiento de ecuaciones en p\'aginas distintas
+    # ver http://tex.stackexchange.com/questions/51682/is-it-possible-to-pagebreak-aligned-equations
+    # para m\'as detalles
+  #- \numberwithin{equation}{section} # Para numerar ecuaciones por secciones cuando están numeradas
+  # - \decimalpoint
+  #- \usepackage{caption}
+  - \usepackage{float}
+  #- \usepackage[font=small,labelfont=bf]{caption}
+  # para usar kableExtra se requieren los siguientes paquetes
+  # ver
+  # https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf
+  # para más detalles
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \usepackage{xcolor}
+  # Definir ambientes de Teorema
+  - \newtheorem{teorema}{Teorema}
+  - \newtheorem{lema}[teorema]{Lema}
+  - \newtheorem{corolario}[teorema]{Corolario}
+  - \newtheorem{proposicion}[teorema]{Proposici\'on}
+  - \newtheorem{conjetura}[teorema]{Conjetura}
+  - \newtheorem{definicion}{Definici\'on}
+  - \newtheorem{ejemplo}[teorema]{Ejemplo}
+  - \newtheorem{nota}{Nota}
+  
+output: 
+  pdf_document:
+    toc_depth: 2
+    number_sections: true
+    df_print: kable
+    highlight: tango
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+\newcommand{\cb}{\color{blue}}
+\newcommand{\cg}{\color{green}}
+\newcommand{\cvi}{\color{violet}}
+
+
+<!-- El siguiente código sirve para poner el logo del encabezado. -->
+<!-- \pagestyle{fancy} -->
+<!-- \fancyhf{} -->
+
+<!-- \rhead{\begin{picture}(0,0)  -->
+<!-- \put(-40,-40) %mover de posición la imagen -->
+<!-- {\includegraphics[width=15mm] -->
+<!-- {images/ccm-2}}  -->
+<!-- \end{picture}} -->
+
+<!-- \renewcommand{\headrulewidth}{0pt} -->
+<!-- \rfoot[\thepage]{\vspace{-0.5cm} \thepage} -->
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
-#Chapter 6
+```{r include = FALSE, echo = FALSE}
+##  LIBRERÍAS
+# Aquí vamos a incluir las librerías que necesitemos
+# En donde se pongan pedazos de código, únicamente se comentará
+# Es BUENA PRÁCTICA poner las librerías al principio, por ello las ponemos aquí
+# Primero deben asegurarse de tener instalados todos los paquetes
+#install.packages("kableExtra")
+# library(library_name)
+#library(knitr)
+#library(readr)
+#library(ggplot2)
+#library(kableExtra)
+#library(plyr)
+#library(dplyr)
+#library(tidyverse)
+#library(factoextra)
+# tydiverse incluye ggplot2, readr, dplyr, etc 
+```
+
+<!-- AQUÍ INICIA LA PÁGINA DE TÍTULO
+  Indicaciones:
+          El nombre de los autores aparece al principio
+-->
+
+\title{ {\sc Universidad Nacional Autónoma de México}\\
+\vspace{1cm}{\sc Centro de Ciencias Matemáticas}\\ 
+   \vspace{1.5cm} {R y Microbiomas} \\
+       \vspace{1.5cm} {Capítulo 6}\\[2cm]
+       }
+  
+\date{\vspace{8.5cm} Morelia\\
+      \vspace{1cm} Agosto de 2022}
+
+ \maketitle
+ 
+
+\thispagestyle{fancy}
+\newpage
+
+<!-- FIN DE LA PÁGINA DE  TÍTULO-->
+
+<!-- INICIO ÍNDICE -->
+
+\tableofcontents
+\newpage
+<!-- FIN INDICE -->
+
+
+
+<!-- INICIO DOCUMENTO -->
+
+
+# Introducción
+
+Hola
