@@ -14,7 +14,7 @@ setwd("E:/Home/MicrobiomeStatR/Analysis")
 ##7.2.1 Plot Richness
 library(phyloseq)
 library(ggplot2)
-abund_table=read.csv("VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
+abund_table=read.csv("./data/VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
 abund_table<-t(abund_table)
 
 meta_table <- data.frame(row.names=rownames(abund_table),t(as.data.frame(strsplit(rownames(abund_table),"_"))))
@@ -44,6 +44,7 @@ TopNGenus <- names(sort(taxa_sums(physeq), TRUE)[1:5])
 Top5Genus  <- prune_taxa(TopNGenus, physeq)
 
 plot_bar(Top5Genus, fill="Group", facet_grid=~Group)
+#no se puede usar porque no se dispone del estudio taxonomico de estos datos
 plot_bar(Top5Genus, fill="Genus", facet_grid=~Group)
 
 
@@ -135,7 +136,7 @@ par (mfrow = c(1,1))
 ################################################################################
 
 ##7.4.1	Principal Component Analysis (PCA)
-abund_table=read.csv("VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
+abund_table=read.csv("./data/VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
 abund_table<-t(abund_table)
 head(abund_table)
 
