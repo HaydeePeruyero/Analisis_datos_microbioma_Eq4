@@ -1,7 +1,11 @@
 # Equipo4
 Equipo4 Curso R Microbioma
 
+# Capítulo 7
 
+# Capítulo 8
+
+---
 # ¿Cómo trabajar con todo esto?
 
 La primera parte es la instalación y la creación de las dependencias necesarias. La segunda parte es el trabajo propiamente dicho.
