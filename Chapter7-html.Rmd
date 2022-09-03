@@ -1,0 +1,59 @@
+---
+title: 'Chapther 4: Introduction to R, Rstudio and ggplot'
+author:
+ - Andrés Arredondo (email_1@gmail.com)
+ - Adriana Haydé Contreras Peruyero (haydeeperuyero@gmail.com)
+ - David Alberto García Estrada (@gmail.com)
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```
+
+# Datos de Ratones y Humanos
+
+Las bases de datos que se ocuparon son dos:
+
+  - Vdr: es una base de datos de ratones. Contiene datos de microbiomas intestinales y fueron recolectados de heces y muestras de heces cecales. Las que se usan en este capítulo son de heces.
+  - Troat.otu.tab: estos datos son de fumadores y se encuentran en el paquete `GUniFrac`. Estos datos se usarán para explorar el árbol filogenético.
+  
+  
+# Análisis exploratorio con resumen gráfico
+
+En este capítulo se exploran diferentes gráficos usuales: riquesa, barras de abundancia, mapas de calor, redes y árbol filogenético.
+
+## Gráficos de riqueza
+
+En el capítulo anterior se exploró la diversidad alfa, en este capítulo vamos a explorar un gráfico relacionado a esto. Para esto, se usa la función `plot_richness()` del paquete `phyloseq`. Generalmente, la riqueza se refiere a un gráfico del número toal de especies, taxones u OTUs en un ambiente, pero está función también nos da otras figuras relacionadas a otras diversidades. 
+
+Lo primero que debemos hacer es instalar el paquete y leer los datos.
+
+```{r}
+#Para instalar el paquete, usamos Bioconductor
+
+#if (!require("BiocManager", quietly = TRUE))
+ # install.packages("BiocManager")
+
+#BiocManager::install("phyloseq")
+```
+
+En la carpeta `data` se encuentra la base de datos a usar `VdrFecalGenusCounts.csv`.
+
+```{r}
+setwd("D:/Users/hayde/Documents/R_sites/Equipo4")
+```
+
+```{r}
+library(phyloseq)
+library(ggplot2)
+abund_table=read.csv("./data/VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
+abund_table<-t(abund_table)
+```
+
+
+
+
+
