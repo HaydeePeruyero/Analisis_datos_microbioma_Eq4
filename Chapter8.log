@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.24)  24 AUG 2022 18:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.24)  3 SEP 2022 13:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Chapter6.tex
-(./Chapter6.tex
+**Chapter8.tex
+(./Chapter8.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-08-23> (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -536,11 +536,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: l3backend-pdftex.def 2022-08-23 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count321
 \l__pdf_internal_box=\box73
-) (./Chapter6.aux
+) (./Chapter8.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
-\openout1 = `Chapter6.aux'.
+\openout1 = `Chapter8.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
 LaTeX Font Info:    ... okay on input line 107.
@@ -603,72 +603,72 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 LaTeX Info: Redefining \. on input line 107.
 LaTeX Info: Redefining \% on input line 107.
 Package hyperref Info: Link coloring OFF on input line 107.
-(./Chapter6.out) (./Chapter6.out)
+(./Chapter8.out) (./Chapter8.out)
 \@outlinefile=\write3
-\openout3 = `Chapter6.out'.
+\openout3 = `Chapter8.out'.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 123.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 124.
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 123.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 124.
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 123.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 124.
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 123.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 124.
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 123.
+(Font)              <12> on input line 124.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 123.
+(Font)              <8> on input line 124.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 123.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 123.
+(Font)              <6> on input line 124.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 124.
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 123.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 124.
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 123.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 124.
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
-{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./Chapter6.toc
+{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Chapter8.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
 \tf@toc=\write4
-\openout4 = `Chapter6.toc'.
+\openout4 = `Chapter8.toc'.
 
-[3] [4] (./Chapter6.aux
+[2] [3] (./Chapter8.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
-Package rerunfilecheck Info: File `Chapter6.out' has not changed.
+Package rerunfilecheck Info: File `Chapter8.out' has not changed.
 (rerunfilecheck)             Checksum: E62C6D918433D5AAD12CD53CDEFE43A7;106.
  ) 
 Here is how much of TeX's memory you used:
- 14666 strings out of 479471
- 236720 string characters out of 5872390
- 548823 words of memory out of 5000000
+ 14665 strings out of 479471
+ 236714 string characters out of 5872390
+ 550823 words of memory out of 5000000
  33084 multiletter control sequences out of 15000+600000
  505935 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,11n,77p,313b,535s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,11n,77p,313b,453s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb>
-Output written on Chapter6.pdf (4 pages, 150184 bytes).
+Output written on Chapter8.pdf (3 pages, 149168 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
+ 64 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
+ 7 named destinations out of 1000 (max. 500000)
  9 words of extra memory for PDF output out of 10000 (max. 10000000)
 

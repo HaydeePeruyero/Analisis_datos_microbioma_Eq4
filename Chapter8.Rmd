@@ -95,11 +95,12 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 # library(library_name)
 #library(knitr)
 #library(readr)
-#library(ggplot2)
+library(ggplot2)
+library(tidyverse)
 #library(kableExtra)
+library(phyloseq)
 #library(plyr)
 #library(dplyr)
-#library(tidyverse)
 #library(factoextra)
 # tydiverse incluye ggplot2, readr, dplyr, etc 
 ```
@@ -109,14 +110,15 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
           El nombre de los autores aparece al principio
 -->
 
-\title{ {\sc Universidad Nacional Autónoma de México}\\
-\vspace{1cm}{\sc Centro de Ciencias Matemáticas}\\ 
-   \vspace{1.5cm} {R y Microbiomas} \\
-       \vspace{1.5cm} {Capítulo 6}\\[2cm]
+\title{ {\sc Centro de Ciencias Matemáticas}\\
+\vspace{1cm}{\sc CINVESTAV }\\ 
+\vspace{1cm}{\sc ENES}
+   \vspace{1.5cm} {Análisis univariado de comunidades} \\
+       \vspace{1.5cm} {Capítulo 8}\\[2cm]
        }
   
-\date{\vspace{8.5cm} Morelia\\
-      \vspace{1cm} Agosto de 2022}
+\date{\vspace{5.5cm} Morelia\\
+      \vspace{1cm} Septiembre de 2022}
 
  \maketitle
  
@@ -138,5 +140,3 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 
 
 # Introducción
-
-Hola
