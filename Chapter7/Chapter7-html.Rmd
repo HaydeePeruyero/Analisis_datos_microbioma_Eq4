@@ -49,7 +49,7 @@ setwd("D:/Users/hayde/Documents/R_sites/Equipo4")
 ```{r}
 library(phyloseq)
 library(ggplot2)
-abund_table=read.csv("./data/VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
+abund_table=read.csv("D:/Users/hayde/Documents/R_sites/Equipo4/data/VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
 abund_table<-t(abund_table)
 ```
 

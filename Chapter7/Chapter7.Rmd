@@ -112,7 +112,7 @@ library(phyloseq)
 
 \title{ {\sc Centro de Ciencias Matemáticas}\\
 \vspace{1cm}{\sc CINVESTAV }\\ 
-\vspace{1cm}{\sc ENES}
+\vspace{1cm}{\sc ENES}\\
    \vspace{1.5cm} {Análisis exploratorio de datos de microbiomas} \\
        \vspace{1.5cm} {Capítulo 7}\\[2cm]
        }
@@ -169,13 +169,13 @@ Lo primero que debemos hacer es instalar el paquete y leer los datos.
 En la carpeta `data` se encuentra la base de datos a usar `VdrFecalGenusCounts.csv`.
 
 ```{r}
-setwd("D:/Users/hayde/Documents/R_sites/Equipo4")
+setwd("D:/Users/hayde/Documents/R_sites/Equipo4/")
 ```
 
 ```{r}
 #library(phyloseq)
 #library(ggplot2)
-abund_table=read.csv("./data/VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
+abund_table=read.csv("D:/Users/hayde/Documents/R_sites/Equipo4/data/VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
 abund_table<-t(abund_table)
 ```
 
