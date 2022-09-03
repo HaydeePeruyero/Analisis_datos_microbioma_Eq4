@@ -1,7 +1,7 @@
 # Equipo4
 Equipo4 Curso R Microbioma
 
-# [Capítulo 7: Análisis exploratorio de datos de microbiomas](https://haydeeperuyero.github.io/Equipo4/chapter7-html)
+# [Capítulo 7: Análisis exploratorio de datos de microbiomas](https://haydeeperuyero.github.io/Equipo4/Chapter7-html)
 
 # Capítulo 8
 
