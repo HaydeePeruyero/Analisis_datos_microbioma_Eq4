@@ -1,0 +1,16 @@
+---
+title: 'Capítulo 8: Análisis univariado de comunidades'
+author:
+ - Andrés Arredondo (email_1@gmail.com)
+ - Adriana Haydé Contreras Peruyero (haydeeperuyero@gmail.com)
+ - David Alberto García Estrada (@gmail.com)
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```
+
+# Introducción
