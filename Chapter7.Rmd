@@ -180,6 +180,82 @@ abund_table<-t(abund_table)
 ```
 
 
+Lo primero que se debe de hacer es contruir nuestro objeto `phyloseq`. Este objeto se contruye tomando en cuenta los siguientes componentes:
+  - Tabla OTU.
+  - Datos muestra.
+  - Tabla de taxonomía.
+  - Árbol filogenético.
+
+Se deben de proporcionar dos objetos de datos pero el orden en que se proporcionan no es importante. Construimos primero nuestra tabla de metadatos con los siguientes comandos.
+
+```{r}
+meta_table <- data.frame(row.names=rownames(abund_table),t(as.data.frame(strsplit(rownames(abund_table),"_"))))
+meta_table$Group <- with(meta_table,ifelse(as.factor(X2)%in% c(11,12,13,14,15),c("Vdr-/-"), c("WT")))
+```
+
+Convertimos los datos al formato `phyloseq`.
+
+```{r}
+OTU = otu_table(as.matrix(abund_table), taxa_are_rows = FALSE)
+SAM = sample_data(meta_table)
+physeq <- merge_phyloseq(phyloseq(OTU),SAM)
+physeq
+```
+Una vez que tenemos nuestro objeto `phyloseq`, podemos usar la función `plot_richness()` para contruir graficar las diversidades alpha observadas y estimadas.
+
+```{r, include = TRUE, echo = FALSE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Gráficos de diversidad alpha con Vdr y grupos WT en muestras de heces.'}
+plot_richness(physeq, x = "Group ", color = "Group ")
+```
+
+Esta función también nos permite seleccionar solo algunas diversidades. El siguiente es un ejemplo usando solo dos diversidades, la de Chao1 y Shannon.
+
+```{r, include = TRUE, echo = FALSE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Gráficos de diversidad alpha seleccionando las diversidades de Chao y Shannon.' }
+
+plot_richness(physeq, measures = c("Chao1", "Shannon"),x = "Group ", color = "Group ")
+```
+
+## Barras de abundancia
+
+La herramienta de `phyloseq` que nos permite graficar las barras de abundancia es `plot_bar()`.
+
+
+## Mapas de calor
+
+## Redes
+
+## Árbol filogenético
+
+# Clusters
+
+## Distancias
+
+## Diferentes tipos de clústers
+
+### Single
+
+### Complete
+
+### Average
+
+### Ward
+
+## Ordination
+
+### PCA
+
+### PCoA
+
+### NMDS
+
+### CA
+
+### RDA
+
+### CCA
+
+### CAP
+
+# Conlusiones
 
 
 
