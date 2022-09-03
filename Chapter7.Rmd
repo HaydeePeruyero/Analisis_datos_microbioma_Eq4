@@ -239,21 +239,21 @@ La herramienta de `phyloseq` que nos permite graficar las barras de abundancia e
 
 ### Ward
 
-## Ordination
+# Ordination
 
-### PCA
+## PCA
 
-### PCoA
+## PCoA
 
-### NMDS
+## NMDS
 
-### CA
+## CA
 
-### RDA
+## RDA
 
-### CCA
+## CCA
 
-### CAP
+## CAP
 
 # Conlusiones
 
