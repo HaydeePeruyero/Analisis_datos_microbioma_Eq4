@@ -1,5 +1,5 @@
 ---
-title: 'Chapther 4: Introduction to R, Rstudio and ggplot'
+title: 'Capítulo 7: Análisis exploratorio de datos de microbiomas'
 author:
  - Andrés Arredondo (email_1@gmail.com)
  - Adriana Haydé Contreras Peruyero (haydeeperuyero@gmail.com)
