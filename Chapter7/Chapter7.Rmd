@@ -3,9 +3,9 @@
 # Se incluyen los comandos mínimos de LaTeX
 #title: Equipo4
 author:
- - Andrés Arredondo (email_1@gmail.com)
+ - Andrés Arredondo Cruz (andresabstract@gmail.com)
  - Adriana Haydé Contreras Peruyero (haydeeperuyero@gmail.com)
- - David Alberto García Estrada (@gmail.com)
+ - David Alberto García Estrada (david.garcia.e@cinvestav.mx)
 header-includes:
   - \usepackage{mathtools}
   - \usepackage{amsthm}
@@ -117,9 +117,9 @@ library("BiodiversityR")
           El nombre de los autores aparece al principio
 -->
 
-\title{ {\sc Centro de Ciencias Matemáticas}\\
-\vspace{1cm}{\sc CINVESTAV }\\ 
-\vspace{1cm}{\sc ENES}\\
+\title{ {\sc Escuela Nacional de Estudios Superiores Unidad León}\\
+\vspace{1cm}{\sc Centro de Ciencias Matemáticas }\\ 
+\vspace{1cm}{\sc UGA-LANGEBIO CINVESTAV}\\
    \vspace{1.5cm} {Análisis exploratorio de datos de microbiomas} \\
        \vspace{1.5cm} {Capítulo 7}\\[2cm]
        }
@@ -845,22 +845,54 @@ fviz_dend(x = hc_complete, k=2,
 ```
 
 
-## Ordenación 
-El principal objetivo de la ordenación fue considerado "exploración" con la introducciónm de un análisis canonico de correspondencia (CCA), ordenación ha ido más allá de meramente análisis "exploratorio" y se ha convertido en una prueba de hipótesis.
-La estructura de los datos de dos variables suele revelarse mediante un gráfico de dispersión de las muestras. Los datos multivariantes del microbioma son multidimensionales, generalmente tienen más de dos variables. El conjunto de datos del microbioma puede verse como una colección de muestras (sujetos) situadas en un espacio en el que *cada variable o especie (o OTU/taxa) define una dimensión*. Por lo tanto, *hay tantas dimensiones como variables o especies (u OTU/taxa)*. Por ejemplo, en nuestro conjunto de datos fecales de ratón Vdr-/- hay 8 muestras y 248 géneros. Por tanto, la dimensión de los datos es 248. *Para un conjunto de datos con n variables, el número de gráficos de dispersión que hay que dibujar sería n (n - 1)/2*. En nuestro caso, los 248 géneros necesitarán (248*247)/2 = 30.628 gráficos de dispersión. Un número tan grande de gráficos de dispersión no es informativo para conocer la estructura de los datos; también es tedioso trabajar con ellos.
-La ordenación trata principalmente de representar las relaciones entre las muestras y las especies (o OTUs/taxa) lo más fielmente posible en un espacio de baja dimensión (Gauch 1982a, b). Este objetivo es deseable, ya que los datos de la comunidad tienen múltiples dimensiones mezcladas con ruido, las dimensiones bajas pueden representar idealmente y de forma típica interpretaciones importantes e intuitivas de las relaciones especie (o OTUs/taxa)-ambiente. Para un conjunto de datos n p que contiene n sujetos y p variables, la estructura de los datos puede revisarse como n sujetos (representados como un grupo de puntos) en el espacio p-dimensional. El **objetivo principal de la ordenación es representar múltiples muestras (sujetos) en un número reducido de ejes ortogonales (es decir, independientes), donde el número total de ejes es menor o igual al número de muestras (sujetos)**. La importancia de los ejes de ordenación disminuye por orden. El *primer eje de una ordenación explica la mayor parte de la variación en el conjunto de datos*, seguido por el segundo eje, luego el tercero, y así sucesivamente. *Los gráficos de ordenación son especialmente útiles para visualizar la similitud entre muestras (sujetos)*. Por ejemplo, en el contexto de la diversidad beta, las muestras que están más cerca en el espacio de ordenación tienen conjuntos de especies que son más similares entre sí que las muestras que están más alejadas en el espacio de ordenación.  Los métodos de ordenación incluyen *ordenaciones restringidas* y *no restringidas*, dependiendo de si los ejes de ordenación están limitados por factores ambientales (variables). Como su nombre indica, en la *ordenación restringida, los ejes de ordenación están están restringidos por factores ambientales*: las posiciones de las muestras en la ordenación están limitadas por las variables del entorno. En *la ordenación no restringida, los ejes de ordenación ejes de ordenación no están limitados por factores ambientales*. En otras palabras, *la ordenación restringida utiliza directamente las variables ambientales en la construcción de la ordenación*, mientras que en *la ordenación no restringida los ejes no están limitados por factores ambientales*; mientras que en *la ordenación sin restricciones, las variables ambientales se introducen en los análisis post hoc*. Desde el punto de vista de la *comprobación de hipótesis, el análisis de ordenación sin restricciones per se es un método principalmente descriptivo y no implica realmente la comprobación de hipótesis en datos multivariados*. Aunque implica la formulación de hipótesis sobre la explicación de los ejes mediante variables ambientales, como la función `envfit()` del paquete **vegan**, la ordenación sin restricciones es sencilla. Analiza una matriz de datos; su objetivo es revelar la estructura principal de los datos en un gráfico a partir de un conjunto reducido de ejes ortogonales. Por el contrario, la ordenación restringida es una ordenación "impulsada por la hipótesis": un método de comprobación de hipótesis, que pone a prueba directamente la hipótesis sobre la influencia de los factores ambientales en la composición de las especies (o OTU/taxa). 
-La ordenación restringida está relacionada con los modelos lineales multivariantes de esta manera con las variables "dependientes" (o la comunidad) en el lado izquierdo como respuestas, las "indenpendientes" (o restricciones) en el lado derecho como factores explicados. Así, la ordenación restringida no es simétrica. 
-En este apartado se tratan las ordenaciones no restringidas más comunes: el *análisis de componentes principales (PCA)*; el *análisis de coordenadas principales (PCoA)*; el *escalamiento multidimensional no métrico (NMDS)*; el *análisis de correspondencia (AC)*; y ordenaciones restringidas: *análisis de redundancia redundancia (RDA)*; *análisis de correspondencia restringido (CCA)*; *análisis restringido de coordenadas principales (CAP)*.
+# Ordenación 
 
-### Ordenaciones NO restringidas
-#### Análisis de componentes principales (PCA)
-En cuanto al paquete **vegan**, la *variable ambiental* en nuestro caso es la condición genética (Vdr-/- y WT). **Queremos saber si la deficiencia del gen vdr interpreta la diversidad beta en la composición del género**. Realizamos un PCA para explorar si los cambios en la composición de géneros de las comunidades (diversidades beta) son causados por el factor genético. Con el PCA, las muestras se trazan en base a las abundancias del género A en el eje 1 el género B en el eje 2, el género C en el eje 3, y así sucesivamente hasta que se trazan n muestras en un espacio de muy alta dimensión. Las n muestras crean (n - 1) número de PC: PC1 es la primera línea recta que atraviesa el espacio creado por todas estas muestras, PC2 es la segunda línea, perpendicular a PC1, y así la tercera PC3, hasta PC(n - 1). La importancia de las PC disminuye por orden. *PC1 es la PC más importante y explica la mayor parte de las variaciones entre todas las muestras*. La PC2 explica la segunda mayor parte de las variaciones, y PC3 explica la tercera más, y así sucesivamente la (n - 1) PC explica la menor cantidad de variaciones de las muestras. Varias funciones de R, como `prcomp()` en el paquete preinstalado de estadísticas, `rda()` en el paquete paquete **vegan**, `pca()` en el paquete labdsv pueden utilizarse para llevar a cabo el PCA. En este caso, utilizamos la función `rda()`. Las dos funciones de extensión: `evplot()` (Borcard et al. 2011) y `PCAsignificance()` en el paquete BiodiversityR pueden mejorar los gráficos. La función `evplot()` proporciona métodos visuales para decidir la importancia de los ejes de ordenación mediante el uso de el criterio de *Keiser-Guttman* y el modelo de broken-stick. La función `PCAsignificance()` calcula el modelo de broken-stick para los ejes PCA. Cuando se utiliza la función `rda()` para realizar el PCA, al no especificar la matriz de datos ambientales (es decir, la variable de grupo), la función realiza un ordenación PCA. En el análisis de datos del microbioma, los recuentos de abundancia absoluta no son apropiados porque los valores grandes tendrán una influencia demasiado alta en el análisis. Por lo tanto, *necesitamos estandarizar los datos de lectura de abundancia antes del análisis*. En este caso, utilizamos la función `decostand()` con el método total para estandarizar la lectura.
+El principal objetivo de la ordenación fue la "exploración" con la introducciónm de un análisis canonico de correspondencia (CCA), la ordenación ha ido más allá de meramente un análisis "exploratorio" y se ha convertido en una prueba de hipótesis.
+
+La estructura de los datos de dos variables suele revelarse mediante un gráfico de dispersión de las muestras. Los datos multivariantes del microbioma son multidimensionales, generalmente tienen más de dos variables. El conjunto de datos del microbioma puede verse como una colección de muestras (sujetos) situadas en un espacio en el que *cada variable o especie (o OTU/taxa) define una dimensión*. Por lo tanto, *hay tantas dimensiones como variables o especies (u OTU/taxa)*. Por ejemplo, en nuestro conjunto de datos fecales de ratón Vdr$-/-$ hay 8 muestras y 248 géneros. Por tanto, la dimensión de los datos es 248. *Para un conjunto de datos con n variables, el número de gráficos de dispersión que hay que dibujar sería $n (n - 1)/2$*. En nuestro caso, los 248 géneros necesitarán $(248*247)/2 = 30628$ gráficos de dispersión. Un número tan grande de gráficos de dispersión no es informativo para conocer la estructura de los datos; también es tedioso trabajar con ellos.
+
+La ordenación trata principalmente de representar las relaciones entre las muestras y las especies (o OTUs/taxa) lo más fielmente posible en un espacio de baja dimensión (Gauch 1982a, b). Este objetivo es deseable, ya que los datos de la comunidad tienen múltiples dimensiones mezcladas con ruido, las dimensiones bajas pueden representar idealmente y de forma típica interpretaciones importantes e intuitivas de las relaciones especie (o OTUs/taxa)-ambiente. Para un conjunto de datos $n\times p$ que contiene $n$ sujetos y $p$ variables, la estructura de los datos puede revisarse como $n$ sujetos (representados como un grupo de puntos) en el espacio $p-$dimensional.
+
+El **objetivo principal de la ordenación es representar múltiples muestras (sujetos) en un número reducido de ejes ortogonales (es decir, independientes), donde el número total de ejes es menor o igual al número de muestras (sujetos)**. La importancia de los ejes de ordenación disminuye por orden. El *primer eje de una ordenación explica la mayor parte de la variación en el conjunto de datos*, seguido por el segundo eje, luego el tercero, y así sucesivamente. *Los gráficos de ordenación son especialmente útiles para visualizar la similitud entre muestras (sujetos)*. Por ejemplo, en el contexto de la diversidad beta, las muestras que están más cerca en el espacio de ordenación tienen conjuntos de especies que son más similares entre sí que las muestras que están más alejadas en el espacio de ordenación.  
+
+Los métodos de ordenación incluyen *ordenaciones restringidas* y *no restringidas*, dependiendo de si los ejes de ordenación están limitados por factores ambientales (variables). Como su nombre indica, en la *ordenación restringida, los ejes de ordenación están están restringidos por factores ambientales*: las posiciones de las muestras en la ordenación están limitadas por las variables del entorno. En *la ordenación no restringida, los ejes de ordenación ejes de ordenación no están limitados por factores ambientales*. En otras palabras, *la ordenación restringida utiliza directamente las variables ambientales en la construcción de la ordenación*, mientras que en *la ordenación no restringida los ejes no están limitados por factores ambientales*; mientras que en *la ordenación sin restricciones, las variables ambientales se introducen en los análisis post hoc*. 
+
+Desde el punto de vista de la *comprobación de hipótesis, el análisis de ordenación sin restricciones per se es un método principalmente descriptivo y no implica realmente la comprobación de hipótesis en datos multivariados*. Aunque implica la formulación de hipótesis sobre la explicación de los ejes mediante variables ambientales, como la función `envfit()` del paquete `vegan`, la ordenación sin restricciones es sencilla. Analiza una matriz de datos; su objetivo es revelar la estructura principal de los datos en un gráfico a partir de un conjunto reducido de ejes ortogonales. Por el contrario, la ordenación restringida es una ordenación "impulsada por la hipótesis": un método de comprobación de hipótesis, que pone a prueba directamente la hipótesis sobre la influencia de los factores ambientales en la composición de las especies (o OTU/taxa). 
+
+La ordenación restringida está relacionada con los modelos lineales multivariantes, de esta manera con las variables "dependientes" (o la comunidad) en el lado izquierdo como respuestas, las "indenpendientes" (o restricciones) en el lado derecho como factores explicados. Así, la ordenación restringida no es simétrica. 
+
+En este apartado se tratan las ordenaciones no restringidas más comunes: 
+
+  - Análisis de componentes principales (PCA).
+  - Análisis de coordenadas principales (PCoA).
+  - Escalamiento multidimensional no métrico (NMDS).
+  - Análisis de correspondencia (AC).
+  
+Y las ordenaciones restringidas:
+  
+  - Análisis de redundancia redundancia (RDA).
+  - Análisis de correspondencia restringido (CCA).
+  - Análisis restringido de coordenadas principales (CAP)*.
+
+## Ordenaciones NO restringidas
+
+### Análisis de componentes principales (PCA)
+
+En cuanto al paquete **vegan**, la *variable ambiental* en nuestro caso es la condición genética (Vdr$-/-$ y WT). **Queremos saber si la deficiencia del gen vdr interpreta la diversidad beta en la composición del género**. Realizamos un PCA para explorar si los cambios en la composición de géneros de las comunidades (diversidades beta) son causados por el factor genético. Con el PCA, las muestras se trazan en base a las abundancias del género A en el eje 1 el género B en el eje 2, el género C en el eje 3, y así sucesivamente hasta que se trazan $n$ muestras en un espacio de muy alta dimensión. Las $n$ muestras crean $(n - 1)$ número de componentes principales (PC): 
+
+  - PC1: es la primera línea recta que atraviesa el espacio creado por todas estas muestras.
+  - PC2: es la segunda línea, perpendicular a PC1.
+  
+y así la tercera PC3, hasta PC(n - 1). La importancia de las PC disminuye por orden. *PC1 es la PC más importante y explica la mayor parte de las variaciones entre todas las muestras*. La PC2 explica la segunda mayor parte de las variaciones, y PC3 explica la tercera más, y así sucesivamente la $(n - 1)$ PC explica la menor cantidad de variaciones de las muestras. Varias funciones de R, como `prcomp()` en el paquete preinstalado de estadísticas, `rda()` en el paquete paquete **vegan**, `pca()` en el paquete `labdsv` pueden utilizarse para llevar a cabo el PCA.
+
+En este caso, utilizamos la función `rda()`. Las dos funciones de extensión: `evplot()` (Borcard et al. 2011) y `PCAsignificance()` en el paquete BiodiversityR pueden mejorar los gráficos. La función `evplot()` proporciona métodos visuales para decidir la importancia de los ejes de ordenación mediante el uso de el criterio de *Keiser-Guttman* y el modelo de broken-stick. La función `PCAsignificance()` calcula el modelo de broken-stick para los ejes PCA. Cuando se utiliza la función `rda()` para realizar el PCA, al no especificar la matriz de datos ambientales (es decir, la variable de grupo), la función realiza un ordenación PCA. En el análisis de datos del microbioma, los recuentos de abundancia absoluta no son apropiados porque los valores grandes tendrán una influencia demasiado alta en el análisis. Por lo tanto, *necesitamos estandarizar los datos de lectura de abundancia antes del análisis*. En este caso, utilizamos la función `decostand()` con el método total para estandarizar la lectura.
+
 ```{r}
 # Llamamos a nuestra tabla
 abund_table=read.csv("D:/Users/hayde/Documents/R_sites/Equipo4/data/VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
 # Transpuesta de la tabla
 abund_table<-t(abund_table)
-head(abund_table)
+#head(abund_table)
 # Tabla de metadatos
 meta_table <- data.frame(row.names=rownames(abund_table),t(as.data.frame(strsplit(rownames(abund_table),"_"))))
 # Agregamos el factor de grupo
@@ -870,7 +902,8 @@ stand_abund_table <- decostand(abund_table, method = "total")
 PCA <-rda(stand_abund_table)
 PCA
 ```
-En lenguaje *vegan*, **"Inercia"** es el término general de **"variación"** en los datos. El total de variación de todo el conjunto de datos es de 0,0408 en este caso, y *el primer eje explica el 60,4% de la variación total (0,02029/0,0408 = 0,4973)*. **La variación total es la suma de las variaciones de cada género en la matriz analizada**. Los siguientes códigos R comprueban la variación total:
+En lenguaje *vegan*, **"Inertia"** es el término general de **"variación"** en los datos. El total de variación de todo el conjunto de datos es de 0,0408 en este caso, y *el primer eje explica el 60,4% de la variación total (0,02029/0,0408 = 0,4973)*. **La variación total es la suma de las variaciones de cada género en la matriz analizada**. Los siguientes códigos R comprueban la variación total:
+
 ```{r}
 # Variación total
 sum(apply(stand_abund_table, 2, var))
