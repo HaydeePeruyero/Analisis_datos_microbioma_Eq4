@@ -392,164 +392,11 @@ En \cite{tan14} se menciona que las disimilitudes usuales de acuerdo al tipo de 
   
 ### Distancias y disimilitudes entre datos
 
-En el Cuadro \ref{tab:distancias_similitudes} se muestra cómo se calculan distancias y disimilitudes entre individuos con datos numéricos, binarios, categóricos y mixtos.
+En el Cuadro siguiente, se muestra cómo se calculan distancias y disimilitudes entre individuos con datos numéricos, binarios, categóricos y mixtos.
 
 
-\begin{landscape}
-\begin{longtable}[]{  p{4cm}  p{7.5cm}  p{3cm} p{7.5cm} }
-\caption{Distancias y disimilitudes entre distintos tipos de datos} \\
-\hline
-\multicolumn{1}{>{\centering}m{4cm}}{\textbf{Nombre}} & \multicolumn{1}{>{\centering}m{7.5cm}}{\textbf{Descripción}} & \multicolumn{1}{>{\centering}m{3cm}}{\textbf{Tipo de datos}} & \multicolumn{1}{>{\centering\arraybackslash}m{7.5cm}}{\textbf{Fórmula y explicación}} \\ \hline
-\endfirsthead %% AQUÍ TERMINA EL PRIMER ENCABEZADO
-\multicolumn{3}{@{}l}{\ldots continuación}\\ \hline
-\multicolumn{1}{>{\centering}m{4cm}}{\textbf{Nombre}} & \multicolumn{1}{>{\centering}m{7.5cm}}{\textbf{Descripción}} & \multicolumn{1}{>{\centering}m{3cm}}{\textbf{Tipo de datos}} & \multicolumn{1}{>{\centering\arraybackslash}m{7.5cm}}{\textbf{Fórmula y explicación}} \\ \hline
-\endhead %% LAS LÍNEAS DE ARRIBA SE REPETIRÁN AL PRINCIPIO EN CADA PÁGINA
-\hline
-\multicolumn{3}{r@{}}{continúa \ldots}\\
-\endfoot
-\hline
-\endlastfoot
-Distancia euclidiana     &  
-   Es la distancia usual entre dos puntos en el espacio Euclidiano $\mathcal{X}$. Cumple las siguientes propiedades:
-   \begin{enumerate}
-   \item $d(X,Y)\geq 0$ para todo $X,Y\in \mathcal{X}$ y $d(X,Y)=0$ si y sólo si $X=Y$
-   \item $d(X,Y)=d(Y,X)$ para todo $X,Y\in\mathcal{X}$ (Simetría)
-   \item $d(X,Z)\leq d(X,Y) \ +\ d(Y,Z) $ para todo $X,Y,Z\in\mathcal{X}$(Desigualdad del triángulo)
-   \end{enumerate}
-   &  Numéricos
-   & Sea $\mathcal{X}$ el espacio euclidiano de dimensión $n$ y sean $X,Y\in\mathcal{X}$ dos puntos en el espacio con coordenadas $X=(x_1,...,x_{n})$ y $Y=(y_{1},...,y_{n})$. Entonces su distancia euclidiana esta dada por: 
-   \[ d(X,Y)=\sqrt{\sum_{i=1}^{n}(x_{i}-y_{i})^{2}}\]  \\ \hline
-%%%%% FIN RENGLÓN 1
-  
-  Distancia de Minkowski     &  
-   Es una generalización de la distancia euclidiana. Se llama así en honor al matemático Hermann Minkowski.
-   &  Numéricos
-   &  Sean $X,Y\in\mathcal{X}$ dos puntos en el espacio con coordenadas $X=(x_1,...,x_{n})$ y $Y=(y_{1},...,y_{n})$ y sea $p$ un entero. Entonces su distancia Minkowski esta dada por: 
-   \[ d(X,Y)=\left( \sum_{i=1}^{n} |\ x_{i}-y_{i}\ |^{p}\right)^{\frac{1}{p}}\] 
-   Para $p\geq 1$ esta distancia es una métrica. Si $p<1$ no se satisface la desigualdad del triángulo y por lo tanto no es una métrica. Si $p=2$ es la distancia euclidiana y si $p=1$ es la distancia de Manhattan(o city block).
-   \\ \hline
-%%%%% FIN RENGLÓN 2
-  
-  Distancia \emph{City block}     &  
-   También se conoce como la distancia del taxista o distancia de Manhattan. Esta distancia no es única en el sentido de que hay más de un camino de distancia mínima para llegar de un punto a otro. Se le conoce como distancia del taxista o distancia de Manhattan porque hace referencia a la forma en que un automovil puede ir de un punto a otro en un diseño cuadricular de las calles de Manhattan. En la figura siguiente, podemos la distancia City block entre los puntos $X,Y$ esta representada con los colores rojo, azul y verde, los tres caminos tienen la misma longitud, mientras que la distancia en morado es la distancia euclidiana entre los puntos.
-   \includegraphics[width=50mm]{D:/Users/hayde/Documents/R_sites/Equipo4/images/city-block.png}
-   &  Numéricos
-   & Sean $X,Y\in\mathcal{X}$ dos puntos en el espacio con coordenadas $X=(x_1,...,x_{n})$ y $Y=(y_{1},...,y_{n})$. Entonces su distancia city block esta dada por:
-   \[ d_{1}(X,Y) = \parallel X - Y \ \parallel = \sum_{i=1}^{n} |\ x_{i} - y_{i}\ |  \]
-   En el caso de la figura, la distancia de city block (en color azul, rojo o verde) sería $15$ si consideramos que cada cuadrito tiene longitud $1$. 
-   \\ \hline
-%%%%% FIN RENGLÓN 3
-  
-  Disimilitud calculando \emph{Simple Matching}  &  
-   El coeficiente de concordancia simple, llamado coeficiente \emph{simple matching} ($\mathrm{SMC}$) o \emph{coeficiente de Rand} se trata de la razón de coincidencias respecto al número total de valores. Se ofrece una ponderación igual a las coincidencias y a las no coincidencias. Toma valores entre $0$ y $1$. La disimilitud calculada vía simple matching o \emph{distancia simple matching}, que mide la disimilitud entre las muestras, se calcula restando el $\mathrm{SMC}$ a $1$.
-   &  Binarios
-   & Consideremos $A$ y $B$ dos objetos con $n$ atributos binarios, esto es, cada atributo vale $0$ o $1$. El número total para cada combinación de atributos para $A$ y $B$ se obtiene como sigue:
-   \begin{itemize}
-    \item Denotamos $M_{11}$ al número total de atributos donde $A$ y $B$ tienen un valor de $1$.
-    \item Denotamos $M_{01}$ al número total de atributos donde $A$ vale $0$ y $B$ vale $1$.
-    \item Denotamos $M_{10}$ al número total de atributos donde $A$ vale $1$ y $B$ vale $0$.
-    \item Denotamos $M_{00}$ al número total de atributos donde $A$ y $B$ tienen un valor de $0$.
-   \end{itemize}
-   
-   Entonces $M_{00}+ M_{01} + M_{10} + M_{11} = n$. La distancia \emph{simple matching} $\mathrm{SMD}$ entre $A$ y $B$ se define como
-   \[
-      \mathrm{SMD} = 1 - \mathrm{SMC},
-   \]
-  donde $\mathrm{SMC}$ es el coeficiente \emph{simple matching} dado por
-   \[
-      \mathrm{SMC} = \frac{M_{00} + M_{11}}{M_{00} + M_{01} + M_{10} + M_{11}}.
-   \]
-   
-   \\ \hline
-%%%%% FIN RENGLÓN 4
-  
-  Disimilitud calculando el coeficiente de Jaccard &  
-   El coeficiente de Jaccard fue presentado como \emph{coefficient de communauté} por Paul Jaccard en 1912 y posteriormente fue formulado de manera independiente por T. Tanimoto en 1958, y toma valores entre $0$ y $1$. Se trata de un índice en el que no se toman en cuenta las ausencias conjuntas. Se ofrece una ponderación igual a las coincidencias y a las no coincidencias. Se conoce también como \emph{razón de similaridad}.
-   
-   La disimilitud de Jaccard (habitualmente conocida como \emph{distancia de Jaccard}) se calcula restando el coeficiente de Jaccard a $1$. La distancia de Jaccard suele usarse para calcular una matriz $n\times n$ para la agrupación y el escalamiento multidimensional de $n$ conjuntos de muestras.
-   &  Binarios
-   & Consideremos $A$ y $B$ dos objetos con $n$ atributos binarios, esto es, cada atributo vale $0$ o $1$. El número total para cada combinación de atributos para $A$ y $B$ se obtiene como sigue:
-   \begin{itemize}
-    \item Denotamos $M_{11}$ al número total de atributos donde $A$ y $B$ tienen un valor de $1$.
-    \item Denotamos $M_{01}$ al número total de atributos donde $A$ vale $0$ y $B$ vale $1$.
-    \item Denotamos $M_{10}$ al número total de atributos donde $A$ vale $1$ y $B$ vale $0$.
-    \item Denotamos $M_{00}$ al número total de atributos donde $A$ y $B$ tienen un valor de $0$.
-   \end{itemize}
-   
-   Entonces $M_{00}+ M_{01} + M_{10} + M_{11} = n$. La distancia de Jaccard $d_{J}$ se define como
-   \[
-      d_{J} = \frac{M_{01} + M_{10}}{M_{01} + M_{10} + M_{11}}.
-   \]
-   
-   Se cumple que $d_{J} = 1- J$ donde $J$ es el índice (o coeficiente) de Jaccard dado por
-   \[
-      J = \frac{M_{11}}{M_{01} + M_{10} + M_{11}}.
-   \]
-   
-   También, para fines del diseño, si $A$ y $B$ son conjuntos vacíos, entonces $d_{J} = 0$ (o equivalentemente, $J(A,B) = 1$).
-   
-   \\ \hline
-%%%%% FIN RENGLÓN 5
-  
-  Disimilitud calculando el coeficiente de Czekanowski &  
-   El coeficiente Czekanowski es uno en el que no se toman en cuenta las ausencias conjuntas y donde las coincidencias se ponderan doblemente en datos binarios. También se conoce como coeficiente de Dice, coeficiente de S{\o}rensen o coeficiente de S{\o}rensen--Dice (quienes los derivaron de manera independiente en 1948). Fue desarrollado en 1913 por Jan Czekanowski para establecer relaciones entre dialectos y lenguas, pero realmente se puede aplicar a cualquier comparación entre individuos calificados por múltiples atributos, por ejemplo, razas, especies de plantas o de animales, biocenosis, biotopos y hábitats, culturas, etc. La calificación puede ser cualitativa o cuantitativa y se basa en la comparación atributo por atributo de cada par de individuos de una colección. Este índice toma valores entre $0$ y $1$.
-   
-   La disimilitud asociada al coeficiente de Czekanowski se obtiene restando dicho índice a $1$. Contrario a la distancia de Jaccard, esta disimilitud no cumple la desigualdad del triángulo y por ello no es una distancia verdadera.
-   &  Binarios
-   &   Consideremos $A$ y $B$ dos objetos con $n$ atributos binarios, esto es, cada atributo vale $0$ o $1$. El número total para cada combinación de atributos para $A$ y $B$ se obtiene como sigue:
-   \begin{itemize}
-    \item Denotamos $M_{11}$ al número total de atributos donde $A$ y $B$ tienen un valor de $1$.
-    \item Denotamos $M_{01}$ al número total de atributos donde $A$ vale $0$ y $B$ vale $1$.
-    \item Denotamos $M_{10}$ al número total de atributos donde $A$ vale $1$ y $B$ vale $0$.
-    \item Denotamos $M_{00}$ al número total de atributos donde $A$ y $B$ tienen un valor de $0$.
-   \end{itemize}
-   
-   La disimilitud asociada al coeficiente de Czekanowski se calcula como
-   \[
-      d_{Cz} = 1 - \frac{2M_{11}}{2M_{11} + M_{10} + M_{01}}
-   \]
-   
-   De manera equivalente, al considerar la formulación dada por S{\o}ren y Dice, la disimilitud anterior se puede formular como
-   \[
-      d_{Cz} = 1 - \frac{2 |A\cap B|}{|A| + |B|}
-   \]
-   donde $|\cdot|$ denota la cardinalidad de los respectivos conjuntos.
-   
-   \\ \hline
-%%%%% FIN RENGLÓN 6
+![tabla de distancias](D:/Users/hayde/Documents/R_sites/Equipo4/images/tabla-distancias.svg "Distancias y disimilitudes entre distintos tipos de datos")
 
-  Disimilitud de $1$-coincidencias de Sneath &  
-   Medida de disimilitud propuesta en 1958 por Sneath y Sokal para variables binarias.  Cumple las propiedades de simetría entre $a$ y $d$ (atributos en que las unidades coinciden), mientras que su rango está entre 0 y 1. 
-   &  Binarios
-   & 
-   \[
-    d_{ij} = 1 - c_{ij}
-   \]
-   con
-   \[
-      c_{ij} = \frac{a+d}{a+b+c+d}
-   \]
-donde $a$ y $d$ son los atributos en que las unidades coinciden mientras el denominador es la suma de todos los valores de la tabla de contingencia. \\ \hline
-%%%%% FIN RENGLÓN 7
-
-  Distancia de Gower &  
-   El coeficiente de similitud de Gower propuesto por Gower en 1971 permite la manipulación simultánea de variables cuantitativas y cualitativas en una base de datos, mediante la aplicación de este coeficiente se logra hallar la similitud entre individuos a los cuales se les han medido una serie de características en común. Una similaridad alta, es decir cercana a 1, indicara gran homogeneidad entre los individuos; por el contrario, una similaridad cercana a cero indica que los individuos son diferentes.
-   &  Mixtos: variables cuantitativas y cualitativas
-   & 
-   \[
-      d_{ij}^{2} = 1-s_{ij}
-   \]
-   donde
-    \[
-      s_{i j} = \frac{\sum\limits_{h=1}^{p_1}\left(1-\frac{\left|x_{ih}-x_{jh}\right|}{G_h}\right) + a + \alpha}{p_{1}+p_{2}-d+p_{3}}
-    \]
-con $p_1$ es el número de variables cuantitativas, $a$ y $d$ son el número de coincidencias en 1 (presencia de la característica) y el número de coincidencias en 0 (ausencia de la caracteristica) respectivamente para las $p_2$ variables binarias, $\alpha$ es el número de coincidencias para las $p_3$ variables cualitativas y $G_h$ es el rango de la $h$-ésima variable
-cuantitativa. 
-
-%%%%% FIN RENGLÓN 8
-\label{tab:distancias_similitudes}
-\end{longtable}
-\end{landscape}
 
 ## Agrupamiento (Clústers)
 
@@ -579,9 +426,9 @@ bc_dist <- vegdist(abund_table_norm , method = "bray")
 *"Aglomerar"* significa reunir en un clúster; la agrupación aglomerativa de la liga sencilla también se denomina *clasificación de vecinos más cercanos*. En cada paso, la agrupación combina dos muestras que contienen las distancias más cortas entre pares (o la mayor similitud), es decir, se toma la mínima de todas las posibles distancias entre los objetos que pertenecen a distintos conglomerados:
 
 \[d_{AB}=\min_{i\in A, j\in B} (d_{ij}).\]
-\begin{center}
-\includegraphics[width=10.5cm]{D:/Users/hayde/Documents/R_sites/Equipo4/images/single_linkage.png}
-\end{center}
+
+![tabla de distancias](D:/Users/hayde/Documents/R_sites/Equipo4/images/single_linkage.png){width='350px'}
+
 
 El resultado de la agrupación puede visualizarse como un *dendrograma*. El inconveniente del dendrograma resultante de un clustering de liga sencilla a menudo muestra el encadenamiento de las muestras. Los clústeres formados se ven forzados a unirse debido a que los elementos individuales están cerca unos de otros, mientras que muchos elementos de cada clúster pueden estar muy alejados entre sí. Otro inconveniente relevante del clustering de la liga sencilla es que podría ser difícil de interpretar en términos de particiones de los datos. Es una desventaja real del clustering de la liga sencilla porque estamos interesados en las particiones de los datos. Este método se tiende a desempeñar bien cuando hay grupos de forma elongada, conocidos como tipo cadena.
 
@@ -595,9 +442,9 @@ plot(cluster_single)
 El clustering de la liga completa también se conoce como *clustering del vecino más lejano*. Permite que que una muestra (o un grupo) se aglomere con otra muestra (o grupo) *sólo a la distancia más lejana entre sí*. Así, todos los miembros de ambos grupos están vinculados.
 
 \[d_{AB}=\max_{i\in A, j\in B} (d_{ij}).\]
-\begin{center}
-\includegraphics[width=10.5cm]{D:/Users/hayde/Documents/R_sites/Equipo4/images/complete-linkage.png}
-\end{center}
+
+![tabla de distancias](D:/Users/hayde/Documents/R_sites/Equipo4/images/complete-linkage.png){width='350px'}
+
 
 La agrupación de la liga completa evita el inconveniente de encadenar las muestras por el método de la liga simple. El encadenamiento completo tiende a encontrar muchos pequeños grupos separados. Este método se desempeña bien cuando los conglomerados son de forma circular.
 
@@ -611,9 +458,8 @@ plot(cluster_complete)
 La agrupación de liga promedio permite agrupar una muestra en un clúster en la media de las distancias entre esta muestra y todos los miembros del clúster. Los dos clusters se unen a la *media de las distancias entre todos los miembros de un clúster y todos los miembros del otro*. 
 
 \[d_{AB}=\frac{1}{n_An_B} \sum_{i\in A} \sum_{j\in B} (\ d_{ij}\ ).\]
-\begin{center}
-\includegraphics[width=10.5cm]{D:/Users/hayde/Documents/R_sites/Equipo4/images/average_linkage.png}
-\end{center}
+
+![tabla de distancias](D:/Users/hayde/Documents/R_sites/Equipo4/images/average_linkage.png){width='350px'}
 
 El clúster resultante del dendrograma tiene un aspecto intermedio entre una agrupación de enlace simple y una completa.
 ```{r,  include = TRUE, echo = TRUE, fig.pos = 'H', out.width="80%", fig.align = "center", message=FALSE, fig.cap = 'Cluster con el método average.'}
@@ -624,9 +470,8 @@ plot(cluster_average)
 ### Agrupación de varianza mínima de Ward
 
 La agrupación de varianza mínima de Ward (también conocida como agrupación de Ward) presentada originalmente por Ward (1963) se basa en el criterio del *modelo lineal de mínimos cuadrados*. Este método método minimiza las sumas de las distancias al cuadrado (es decir, el error al cuadrado de ANOVA) entre las muestras. Básicamente, considera el análisis de conglomerados como un análisis de la varianza, en lugar de utilizar métricas de distancia o medidas de asociación. Este método es más apropiado para las variables cuantitativas, y no variables binarias. El clustering de Ward se implementa mediante la búsqueda del par de clusters en cada paso que conduce al mínimo incremento de la varianza total dentro del cluster después de la fusión. Este incremento es una distancia cuadrada ponderada entre los centros de los clusters. Aunque las distancias iniciales de los clusters se definen como la distancia euclidiana al cuadrado entre puntos en el clustering de Ward, otros métodos de distancia pueden producir resultados significativos. 
-\begin{center}
-\includegraphics[width=10.5cm]{D:/Users/hayde/Documents/R_sites/Equipo4/images/wards_linkage.png}
-\end{center}
+
+![tabla de distancias](D:/Users/hayde/Documents/R_sites/Equipo4/images/wards_linkage.png){width='650px'}
 
 
 ```{r,  include = TRUE, echo = TRUE, fig.pos = 'H', out.width="80%", fig.align = "center", message=FALSE, fig.cap = 'Cluster con el método Ward.'}
