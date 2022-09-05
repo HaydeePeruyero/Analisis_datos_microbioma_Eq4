@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.3)  4 SEP 2022 21:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.3)  5 SEP 2022 13:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -960,197 +960,208 @@ File: Chapter7_files/figure-latex/dendograma_complete-1.pdf Graphic file (type p
 <use Chapter7_files/figure-latex/dendograma_complete-1.pdf>
 Package pdftex.def Info: Chapter7_files/figure-latex/dendograma_complete-1.pdf  used on input line 1533.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
-[38 <./Chapter7_files/figure-latex/dendograma_single-1.pdf>] [39 <./Chapter7_files/figure-latex/dendograma_complete-1.pdf>] [40] [41]
-<Chapter7_files/figure-latex/bibiplot_PCA-1.pdf, id=637, 469.755pt x 325.215pt>
+[38 <./Chapter7_files/figure-latex/dendograma_single-1.pdf>] [39 <./Chapter7_files/figure-latex/dendograma_complete-1.pdf>] [40] [41] [42]
+<PCA_3.png, id=641, 1328.965pt x 792.9625pt>
+File: PCA_3.png Graphic file (type png)
+<use PCA_3.png>
+Package pdftex.def Info: PCA_3.png  used on input line 1835.
+(pdftex.def)             Requested size: 441.01349pt x 263.14249pt.
+[43 <./PCA_3.png>]
+<Chapter7_files/figure-latex/bibiplot_PCA-1.pdf, id=648, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/bibiplot_PCA-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/bibiplot_PCA-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/bibiplot_PCA-1.pdf  used on input line 1770.
+Package pdftex.def Info: Chapter7_files/figure-latex/bibiplot_PCA-1.pdf  used on input line 1880.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
-<Chapter7_files/figure-latex/ordiplot_PCA-1.pdf, id=638, 469.755pt x 325.215pt>
+<Chapter7_files/figure-latex/bibiplot_PCA_2-1.pdf, id=650, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/bibiplot_PCA_2-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/bibiplot_PCA_2-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/bibiplot_PCA_2-1.pdf  used on input line 1901.
+(pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
+[44 <./Chapter7_files/figure-latex/bibiplot_PCA-1.pdf>]
+<Chapter7_files/figure-latex/ordiplot_PCA-1.pdf, id=661, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/ordiplot_PCA-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/ordiplot_PCA-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/ordiplot_PCA-1.pdf  used on input line 1791.
+Package pdftex.def Info: Chapter7_files/figure-latex/ordiplot_PCA-1.pdf  used on input line 1922.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
-[42 <./Chapter7_files/figure-latex/bibiplot_PCA-1.pdf>] [43 <./Chapter7_files/figure-latex/ordiplot_PCA-1.pdf>]
-<Chapter7_files/figure-latex/PCA_1_2-1.pdf, id=661, 867.24pt x 578.16pt>
+[45 <./Chapter7_files/figure-latex/bibiplot_PCA_2-1.pdf>] [46 <./Chapter7_files/figure-latex/ordiplot_PCA-1.pdf>]
+<Chapter7_files/figure-latex/PCA_1_2-1.pdf, id=683, 867.24pt x 578.16pt>
 File: Chapter7_files/figure-latex/PCA_1_2-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/PCA_1_2-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/PCA_1_2-1.pdf  used on input line 1887.
+Package pdftex.def Info: Chapter7_files/figure-latex/PCA_1_2-1.pdf  used on input line 2018.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
-[44] [45 <./Chapter7_files/figure-latex/PCA_1_2-1.pdf>] [46] [47]
-<Chapter7_files/figure-latex/unnamed-chunk-40-1.pdf, id=688, 469.755pt x 325.215pt>
-File: Chapter7_files/figure-latex/unnamed-chunk-40-1.pdf Graphic file (type pdf)
-<use Chapter7_files/figure-latex/unnamed-chunk-40-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-40-1.pdf  used on input line 2097.
+[47] [48 <./Chapter7_files/figure-latex/PCA_1_2-1.pdf>] [49] [50]
+<Chapter7_files/figure-latex/unnamed-chunk-43-1.pdf, id=711, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/unnamed-chunk-43-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-43-1.pdf  used on input line 2245.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2097--2103
+Underfull \hbox (badness 10000) in paragraph at lines 2245--2251
 [][]
  []
 
-[48 <./Chapter7_files/figure-latex/unnamed-chunk-40-1.pdf>]
-<Chapter7_files/figure-latex/unnamed-chunk-41-1.pdf, id=698, 469.755pt x 325.215pt>
-File: Chapter7_files/figure-latex/unnamed-chunk-41-1.pdf Graphic file (type pdf)
-<use Chapter7_files/figure-latex/unnamed-chunk-41-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-41-1.pdf  used on input line 2127.
+[51 <./Chapter7_files/figure-latex/unnamed-chunk-43-1.pdf>]
+<Chapter7_files/figure-latex/unnamed-chunk-44-1.pdf, id=722, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/unnamed-chunk-44-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/unnamed-chunk-44-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-44-1.pdf  used on input line 2275.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2127--2138
+Underfull \hbox (badness 10000) in paragraph at lines 2275--2286
 [][]
  []
 
-[49 <./Chapter7_files/figure-latex/unnamed-chunk-41-1.pdf>]
-<Chapter7_files/figure-latex/unnamed-chunk-42-1.pdf, id=709, 469.755pt x 325.215pt>
-File: Chapter7_files/figure-latex/unnamed-chunk-42-1.pdf Graphic file (type pdf)
-<use Chapter7_files/figure-latex/unnamed-chunk-42-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-42-1.pdf  used on input line 2176.
+[52 <./Chapter7_files/figure-latex/unnamed-chunk-44-1.pdf>]
+<Chapter7_files/figure-latex/unnamed-chunk-45-1.pdf, id=732, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/unnamed-chunk-45-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-45-1.pdf  used on input line 2324.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2176--2181
+Underfull \hbox (badness 10000) in paragraph at lines 2324--2329
 [][]
  []
 
-[50 <./Chapter7_files/figure-latex/unnamed-chunk-42-1.pdf>] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70]
-<Chapter7_files/figure-latex/unnamed-chunk-46-1.pdf, id=803, 469.755pt x 325.215pt>
-File: Chapter7_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
-<use Chapter7_files/figure-latex/unnamed-chunk-46-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-46-1.pdf  used on input line 3320.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[71 <./Chapter7_files/figure-latex/unnamed-chunk-46-1.pdf>] [72]
-<Chapter7_files/figure-latex/unnamed-chunk-48-1.pdf, id=818, 469.755pt x 325.215pt>
-File: Chapter7_files/figure-latex/unnamed-chunk-48-1.pdf Graphic file (type pdf)
-<use Chapter7_files/figure-latex/unnamed-chunk-48-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-48-1.pdf  used on input line 3440.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3440--3442
-[][]
- []
-
-[73]
-<Chapter7_files/figure-latex/unnamed-chunk-49-1.pdf, id=824, 469.755pt x 325.215pt>
+[53] [54 <./Chapter7_files/figure-latex/unnamed-chunk-45-1.pdf>] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74]
+<Chapter7_files/figure-latex/unnamed-chunk-49-1.pdf, id=830, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-49-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-49-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-49-1.pdf  used on input line 3449.
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-49-1.pdf  used on input line 3468.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[75 <./Chapter7_files/figure-latex/unnamed-chunk-49-1.pdf>] [76]
+<Chapter7_files/figure-latex/unnamed-chunk-51-1.pdf, id=845, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/unnamed-chunk-51-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/unnamed-chunk-51-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-51-1.pdf  used on input line 3588.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3449--3460
+Underfull \hbox (badness 10000) in paragraph at lines 3588--3590
 [][]
  []
 
-[74 <./Chapter7_files/figure-latex/unnamed-chunk-48-1.pdf>]
-<Chapter7_files/figure-latex/unnamed-chunk-50-1.pdf, id=834, 469.755pt x 325.215pt>
-File: Chapter7_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file (type pdf)
-<use Chapter7_files/figure-latex/unnamed-chunk-50-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-50-1.pdf  used on input line 3470.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3470--3481
-[][]
- []
-
-[75 <./Chapter7_files/figure-latex/unnamed-chunk-49-1.pdf>] [76 <./Chapter7_files/figure-latex/unnamed-chunk-50-1.pdf>]
-<Chapter7_files/figure-latex/unnamed-chunk-52-1.pdf, id=857, 469.755pt x 325.215pt>
+<Chapter7_files/figure-latex/unnamed-chunk-52-1.pdf, id=846, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-52-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-52-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-52-1.pdf  used on input line 3548.
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-52-1.pdf  used on input line 3597.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3548--3552
+Underfull \hbox (badness 10000) in paragraph at lines 3597--3608
 [][]
  []
 
-[77 <./Chapter7_files/figure-latex/unnamed-chunk-52-1.pdf>]
-<Chapter7_files/figure-latex/unnamed-chunk-53-1.pdf, id=867, 469.755pt x 325.215pt>
+[77 <./Chapter7_files/figure-latex/unnamed-chunk-51-1.pdf>]
+<Chapter7_files/figure-latex/unnamed-chunk-53-1.pdf, id=856, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-53-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-53-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-53-1.pdf  used on input line 3559.
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-53-1.pdf  used on input line 3618.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3559--3562
+Underfull \hbox (badness 10000) in paragraph at lines 3618--3629
 [][]
  []
 
-<Chapter7_files/figure-latex/unnamed-chunk-54-1.pdf, id=868, 469.755pt x 325.215pt>
-File: Chapter7_files/figure-latex/unnamed-chunk-54-1.pdf Graphic file (type pdf)
-<use Chapter7_files/figure-latex/unnamed-chunk-54-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-54-1.pdf  used on input line 3569.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3569--3575
-[][]
- []
-
-[78 <./Chapter7_files/figure-latex/unnamed-chunk-53-1.pdf>]
-Overfull \vbox (0.75092pt too high) detected at line 3603
- []
-
-[79 <./Chapter7_files/figure-latex/unnamed-chunk-54-1.pdf>]
-<Chapter7_files/figure-latex/unnamed-chunk-55-1.pdf, id=888, 469.755pt x 325.215pt>
+[78 <./Chapter7_files/figure-latex/unnamed-chunk-52-1.pdf>] [79 <./Chapter7_files/figure-latex/unnamed-chunk-53-1.pdf>]
+<Chapter7_files/figure-latex/unnamed-chunk-55-1.pdf, id=880, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-55-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-55-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-55-1.pdf  used on input line 3605.
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-55-1.pdf  used on input line 3696.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3605--3617
+Underfull \hbox (badness 10000) in paragraph at lines 3696--3700
 [][]
  []
 
 [80 <./Chapter7_files/figure-latex/unnamed-chunk-55-1.pdf>]
-Overfull \hbox (18.49356pt too wide) in paragraph at lines 4755--4755
+<Chapter7_files/figure-latex/unnamed-chunk-56-1.pdf, id=890, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/unnamed-chunk-56-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/unnamed-chunk-56-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-56-1.pdf  used on input line 3707.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3707--3710
+[][]
+ []
+
+<Chapter7_files/figure-latex/unnamed-chunk-57-1.pdf, id=891, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/unnamed-chunk-57-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/unnamed-chunk-57-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-57-1.pdf  used on input line 3717.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3717--3723
+[][]
+ []
+
+[81 <./Chapter7_files/figure-latex/unnamed-chunk-56-1.pdf>]
+Overfull \vbox (0.75092pt too high) detected at line 3751
+ []
+
+[82 <./Chapter7_files/figure-latex/unnamed-chunk-57-1.pdf>]
+<Chapter7_files/figure-latex/unnamed-chunk-58-1.pdf, id=910, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/unnamed-chunk-58-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/unnamed-chunk-58-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-58-1.pdf  used on input line 3753.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3753--3765
+[][]
+ []
+
+[83 <./Chapter7_files/figure-latex/unnamed-chunk-58-1.pdf>]
+Overfull \hbox (18.49356pt too wide) in paragraph at lines 4903--4903
 []\T1/lmtt/m/n/10 ## rda(formula = abund_hell ~ SmokingStatus + Age + Sex + PackYears,      data = throat_meta)[] 
  []
 
-[81] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101]
-<Chapter7_files/figure-latex/unnamed-chunk-62-1.pdf, id=988, 469.755pt x 325.215pt>
-File: Chapter7_files/figure-latex/unnamed-chunk-62-1.pdf Graphic file (type pdf)
-<use Chapter7_files/figure-latex/unnamed-chunk-62-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-62-1.pdf  used on input line 4875.
+[84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101] [102] [103] [104]
+<Chapter7_files/figure-latex/unnamed-chunk-65-1.pdf, id=1012, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/unnamed-chunk-65-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/unnamed-chunk-65-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-65-1.pdf  used on input line 5023.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 4875--4908
+Underfull \hbox (badness 10000) in paragraph at lines 5023--5056
 [][]
  []
 
-[102] [103 <./Chapter7_files/figure-latex/unnamed-chunk-62-1.pdf>] [104] [105] [106] [107]
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 6304--6304
+[105] [106 <./Chapter7_files/figure-latex/unnamed-chunk-65-1.pdf>] [107] [108] [109] [110]
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 6452--6452
 []\T1/lmtt/m/n/10 ## cca(formula = throat.otu.tab ~ SmokingStatus + Age + Sex + PackYears,      data = throat_meta)[] 
  []
 
-[108] [109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [123] [124] [125] [126] [127]
-<Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf, id=1112, 469.755pt x 325.215pt>
-File: Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf Graphic file (type pdf)
-<use Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf  used on input line 6327.
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [123] [124] [125] [126] [127] [128] [129] [130]
+<Chapter7_files/figure-latex/unnamed-chunk-72-1.pdf, id=1135, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/unnamed-chunk-72-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/unnamed-chunk-72-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-72-1.pdf  used on input line 6475.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 6327--6335
+Underfull \hbox (badness 10000) in paragraph at lines 6475--6483
 [][]
  []
 
-[128 <./Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf>] [129] [130]
-<Chapter7_files/figure-latex/unnamed-chunk-74-1.pdf, id=1138, 469.755pt x 325.215pt>
-File: Chapter7_files/figure-latex/unnamed-chunk-74-1.pdf Graphic file (type pdf)
-<use Chapter7_files/figure-latex/unnamed-chunk-74-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-74-1.pdf  used on input line 6597.
+[131 <./Chapter7_files/figure-latex/unnamed-chunk-72-1.pdf>] [132] [133]
+<Chapter7_files/figure-latex/unnamed-chunk-77-1.pdf, id=1161, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/unnamed-chunk-77-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/unnamed-chunk-77-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-77-1.pdf  used on input line 6745.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 6597--6600
+Underfull \hbox (badness 10000) in paragraph at lines 6745--6748
 [][]
  []
 
-[131] [132 <./Chapter7_files/figure-latex/unnamed-chunk-74-1.pdf>]
-<Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf, id=1153, 469.755pt x 325.215pt>
-File: Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf Graphic file (type pdf)
-<use Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf  used on input line 6640.
+[134] [135 <./Chapter7_files/figure-latex/unnamed-chunk-77-1.pdf>]
+<Chapter7_files/figure-latex/unnamed-chunk-79-1.pdf, id=1176, 469.755pt x 325.215pt>
+File: Chapter7_files/figure-latex/unnamed-chunk-79-1.pdf Graphic file (type pdf)
+<use Chapter7_files/figure-latex/unnamed-chunk-79-1.pdf>
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-79-1.pdf  used on input line 6788.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 6640--6645
+Underfull \hbox (badness 10000) in paragraph at lines 6788--6793
 [][]
  []
 
-[133 <./Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf>] [134] [135] (./Chapter7.aux
+[136 <./Chapter7_files/figure-latex/unnamed-chunk-79-1.pdf>] [137] [138] (./Chapter7.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
@@ -1161,18 +1172,18 @@ Package rerunfilecheck Info: File `Chapter7.out' has not changed.
 (rerunfilecheck)             Checksum: 95FB6F291AF0C590ACB024813AE59673;7287.
  ) 
 Here is how much of TeX's memory you used:
- 16494 strings out of 477017
- 279303 string characters out of 5825792
- 718002 words of memory out of 5000000
- 37014 multiletter control sequences out of 15000+600000
+ 16516 strings out of 477017
+ 279929 string characters out of 5825792
+ 718155 words of memory out of 5000000
+ 37030 multiletter control sequences out of 15000+600000
  533628 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,11n,77p,866b,606s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Chapter7.pdf (135 pages, 1107743 bytes).
+Output written on Chapter7.pdf (138 pages, 1399736 bytes).
 PDF statistics:
- 1337 PDF objects out of 1440 (max. 8388607)
- 1030 compressed objects within 11 object streams
- 259 named destinations out of 1000 (max. 500000)
- 491 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1359 PDF objects out of 1440 (max. 8388607)
+ 1045 compressed objects within 11 object streams
+ 263 named destinations out of 1000 (max. 500000)
+ 501 words of extra memory for PDF output out of 10000 (max. 10000000)
 
