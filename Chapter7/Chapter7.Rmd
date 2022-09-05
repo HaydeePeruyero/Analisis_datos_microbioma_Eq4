@@ -784,7 +784,7 @@ La comparación entre estos cuatro dedrogramas muestra que la vinculación compl
 
 ### Mismos gráficos usando el paquete `factoextra`
 
-```{r visualizar_matriz, collapse=TRUE, echo=FALSE, fig.pos = 'H', fig.align = "center", message=FALSE, fig.cap = 'Heatmap de la matriz de distancias' }
+```{r visualizar_matriz, collapse=TRUE, echo=TRUE, fig.pos = 'H', fig.align = "center", message=FALSE, fig.cap = 'Heatmap de la matriz de distancias' }
 library(factoextra)
 fviz_dist(dist.obj = bc_dist, lab_size = 8)
 ```
@@ -799,7 +799,7 @@ hc_ward <- hclust(d=bc_dist, method = "ward.D2")
 ```
 
 
-```{r dendograma_average, include = TRUE, echo = FALSE, fig.pos = 'H', fig.align = "center", out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'con el método del promedio.'}
+```{r dendograma_average, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center", out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'con el método del promedio.'}
 fviz_dend(x = hc_average, k=2, 
           cex = 0.7,
           main = "",
@@ -810,7 +810,7 @@ fviz_dend(x = hc_average, k=2,
   geom_hline(yintercept = 0.41, linetype = "dashed") 
 ```
 
-```{r dendograma_Ward, include = TRUE, echo = FALSE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'con el método Ward.' }
+```{r dendograma_Ward, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'con el método Ward.' }
 fviz_dend(x = hc_ward, k=2,
           cex = 0.7,
           main = "",
@@ -822,7 +822,7 @@ fviz_dend(x = hc_ward, k=2,
 ```
 
 
-```{r dendograma_single, include = TRUE, echo = FALSE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'con el método de la liga más sencilla.' }
+```{r dendograma_single, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'con el método de la liga más sencilla.' }
 fviz_dend(x = hc_single, k=2,
           cex = 0.7,
           main = "",
@@ -833,7 +833,7 @@ fviz_dend(x = hc_single, k=2,
   geom_hline(yintercept = 0.3, linetype = "dashed")
 ```
 
-```{r dendograma_complete, include = TRUE, echo = FALSE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'con el método de la liga completa.' }
+```{r dendograma_complete, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'con el método de la liga completa.' }
 fviz_dend(x = hc_complete, k=2,
           cex = 0.7,
           main = "",
@@ -889,34 +889,44 @@ En este caso, utilizamos la función `rda()`. Las dos funciones de extensión: `
 
 ```{r}
 # Llamamos a nuestra tabla
-abund_table=read.csv("D:/Users/hayde/Documents/R_sites/Equipo4/data/VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
+abund_table=read.csv("D:/Users/hayde/Documents/R_sites/Equipo4/data/VdrFecalGenusCounts.csv",
+                     row.names=1,check.names=FALSE)
 # Transpuesta de la tabla
 abund_table<-t(abund_table)
 #head(abund_table)
 # Tabla de metadatos
-meta_table <- data.frame(row.names=rownames(abund_table),t(as.data.frame(strsplit(rownames(abund_table),"_"))))
+meta_table <- data.frame(row.names=rownames(abund_table),
+                         t(as.data.frame(strsplit(rownames(abund_table),"_"))))
 # Agregamos el factor de grupo
-meta_table$Group <- with(meta_table,ifelse(as.factor(X2)%in% c(11,12,13,14,15),c("Vdr-/-"), c("WT")))
+meta_table$Group <- with(meta_table,ifelse(as.factor(X2)%in% c(11,12,13,14,15),
+                                           c("Vdr-/-"), c("WT")))
 # Estandarizamos la abundancia de los datos
 stand_abund_table <- decostand(abund_table, method = "total")
 PCA <-rda(stand_abund_table)
 PCA
 ```
+
 En lenguaje *vegan*, **"Inertia"** es el término general de **"variación"** en los datos. El total de variación de todo el conjunto de datos es de 0,0408 en este caso, y *el primer eje explica el 60,4% de la variación total (0,02029/0,0408 = 0,4973)*. **La variación total es la suma de las variaciones de cada género en la matriz analizada**. Los siguientes códigos R comprueban la variación total:
 
 ```{r}
 # Variación total
 sum(apply(stand_abund_table, 2, var))
 ```
+
 A continuación, vamos a dibujar los diagramas utilizando la función `biplot()`. La opción de visualización "species" es la etiqueta del paquete vegan para OTUs/taxa. Por defecto es "sites" (etiqueta para muestras).
-```{r}
+
+```{r bibiplot_PCA, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Biplot de las primeras dos componentes principales de los datos de materia fecal de ratones Vdr$-/-$'}
 biplot(PCA, display = 'species')
 ```
+
 Los diagramas anteriores trazados por `biplot()` sólo dibujan flechas para el género, lo que no es informativo. El diagrama más informativo es utilizar la función `ordiplot()` para dibujar tanto el género como las puntuaciones de la muestra como centroides, como se muestra a continuación:
-```{r}
+
+```{r ordiplot_PCA, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Ordiplot de las primeras dos componentes principales de los datos de materia fecal de ratones Vdr$-/-$ con etiquetas'}
 ordiplot(PCA, display = "sites", type = "text")
 ```
-En los aumentos anteriores, type="text" o "t" añade etiquetas de texto a la figura (la configuración por defecto sólo añade puntos). Como alternativa, podemos utilizar la función `cleanplot.pca()` escrita por François Gillet & Daniel Borcard para intentar dibujar los resultados del PCA en dos diagramas y diferenciarlos por su escala. Esta función sirve para dibujar dos biplots (escalado 1 y escalado 2) a partir de un objeto de clase "rda" en PCA o RDA resultado de la función `rda()` de vegan. Primero ejecutamos la función `cleanplot.pca()` como se indica a continuación.
+
+En los argumentos anteriores, type="text" o "t" añade etiquetas de texto a la figura (la configuración por defecto sólo añade puntos). Como alternativa, podemos utilizar la función `cleanplot.pca()` escrita por François Gillet & Daniel Borcard para intentar dibujar los resultados del PCA en dos diagramas y diferenciarlos por su escala. Esta función sirve para dibujar dos biplots (escalado 1 y escalado 2) a partir de un objeto de clase "rda" en PCA o RDA resultado de la función `rda()` de vegan. Primero ejecutamos la función `cleanplot.pca()` como se indica a continuación.
+
 ```{r}
 "cleanplot.pca" <- function(res.pca, ax1=1, ax2=2, point=FALSE, 
                             ahead=0.07, cex=0.5) 
@@ -986,14 +996,28 @@ En los aumentos anteriores, type="text" o "t" añade etiquetas de texto a la fig
 ```
 
 
-```{r}
+```{r PCA_1_2, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", warning=FALSE, message=FALSE, fig.cap = 'PCA plots de las primeras dos componentes principales de los datos de materia fecal de ratones Vdr$-/-$ usando la función cleant.pca()'}
 cleanplot.pca(PCA)
 ```
-El *"escalado" es la forma en que los resultados de la ordenación se proyectan en el espacio reducido para su visualización gráfica* (Borcard et al. 2011). La función `cleanplot.pca()` genera dos escalas de PCA. El escalado *PCA 1* en la figura de la izquierda es el biplot de distancia, que *se centra en las distancias entre las muestras*. Si está interesado principalmente en interpretar las relaciones entre las muestras, elija el escalado 1. Las características esenciales de Scaling 1 son: Los vectores propios se escalan a la unidad de longitud y las distancias entre las muestras (sujetos) en el biplot son aproximaciones de sus distancias euclidianas en el espacio multidimensional.  Sin embargo, los ángulos entre los vectores de las variables (bacterias en este caso) no tienen sentido. El círculo se llama *círculo de contribución de equilibrio*, que representa *la contribución de equilibrio de las variables*. Para una combinación dada de ejes, las variables con* vectores más largos* que el radio del círculo pueden ser interpretadas con confianza como las *bacterias más importantes*, mientras que *las variables con vectores más cortos que el radio del círculo de contribución de equilibrio contribuyen poco a un espacio reducido dado.*
+
+
+El *"escalado" es la forma en que los resultados de la ordenación se proyectan en el espacio reducido para su visualización gráfica* (Borcard et al. 2011). La función `cleanplot.pca()` genera dos escalas de PCA. El escalado *PCA 1* en la figura de la izquierda es el biplot de distancia que *se centra en las distancias entre las muestras*. Si está interesado principalmente en interpretar las relaciones entre las muestras, elija el escalado 1. Las características esenciales de Scaling 1 son: Los vectores propios se escalan a la unidad de longitud y las distancias entre las muestras (sujetos) en el biplot son aproximaciones de sus distancias euclidianas en el espacio multidimensional.  Sin embargo, los ángulos entre los vectores de las variables (bacterias en este caso) no tienen sentido. El círculo se llama *círculo de contribución de equilibrio*, que representa *la contribución de equilibrio de las variables*. Para una combinación dada de ejes, las variables con *vectores más largos* que el radio del círculo pueden ser interpretadas con confianza como las *bacterias más importantes*, mientras que *las variables con vectores más cortos que el radio del círculo de contribución de equilibrio contribuyen poco a un espacio reducido dado.*
+
 El *PCA 2* de la figura de la derecha es un biplot de correlación. *Traza la correlación entre variables (bacterias en este caso)*. Si su interés principal se centra en *las relaciones entre variables*, elija el escalamiento 2. Las características esenciales del escalamiento 2 son: *Cada vector propio se escala a la raíz cuadrada de su valor propio*; la longitud del vector se aproxima a la *desviación estándar de las variables (bacterias)*; los *ángulos entre variables (bacterias en este caso) reflejan sus correlaciones*: el coseno del ángulo aproxima la correlación entre las variables (bacterias); sin embargo, *las distancias entre muestras (sujetos) en el biplot no son aproximaciones de sus distancias euclidianas en el espacio multidimensional*.
 
-#### Análisis de coordenadas principales (PCoA)
-El PCoA también se denomina *escalamiento multidimensional métrico*. PCoA es una técnica de técnica de ordenación que permite al usuario elegir prácticamente cualquier métrica de distancia (por ejemplo, *Jaccard*, *Bray-Curtis*, *Euclides*, etc.). Al igual que PCA, PCoA utiliza los valores propios para medir la importancia de un conjunto de ejes ortogonales devueltos. La dimensionalidad de matriz se reduce determinando cada vector propio y cada valor propio. Las coordenadas principales se obtienen escalando cada vector propio. El PCoA cuando se calcula sobre distancias euclidianas entre las muestras produce los mismos resultados que el PCA calculado sobre matriz de covarianza del mismo conjunto de datos (si se utiliza el escalado 1). Las funciones de R, incluyendo `cmdscale()` en el paquete vegan y `pcoa()` en el paquete ape pueden realizar el PCoA. Con vegan, los datos de entrada pueden ser calculados por la función `vegdist()` (por defecto es la disimilitud de *Bray-Curtis*), y el diagrama de ordenación puede ser dibujado con la función `ordiplot()`. El diagrama de ordenación también puede ser con la función `biplot.pcoa()` del paquete ape. En este caso, utilizamos la función `cmdscale()` y los mismos datos fecales de ratones Vdr-/- para realizar un PCoA. Esta función necesita una matriz de semejanza como datos de entrada. Primero, vamos a calcular la *disimilitud de Bray-Curtis* utilizando la función `vegdist()`.
+Con el siguiente código podemos pedir los valores de los eigenvalores.
+```{r}
+(ev <- PCA$CA$eig)
+```
+
+#### Desarrollo de PCA
+
+P
+
+### Análisis de coordenadas principales (PCoA)
+
+El PCoA también se denomina *escalamiento multidimensional métrico*. PCoA es una técnica de ordenación que permite al usuario elegir prácticamente cualquier métrica de distancia (por ejemplo, *Jaccard*, *Bray-Curtis*, *Euclides*, etc.). Al igual que PCA, PCoA utiliza los valores propios para medir la importancia de un conjunto de ejes ortogonales devueltos. La dimensionalidad de la matriz se reduce determinando cada vector propio y cada valor propio. Las coordenadas principales se obtienen escalando cada vector propio. El PCoA cuando se calcula sobre distancias euclidianas entre las muestras produce los mismos resultados que el PCA calculado sobre matriz de covarianza del mismo conjunto de datos (si se utiliza el escalado 1). Las funciones de R, incluyendo `cmdscale()` en el paquete `vegan` y `pcoa()` en el paquete `ape` pueden realizar el PCoA. Con vegan, los datos de entrada pueden ser calculados por la función `vegdist()` (por defecto es la disimilitud de *Bray-Curtis*), y el diagrama de ordenación puede ser dibujado con la función `ordiplot()`. El diagrama de ordenación también puede ser con la función `biplot.pcoa()` del paquete `ape`. En este caso, utilizamos la función `cmdscale()` y los mismos datos fecales de ratones Vdr$-/-$ para realizar un PCoA. Esta función necesita una matriz de semejanza como datos de entrada. Primero, vamos a calcular la *disimilitud de Bray-Curtis* utilizando la función `vegdist()`.
+
 ```{r}
 options(digits=4)
 options(width=78, digits=4)
@@ -1001,12 +1025,16 @@ library("vegan")
 
 bc_dist <-vegdist(abund_table, "bray")
 ```
-A continuación, vamos a establecer explícitamente k = 2 (los valores por defecto para el número de dimensiones a devolver) y eig = TRUE (que guarda los valores propios).
+
+A continuación, vamos a establecer explícitamente `k = 2` (los valores por defecto para el número de dimensiones a devolver) y `eig = TRUE` (que guarda los valores propios).
+
 ```{r}
 PCoA <- cmdscale(bc_dist, eig = TRUE, k = 2)
 PCoA
 ```
+
 La función `cmdscale()` produce una lista de salida. Los primeros puntos de salida contienen las coordenadas de cada muestra en cada dimensión reducida. La segunda salida eig contiene los valores propios. Las últimas tres salidas pertenecen a otras opciones del análisis que no cubriremos aquí. El siguiente fragmento de códigos R se utiliza para examinar el porcentaje de variación en el conjunto de datos que se explica por los dos primeros ejes del PCoA.
+
 ```{r}
 explainedvar1 <- round(PCoA$eig[1] / sum(PCoA$eig), 2) * 100
 explainedvar1
@@ -1017,7 +1045,9 @@ explainedvar2
 sum_eig <- sum(explainedvar1, explainedvar2)
 sum_eig
 ```
-El primer eje explica el 48% de las variaciones de los datos, y el segundo el 19%. Por lo tanto, una gran cantidad de variaciones de los datos (un total del 67%) ha sido explicada por estos dos ejes. Existen dos criterios para evaluar si los primeros ejes del PCoA captan o no una cantidad desproporcionadamente grande de la variación total explicada: (1) el *criterio de Kaiser-Guttman* y (2) el *modelo broken-stick*. El *criterio de Kaiser-Guttman* establece que *"los valores propios asociados a los primeros ejes deben ser mayores que la media de todos los valores propios"*. Según el *criterio del modelo broken-stick*, *los valores propios asociados a los primeros ejes se comparan con las expectativas del modelo broken-stick*. El *modelo de broken-stick supone que la suma total de los valores propios disminuye secuencialmente con los ejes PCoA ordenados*. Evaluamos el rendimiento de PCoA utilizando estos dos criterios con los siguientes gráficos:
+
+El primer eje explica el `r explainedvar1`% de las variaciones de los datos, y el segundo el `r explainedvar2`%. Por lo tanto, una gran cantidad de variaciones de los datos (un total del `r explainedvar1+explainedvar2`%) ha sido explicada por estos dos ejes. Existen dos criterios para evaluar si los primeros ejes del PCoA captan o no una cantidad desproporcionadamente grande de la variación total explicada: (1) el *criterio de Kaiser-Guttman* y (2) el *modelo broken-stick*. El *criterio de Kaiser-Guttman* establece que *"los valores propios asociados a los primeros ejes deben ser mayores que la media de todos los valores propios"*. Según el *criterio del modelo broken-stick*, *los valores propios asociados a los primeros ejes se comparan con las expectativas del modelo broken-stick*. El *modelo de broken-stick supone que la suma total de los valores propios disminuye secuencialmente con los ejes PCoA ordenados*. Evaluamos el rendimiento de PCoA utilizando estos dos criterios con los siguientes gráficos:
+
 ```{r}
 # Correr todo junto
 # Define Plot Parameters
