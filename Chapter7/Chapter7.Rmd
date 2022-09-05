@@ -177,15 +177,15 @@ En primer lugar, debemos cargar los paquetes `phyloseq` y `ggplot2`, y el conjun
 ```{r}
 #Para instalar el paquete, usamos Bioconductor
 
-#if (!require("BiocManager", quietly = TRUE))
- # install.packages("BiocManager")
+if (!require("BiocManager", quietly = TRUE))
+install.packages("BiocManager")
 
-#BiocManager::install("phyloseq")
+BiocManager::install("phyloseq")
 ```
 
 ```{r}
 # Ajustamos directorio de trabajo
-setwd("D:/Users/hayde/Documents/R_sites/Equipo4")
+setwd("C:/Users/ANDRESARREDONDOCRUZ/Equipo4")
 ```
 
 ```{r}
@@ -204,7 +204,7 @@ En la carpeta `data` se encuentra la base de datos a usar `VdrFecalGenusCounts.c
 ```{r}
 # Mandamos llamar los datos originales 
 # Fila es el taxón y columna la condición
-abund_table=read.csv("D:/Users/hayde/Documents/R_sites/Equipo4/data/VdrFecalGenusCounts.csv",
+abund_table=read.csv("C:/Users/ANDRESARREDONDOCRUZ/Equipo4/data/VdrFecalGenusCounts.csv",
                      row.names=1,check.names=FALSE)
 # Generamos la transpuesta, fila la condición, columna el taxón
 abund_table<-t(abund_table)
@@ -564,7 +564,7 @@ Distancia euclidiana     &
   
   Distancia \emph{City block}     &  
    También se conoce como la distancia del taxista o distancia de Manhattan. Esta distancia no es única en el sentido de que hay más de un camino de distancia mínima para llegar de un punto a otro. Se le conoce como distancia del taxista o distancia de Manhattan porque hace referencia a la forma en que un automovil puede ir de un punto a otro en un diseño cuadricular de las calles de Manhattan. En la figura siguiente, podemos la distancia City block entre los puntos $X,Y$ esta representada con los colores rojo, azul y verde, los tres caminos tienen la misma longitud, mientras que la distancia en morado es la distancia euclidiana entre los puntos.
-   \includegraphics[width=50mm]{D:/Users/hayde/Documents/R_sites/Equipo4/images/city-block.png}
+   \includegraphics[width=50mm]{C:/Users/ANDRESARREDONDOCRUZ/Equipo4/images/city-block.png}
    &  Numéricos
    & Sean $X,Y\in\mathcal{X}$ dos puntos en el espacio con coordenadas $X=(x_1,...,x_{n})$ y $Y=(y_{1},...,y_{n})$. Entonces su distancia city block esta dada por:
    \[ d_{1}(X,Y) = \parallel X - Y \ \parallel = \sum_{i=1}^{n} |\ x_{i} - y_{i}\ |  \]
@@ -712,7 +712,7 @@ bc_dist <- vegdist(abund_table_norm , method = "bray")
 
 \[d_{AB}=\min_{i\in A, j\in B} (d_{ij}).\]
 \begin{center}
-\includegraphics[width=10.5cm]{D:/Users/hayde/Documents/R_sites/Equipo4/images/single_linkage.png}
+\includegraphics[width=10.5cm]{C:/Users/ANDRESARREDONDOCRUZ/Equipo4/images/single_linkage.png}
 \end{center}
 
 El resultado de la agrupación puede visualizarse como un *dendrograma*. El inconveniente del dendrograma resultante de un clustering de liga sencilla a menudo muestra el encadenamiento de las muestras. Los clústeres formados se ven forzados a unirse debido a que los elementos individuales están cerca unos de otros, mientras que muchos elementos de cada clúster pueden estar muy alejados entre sí. Otro inconveniente relevante del clustering de la liga sencilla es que podría ser difícil de interpretar en términos de particiones de los datos. Es una desventaja real del clustering de la liga sencilla porque estamos interesados en las particiones de los datos. Este método se tiende a desempeñar bien cuando hay grupos de forma elongada, conocidos como tipo cadena.
@@ -728,7 +728,7 @@ El clustering de la liga completa también se conoce como *clustering del vecino
 
 \[d_{AB}=\max_{i\in A, j\in B} (d_{ij}).\]
 \begin{center}
-\includegraphics[width=10.5cm]{D:/Users/hayde/Documents/R_sites/Equipo4/images/complete-linkage.png}
+\includegraphics[width=10.5cm]{C:/Users/ANDRESARREDONDOCRUZ/Equipo4/images/complete-linkage.png}
 \end{center}
 
 La agrupación de la liga completa evita el inconveniente de encadenar las muestras por el método de la liga simple. El encadenamiento completo tiende a encontrar muchos pequeños grupos separados. Este método se desempeña bien cuando los conglomerados son de forma circular.
@@ -744,7 +744,7 @@ La agrupación de liga promedio permite agrupar una muestra en un clúster en la
 
 \[d_{AB}=\frac{1}{n_An_B} \sum_{i\in A} \sum_{j\in B} (\ d_{ij}\ ).\]
 \begin{center}
-\includegraphics[width=10.5cm]{D:/Users/hayde/Documents/R_sites/Equipo4/images/average_linkage.png}
+\includegraphics[width=10.5cm]{C:/Users/ANDRESARREDONDOCRUZ/Equipo4/images/average_linkage.png}
 \end{center}
 
 El clúster resultante del dendrograma tiene un aspecto intermedio entre una agrupación de enlace simple y una completa.
@@ -757,7 +757,7 @@ plot(cluster_average)
 
 La agrupación de varianza mínima de Ward (también conocida como agrupación de Ward) presentada originalmente por Ward (1963) se basa en el criterio del *modelo lineal de mínimos cuadrados*. Este método método minimiza las sumas de las distancias al cuadrado (es decir, el error al cuadrado de ANOVA) entre las muestras. Básicamente, considera el análisis de conglomerados como un análisis de la varianza, en lugar de utilizar métricas de distancia o medidas de asociación. Este método es más apropiado para las variables cuantitativas, y no variables binarias. El clustering de Ward se implementa mediante la búsqueda del par de clusters en cada paso que conduce al mínimo incremento de la varianza total dentro del cluster después de la fusión. Este incremento es una distancia cuadrada ponderada entre los centros de los clusters. Aunque las distancias iniciales de los clusters se definen como la distancia euclidiana al cuadrado entre puntos en el clustering de Ward, otros métodos de distancia pueden producir resultados significativos. 
 \begin{center}
-\includegraphics[width=10.5cm]{D:/Users/hayde/Documents/R_sites/Equipo4/images/wards_linkage.png}
+\includegraphics[width=10.5cm]{C:/Users/ANDRESARREDONDOCRUZ/Equipo4/images/wards_linkage.png}
 \end{center}
 
 
@@ -889,7 +889,7 @@ En este caso, utilizamos la función `rda()`. Las dos funciones de extensión: `
 
 ```{r}
 # Llamamos a nuestra tabla
-abund_table=read.csv("D:/Users/hayde/Documents/R_sites/Equipo4/data/VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
+abund_table=read.csv("C:/Users/ANDRESARREDONDOCRUZ/Equipo4/data/VdrFecalGenusCounts.csv",row.names=1,check.names=FALSE)
 # Transpuesta de la tabla
 abund_table<-t(abund_table)
 #head(abund_table)
