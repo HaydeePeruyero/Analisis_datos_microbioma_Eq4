@@ -18,14 +18,15 @@
 \contentsline {subsubsection}{\numberline {3.3.3}Clustering aglomerativo de la liga promedio}{31}{subsubsection.3.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.4}Agrupación de varianza mínima de Ward}{32}{subsubsection.3.3.4}%
 \contentsline {subsubsection}{\numberline {3.3.5}Mismos gráficos usando el paquete \texttt {factoextra}}{35}{subsubsection.3.3.5}%
-\contentsline {section}{\numberline {4}Ordenación}{38}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Ordenaciones NO restringidas}{39}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Análisis de componentes principales (PCA)}{39}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Análisis de coordenadas principales (PCoA)}{44}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Escalamiento multidimensional no métrico (NMDS)}{70}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Análisis de correspondencia (AC)}{75}{subsubsection.4.1.4}%
-\contentsline {subsection}{\numberline {4.2}Ordenaciones restringidas}{79}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Análisis de redundancia (RDA)}{79}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Análisis de correspondencia restringido (CCA)}{105}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Análisis restringido de coordenadas principales (CAP)}{129}{subsubsection.4.2.3}%
-\contentsline {section}{\numberline {5}Resumen y discusión}{134}{section.5}%
+\contentsline {section}{\numberline {4}Ordenación}{39}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Ordenaciones NO restringidas}{40}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Análisis de componentes principales (PCA)}{40}{subsubsection.4.1.1}%
+\contentsline {paragraph}{\numberline {4.1.1.1}Desarrollo de PCA}{46}{paragraph.4.1.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Análisis de coordenadas principales (PCoA)}{46}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Escalamiento multidimensional no métrico (NMDS)}{72}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Análisis de correspondencia (AC)}{76}{subsubsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.2}Ordenaciones restringidas}{80}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Análisis de redundancia (RDA)}{80}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Análisis de correspondencia restringido (CCA)}{106}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Análisis restringido de coordenadas principales (CAP)}{130}{subsubsection.4.2.3}%
+\contentsline {section}{\numberline {5}Resumen y discusión}{135}{section.5}%
