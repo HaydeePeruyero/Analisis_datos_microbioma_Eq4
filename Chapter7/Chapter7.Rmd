@@ -97,12 +97,11 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval.after = "fig.cap")
 # library(library_name)
 #library(knitr)
 #library(readr)
-library("tidyverse")
 #library(kableExtra)
 #library(plyr)
 #library(dplyr)
-library("factoextra")
 # tydiverse incluye ggplot2, readr, dplyr, etc 
+library("tidyverse")
 library("phyloseq")
 library("ggplot2")
 library("igraph")
@@ -110,6 +109,7 @@ library("vegan")
 library("GUniFrac")
 library("pbkrtest")
 library("BiodiversityR")
+library("factoextra")
 ```
 
 <!-- AQUÍ INICIA LA PÁGINA DE TÍTULO
@@ -849,15 +849,15 @@ fviz_dend(x = hc_complete, k=2,
 
 El principal objetivo de la ordenación fue la "exploración" con la introducciónm de un análisis canonico de correspondencia (CCA), la ordenación ha ido más allá de meramente un análisis "exploratorio" y se ha convertido en una prueba de hipótesis.
 
-La estructura de los datos de dos variables suele revelarse mediante un gráfico de dispersión de las muestras. Los datos multivariantes del microbioma son multidimensionales, generalmente tienen más de dos variables. El conjunto de datos del microbioma puede verse como una colección de muestras (sujetos) situadas en un espacio en el que *cada variable o especie (o OTU/taxa) define una dimensión*. Por lo tanto, *hay tantas dimensiones como variables o especies (u OTU/taxa)*. Por ejemplo, en nuestro conjunto de datos fecales de ratón Vdr$-/-$ hay 8 muestras y 248 géneros. Por tanto, la dimensión de los datos es 248. *Para un conjunto de datos con n variables, el número de gráficos de dispersión que hay que dibujar sería $n (n - 1)/2$*. En nuestro caso, los 248 géneros necesitarán $(248*247)/2 = 30628$ gráficos de dispersión. Un número tan grande de gráficos de dispersión no es informativo para conocer la estructura de los datos; también es tedioso trabajar con ellos.
+La estructura de los datos de dos variables suele revelarse mediante un gráfico de dispersión de las muestras. Los datos multivariantes del microbioma son multidimensionales, generalmente tienen más de dos variables. El conjunto de datos del microbioma puede verse como una colección de muestras (sujetos) situadas en un espacio en el que *cada variable o especie (o OTU/taxa) define una dimensión*. Por lo tanto, *hay tantas dimensiones como variables o especies (u OTU/taxa)*. Por ejemplo, en nuestro conjunto de datos fecales de ratón Vdr$-/-$ hay 8 muestras y 248 géneros. Por tanto, la dimensión de los datos es 248. Para un conjunto de datos con n variables, el número de gráficos de dispersión que hay que dibujar sería $n (n - 1)/2$. En nuestro caso, los 248 géneros necesitarán $(248*247)/2 = 30628$ gráficos de dispersión. Un número tan grande de gráficos de dispersión no es informativo para conocer la estructura de los datos; también es tedioso trabajar con ellos.
 
 La ordenación trata principalmente de representar las relaciones entre las muestras y las especies (o OTUs/taxa) lo más fielmente posible en un espacio de baja dimensión (Gauch 1982a, b). Este objetivo es deseable, ya que los datos de la comunidad tienen múltiples dimensiones mezcladas con ruido, las dimensiones bajas pueden representar idealmente y de forma típica interpretaciones importantes e intuitivas de las relaciones especie (o OTUs/taxa)-ambiente. Para un conjunto de datos $n\times p$ que contiene $n$ sujetos y $p$ variables, la estructura de los datos puede revisarse como $n$ sujetos (representados como un grupo de puntos) en el espacio $p-$dimensional.
 
-El **objetivo principal de la ordenación es representar múltiples muestras (sujetos) en un número reducido de ejes ortogonales (es decir, independientes), donde el número total de ejes es menor o igual al número de muestras (sujetos)**. La importancia de los ejes de ordenación disminuye por orden. El *primer eje de una ordenación explica la mayor parte de la variación en el conjunto de datos*, seguido por el segundo eje, luego el tercero, y así sucesivamente. *Los gráficos de ordenación son especialmente útiles para visualizar la similitud entre muestras (sujetos)*. Por ejemplo, en el contexto de la diversidad beta, las muestras que están más cerca en el espacio de ordenación tienen conjuntos de especies que son más similares entre sí que las muestras que están más alejadas en el espacio de ordenación.  
+El **objetivo principal** de la ordenación es representar múltiples muestras (sujetos) en un número reducido de ejes ortogonales (es decir, independientes), donde el número total de ejes es menor o igual al número de muestras (sujetos). La importancia de los ejes de ordenación disminuye por orden. El **primer eje** de una ordenación explica la mayor parte de la variación en el conjunto de datos, seguido por el segundo eje, luego el tercero, y así sucesivamente. Los gráficos de ordenación son especialmente útiles para visualizar la similitud entre muestras (sujetos). Por ejemplo, en el contexto de la diversidad beta, las muestras que están más cerca en el espacio de ordenación tienen conjuntos de especies que son más similares entre sí que las muestras que están más alejadas en el espacio de ordenación.  
 
-Los métodos de ordenación incluyen *ordenaciones restringidas* y *no restringidas*, dependiendo de si los ejes de ordenación están limitados por factores ambientales (variables). Como su nombre indica, en la *ordenación restringida, los ejes de ordenación están están restringidos por factores ambientales*: las posiciones de las muestras en la ordenación están limitadas por las variables del entorno. En *la ordenación no restringida, los ejes de ordenación ejes de ordenación no están limitados por factores ambientales*. En otras palabras, *la ordenación restringida utiliza directamente las variables ambientales en la construcción de la ordenación*, mientras que en *la ordenación no restringida los ejes no están limitados por factores ambientales*; mientras que en *la ordenación sin restricciones, las variables ambientales se introducen en los análisis post hoc*. 
+Los métodos de ordenación incluyen *ordenaciones restringidas* y *no restringidas*, dependiendo de si los ejes de ordenación están limitados por factores ambientales (variables). Como su nombre indica, en la **ordenación restringida**, los ejes de ordenación están están restringidos por factores ambientales: las posiciones de las muestras en la ordenación están limitadas por las variables del entorno. En **la ordenación no restringida**, los ejes de ordenación ejes de ordenación no están limitados por factores ambientales. En otras palabras, la ordenación restringida utiliza directamente las variables ambientales en la construcción de la ordenación, mientras que en la ordenación no restringida los ejes no están limitados por factores ambientales; mientras que en la ordenación sin restricciones, las variables ambientales se introducen en los análisis post hoc. 
 
-Desde el punto de vista de la *comprobación de hipótesis, el análisis de ordenación sin restricciones per se es un método principalmente descriptivo y no implica realmente la comprobación de hipótesis en datos multivariados*. Aunque implica la formulación de hipótesis sobre la explicación de los ejes mediante variables ambientales, como la función `envfit()` del paquete `vegan`, la ordenación sin restricciones es sencilla. Analiza una matriz de datos; su objetivo es revelar la estructura principal de los datos en un gráfico a partir de un conjunto reducido de ejes ortogonales. Por el contrario, la ordenación restringida es una ordenación "impulsada por la hipótesis": un método de comprobación de hipótesis, que pone a prueba directamente la hipótesis sobre la influencia de los factores ambientales en la composición de las especies (o OTU/taxa). 
+Desde el punto de vista de la *comprobación de hipótesis*, el análisis de ordenación sin restricciones per se es un método principalmente descriptivo y no implica realmente la comprobación de hipótesis en datos multivariados. Aunque implica la formulación de hipótesis sobre la explicación de los ejes mediante variables ambientales, como la función `envfit()` del paquete `vegan`, la ordenación sin restricciones es sencilla. Analiza una matriz de datos; su objetivo es revelar la estructura principal de los datos en un gráfico a partir de un conjunto reducido de ejes ortogonales. Por el contrario, la ordenación restringida es una ordenación "impulsada por la hipótesis": un método de comprobación de hipótesis, que pone a prueba directamente la hipótesis sobre la influencia de los factores ambientales en la composición de las especies (o OTU/taxa). 
 
 La ordenación restringida está relacionada con los modelos lineales multivariantes, de esta manera con las variables "dependientes" (o la comunidad) en el lado izquierdo como respuestas, las "indenpendientes" (o restricciones) en el lado derecho como factores explicados. Así, la ordenación restringida no es simétrica. 
 
@@ -883,9 +883,9 @@ En cuanto al paquete `vegan`, la *variable ambiental* en nuestro caso es la cond
   - PC1: es la primera línea recta que atraviesa el espacio creado por todas estas muestras.
   - PC2: es la segunda línea, perpendicular a PC1.
   
-y así la tercera PC3, hasta PC(n - 1). La importancia de las PC disminuye por orden. *PC1 es la PC más importante y explica la mayor parte de las variaciones entre todas las muestras*. La PC2 explica la segunda mayor parte de las variaciones, y PC3 explica la tercera más, y así sucesivamente la $(n - 1)$ PC explica la menor cantidad de variaciones de las muestras. Varias funciones de R, como `prcomp()` en el paquete preinstalado de estadísticas, `rda()` en el paquete paquete `vegan`, `pca()` en el paquete `labdsv` pueden utilizarse para llevar a cabo el PCA.
+y así la tercera PC3, hasta PC(n - 1). La importancia de las PC disminuye por orden. **PC1 es la PC más importante** y explica la mayor parte de las variaciones entre todas las muestras. La **PC2 **explica la segunda mayor parte de las variaciones, y PC3 explica la tercera más, y así sucesivamente la $(n - 1)$ PC explica la menor cantidad de variaciones de las muestras. Varias funciones de R, como `prcomp()` en el paquete preinstalado de estadísticas, `rda()` en el paquete paquete `vegan`, `pca()` en el paquete `labdsv` pueden utilizarse para llevar a cabo el PCA.
 
-En este caso, utilizamos la función `rda()`. Las dos funciones de extensión: `evplot()` (Borcard et al. 2011) y `PCAsignificance()` en el paquete BiodiversityR pueden mejorar los gráficos. La función `evplot()` proporciona métodos visuales para decidir la importancia de los ejes de ordenación mediante el uso de el criterio de *Keiser-Guttman* y el modelo de broken-stick. La función `PCAsignificance()` calcula el modelo de broken-stick para los ejes PCA. Cuando se utiliza la función `rda()` para realizar el PCA, al no especificar la matriz de datos ambientales (es decir, la variable de grupo), la función realiza un ordenación PCA. En el análisis de datos del microbioma, los recuentos de abundancia absoluta no son apropiados porque los valores grandes tendrán una influencia demasiado alta en el análisis. Por lo tanto, *necesitamos estandarizar los datos de lectura de abundancia antes del análisis*. En este caso, utilizamos la función `decostand()` con el método total para estandarizar la lectura.
+En este caso, utilizamos la función `rda()`. Las dos funciones de extensión: `evplot()` (Borcard et al. 2011) y `PCAsignificance()` en el paquete BiodiversityR pueden mejorar los gráficos. La función `evplot()` proporciona métodos visuales para decidir la importancia de los ejes de ordenación mediante el uso de el criterio de *Keiser-Guttman* y el modelo de broken-stick. La función `PCAsignificance()` calcula el modelo de broken-stick para los ejes PCA. Cuando se utiliza la función `rda()` para realizar el PCA, al no especificar la matriz de datos ambientales (es decir, la variable de grupo), la función realiza un ordenación PCA. En el análisis de datos del microbioma, los recuentos de abundancia absoluta no son apropiados porque los valores grandes tendrán una influencia demasiado alta en el análisis. Por lo tanto, **necesitamos estandarizar los datos de lectura de abundancia antes del análisis**. En este caso, utilizamos la función `decostand()` con el método total para estandarizar la lectura.
 
 ```{r}
 # Llamamos a nuestra tabla
@@ -904,18 +904,51 @@ stand_abund_table <- decostand(abund_table, method = "total")
 PCA <-rda(stand_abund_table)
 PCA
 ```
+Con el siguiente código podemos pedir los valores de los eigenvalores.
+```{r}
+eig <- PCA$CA$eig
+```
 
-En lenguaje `vegan`, **"Inertia"** es el término general de **"variación"** en los datos. El total de variación de todo el conjunto de datos es de 0,0408 en este caso, y *el primer eje explica el 60,4% de la variación total (0,02029/0,0408 = 0,4973)*. **La variación total es la suma de las variaciones de cada género en la matriz analizada**. Los siguientes códigos R comprueban la variación total:
+En lenguaje `vegan`, **"Inertia"** es el término general de **"variación"** en los datos. El total de variación de todo el conjunto de datos es de `r PCA$CA$tot.chi` en este caso, y el primer eje explica el `r 100*(PCA$CA$eig[1]/PCA$CA$tot.chi)`% de la variación total (0,02029/0,0408 = 0,4973). La **variación total** es la suma de las variaciones de cada género en la matriz analizada. Los siguientes códigos R comprueban la variación total:
 
 ```{r}
 # Variación total
 sum(apply(stand_abund_table, 2, var))
 ```
 
+
+Otra forma de obtener este análisis es llamando la función `summary`.
+
+```{r}
+head(summary(PCA))
+```
+
+\begin{center}
+\includegraphics[width=15.5cm]{PCA_3.png}
+\end{center}
+
+
+También podemos obtener cuales variables (`species`) tienen la mayor correlación absoluta al primer y segundo eje:
+```{r}
+head(sort(abs(PCA$CA$v[,1]),decreasing = TRUE))
+```
+
+
+```{r}
+head(sort(abs(PCA$CA$v[,2]),decreasing = TRUE))
+```
+
 A continuación, vamos a dibujar los diagramas utilizando la función `biplot()`. La opción de visualización "species" es la etiqueta del paquete `vegan` para OTUs/taxa. Por defecto es "sites" (etiqueta para muestras).
 
 ```{r bibiplot_PCA, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Biplot de las primeras dos componentes principales de los datos de materia fecal de ratones Vdr$-/-$'}
 biplot(PCA, display = 'species')
+```
+
+Otros argumentos que uno puede incluir en el biplot son por ejemplo mostrar también los `sites` y agregar etiquetas a los datos, (Ver [vegan](https://cran.r-project.org/web/packages/vegan/vegan.pdf) pag. 37)
+
+```{r bibiplot_PCA_2, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Biplot con etiquetas'}
+#Mismo biplot con etiquetas
+biplot(PCA, display = c('sites','species'), type=c("text","points"))
 ```
 
 Los diagramas anteriores trazados por `biplot()` sólo dibujan flechas para el género, lo que no es informativo. El diagrama más informativo es utilizar la función `ordiplot()` para dibujar tanto el género como las puntuaciones de la muestra como centroides, como se muestra a continuación:
@@ -1000,18 +1033,29 @@ cleanplot.pca(PCA)
 ```
 
 
-El *"escalado" es la forma en que los resultados de la ordenación se proyectan en el espacio reducido para su visualización gráfica* (Borcard et al. 2011). La función `cleanplot.pca()` genera dos escalas de PCA. El escalado *PCA 1* en la figura de la izquierda es el biplot de distancia que *se centra en las distancias entre las muestras*. Si está interesado principalmente en interpretar las relaciones entre las muestras, elija el escalado 1. Las características esenciales de Scaling 1 son: Los vectores propios se escalan a la unidad de longitud y las distancias entre las muestras (sujetos) en el biplot son aproximaciones de sus distancias euclidianas en el espacio multidimensional.  Sin embargo, los ángulos entre los vectores de las variables (bacterias en este caso) no tienen sentido. El círculo se llama *círculo de contribución de equilibrio*, que representa *la contribución de equilibrio de las variables*. Para una combinación dada de ejes, las variables con *vectores más largos* que el radio del círculo pueden ser interpretadas con confianza como las *bacterias más importantes*, mientras que *las variables con vectores más cortos que el radio del círculo de contribución de equilibrio contribuyen poco a un espacio reducido dado.*
+El *"escalado"* es la forma en que los resultados de la ordenación se proyectan en el espacio reducido para su visualización gráfica (Borcard et al. 2011). La función `cleanplot.pca()` genera dos escalas de PCA. El escalado *PCA 1* en la figura de la izquierda es el biplot de distancia que se centra en las distancias entre las muestras. Si está interesado principalmente en interpretar las relaciones entre las muestras, elija el escalado 1. Las características esenciales de Scaling 1 son: Los vectores propios se escalan a la unidad de longitud y las distancias entre las muestras (sujetos) en el biplot son aproximaciones de sus distancias euclidianas en el espacio multidimensional. Sin embargo, los ángulos entre los vectores de las variables (bacterias en este caso) no tienen sentido. El círculo se llama *círculo de contribución de equilibrio*, que representa la contribución de equilibrio de las variables. Para una combinación dada de ejes, las variables con *vectores más largos* que el radio del círculo pueden ser interpretadas con confianza como las *bacterias más importantes*, mientras que las variables con *vectores más cortos* que el radio del círculo de contribución de equilibrio *contribuyen poco* a un espacio reducido dado.
 
-El *PCA 2* de la figura de la derecha es un biplot de correlación. *Traza la correlación entre variables (bacterias en este caso)*. Si su interés principal se centra en *las relaciones entre variables*, elija el escalamiento 2. Las características esenciales del escalamiento 2 son: *Cada vector propio se escala a la raíz cuadrada de su valor propio*; la longitud del vector se aproxima a la *desviación estándar de las variables (bacterias)*; los *ángulos entre variables (bacterias en este caso) reflejan sus correlaciones*: el coseno del ángulo aproxima la correlación entre las variables (bacterias); sin embargo, *las distancias entre muestras (sujetos) en el biplot no son aproximaciones de sus distancias euclidianas en el espacio multidimensional*.
-
-Con el siguiente código podemos pedir los valores de los eigenvalores.
-```{r}
-(ev <- PCA$CA$eig)
-```
+El *PCA 2* de la figura de la derecha es un biplot de correlación. Traza la correlación entre variables (bacterias en este caso). Si su interés principal se centra en *las relaciones entre variables*, elija el escalamiento 2. Las características esenciales del escalamiento 2 son: Cada vector propio se escala a la raíz cuadrada de su valor propio; la longitud del vector se aproxima a la desviación estándar de las variables (bacterias); los ángulos entre variables (bacterias en este caso) reflejan sus correlaciones: el coseno del ángulo aproxima la correlación entre las variables (bacterias); sin embargo, las distancias entre muestras (sujetos) en el biplot no son aproximaciones de sus distancias euclidianas en el espacio multidimensional.
 
 #### Desarrollo de PCA
 
-P
+El análisis de componentes principales tiene como objetivo reducir la dimensión y conservar en lo posible la estructura de estos, la cual no depende de los ejes utilizados para las coordenadas.
+
+Supongamos que tenemos datos en un espacio de $p$ dimensiones, entonces lo que se busca es una transformación lineal $a_1'X=(a_{11},\ a_{12},...,\ a_{1p})(X_1,\ X_2,...,\ X_p)=Y_1$ de manera que tenga la máxima varianza, a la que se le conoce como componente principal y está dada por:
+
+\[ Y_1\ = \ a_{11}X_1 +\ a_{12}X_2\ +\ ...\ + a_{1p}X_p . \]
+
+Lo que se busca, es elegir $a_1=(a_{11},\ a_{12},...,\ a_{1p})$ de manera que la $var(Y_1)$  tenga la máxima varianza. Se sabe que si el vector $X=(X_1,\ X_2,...,\ X_p)$ tiene matriz de varianzas y covarianzas $\Sigma$, entonces: 
+\[ var(Y)=var(a'X)=var(a'\Sigma\ a).\]
+
+Si se elige un $a_1$ que tenga una norma muy grande, entonces la varianza de $Y_1$ podría resultad muy grande también. Entonces es necesario imponer condiciones sobre $a_1$ para acotar el tamaño de la varianza de $Y_1$ y no hacerla muy grande de manera arbitraria. La condición que se impone es:
+\[||a_1||=a_1'\cdot a_1=1.\]
+
+Para lograr maximizar con esta condición, se utilizan los multiplicadores de Lagrange:
+
+  - Maximizar $f(x_1,x_2,...,x_p)$ sujeto a $g(x_1,x_2,...,x_p)=c$, donde $f$ es una función diferenciable.
+
+(Falta...)
 
 ### Análisis de coordenadas principales (PCoA)
 
