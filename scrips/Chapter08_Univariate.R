@@ -3,12 +3,12 @@
 ###Yinglin Xia: September, 2018                                                 
 ################################################################################
 
-setwd("E:/Home/MicrobiomeStatR/Analysis") 
+setwd("C:/Users/ANDRESARREDONDOCRUZ/Equipo4/Chapter8") 
 
 ##8.1 Comparisons of Diversities between Two Groups 
 
 ##8.1.1 Two-sample Welch's t-test
-abund_table=read.csv("VdrGenusCounts.csv",row.names=1,check.names=FALSE)
+abund_table=read.csv("C:/Users/ANDRESARREDONDOCRUZ/Equipo4/data/VdrGenusCounts.csv",row.names=1,check.names=FALSE)
 abund_table<-t(abund_table)
 
 grouping<-data.frame(row.names=rownames(abund_table),t(as.data.frame(strsplit(rownames(abund_table),"_"))))
@@ -73,8 +73,10 @@ boxplot(Bacteroides ~ Group,data=Fecal_Bacteroides_G, col=rainbow(2),main="Bacte
 ggplot(Fecal_Bacteroides_G, aes(x=Group, y=Bacteroides,col=factor(Group))) + 
   geom_boxplot(notch=FALSE)
 ggplot(Fecal_Bacteroides_G, aes(x=Group, y=Bacteroides)) + 
-  geom_boxplot(outlier.colour="red", outlier.shape=8, outlier.size=4) + 
-  layer(stat_params = list(binwidth = 2))
+  geom_boxplot(outlier.colour="red", outlier.shape=8, outlier.size=4) 
+
+#+ layer(stat_params = list(binwidth = 2))
+#Esta opcion da un error
 
 fit_w_b <- wilcox.test(Bacteroides ~ Group,data=Fecal_Bacteroides_G)
 fit_w_b
@@ -124,10 +126,14 @@ ggplot(df_CH_G, aes(x=Group4, y=value,col=factor(Group4))) +
   geom_boxplot(notch=FALSE)
 
 library(dplyr)
-
-df_CH_G4 <- select(df_CH_G, Group4,value)
+#Hay un conflicto con el paquete MASS con dplyr por lo que si corremos este codigo da un error
+#df_CH_G4 <- select(df_CH_G, Group4, value)
+#df_CH_G4
+#Se soluciona de esta manera
+df_CH_G4 <- df_CH_G %>%
+  dplyr::select( Group4, value)
 df_CH_G4
-
+#hay un error tambien aqui
 bartlett.test(df_CH_G4, Group4) 
 qchisq(0.95, 1)
 
@@ -144,10 +150,12 @@ summary(aov_fit, intercept=T)
 qf(0.95, 12, 3)
 
 install.packages("mnormt")
+#error?
 library(broom)
 
 tidy(aov_fit)
 augment(aov_fit)
+#se desordenan ls columnas
 glance(aov_fit)
 
    
