@@ -68,6 +68,7 @@ library("vegan")
 library("GUniFrac")
 library("pbkrtest")
 library("BiodiversityR")
+library("kableExtra")
 ```
 
 En la carpeta `data` se encuentra la base de datos a usar `VdrFecalGenusCounts.csv`.
@@ -749,25 +750,37 @@ El *"escalado"* es la forma en que los resultados de la ordenación se proyectan
 
 El *PCA 2* de la figura de la derecha es un biplot de correlación. Traza la correlación entre variables (bacterias en este caso). Si su interés principal se centra en *las relaciones entre variables*, elija el escalamiento 2. Las características esenciales del escalamiento 2 son: Cada vector propio se escala a la raíz cuadrada de su valor propio; la longitud del vector se aproxima a la desviación estándar de las variables (bacterias); los ángulos entre variables (bacterias en este caso) reflejan sus correlaciones: el coseno del ángulo aproxima la correlación entre las variables (bacterias); sin embargo, las distancias entre muestras (sujetos) en el biplot no son aproximaciones de sus distancias euclidianas en el espacio multidimensional.
 
-#### Desarrollo de PCA
+#### Cálculo del PC1
 
-El análisis de componentes principales tiene como objetivo reducir la dimensión y conservar en lo posible la estructura de estos, la cual no depende de los ejes utilizados para las coordenadas.
+El análisis de componentes principales tiene como objetivo reducir la dimensión y conservar en lo posible la estructura de estos, la cual no depende de los ejes utilizados para las coordenadas. Dadas $n$ observaciones de $p$ variables, se analiza si es posible representar adecuadamente la información con un número menor de variables construidas como combinaciones lineales de las originales. El *primer componente principal* es la combinación lineal de las variables originales que tienen varianza máxima. 
 
-Supongamos que tenemos datos en un espacio de $p$ dimensiones, entonces lo que se busca es una transformación lineal $a_1'X=(a_{11},\ a_{12},...,\ a_{1p})(X_1,\ X_2,...,\ X_p)=Y_1$ de manera que tenga la máxima varianza, a la que se le conoce como componente principal y está dada por:
+Supongamos que tenemos datos en un espacio de $p$ variables en $n$ elementos de una población en una matriz $X$ de tamaño $n\times p$, donde las columnas son las variables y las filas los elementos. Vamos a suponer que hemos restado a cada variable su media, de tal forma que las variables de la matriz $X$ tienen media cero y su matriz de covarianzas está dada por $\frac{1}{n}X'X$. Los valores del primer componente de los $n$ individuos se representará por un vector $\mathbb{z}_1$ que está dado por:
+\[\mathbb{z}_1=Xa_{1}.\]
 
-\[ Y_1\ = \ a_{11}X_1 +\ a_{12}X_2\ +\ ...\ + a_{1p}X_p . \]
-
-Lo que se busca, es elegir $a_1=(a_{11},\ a_{12},...,\ a_{1p})$ de manera que la $var(Y_1)$  tenga la máxima varianza. Se sabe que si el vector $X=(X_1,\ X_2,...,\ X_p)$ tiene matriz de varianzas y covarianzas $\Sigma$, entonces: 
-\[ var(Y)=var(a'X)=var(a'\Sigma\ a).\]
-
-Si se elige un $a_1$ que tenga una norma muy grande, entonces la varianza de $Y_1$ podría resultad muy grande también. Entonces es necesario imponer condiciones sobre $a_1$ para acotar el tamaño de la varianza de $Y_1$ y no hacerla muy grande de manera arbitraria. La condición que se impone es:
+Donde $a_1=(a_{11},\ a_{12},...,\ a_{1p})$. Como las variables originales se supuso tenian media cero, entonces también $\mathbb{z}_1$ tendrá media nula y su varianza sera:
+\[\frac{1}{n}\ \mathbb{z}_{1}'\ \mathbb{z}_1 = \frac{1}{n}\ a_{1}X'Xa_1\ =\ a_1' S a_1.\]
+donde $S$ es la matriz de varianzas y covarianzas de las observaciones. Si se elige un $a_1$ que tenga una norma muy grande, entonces la varianza de $\mathbb{z}_1$ podría resultad muy grande también. Entonces es necesario imponer condiciones sobre $a_1$ para acotar el tamaño de la varianza de $\mathbb{z}_1$ y no hacerla muy grande de manera arbitraria. La condición que se impone es:
 \[||a_1||=a_1'\cdot a_1=1.\]
 
-Para lograr maximizar con esta condición, se utilizan los multiplicadores de Lagrange:
+Esta restricción se introduce mediante el multiplicador de Lagrange:
 
-  - Maximizar $f(x_1,x_2,...,x_p)$ sujeto a $g(x_1,x_2,...,x_p)=c$, donde $f$ es una función diferenciable.
+\[M\ =\ a_1' S a_1\ -\ \lambda(a_1'a_1\ -\ 1). \]
 
-(Falta...)
+Después, se maximizará esta expresión derivando con respecto a los componentes de $a_1$ e igualando a $0$:
+
+\[  \frac{\partial M}{\partial a_1} =\ 2Sa_1 -2\lambda a_1 =0 \]
+
+cuya solución es:
+
+\[ Sa_1=\lambda a_1  \]
+
+entonces $a_1$ es un vector propio de la matriz $S$ y $\lambda$ será su correspondiente valor propio. 
+
+Para determinar que valor propio de $S$ es la solución de la ecuación anterior, multiplicamos por $a_1$ a la izquierda:
+
+\[a_1'Sa_1=\lambda a_1'a_1 =\lambda  \]
+
+entonces, $\lambda$ es la varianza de $\mathbb{z}_1$. Como esta es la cantidad que queríamos maximizar, entonces $\lambda$ será el valor propio mayor de la matriz $S$ y su vector asociado $a_1$ serán los coeficientes de cada variable de la primera componente.
 
 ### Análisis de coordenadas principales (PCoA)
 
@@ -781,6 +794,19 @@ library("vegan")
 bc_dist <-vegdist(abund_table, "bray")
 ```
 
+
+```{r, collapse=TRUE, echo=FALSE}
+bc_dist_2 <- as.matrix(vegdist(abund_table, "bray", diag = TRUE))
+names <- c("5_15_", "1_11_", "2_12_", "3_13_", "4_14_", "7_22_", "8_23_","9_24_dry")
+
+kbl(bc_dist_2, booktabs = TRUE, align = "c",
+    caption = "Índices de disimilitud de Bray-Curtis",
+    col.names = names )%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 7)
+```
+
 A continuación, vamos a establecer explícitamente `k = 2` (los valores por defecto para el número de dimensiones a devolver) y `eig = TRUE` (que guarda los valores propios).
 
 ```{r}
@@ -788,7 +814,7 @@ PCoA <- cmdscale(bc_dist, eig = TRUE, k = 2)
 PCoA
 ```
 
-La función `cmdscale()` produce una lista de salida. Los primeros puntos de salida contienen las coordenadas de cada muestra en cada dimensión reducida. La segunda salida eig contiene los valores propios. Las últimas tres salidas pertenecen a otras opciones del análisis que no cubriremos aquí. El siguiente fragmento de códigos R se utiliza para examinar el porcentaje de variación en el conjunto de datos que se explica por los dos primeros ejes del PCoA.
+La función `cmdscale()` produce una lista de salida. Los primeros **puntos** de salida contienen las coordenadas de cada muestra en cada dimensión reducida. La segunda salida **eig** contiene los valores propios. Las últimas tres salidas pertenecen a otras opciones del análisis que no cubriremos aquí. El siguiente fragmento de códigos R se utiliza para examinar el porcentaje de variación en el conjunto de datos que se explica por los dos primeros ejes del PCoA.
 
 ```{r}
 explainedvar1 <- round(PCoA$eig[1] / sum(PCoA$eig), 2) * 100
@@ -801,9 +827,11 @@ sum_eig <- sum(explainedvar1, explainedvar2)
 sum_eig
 ```
 
-El primer eje explica el `r explainedvar1`% de las variaciones de los datos, y el segundo el `r explainedvar2`%. Por lo tanto, una gran cantidad de variaciones de los datos (un total del `r explainedvar1+explainedvar2`%) ha sido explicada por estos dos ejes. Existen dos criterios para evaluar si los primeros ejes del PCoA captan o no una cantidad desproporcionadamente grande de la variación total explicada: (1) el *criterio de Kaiser-Guttman* y (2) el *modelo broken-stick*. El *criterio de Kaiser-Guttman* establece que *"los valores propios asociados a los primeros ejes deben ser mayores que la media de todos los valores propios"*. Según el *criterio del modelo broken-stick*, *los valores propios asociados a los primeros ejes se comparan con las expectativas del modelo broken-stick*. El *modelo de broken-stick supone que la suma total de los valores propios disminuye secuencialmente con los ejes PCoA ordenados*. Evaluamos el rendimiento de PCoA utilizando estos dos criterios con los siguientes gráficos:
+El primer eje explica el `r explainedvar1`% de las variaciones de los datos, y el segundo el `r explainedvar2`%. Por lo tanto, una gran cantidad de variaciones de los datos (un total del `r explainedvar1+explainedvar2`%) ha sido explicada por estos dos ejes. 
 
-```{r}
+Existen dos criterios para evaluar si los primeros ejes del PCoA captan o no una cantidad desproporcionadamente grande de la variación total explicada: (1) el *criterio de Kaiser-Guttman* y (2) el *modelo broken-stick*. El *criterio de Kaiser-Guttman* establece que "los valores propios asociados a los primeros ejes deben ser mayores que la media de todos los valores propios". Según el *criterio del modelo broken-stick*, los valores propios asociados a los primeros ejes se comparan con las expectativas del modelo broken-stick. El *modelo de broken-stick* supone que la suma total de los valores propios disminuye secuencialmente con los ejes PCoA ordenados. Evaluamos el rendimiento de PCoA utilizando estos dos criterios con los siguientes gráficos:
+
+```{r PCoA_1, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'PCoA con el criterio de Kaiser-Guttman y el modelo de broken-stick'}
 # Correr todo junto
 # Define Plot Parameters
 par(mar = c(5, 5, 1, 2) + 0.1)
@@ -818,8 +846,11 @@ lines(1:8, b_stick, type = "l", lty = 4, lwd = 2, col = "red")
 legend("topright", legend = c("Avg Eigenvalue", "Broken-Stick"),
        lty = c(2, 4), bty = "n", col = c("blue", "red"))
 ```
+
 La figura anterior muestra que los valores propios asociados a los tres primeros ejes son mayores que la media de todos los valores propios y son mayores que las expectativas del el modelo Broken-Stick. Después de evaluar el resultado del PCoA, crearemos un de ordenación para los dos ejes del PCoA.
-```{r}
+
+
+```{r Ordination_plot1, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Ordination plot para los dos ejes de PCoA'}
 # Correr todo junto
 # Define Plot Parameters
 par(mar = c(5, 5, 1, 2) + 0.1)
@@ -841,7 +872,7 @@ text(PCoA$points[ ,1], PCoA$points[ ,2],
 ```
 Los gráficos de ordenación básicos nos permiten ver cómo se separan las muestras entre sí. En nuestro ejemplo, las muestras se separan a lo largo de los ejes PCoA debido a la variación en la abundancia de los diferentes géneros de ratones. Una pregunta lógica de seguimiento es preguntar qué géneros del conjunto de datos están impulsando la divergencia observada entre los puntos. ¿Podemos identificar y visualizar estos géneros influyentes en el PCoA? Podemos obtener esta información utilizando la función `add.spec.scores()` del paquete BiodiversityR. En primer lugar, la abundancia relativa se calcula como sigue:
 
-```{r}
+```{r Ordination_plot2, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Ordination plot para los dos ejes de PCoA con influencia de genero'}
 # Correr todo junto
 # Define Plot Parameters
 par(mar = c(5, 5, 1, 2) + 0.1)
@@ -875,23 +906,36 @@ PCoA <- add.spec.scores(PCoA,fecalREL,method = "pcoa.scores",Rscale=TRUE,scaling
 text(PCoA$cproj[ ,1], PCoA $cproj[ ,2],
      labels = row.names(PCoA$cproj),cex=0.5, col = "blue")
 ```
-La función `add.spec.scores()` también puede utilizarse para determinar la correlación de cada toxón a lo largo de los ejes PCoA. Este es un enfoque más efectivamente cuantitativo de identificar los taxones influyentes.
+La función `add.spec.scores()` también puede utilizarse para determinar la correlación de cada taxón a lo largo de los ejes PCoA. Este es un enfoque más efectivamente cuantitativo de identificar los taxones influyentes. Además, para identificary obtener el taxón más importante, es necesario definir un coeficiente de correlación de corte, en este caso, vamos a tomar $0.7$.
+
 ```{r}
 genus_corr <- add.spec.scores(PCoA, fecalREL, method = "cor.scores")$cproj
 corrcut <- 0.7 # user defined cutoff  
 import_genus <- genus_corr[abs(genus_corr[, 1]) >= corrcut | abs(genus_corr[, 2]) >= corrcut, ]
 ```
+
 Los 12 géneros importantes con correlación mayor o igual a 0,7 a lo largo de los ejes PCoA se imprimen a continuación:
+
 ```{r}
-import_genus[complete.cases(import_genus),]
+import_genus[complete.cases(import_genus),] %>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "Géneros más importantes con correlación mayor o igual a 0.7" )%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 7)
 ```
+
+
 Por último, utilizamos la función `envfit()` del paquete `vegan` para realizar una prueba de permutación para las abundancias generales a través de los ejes en estas correlaciones.
+
 ```{r}
 # Permutation Test for Species Abundances Across Axes
 envfit(PCoA, fecalREL, perm = 999)
 ```
-Los géneros con un valor q inferior a 0,05 se muestran con el siguiente gráfico
-```{r}
+
+Los géneros con un $p-$valor menor a $0.05$ se muestran con el siguiente gráfico.
+
+```{r Ordination_plot3, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Ordination plot para los dos ejes de PCoA de influencia de genero con un $p-$valor $<0.05$'}
 # Correr todo junto
 # Define Plot Parameters
 par(mar = c(5, 5, 1, 2) + 0.1)
@@ -930,65 +974,78 @@ genus_corr <- add.spec.scores(PCoA, fecalREL, method = "cor.scores")$cproj
 corrcut <- 0.7 # user defined cutoff  
 import_genus <- genus_corr[abs(genus_corr[, 1]) >= corrcut | abs(genus_corr[, 2]) >= corrcut, ]
 
-import_genus[complete.cases(import_genus),]
-
-envfit(PCoA, fecalREL, perm = 999)
-
-# A partir de aquí es la explicación anterior
+# Código para los generos con un p-valor<0.05
 
 fit <- envfit(PCoA, fecalREL, perm = 999)
 plot(fit, p.max = 0.05, cex=0.5, col = "red")
 ```
 
 ### Escalamiento multidimensional no métrico (NMDS)
-El *NMDS es la alternativa no métrica al análisis PCoA*. El NMDS ha sido reconocido como un buen método de ordenación porque utiliza formas ecológicamente significativas para* medir las *disimilitudes de las comunidades y cualquier medida de distancia (disimilitudes)* entre las muestras como entrada. Por ello, *es el método recomendado en la ordenación de comunidades*. El objetivo principal del análisis NMDS es *proyectar la posición relativa de los puntos de la muestra en un espacio de ordenación de baja dimensión* (dos o tres ejes).
-La función `metaMDS()` del paquete `vegan` realiza el análisis NMDS. Para simplificar, el algoritmo del análisis NMDS se resume como sigue: En primer lugar, utiliza la función `vegdist()` para obtener las medidas de disimilitud adecuadas; a continuación, ejecuta NMDS varias veces con configuraciones iniciales aleatorias y compara los resultados mediante la función `procrustes()`, y se detiene tras encontrar dos veces una solución de mínima similar. Por último, escala y rota la solución, y añade las puntuaciones de las especies (o OTUs/taxa) a la configuración como promedios ponderados utilizando la función `wascores()`. Una vez finalizado el algoritmo, la solución final se rota utilizando PCA para facilitar su interpretación.
+
+El *NMDS* es la alternativa no métrica al análisis PCoA. El NMDS ha sido reconocido como un buen método de ordenación porque utiliza formas ecológicamente significativas para medir las *disimilitudes* de las comunidades y cualquier medida de distancia (disimilitudes) entre las muestras como entrada. Por ello, es el método recomendado en la ordenación de comunidades. El objetivo principal del análisis NMDS es *proyectar la posición relativa de los puntos de la muestra en un espacio de ordenación de baja dimensión* (dos o tres ejes).
+
+La función `metaMDS()` del paquete `vegan` realiza el análisis NMDS. Para simplificar, el algoritmo del análisis NMDS se resume como sigue: en primer lugar, utiliza la función `vegdist()` para obtener las medidas de disimilitud adecuadas; a continuación, ejecuta NMDS varias veces con configuraciones iniciales aleatorias y compara los resultados mediante la función `procrustes()`, y se detiene tras encontrar dos veces una solución mínima similar. Por último, escala y rota la solución, y añade las puntuaciones de las especies (o OTUs/taxa) a la configuración como promedios ponderados utilizando la función `wascores()`. Una vez finalizado el algoritmo, la solución final se rota utilizando PCA para facilitar su interpretación.
+
 En este caso, utilizamos el paquete `vegan` y los mismos datos fecales de ratones Vdr-/- para ilustrar análisis NMDS. En primer lugar, utilizamos la función `vegdist()` para obtener las medidas de disimilitud de *Bray-Curtis (el método por defecto)* utilizando la configuración por defecto de la función `metaMDS()`. Esta función transforma automáticamente los datos y comprueba la solidez de la solución. La doble estandarización de **Wisconsin** y la transformación **sqrt** se utilizaron conjuntamente en la llamada a la función `metaMDS()`. La llamada a la función produce un valor de tensión del 7,57%.
+
 ```{r}
 bc_nmds <- metaMDS(abund_table, dist = "bray")
 bc_nmds
 ```
-En segundo lugar, utilizamos la función `ordiplot()` para dibujar los resultados del NMDS. La configuración por defecto sólo añade puntos a la figura, utilizamos el tipo = 't' o el tipo = 'text' para añadir etiquetas de texto en esta figura.
-```{r}
+En segundo lugar, utilizamos la función `ordiplot()` para dibujar los resultados del NMDS. La configuración por defecto sólo añade puntos a la figura, utilizamos `type = 't'` o `type = 'text'` para añadir etiquetas de texto en esta figura.
+
+```{r Ordiplot_1, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Ordiplot de dos ejes de NMDS con etiquetas'}
 ordiplot (bc_nmds, type = 't')
 ```
 Para trazar las puntuaciones del sitio (muestra) como texto:
-```{r}
+
+```{r Ordiplot_2, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Ordiplot de dos ejes de NMDS con etiquetas de las muestras'}
 ordiplot(bc_nmds, display = "sites", type = "text")
 ```
-Finalmente, la función `stressplot()` se utiliza para dibujar el gráfico de *estrés de Shepards*. La función `stressplot()` genera dos figuras: una traza las distancias de ordenación frente a la disimilitud observada (las disimilitudes de la comunidad elegida), junto con una línea de paso monótona para mostrar el ajuste; otra traza la bondad del ajuste para evaluar la bondad de la ordenación de NMDS2 frente a NMDS1 de muestras concretas. Los siguientes códigos de R se utilizan para dividir la ventana de trazado en dos paneles:
-La función `plot()` dibuja el diagrama de ordenación NMDS con los sitios (muestras):
-```{r}
+
+Finalmente, la función `stressplot()` se utiliza para dibujar el gráfico de *estrés de Shepards*. La función `stressplot()` genera dos figuras: una traza las distancias de ordenación frente a la disimilitud observada (las disimilitudes de la comunidad elegida), junto con una línea de paso monótona para mostrar el ajuste; otra traza la bondad del ajuste para evaluar la bondad de la ordenación de NMDS2 frente a NMDS1 de muestras concretas. Primero, dividimos la ventana de trazado en dos paneles. La función `plot()` dibuja el diagrama de ordenación NMDS con los sitios (muestras). La función `points()` añade los puntos con un tamaño que refleja la bondad del ajuste (mayor = peor ajuste).
+
+
+```{r Shepards_stress_plot, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Gráfico del strés de Shepards y de la bondad de ajuste'}
 par (mfrow = c(1,2))
 stressplot (bc_nmds)
 plot (bc_nmds, display = 'sites', type = 't', main = 'Goodness of fit')
 points (bc_nmds, display = 'sites', cex = goodness (bc_nmds)*300)
 ```
-La función `points()` añade los puntos con un tamaño que refleja la bondad del ajuste (mayor = peor ajuste).
-El stressplot muestra la relación entre las distancias reales entre las muestras en solución de ordenación m dimensional resultante, y sus disimilitudes compositivas particulares composición expresadas por la medida de disimilitud de *Bray-Curtis* seleccionada. Existen dos estadísticas de bondad de ajuste similares a la correlación; la correlación basada en la tensión R2 = 1 - S2 (ajuste no métrico = 0,994) y la correlación entre los valores ajustados y las distancias de ordenación, o entre la línea de paso y los puntos: "R2 basado en el ajuste" (ajuste lineal = 0,956).
+
+El stressplot muestra la relación entre las distancias reales entre las muestras en solución de ordenación de dimensión $m$, y sus disimilitudes composicionales particulares expresadas por la medida de disimilitud de *Bray-Curtis*. Existen dos estadísticas de bondad de ajuste similares a la correlación; la correlación basada en la tensión $R^2 = 1 - S^2$ (ajuste no métrico $= 0.994$) y la correlación entre los valores ajustados y las distancias de ordenación, o entre la línea de paso y los puntos: "$R^2$ basado en el ajuste" (ajuste lineal $= 0,956$).
 
 ### Análisis de correspondencia (AC)
-CA es otro método de ordenación sin restricciones. Utiliza las *distancias chi-cuadrado* entre las muestras en el espacio multidimensional de todos los ejes de ordenación y da un alto peso a las especies raras (por ejemplo, especies de baja ocurrencia con muchos ceros). Al igual que PCA y PCoA, *CA utiliza los valores propios para medir la importancia de los ejes ortogonales devueltos*.
-En el diagrama de ordenación del PCA, los taxones son vectores y las muestras son puntos, mientras que *en el CA, los taxones y las muestras están representados por puntos*. Al igual que PCA, CA tiene dos tipos de escalas: Escalas 1 y 2. En el espacio de ordenación reducido, *las distancias entre las muestras* (Escala 1) se aproximan a su *distancia chi-cuadrado*. Por ejemplo, cualquier muestra cercana al punto que representa un taxón probablemente contiene una alta contribución a ese taxón. Las *distancias entre taxones* (Escala 2) también se aproximan a sus *distancias chi-cuadrado*. Por ejemplo, cualquier taxón cercano al punto que representa una muestra probablemente tenga una mayor frecuencia en esa muestra. La función `cca()` del paquete `vegan` puede utilizarse para realizar un análisis de correspondencia sin restricciones. Utilizamos la función `cca()` para realizar el CCA y la función `evplot()` para seleccionar ejes de ordenación importantes basados en el criterio de **Kaiser-Guttman** o modelo de **broken-stick**. La función `evplot()`, escrita por Borcard et al. (2011), se utiliza aquí para trazar los valores propios y los porcentajes de variación de un objeto de ordenación. Cuando se utiliza la función `cca()` (cca = análisis canónico compoente) para realizar unconstrained CA, no se especifica la matriz ambiental ni la información de agrupación.
+
+CA es otro método de ordenación sin restricciones. Utiliza las *distancias chi-cuadrado* entre las muestras en el espacio multidimensional de todos los ejes de ordenación y da un alto peso a las especies raras (por ejemplo, especies de baja ocurrencia con muchos ceros). Al igual que PCA y PCoA, CA utiliza los valores propios para medir la importancia de los ejes ortogonales devueltos.
+
+En el diagrama de ordenación del PCA, los taxones son vectores y las muestras son puntos, mientras que en el CA, los taxones y las muestras están representados por puntos. Al igual que PCA, CA tiene dos tipos de escalas: Escalas 1 y 2. En el espacio de ordenación reducido, *las distancias entre las muestras* (Escala 1) se aproximan a su *distancia chi-cuadrado*. Por ejemplo, cualquier muestra cercana al punto que representa un taxón probablemente contiene una alta contribución a ese taxón. Las *distancias entre taxones* (Escala 2) también se aproximan a sus *distancias chi-cuadrado*. Por ejemplo, cualquier taxón cercano al punto que representa una muestra probablemente tenga una mayor frecuencia en esa muestra. La función `cca()` del paquete `vegan` puede utilizarse para realizar un análisis de correspondencia sin restricciones. Utilizamos la función `cca()` para realizar el CCA y la función `evplot()` para seleccionar ejes de ordenación importantes basados en el criterio de *Kaiser-Guttman* o modelo de *broken-stick*. La función `evplot()`, escrita por Borcard et al. (2011), se utiliza aquí para trazar los valores propios y los porcentajes de variación de un objeto de ordenación. Cuando se utiliza la función `cca()` (cca = análisis canónico compoente) para realizar CA sin restricciones, no se especifica la matriz ambiental ni la información de agrupación.
+
 ```{r}
 fecal_genus_cca=cca(abund_table)
 fecal_genus_cca
 ```
-La heterogeneidad total de los datos (inercia) es de 0,502, y el primer eje capta 40,56% de la variación total en la composición del género (0,2036/0,502 = 0,4056, donde 0,2036 es el valor propio del primer eje CA1, y 0,502 es la heterogeneidad total de los datos).
+La heterogeneidad total de los datos (inercia) es de `r round(fecal_genus_cca$CA$tot.chi,3)`, y el primer eje capta `r 100*(fecal_genus_cca$CA$eig[1]/round(fecal_genus_cca$CA$tot.chi,3))`% de la variación total en la composición del género (`r fecal_genus_cca$CA$eig[1]` / `r round(fecal_genus_cca$CA$tot.chi,3)` = `r fecal_genus_cca$CA$eig[1]/round(fecal_genus_cca$CA$tot.chi,3)`, donde `r fecal_genus_cca$CA$eig[1]` es el valor propio del primer eje CA1, y `r round(fecal_genus_cca$CA$tot.chi,3)` es la heterogeneidad total de los datos).
+
 Los siguientes códigos de R se utilizan para trazar la ordenación y mostrar los nombres de las muestras en la figura:
-```{r}
+
+```{r ordination_plot_NMDS, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center", out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Plot de ordenación con muestras.'}
 plot(fecal_genus_cca, display="sites") 
 ```
+
 Si no quiere que el gráfico esté sobrecargado, utilice los siguientes códigos de R para sólo mostrar puntos en lugar de nombres de muestras en la figura:
-```{r}
+
+```{r ordination_plot_NMDS_2, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Plot de ordenación sin etiquetas de las muestras'}
 plot(fecal_genus_cca, display="sites", type="p")
 ```
 El siguiente diagrama de ordenación revela el patrón de muestras y géneros en diagrama de ordenación:
-```{r}
+
+```{r ordination_plot_NMDS_3, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Plot de ordenación, muestra los patrones de las muestras y generos en el diagrama de ordenación. Los círculos representan las muestras y los signos + representan los géneros.'}
 ordiplot(fecal_genus_cca)
 ```
 El siguiente análisis posterior a la CA utilizando la función `evplot()` es para ilustrar cómo decidir qué eje de CA debe utilizarse para la interpretación de los resultados. La sintaxis de la función función `evplot()` es `evplot(ev)`, donde ev es un vector de valores propios. En primer lugar, ejecutamos la función.
-```{r}
+
+```{r r eigenvalores_NMDS_1, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",fig.dim= c(12,10), warning=FALSE, message=FALSE, fig.cap = 'Eigenvalores y porcentajes de variación del criterio Keiser-Guttman y el modelo broken-stick'}
 evplot <- function(ev)
 {# Broken stick model (MacArthur 1957)
   n <- length(ev)
@@ -1014,15 +1071,31 @@ ev <- fecal_genus_cca$CA$eig
 windows(title="CA eigenvalues")
 evplot(ev)
 ```
+
 Como se presenta en la sección de PCoA, para evaluar si los primeros ejes de CA del análisis capturan una cantidad desproporcionadamente grande de la variación total explicada, dos vías adicionales de uso de gráficos son el *criterio de Keiser-Guttman* y **criterio de broken-stick*. Según el *criterio de Kaiser-Guttman*, los valores propios asociados a los primeros ejes deben ser mayores que la media de todos los valores propios; con el modelo de *broken-stick*, los valores propios asociados a los primeros ejes se comparan con las expectativas. Tanto el *criterio de Keiser-Guttman* como el modelo de *broken-stick* muestran que los tres primeros ejes son importantes.
 
 ## Ordenaciones restringidas
-Como contrapartida a los tres métodos básicos de ordenación, el paquete `vegan` cuenta con tres versiones de ordenación restringida: el *análisis de redundancia (RDA, relacionado con el análisis de componentes principales)*, el *análisis restringido de coordenadas principales (CAP, relacionado con el escalado métrico)* y el *análisis restringido de correspondencia (CCA, relacionado con el análisis de correspondencia)*.
+
+Como contrapartida a los tres métodos básicos de ordenación, el paquete `vegan` cuenta con tres versiones de ordenación restringida:
+
+  - Análisis de redundancia (RDA, relacionado con el análisis de componentes principales)
+  - Análisis restringido de coordenadas principales (CAP, relacionado con el escalado métrico)
+  - Análisis restringido de correspondencia (CCA, relacionado con el análisis de correspondencia).
 
 ### Análisis de redundancia (RDA)
+
 El RDA en la función `rda()` se basa en las distancias euclidianas y combina la regresión múltiple con el PCA. Con RDA, cada eje canónico es una combinación lineal de todas las variables explicativas. El número de ejes canónicos corresponde al número de variables explicativas, o más exactamente al número de grados de libertades (Borcard et al. 2011).
-Puede utilizar dos sintaxis diferentes para calcular una CDR mediante la función `rda()` de `vegan`: sintaxis matricial y sintaxis de fórmula. La sintaxis matricial es la más sencilla: basta con enumerar los nombres de los objetos separados por comas como se indica a continuación. `RDA = rda(Y, X, W)`, donde Y es la matriz de respuesta (composición de taxones), X es la matriz explicativa (factores ambientales) y W es la matriz opcional de covariables. 
-La prueba de hipótesis no es el caso en PCA. Sin embargo, con dos conjuntos de datos Y y X, en RDA podemos probar una hipótesis nula de ausencia de relación lineal entre entre ellos. Utilizamos el conjunto de datos de fumadores para ilustrar el uso de RDA. Primero, cargue los datos del paquete GUniFrac y utilice la función `select()` del paquete *dplyr* para crear un subconjunto de variables explicativas.
+
+Puede utilizar dos sintaxis diferentes para calcular una RDA mediante la función `rda()` de `vegan`: sintaxis matricial y sintaxis de fórmula. La sintaxis matricial es la más sencilla: basta con enumerar los nombres de los objetos separados por comas como se indica a continuación. `RDA = rda(Y, X, W)`, donde Y es la matriz de respuesta (composición de taxones), X es la matriz explicativa (factores ambientales) y W es la matriz opcional de covariables. 
+
+La sintaxis de fórmula esta dada como:
+
+`RDA = rda(Y ~ var1 + factor A + var2 * var3 + condition(var4), data = XW)`
+
+donde `Y` es la matriz de respuesta (composición de taxones); y las variables del lado derecho de la fórmula son las variables explicatorias o restringidas. El objeto `XW` es un dataframe con las variables explicatorias o covariables.
+
+La prueba de hipótesis no es el caso en PCA. Sin embargo, con dos conjuntos de datos $Y$ y $X$, en RDA podemos probar una hipótesis nula de ausencia de relación lineal entre entre ellos. Utilizamos el conjunto de datos de fumadores para ilustrar el uso de RDA. Primero, cargue los datos del paquete GUniFrac y utilice la función `select()` del paquete *dplyr* para crear un subconjunto de variables explicativas.
+
 ```{r}
 library("GUniFrac")
 data(throat.otu.tab)
@@ -1031,119 +1104,263 @@ data(throat.meta)
 library("dplyr")
 throat_meta <- select(throat.meta, SmokingStatus, Age, Sex, PackYears)
 ```
+
 A efectos de RDA, transformamos los datos de los taxones utilizando la transformación de Hellinger:
+
 ```{r}
 library("vegan")  # if you haven't use it up to now
 abund_hell <- decostand (throat.otu.tab, 'hell') 
 ```
-La RDA se calcula con la función rda() si se suministra la matriz de variables ambientales (si no, se calculará el ACP)
+
+La RDA se calcula con la función `rda()` si se suministra la matriz de variables ambientales (si no, se calculará el ACP)
+
 ```{r}
 rda_hell<- rda(abund_hell ~ ., throat_meta)
-summary (rda_hell)
+head(summary (rda_hell))
 ```
 Los cuatro ejes de ordenación restringidos (denominados RDA1 a RDA4) están relacionados con las 4 variables ambientales (SmokingStatus, Age, Sex, PackYears). Los ejes no restringidos se denominan ejes PC.
-Las varianzas totales se dividen en varianza restringida y varianza no restringida. La varianza restringida se explica por los ejes restringidos (es decir, las variables ambientales); mientras que la varianza no restringida se explica por los ejes no restringidos (es decir, la varianza no explicada por factores ambientales). La varianza restringida es la cantidad de varianza que la matriz Y es explicada por las variables explicativas. Es un equivalente a un R2 sesgado y no ajustado en la regresión múltiple. La tabla de partición de la varianza muestra que el 4,8% (0,04823) de la proporción de la varianza total es explicada por estos 4 factores ambientales.
+
+Las varianzas totales se dividen en varianza restringida y varianza no restringida. La varianza restringida se explica por los ejes restringidos (es decir, las variables ambientales); mientras que la varianza no restringida se explica por los ejes no restringidos (es decir, la varianza no explicada por factores ambientales). La varianza restringida es la cantidad de varianza que la matriz $Y$ es explicada por las variables explicativas. Es un equivalente a un R2 sesgado y no ajustado en la regresión múltiple. La tabla de partición de la varianza muestra que el `r 100*round(rda_hell$CCA$tot.chi,3)`% (`r rda_hell$CCA$tot.chi`) de la proporción de la varianza total es explicada por estos 4 factores ambientales.
+
 La función `coef()` recupera los coeficientes canónicos (el equivalente a coeficientes de regresión) para cada variable explicativa en cada eje canónico.
+
 ```{r}
 coef(rda_hell)
 ```
-Podemos utilizar la función `RsquareAdj()` para extraer el valor de R2 y el ajustado R2 de los resultados de la ordenación
+Podemos utilizar la función `RsquareAdj()` para extraer el valor de $R^2$ y el ajustado $R^2$ de los resultados de la ordenación.
+
 ```{r}
 RsquareAdj(rda_hell)
 ```
-La función devuelve dos R<sup>2</sup>: uno es el R<sup>2</sup> ordinario (r.al cuadrado), otro es el R<sup>2</sup> ajustado versión R<sup>2</sup> adj (r.al cuadrado). Tenga en cuenta que R<sup>2</sup> adj es siempre menor que R<sup>2</sup>, y la diferencia aumenta con el aumento del número de variables explicativas. R<sup>2</sup> adj puede ser negativo, lo que significa que las variables explicativas explican menos variación que el mismo número de variables generadas al azar.
-Aplique el criterio de Kaiser-Guttman a los ejes residuales.
+La función devuelve dos $R^2$: uno es el $R^2$ ordinario (r.al cuadrado), otro es el $R^2_{adj}$ ajustado. Tenga en cuenta que $R^2_{adj}$ es siempre menor que el $R^2$, y la diferencia aumenta con el aumento del número de variables explicativas. El $R^2_{adj}$ puede ser negativo, lo que significa que las variables explicativas explican menos variación que el mismo número de variables generadas al azar.
+
+Aplicamos el criterio de Kaiser-Guttman a los ejes residuales.
+
 ```{r}
 rda_hell$CA$eig[rda_hell$CA$eig > mean(rda_hell$CA$eig)]
 ```
-A continuación, trazamos los resultados de la RDA. En función de la ordenación que le interese, puede elegir trazar el escalado tipo 1 o el escalado tipo 2. Si está interesado principalmente en la *ordenación de las muestras*, el *escalamiento 1 es la opción más adecuada*. Si está *interesado principalmente en la ordenación de los taxones, entonces, el escalamiento 2 es su opción más apropiada*.
-El *escalamiento de tipo 1 hace hincapié en las relaciones entre las muestras*. Las características esenciales (Borcard et al. 2011; Legendre y Legendre 2012) son que *las muestras actúan como los centroides de las variables de respuesta (columnas) y las distancias entre los puntos de las muestras indican sus distancias v2*. La interpretación se basa en que: *(1) los puntos de muestra que están cerca unos de otros probablemente sean relativamente similares en cuanto a sus frecuencias relativas*; *(2) las muestras cercanas a los centroides que representan estados de variables categóricas o cualitativas tienen más probabilidades de poseer el estado para esa especie/taxón*; y *(3) una proyección en ángulo recto de un punto de muestra sobre un vector que representa una variable cuantitativa cuantitativa se aproxima al valor de la variable realizada para esa muestra*.
-El *escalamiento de tipo 2 hace hincapié en las relaciones entre las variables de respuesta*. Las características esenciales son que las variables de respuesta (columnas) actúan como los centroides de las muestras y las distancias entre los puntos de las variables de respuesta indican sus distancias v2. 
-La interpretación se basa en que: *(1) los puntos de especies/taxones que están cerca unos de otros entre sí es probable que tengan frecuencias relativas similares a lo largo de las muestras;* *(2) cuanto más cerca una variable de respuesta (una especie/taxón) al centroide que representa un estado de una categórica, es más probable que esa variable de respuesta tenga valores más altos en ese estado. valores más altos en ese estado;* y *(3) una proyección en ángulo recto de un punto que representa una respuesta (una especie/taxón) sobre una flecha que representa una variable explicativa explicativa indica la posición del valor máximo (el óptimo) de la variable de respuesta respuesta a lo largo de esa variable explicativa*.
+A continuación, trazamos los resultados de la RDA. En función de la ordenación que le interese, puede elegir trazar el escalado tipo 1 o el escalado tipo 2. Para la *ordenación de las muestras*, el escalamiento 1 es la opción más adecuada. Para la *ordenación de los taxones*, entonces, el escalamiento 2 es el más apropiado.
+
+El *escalamiento de tipo 1* hace hincapié en las relaciones entre las muestras. Las características esenciales (Borcard et al. 2011; Legendre y Legendre 2012) son que las muestras actúan como los centroides de las variables de respuesta (columnas) y las distancias entre los puntos de las muestras indican sus distancias $\chi^2$. La interpretación se basa en que: 
+
+  1) Los puntos de muestra que están cerca unos de otros probablemente sean relativamente similares en cuanto a sus frecuencias relativas.
+  2) Las muestras cercanas a los centroides que representan estados de variables categóricas o cualitativas tienen más probabilidades de poseer el estado para esa especie/taxón.
+  3) Una proyección en ángulo recto de un punto de muestra sobre un vector que representa una variable cuantitativa cuantitativa se aproxima al valor de la variable realizada para esa muestra.
+  
+El *escalamiento de tipo 2* hace hincapié en las relaciones entre las variables de respuesta. Las características esenciales son que las variables de respuesta (columnas) actúan como los centroides de las muestras y las distancias entre los puntos de las variables de respuesta indican sus distancias $\chi^2$. La interpretación se basa en que:
+  
+  1) Los puntos de especies/taxones que están cerca unos de otros entre sí es probable que tengan frecuencias relativas similares a lo largo de las muestras.
+  2) Cuanto más cerca una variable de respuesta (una especie/taxón) al centroide que representa un estado de una categórica, es más probable que esa variable de respuesta tenga valores más altos en ese estado. 
+  3) Una proyección en ángulo recto de un punto que representa una respuesta (una especie/taxón) sobre una flecha que representa una variable explicativa indica la posición del valor máximo (el óptimo) de la variable de respuesta a lo largo de esa variable explicativa.
+  
 En la ordenación restringida, se dispone de una fuente de datos adicional para el trazado: *las variables explicativas (ambientales)*. Así, se dispone de tres datos diferentes para muestras, variables de respuesta y variables explicativas. Si se muestran todos los datos de las tres fuentes, se tiene un **"triplot"**. Si muestra los datos de dos fuentes, tiene **biplot**. Los siguientes códigos de R generan un triplot de escala de tipo 2: 
-```{r}
+
+```{r triplot_RDA, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Triplot RDA con escalado tipo 2'}
 plot(rda_hell, display=c("sp", "lc", "cn"),main="Triplot RDA - scaling 2")
 taxa_scores <- scores(rda_hell, choices=c(1,2), display="sp")
 arrows(0, 0, taxa_scores[,1], taxa_scores[,2], length=0, lty=1, col="red")
 ```
-En los códigos anteriores, "sp" representa las especies (pantalla = "sp"), y "cn" las restricciones o las variables explicativas (pantalla = "cn"). Hay dos puntuaciones muestrales en el paquete `vegan`: sumas ponderadas de especies/taxa (display = "wa"), y puntuaciones muestrales ajustadas o "LC scores" (display = "lc"), es decir, combinaciones lineales de variables explicativas. Puede elegir una de ellas para mostrarla en un gráfico.
-Los siguientes códigos de R se utilizan para añadir flechas para mostrar especies/taxa. El argumento argumento de la función `scores()` "choices=c(1,2)" es los ejes a trazar. Los valores por defecto trazan los ejes 1 y 2. Por lo tanto, podemos omitir los códigos "choices=c(1,2)".
-En el anterior triplot RDA-escala 2, los triángulos huecos verdes representan muestras, las cruces azules representan los estados de una variable explicativa categórica (por ejemplo, hombre, mujer o fumador, no fumador), y las flechas azules para las variables explicativas cuantitativas (en este caso, PackYears y Edad) con puntas de flecha que indican su dirección de aumento, y las especies/taxas se muestran en rojo.
-Para comprobar la importancia de la variación de los datos de la comunidad de fumadores explicada por las variables explicativas, podemos realizar una prueba de permutación de Monte Carlo mediante la función función `anova.cca()` del paquete `vegan`. Esta función puede probar la significación de el modelo global (por defecto), todos los ejes (by = "axis"), las variables explicativas individuales (by = "terms"), el primer eje restringido (first = TRUE), o la variación explicada por variables explicativas individuales después de eliminar la variación de todas las demás variables en el modelo (by = "margin"). Ilustramos su capacidad probando el modelo global, cada eje y cada variable explicativa, respectivamente.
-Para asegurarse de obtener el mismo resultado de la prueba de permutación cada vez que se ejecute, establezca la misma semilla. Los siguientes códigos R prueban la significación del modelo global. El argumento "paso" especifica el número mínimo de permutaciones.
+En los códigos anteriores, "sp" representa las especies (`display = "sp"`), y "cn" las restricciones o las variables explicativas (`display = "cn"`). Hay dos puntuaciones muestrales en el paquete `vegan`: sumas ponderadas de especies/taxa (`display = "wa"`), y puntuaciones muestrales ajustadas o "LC scores" (`display = "lc"`), es decir, combinaciones lineales de variables explicativas. Se puede elegir una de ellas para mostrarla en un gráfico. La segunda línea de código de R se utilizan para añadir flechas para mostrar especies/taxa. El argumento de la función `scores()` `"choices=c(1,2)"` es los ejes a trazar. Los valores por defecto trazan los ejes 1 y 2. Por lo tanto, podemos omitir la opción `"choices=c(1,2)"`. 
+En el gráfico \ref{fig:triplot_RDA}, los triángulos huecos verdes representan muestras, las cruces azules representan los estados de una variable explicativa categórica (por ejemplo, hombre, mujer o fumador, no fumador), y las flechas azules para las variables explicativas cuantitativas (en este caso, PackYears y Edad) con puntas de flecha que indican su dirección de aumento, y las especies/taxas se muestran en rojo.
+
+Para comprobar la importancia de la variación de los datos de la comunidad de fumadores explicada por las variables explicativas, podemos realizar una prueba de permutación de Monte Carlo mediante la función función `anova.cca()` del paquete `vegan`. Esta función puede probar la significancia  del modelo global (por defecto), todos los ejes (`by = "axis"`), las variables explicativas individuales (`by = "terms"`), el primer eje restringido (`first = TRUE`), o la variación explicada por variables explicativas individuales después de eliminar la variación de todas las demás variables en el modelo (`by = "margin"`). Ilustramos su capacidad probando el modelo global, cada eje y cada variable explicativa, respectivamente.
+
+Para asegurarnos de obtener el mismo resultado de la prueba de permutación cada vez que se ejecute, establecemos primero la misma semilla. Los siguientes códigos R prueban la significación del modelo global. El argumento "paso" especifica el número mínimo de permutaciones.
+
+```{r, include=TRUE}
+set.seed (123)
+anova(rda_hell, step=1000) %>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA global")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
+```
+
+Podemos observar que el test global es estadísticamente significante. Ahora, vamos a ver el test en cada eje.
+
 ```{r}
 set.seed (123)
-anova(rda_hell, step=1000)
-anova(rda_hell, by="axis", step=1000)
-anova(rda_hell, by="terms", step=1000)
+anova(rda_hell, by="axis", step=1000)%>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test para todos los ejes")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
 ```
+
+Podemos observar que el primer y segundo eje son significantes. El siguiente código es el test de significancia para cada variable explicativa.
+
+```{r}
+set.seed (123)
+anova(rda_hell, by="terms", step=1000)%>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test para variables explicativas")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
+```
+
+Aquí podemos observar que tanto `SmokingStatus` como `Sex` son significativas.
+
 Por último, utilizamos la selección directa para reducir el número de variables explicativas que entran en el análisis, mientras se optimiza la variación explicada por ellas. 
-Actualmente, hay tres funciones disponibles en RDA para la selección hacia adelante: `ordistep()`, `ordiR2step()`, y `forward.sel()`.Las dos primeras funciones son del paquete `vegan`. La tercera, está disponible en el paquete "adespatial". Estas funciones utilizan diferentes criterios para la selección de variables. La función `ordistep()` utiliza el criterio AIC y los valores p de la prueba de permutación de Monte Carlo para la comparación de variables.La función `ordiR2step()` utiliza R2 la función `forward.sel()` utiliza el nivel de significación preseleccionado de de a como criterio de selección de variables. Aunque la función `forward.sel()` tiene una lógica diferente para establecer los argumentos comparada con las otras dos funciones, básicamente los resultados devueltos son los mismos que `ordiR2step()`. Por lo tanto, sólo ilustramos las dos primeras funciones. El procedimiento `ordistep()` es aplicable con las funciones `rda()`, `cca()` o `cmdscale()`. El procedimiento `ordiR2step()` sólo puede aplicarse a `rda()` y `capscale()`, pero no para `cca()` porque `cca()` no devuelve R2 adj.
+
+Actualmente, hay tres funciones disponibles en RDA para la selección hacia adelante: `ordistep()`, `ordiR2step()`, y `forward.sel()`.Las dos primeras funciones son del paquete `vegan`. La tercera, está disponible en el paquete `adespatial`. Estas funciones utilizan diferentes criterios para la selección de variables. La función `ordistep()` utiliza el criterio AIC y los $p-$valores de la prueba de permutación de Monte Carlo para la comparación de variables. La función `ordiR2step()` utiliza $R_{adj}^2$. La función `forward.sel()` utiliza el nivel de significación preseleccionado de $\alpha$ como criterio de selección de variables. 
+
+Aunque la función `forward.sel()` tiene una lógica diferente para establecer los argumentos comparada con las otras dos funciones, básicamente los resultados devueltos son los mismos que `ordiR2step()`. Por lo tanto, sólo ilustramos las dos primeras funciones. El procedimiento `ordistep()` es aplicable con las funciones `rda()`, `cca()` o `cmdscale()`. El procedimiento `ordiR2step()` sólo puede aplicarse a `rda()` y `capscale()`, pero no para `cca()` porque `cca()` no devuelve $R_{adj}^{2}$.
+
 Los siguientes códigos de R utilizan la función `ordistep()` para ejecutar la selección hacia adelante. También se dispone de opciones para la selección por pasos y hacia atrás. Esta función permite el uso de factores.
+
 ```{r}
 step_forward <- ordistep(rda(abund_hell ~ 1, data=throat_meta), 
                          scope=formula(rda_hell), direction="forward", pstep=1000)
 ```
-Este procedimiento elige las variables SmokingStatus y Sex. La siguiente selección selección utiliza la función `ordiR2step()`. La configuración por defecto de este procedimiento para incluir una nueva variable se basa en R adj y su comparación con la del modelo global (con todas las variables). La selección se detendrá si la nueva variable no es significativa o el R<sup>2</sup>adj del modelo que incluye esta nueva variable superaría el R2 adj del modelo global.
+
+Este procedimiento elige las variables `SmokingStatus` y `Sex`. La siguiente selección utiliza la función `ordiR2step()`. La configuración por defecto de este procedimiento para incluir una nueva variable se basa en $R^2_{adj}$ y su comparación con la del modelo global (con todas las variables). La selección se detendrá si la nueva variable no es significativa o el $R_{adj}^2$ del modelo que incluye esta nueva variable superaría el $R_{adj}^{2}$ del modelo global.
+
 ```{r}
 step_forward <- ordiR2step(rda(abund_hell ~ 1, data=throat_meta), 
                            scope=formula(rda_hell), direction="forward", pstep=1000)
 ```
+
 La variable estado de fumador se selecciona mediante la selección de avance utilizando la función `ordiR2step()`.
 Después de ejecutar el procedimiento de selección hacia adelante, ajustamos el modelo final parsimonioso de RDA y probamos con el modelo global, cada eje y cada variable:
+
 ```{r}
 rda_final<- rda(abund_hell ~ SmokingStatus + Sex, data=throat_meta)
-anova(rda_final, step=1000)
-anova(rda_final, by="axis", step=1000)
-anova(rda_final, by="terms", step=1000)
+```
+
+```{r}
+anova(rda_final, step=1000)%>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test global")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
+```
+
+
+```{r}
+anova(rda_final, by="axis", step=1000)%>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test para ejes")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
+```
+
+
+```{r}
+anova(rda_final, by="terms", step=1000)%>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test para variables explicativas")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
 ```
 
 ### Análisis de correspondencia restringido (CCA)
+
 El CCA también se conoce como análisis de correspondencia canónica. Desde su introducción en 1986, ha sido uno de los métodos de ordenación más populares en ecología de comunidades y aceptado por los investigadores del microbioma (ter Braak 1986). Al igual que el **RDA se relaciona con el PCA, el CAP se relaciona con el PCoA, y el CCA se relaciona con el CA**. CCA comparte las propiedades básicas de CA y las combina en una ordenación restringida. CCA se realiza mediante la función `cca()`. Su algoritmo se basa en el de Legendre y Legendre (1998): preserva la distancia $\chi^{2}$ entre muestras, y los taxones se representan como puntos en los tripplots (Borcard et al. 2011). La distancia $\chi^{2}$ calculada se somete a una regresión lineal ponderada sobre las variables de restricción, y los valores ajustados se pasan al análisis de correspondencia realizado mediante la descomposición de valores singulares (svd). Por lo tanto, es una forma ponderada de RDA.
+
 Al igual que RDA, hay dos tipos de sintaxis de CCA. Una es la sintaxis matricial simple (por defecto)
+
 \[ cca(X,Y,Z) \]
-donde $X$ = matriz de datos de la comunidad o marco de datos, se debe dar; $Y$ = matriz o marco de datos de restricción, normalmente de variables ambientales (puede omitirse).; si la matriz $Y$ se suministra, se utiliza para llevar a cabo el CCA, si no se suministra, se calcula el AC. $Z$ = matriz condicionante o marco de datos (también puede omitirse). Si se suministra la matriz $Z$, el efecto se partirá de la matriz de la comunidad de la comunidad.
+
+donde $X$ = matriz de datos de la comunidad o marco de datos, se debe dar; $Y$ = matriz o marco de datos de restricción, normalmente de variables ambientales (puede omitirse); si la matriz $Y$ se suministra, se utiliza para llevar a cabo el CCA, si no se suministra, se calcula el AC. $Z$ = matriz condicionante o marco de datos (también puede omitirse). Si se suministra la matriz $Z$, el efecto se partirá de la matriz de la comunidad de la comunidad.
+
 Otra es la sintaxis de la fórmula:
+
 \[ cca(formula, data, na.action = na.fail, subset = NULL) \]
-donde, la fórmula es la fórmula típica del modelo: el lado izquierdo de la fórmula debe ser la matriz de datos de la comunidad ($X$); el lado derecho define el modelo de restricción: las variables de restricción pueden contener factores ordenados o desordenados, interacciones entre las variables y funciones de las variables; y las variables condicionantes pueden estar dadas dentro de una condición de función especial para las variables condicionantes (covariables) parcializadas antes del análisis. Así, los siguientes comandos son equivalentes: $cca(X, Y, Z)$, $cca(X ~ Y + condition(Z))$, donde $Y$ y $Z$ se refieren a las restricciones y las condiciones respectivamente. Los datos son un marco de datos que contiene las variables del lado derecho de la fórmula del modelo. La función `na.action()` se utiliza para tratar los valores perdidos en las restricciones o condiciones. El valor por defecto (na.fail) es dejar de tener valores perdidos; `na.omit` es eliminar todas las filas con valores perdidos; `na.exclude` es mantener todas las observaciones pero dar NA para los resultados que no se pueden calcular. Sin embargo, los valores perdidos nunca se permiten en los datos de las comunidades dependientes. El subconjunto se utiliza para subconjuntos de filas de datos. En esta sección, utilizaremos los datos de los fumadores para realizar el CCA mediante la función `cca()` del paquete `vegan`. Hemos mencionado anteriormente que para realizar el CCA, la matriz de variables ambientales debe ser suministrada, y de lo contrario la función `cca()` calcula CA. Como recordamos, los datos de los fumadores tienen dos conjuntos de datos: throat.otu.tab(marco de datos de abundancia de la comunidad) y throat.meta (metadatos que incluyen dos variables binarias SmokingStatus y Sex, y dos variables continuas Age y PackYears). Para ejecutar un CCA, cargue ahora el paquete `vegan` y no transforme los datos de abundancia de la comunidad por el método Hellinger como hicimos en RDA. De lo contrario, la distancia $\chi^{2}$ no puede ser calculada y los resultados no pueden ser interpretados.
-En el siguiente CCA, los datos de abundancia de fumadores están restringidos por cuatro variables ambientales ambientales en los datos de throat.meta, incluyendo SmokingStatus, Age, Sex, y PackYears.
+
+donde, la fórmula es la fórmula típica del modelo: el lado izquierdo de la fórmula debe ser la matriz de datos de la comunidad ($X$); el lado derecho define el modelo de restricción: las variables de restricción pueden contener factores ordenados o desordenados, interacciones entre las variables y funciones de las variables; y las variables condicionantes pueden estar dadas dentro de una condición de función especial para las variables condicionantes (covariables) parcializadas antes del análisis. Así, los siguientes comandos son equivalentes: $cca(X, Y, Z)$, $cca(X ~ Y + condition(Z))$, donde $Y$ y $Z$ se refieren a las restricciones y las condiciones respectivamente. Los datos son un marco de datos que contiene las variables del lado derecho de la fórmula del modelo. La función `na.action()` se utiliza para tratar los valores perdidos en las restricciones o condiciones. El valor por defecto (na.fail) es dejar de tener valores perdidos; `na.omit` es eliminar todas las filas con valores perdidos; `na.exclude` es mantener todas las observaciones pero dar `NA` para los resultados que no se pueden calcular. Sin embargo, los valores perdidos nunca se permiten en los datos de las comunidades dependientes. El subconjunto se utiliza para subconjuntos de filas de datos. En esta sección, utilizaremos los datos de los fumadores para realizar el CCA mediante la función `cca()` del paquete `vegan`. Hemos mencionado anteriormente que para realizar el CCA, la matriz de variables ambientales debe ser suministrada, y de lo contrario la función `cca()` calcula CA. Como recordamos, los datos de los fumadores tienen dos conjuntos de datos: `throat.otu.tab` (marco de datos de abundancia de la comunidad) y `throat.meta` (metadatos que incluyen dos variables binarias `SmokingStatus` y `Sex`, y dos variables continuas `Age` y `PackYears`). Para ejecutar un CCA, cargamos el paquete `vegan` y no transformamos los datos de abundancia de la comunidad por el método Hellinger como hicimos en RDA. De lo contrario, la distancia $\chi^{2}$ no puede ser calculada y los resultados no pueden ser interpretados.
+
+En el siguiente CCA, los datos de abundancia de fumadores están restringidos por cuatro variables ambientales ambientales en los datos de `throat.meta`, incluyendo `SmokingStatus`, `Age`, `Sex`, y `PackYears`.
+
 ```{r}
 smoker_cca <- cca(throat.otu.tab ~ ., throat_meta)
 smoker_cca
 ```
 
-La primera sección después de la "Call:" da los "coeficientes de contingencia media al cuadrado" del análisis. En el CCA desempeñan el mismo papel que la varianza total en la RDA. Como la matriz de comunidad se convierte en distancia $\chi^{2}$, las entradas son coeficientes de contingencia. La variación total antes de someter la matriz a regresión ponderada es de 4,9330; ésta es la variación que podría explicarse. La variación en la matriz de la comunidad que se explica después de la regresión ponderada es 0,3782; esta es la variación que será explicada por los ejes en el CCA. La varianza de los residuos de la regresión es de 4,5548; se trata de la variación que no será explicada por los ejes en el CCA, que puede ser sometida a CA. 
-Aquí, observamos que el CCA no tiene mucho éxito porque sólo 0,3782/4,9330 o 0,0767 (véase la columna Proporción y la fila Restringida) de la variación total de datos fue capturada en el CCA por las cuatro variables. La varianza explicada por ejes particulares puede encontrarse mediante la función `summary()`:
+La primera sección después de la "Call:" da los *coeficientes de contingencia media al cuadrado* del análisis. En el CCA desempeñan el mismo papel que la varianza total en la RDA. Como la matriz de comunidad se convierte en distancia $\chi^{2}$, las entradas son coeficientes de contingencia. La variación total antes de someter la matriz a regresión ponderada es de `r smoker_cca$tot.chi`; ésta es la variación que podría explicarse. La variación en la matriz de la comunidad que se explica después de la regresión ponderada es `r smoker_cca$CCA$tot.chi`; esta es la variación que será explicada por los ejes en el CCA. La varianza de los residuos de la regresión es de `r smoker_cca$CA$tot.chi`; se trata de la variación que no será explicada por los ejes en el CCA, que puede ser sometida a CA. 
+
+Aquí, observamos que el CCA no tiene mucho éxito porque sólo `r smoker_cca$CCA$tot.chi/smoker_cca$tot.chi` o $0.0767$ (véase la columna Proporción y la fila Restringida) de la variación total de datos fue capturada en el CCA por las cuatro variables. La varianza explicada por ejes particulares puede encontrarse mediante la función `summary()`:
+
 ```{r}
-summary(smoker_cca)
+head(summary(smoker_cca))
 ```
 
 La varianza explicada por los cuatro primeros ejes restringidos (CCA1, CCA2, CCA3, CCA4): 3,07, 1,85 1,58 y 1,16%, respectivamente. La varianza explicada por el primer eje no restringido (CCA1) es del 9,26%. La sección de "Valores propios restringidos acumulados" proporciona los valores propios asociados a la proyección. Como tenemos cuatro variables en nuestro marco de datos ambiental, hay cuatro valores propios limitados. Como se muestra aquí, el primer eje representa aproximadamente el 40% de la variación restringida, con el segundo eje el segundo eje con un 24%, el tercero con un 21% y el cuarto con un 15%.
-A continuación, trazamos los resultados del CCA para el escalado de tipo 1 utilizando la función `plot()`. En el gráfico, queremos mostrar las restricciones lineales o "puntuaciones LC" (display = "lc") y los centroides de los niveles de las variables factoriales (display = "cn").
-```{r}
+
+A continuación, trazamos los resultados del CCA para el escalado de tipo 1 utilizando la función `plot()`. En el gráfico, queremos mostrar las restricciones lineales o "puntuaciones LC" (`display = "lc"`) y los centroides de los niveles de las variables factoriales (`display = "cn"`).
+
+```{r include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'CCA biplot de la abundancia de la base smoker.throat restringido por las variables SmokingStatus, Age, Sex, PackYear con escalado tipo 1'}
 plot(smoker_cca, scaling=1, display = c("lc","cn"), main="Biplot CCA - scaling 1") 
 ```
+
 La escala de tipo 1 muestra cuatro grupos de muestras, con el grupo de fumadores vinculado a PackYears. En este análisis, el primer eje se asocia con el aumento de PackYears mientras que el segundo está asociado con la disminución de la Edad. 
-Al igual que en RDA, realicemos una prueba de permutación para el modelo global, cada eje y cada variable explicativa. Para asegurarse de obtener el mismo resultado de la prueba de permutación cada vez que se ejecute, establezca la misma semilla.
+
+Al igual que en RDA, realizamos una prueba de permutación para el modelo global, cada eje y cada variable explicativa. Para asegurarse de obtener el mismo resultado de la prueba de permutación cada vez que se ejecute, establezca la misma semilla.
+
 ```{r}
 set.seed (123)
-anova(smoker_cca, step=1000)  # El resultado no es estadísticamente significativo
-# Entonces una prueba de significancia por cada eje
-anova (smoker_cca, by = 'axis',step=1000) # El primer eje es significante
-# Ahora probamos la signifiancia de cada variable explicativa
-anova (smoker_cca, by = 'terms')
-# Vemos que SmokingStatus es significativo con un p-value de 0.009
+anova(smoker_cca, step=1000) %>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test global: El resultado no es estadísticamente significativo")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
 ```
+
+Como el resultado anterior no es estadísticamente significativo, entonces realizamos una prueba de significancia por cada eje.
+```{r}
+set.seed (123)
+anova (smoker_cca, by = 'axis',step=1000) %>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test por ejes: El primer eje es significativo")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
+```
+
+Ahora probamos la signifiancia de cada variable explicativa.
+
+```{r}
+set.seed(123)
+anova (smoker_cca, by = 'terms')%>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test por variables explicativass: SmokingStatus 
+    es significativo con un p-value de 0.009")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
+```
+
 Por último, vamos a hacer una selección hacia delante utilizando la función `ordistep()` del paquete `vegan`. Como dijimos en RDA, la función `ordistep()` es aplicable con las funciones `rda()`, `cca()` o `cmdscale()`.
 La comparación de variables se basa en el criterio AIC y en los valores p de la prueba de permutación de Monte Carlo.
+
 ```{r}
 ordistep(cca(throat.otu.tab ~ 1, data=throat_meta), scope=formula(smoker_cca), 
          direction="forward", pstep=1000)
 smoker_cca_final <- cca(throat.otu.tab ~ SmokingStatus, data=throat_meta)
-anova.cca(smoker_cca_final, step=1000)
-anova.cca(smoker_cca_final, step=1000, by="terms")
+anova.cca(smoker_cca_final, step=1000)%>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test global")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
+
+
+anova.cca(smoker_cca_final, step=1000, by="terms") %>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test por variables explicativass")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
 ```
-La condición de fumador alcanza el mismo nivel de significación con un valor p de 0,007. Sin embargo, el modelo de parsimonia ha dado sus frutos con un residuo mayor.
+
+La condición de fumador alcanza el mismo nivel de significación con un $p-$valorde $0,007$. Sin embargo, el modelo de parsimonia ha dado sus frutos con un residuo mayor.
+
 
 ### Análisis restringido de coordenadas principales (CAP)
 CAP (también llamado análisis restringido de proximidades en el paquete `vegan`), es un método de ordenación similar a RDA. Es simplemente un *análisis de redundancia de los resultados del análisis de coordenadas principales (o escalamiento multidimensional métrico)* (Anderson y Willis 2003). CAP permite índices de disimilitud no euclidianos, como la distancia Manhattan o Bray-Curtis. Si se especifica la distancia euclidiana como método de ordenación, los resultados serán idénticos a los de RDA.
