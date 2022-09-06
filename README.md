@@ -62,3 +62,6 @@ Una de las ventajas de usar esta herramienta es la posibilidad de tener control 
   
   14. Para concluir, cerramos el proyecto desde `File -> Close Project` antes de cerrar RStudio para evitar errores al cargar la interfaz en una próxima ocasión.
   15. Cuando reabra el proyecto una próxima vez, repita a partir del paso 4 para asegurar el mejor desempeño.
+
+---
+Tutorial realizado por @asg100 y @HaydeePeruyero
