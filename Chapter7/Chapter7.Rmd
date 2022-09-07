@@ -58,7 +58,6 @@ output:
   pdf_document:
     toc_depth: 2
     number_sections: true
-    df_print: kable
     highlight: tango
     fig_caption: true
 ---
@@ -68,6 +67,7 @@ output:
 \newcommand{\cvi}{\color{violet}}
 
 
+<!-- Agregar o quitar en output según salida de tablas: df_print: kable -->
 <!-- El siguiente código sirve para poner el logo del encabezado. -->
 <!-- \pagestyle{fancy} -->
 <!-- \fancyhf{} -->
@@ -97,7 +97,6 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval.after = "fig.cap")
 # library(library_name)
 #library(knitr)
 #library(readr)
-library(kableExtra)
 #library(plyr)
 #library(dplyr)
 # tydiverse incluye ggplot2, readr, dplyr, etc 
@@ -121,11 +120,12 @@ library("kableExtra")
 \title{ {\sc Escuela Nacional de Estudios Superiores Unidad León}\\
 \vspace{1cm}{\sc Centro de Ciencias Matemáticas }\\ 
 \vspace{1cm}{\sc UGA-LANGEBIO CINVESTAV}\\
-   \vspace{1.5cm} {Análisis exploratorio de datos de microbiomas} \\
-       \vspace{1.5cm} {Capítulo 7}\\[2cm]
+  \vspace{1cm} {Análisis estadístico de datos de Microbioma con R}\\
+   \vspace{1.5cm} {Capítulo 7: Análisis exploratorio de datos de microbiomas} \\[2cm]
+       \vspace{1.5cm} {Equipo 4}\\
        }
   
-\date{\vspace{5.5cm} Morelia\\
+\date{\vspace{1.5cm} Morelia\\
       \vspace{1cm} Septiembre de 2022}
 
  \maketitle
@@ -1653,10 +1653,15 @@ La condición de fumador alcanza el mismo nivel de significación con un $p-$val
 ### Análisis restringido de coordenadas principales (CAP)
 
 CAP (también llamado análisis restringido de proximidades en el paquete `vegan`), es un método de ordenación similar a RDA. Es simplemente un *análisis de redundancia de los resultados del análisis de coordenadas principales (o escalamiento multidimensional métrico)* (Anderson y Willis 2003). CAP permite índices de disimilitud no euclidianos, como la distancia Manhattan o Bray-Curtis. Si se especifica la distancia euclidiana como método de ordenación, los resultados serán idénticos a los de RDA.
-La función `capscale()` del paquete `vegan` se utiliza para implementar CAP. Necesita una matriz de disimilitud como conjunto de datos de entrada, que puede calcularse mediante las funciones `vegdist()`, `dist()`, o cualquier otro método que produzca matrices de similitud. Se necesitan dos pasos necesarios: primero, utiliza la función `cmdscale()` para ordenar la matriz de disimilitud, luego utiliza RDA para analizar estos resultados. A diferencia de RDA, en el que se pueden utilizar tanto la matriz como la la función `capscale()` sólo se puede llamar con la sintaxis de la fórmula. A continuación se muestra un uso de la función `capscale()`.
-\[ capscale(formula, data, distance = "bray", dfun = vegdist) \]
-donde, formula es una fórmula típica del modelo como se define en `rda()` y `cca()`. El lado izquierdo de la fórmula debe ser una matriz de datos de la comunidad (marco) o una matriz de disimilitud que puede estimarse con la función `vegdist()` o `dist()`. Si el lado izquierdo de la fórmula es una matriz de datos (marco) en lugar de una matriz de disimilitud, entonces se estimará una índice de disimilitud (o distancia) debe proporcionarse como entrada de la distancia. El lado derecho de la fórmula define las restricciones. Las variables de restricción pueden ser variables continuas, factores, términos de interacción o una condición de término especial utilizada como que definen las variables que se van a particionar. Los datos son un marco de datos que contiene las variables del lado derecho de la fórmula del modelo. La *dfun* es la función de distancia o función de disimilitud utilizada.
-El CAP básico se puede realizar con los siguientes códigos. Las variables de restricción incluyen dos variables binarias (SmokingStatus y Sex), y dos variables continuas (PackYears y Edad). La condición de término especial (Edad) se utiliza para particionar el efecto de la edad.
+
+La función `capscale()` del paquete `vegan` se utiliza para implementar CAP. Necesita una matriz de disimilitud como conjunto de datos de entrada, que puede calcularse mediante las funciones `vegdist()`, `dist()`, o cualquier otro método que produzca matrices de similitud. Se necesitan dos pasos necesarios: primero, utilizar la función `cmdscale()` para ordenar la matriz de disimilitud, luego utilizar RDA para analizar estos resultados. A diferencia de RDA, en el que se pueden utilizar tanto la matriz como la la función `capscale()` sólo se puede llamar con la sintaxis de la fórmula. A continuación se muestra un uso de la función `capscale()`.
+
+`capscale(formula, data, distance = "bray", dfun = vegdist)`
+
+donde, formula es una fórmula típica del modelo como se define en `rda()` y `cca()`. El lado izquierdo de la fórmula debe ser una matriz de datos de la comunidad (marco) o una matriz de disimilitud que puede estimarse con la función `vegdist()` o `dist()`. Si el lado izquierdo de la fórmula es una matriz de datos (datframe) en lugar de una matriz de disimilitud, entonces se debe proporcionar un índice de disimilitud (o distancia). El lado derecho de la fórmula define las restricciones. Las variables de restricción pueden ser variables continuas, factores, términos de interacción o una condición de término especial utilizada para definir las variables que se van a particionar. Los datos son un data frame que contiene las variables del lado derecho de la fórmula del modelo. La función *dfun* es la función de distancia o función de disimilitud utilizada.
+
+El CAP básico se puede realizar con los siguientes códigos. Las variables de restricción incluyen dos variables binarias (`SmokingStatus` y `Sex`), y dos variables continuas (`PackYears` y `Age`). La condición de término especial (`Age`) se utiliza para particionar el efecto de la edad.
+
 ```{r}
 throat_meta <- select(throat.meta, SmokingStatus, Age, Sex, PackYears)
 throat_cap <- capscale(throat.otu.tab ~ SmokingStatus + Sex + PackYears + Condition(Age), throat_meta,
@@ -1664,22 +1669,34 @@ throat_cap <- capscale(throat.otu.tab ~ SmokingStatus + Sex + PackYears + Condit
 throat_cap
 ```
 
-Los tres primeros ejes se denominan "CAP1", "CAP2" y "CAP3", y a continuación por el MDS original. Podemos ver que las tres variables restringidas (SmokingStatus, Sexo y PackYears) explican el 8,83% de la variación total del conjunto de datos.
+Los tres primeros ejes se denominan "CAP1", "CAP2" y "CAP3", y el siguiente es el MDS original. Podemos ver que las tres variables restringidas (`SmokingStatus`, `Sex` y `PackYears`) explican el 8,83% de la variación total del conjunto de datos.
+
 ```{r}
-anova(throat_cap)
+set.seed(123)
+anova1 <- anova(throat_cap)
+p_valor1 <- anova1$`Pr(>F)`
+
+anova1 %>% kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
 ```
-El modelo es estadísticamente significativo con un valor p de 0.004.
-La función `plot()`, genera la siguiente figura, pero no es informativa
-```{r}
+
+El modelo es estadísticamente significativo con un $p-$valor de `r p_valor1`. La función `plot()`, genera la siguiente figura, pero no es informativa
+
+```{r include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Plot básico de CAP en los datos de fumadores.'}
 plot(throat_cap)
 ```
-Como estamos interesados en las diferentes disimilitudes entre los fumadores y los no fumadores, extraigamos aquí la información del grupo.
+Como estamos interesados en las diferentes disimilitudes entre los fumadores y los no fumadores, vamos a extraer la información del grupo.
+
 ```{r}
 groups <- throat.meta$SmokingStatus
 groups
 ```
 
 En el siguiente grupo de códigos R, la función `plot()` genera un diagrama de ordenación CAP vacío; la función `points()` añade puntos al diagrama de ordenación (función de trazado de bajo nivel) creado por la función plot. La función `ordispider()` crea spiderplot conectando los miembros individuales del grupo con el centroide del grupo. La función `ordiellipse()` rodea las nubes de puntos dentro del grupo mediante una elipse como las envolventes.
+
 ```{r}
 # Correr todo junto
 plot(throat_cap, type="n") 
@@ -1688,31 +1705,143 @@ points(throat_cap, col=as.numeric(as.factor(groups)),
 ordispider(throat_cap, groups, lty=2, col="grey", label=T) 
 ordiellipse(throat_cap, groups, lty=2, col="grey", label=F) 
 ```
+
 Al igual que en RDA y CCA, vamos a realizar una prueba de permutación para el modelo global global, cada eje y cada variable explicativa.
 Para asegurarse de obtener el mismo resultado de la prueba de permutación cada vez que se ejecute, establezca la misma semilla.
+
 ```{r}
 set.seed (123)
-anova(throat_cap, step=1000) # El resultado es estadísticamente significativo 
-# con un valor p de 0.003
-# Entonces probamos significancia con cada eje
-anova(throat_cap, by="axis", step=1000) # Hay significancia en el primer eje con 
-# un valor p de 0.001 y margialmente significativo en el segundo eje con un 
-# valor p de 0.073.
-# Ahora probamos con cada valiable explicativa
-anova(throat_cap, by="terms", step=1000)
+anova_global <- anova(throat_cap, step=1000) 
+pvalue_global <- anova_global$`Pr(>F)`
+
+anova_global %>% kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test global")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
 ```
-Podemos ver que tanto SmokingStatus como Sex son significativos con valores p = 0,003 y 0,035, respectivamente.
-Ahora, hagamos la selección hacia delante utilizando la función `ordistep()` del paquete `vegan`. Como dijimos en RDA y CCA, la función compara las variables basándose en el criterio AIC y los valores p de la prueba de permutación de Monte Carlo.
+
+Observamos que el resultado es estadísticamente significativocon un $p-$valor de `r pvalue_global`. Entonces probamos significancia con cada eje.
+
+```{r}
+set.seed (123)
+anova_ejes <- anova(throat_cap, by="axis", step=1000) 
+pvalue_CA1 <- anova_ejes$`Pr(>F)`[1]
+pvalue_CA2 <- anova_ejes$`Pr(>F)`[2]
+
+anova_ejes %>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test por ejes")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9)
+```
+
+Hay significancia en el primer eje con un $p-$valor de `r pvalue_CA1` y es margialmente significativo en el segundo eje con un $p-$valor de `r pvalue_CA2`. Ahora probamos con cada valiable explicativa.
+
+```{r}
+set.seed (123)
+anova_varibales <- anova(throat_cap, by="terms", step=1000)
+pvalue_SmockingStatus <- anova_varibales$`Pr(>F)`[1]
+pvalue_Sex <- anova_varibales$`Pr(>F)`[2]
+
+anova_varibales %>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test por variables explicativas")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9) 
+```
+
+Podemos ver que tanto `SmokingStatus` como `Sex` son significativos con $p-$valores de `r pvalue_SmockingStatus` y `r pvalue_Sex` respectivamente.
+
+Ahora, hagamos la selección hacia delante utilizando la función `ordistep()` del paquete `vegan`. Como dijimos en RDA y CCA, la función compara las variables basándose en el criterio AIC y los $p-$valores de la prueba de permutación de Monte Carlo.
+
 ```{r}
 step_forward <- ordistep(capscale(throat.otu.tab ~ 1, data=throat_meta), 
                          scope=formula(throat_cap), direction="forward", pstep=1000)
 # Seleccionamos la variable de Smoking status, el modelo final es ajustado como sigue
 cap_final<- capscale(throat.otu.tab ~ SmokingStatus, throat_meta, dist="bray")
-anova(cap_final, step=1000)
+set.seed(123)
+anova_M <- anova(cap_final, step=1000)
+p_valueM <- anova_M$`Pr(>F)`
+
+anova_M %>%
+  kbl(booktabs = TRUE, align = "c",
+    caption = "ANOVA test")%>%
+  kable_styling(position = "center",
+                latex_options = c("hold_position",  "striped"),
+                font_size = 9) 
+
 ```
-El estatus de fumador alcanza la significación con un valor p de 0,004, pero el modelo de parsimonia ha dado sus frutos con un residuo mayor.
+
+El estatus de fumador alcanza la significación con un $p-$valor de `r p_valueM`, pero el modelo de parsimonia ha dado sus frutos con un residuo mayor.
 
 # Resumen y discusión
+
 Utilizamos conjuntos de datos de ratones y humanos para ilustrar el análisis exploratorio de los datos del microbioma. En primer lugar, utilizamos el paquete `phyloseq` para ilustrar los cinco gráficos, incluyendo la riqueza, la barra de abundancia, el mapa de calor, la red y el árbol filogenético. A continuación, introdujimos varias familias de *métodos de agrupación* disponibles en los estudios de ecología y microbioma, y nos centramos en ilustrar cuatro métodos de agrupación (*aglomerativo de enlace único*, *aglomerativo de enlace completo*, *aglomerativo de tinta media* y *aglomerativo de varianza mínima de Ward*). También describimos brevemente
-la relación entre clustering, ordenación y medida de distancia. Por último, ilustramos las *ordenaciones* más comunes *sin restricciones* y *con restricciones*: **PCA**, **PCoA**, **NMDS**, **CA**, **RDA**, **CCA** y **CAP**. Las características de las *ordenaciones no restringidas se consideran "exploratorias"*. Sin embargo, las capacidades de las *ordenaciones restringidas van más allá del mero análisis exploratorio de datos, y se convierten también en pruebas de hipótesis*. Hemos introducido las diferentes características de las ordenaciones no restringidas y restringidas. 
+la relación entre clustering, ordenación y medida de distancia. Por último, ilustramos las *ordenaciones* más comunes *sin restricciones* y *con restricciones*: **PCA**, **PCoA**, **NMDS**, **CA**, **RDA**, **CCA** y **CAP**. Las características de las ordenaciones no restringidas se consideran "exploratorias". Sin embargo, las capacidades de las ordenaciones restringidas van más allá del mero análisis exploratorio de datos, y se convierten también en pruebas de hipótesis. Hemos introducido las diferentes características de las ordenaciones no restringidas y restringidas. 
+
 Ilustramos el análisis exploratorio y la prueba de hipótesis (en términos de ordenaciones restringidas) de los datos del microbioma mediante el uso del paquete para analizar los datos del censo del microbioma `phyloseq` y los paquetes que comúnmente se utilizan en ecología, como el paquete `vegan`. Las funciones de extensión, es decir `cleanplot.pca()` y `evplot()` son atractivas y dos criterios para evaluar el rendimiento de las ordenaciones (el criterio de *Kaiser-Guttman* y el modelo *broken-stick*) son útiles para evaluar los análisis de ordenación.
+
+---
+
+<!-- REFERENCIAS -->
+\addcontentsline{toc}{section}{Referencias}
+\begin{thebibliography}{99}
+   \bibitem{greenacre08}
+      Greenacre, Michael,
+      \emph{Correspondence Analysis and Related Methods: "Measures of distance and correlation between variables"},
+      Course of the Department of Statistics (Clave STA254),
+      Stanford University,
+      Fall 2008. Obtenido desde \url{http://www.econ.upf.edu/~michael/stanford/} el 23 de enero de 2021.
+      
+   \bibitem{kruskal64}
+      Kruskal, J.B.,
+      \emph{Multidimensional scaling by optimizing goodness of fit to a nonmetrical hypothesis},
+      Psychometrika,
+      \textbf{29} (1964),
+      1--27.
+   
+   \bibitem{luxburg04}
+   Luxburg, Ulrike von,
+   \emph{Statistical learning with similarity and dissimilarity functions},
+   Tesis doctoral,  Fakult\"at IV - Elektrotechnik und Informatik der Technischen Universität Berlin,
+   Berlin,
+   2004.
+   
+   \bibitem{mair16}
+      Mair, Patrick \emph{et al},
+      \emph{Goodness--of--fit assessment in multidimentional scaling and unfolding},
+      Multivariate Behavioural Research,
+      \textbf{51} 6 (2016),
+      772--789.
+
+  \bibitem{sneath73} 
+   Sneath, P. H., and Sokal, R. R.,
+   \emph{Numerical taxonomy. The principles and practice of numerical classification},
+   W. H. Freeman and Company,
+   ``A series of books in biology. Biology series'',
+   1973.
+  
+  \bibitem{tan14}
+  Tan, Pang--Ning \emph{et al},
+  \emph{Introduction to data mining},
+  Pearson,
+  USA,
+  2014.
+  
+  \bibitem{XiaR}
+  Yinglin Xia, Jun Sun, Ding-Geng Chen,
+  \emph{Statistical Analysis of Microbiome Data with R},
+  Springer,
+  2018.
+  
+  \bibitem{zhang20}
+      Zhang, Yiqun \emph{et al},
+      \emph{A unified entropy--based distance metric for ordinal and nominal attribute data clustering},
+      IEEE Transactions on Neural Networks and Learning Systems,
+      \textbf{31}, 1 (2020),
+      39--52.
+
+\end{thebibliography}

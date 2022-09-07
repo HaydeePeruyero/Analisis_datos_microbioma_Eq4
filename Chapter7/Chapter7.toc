@@ -29,4 +29,5 @@
 \contentsline {subsubsection}{\numberline {4.2.1}Análisis de redundancia (RDA)}{74}{subsubsection.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Análisis de correspondencia restringido (CCA)}{83}{subsubsection.4.2.2}%
 \contentsline {subsubsection}{\numberline {4.2.3}Análisis restringido de coordenadas principales (CAP)}{90}{subsubsection.4.2.3}%
-\contentsline {section}{\numberline {5}Resumen y discusión}{94}{section.5}%
+\contentsline {section}{\numberline {5}Resumen y discusión}{95}{section.5}%
+\contentsline {section}{Referencias}{96}{section.5}%
