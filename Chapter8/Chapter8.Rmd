@@ -320,6 +320,86 @@ fit_w_b <- wilcox.test(Bacteroides ~ Group,data=Fecal_Bacteroides_G)
 fit_w_b
 ```
 
+La prueba de Wilcoxon anterior indica que  existe una abundancia relativa estadísticamente significativa de Bacteroides entre los ratones Vdr-/- y WT. Podemos concluir que Vdr knockout enriquece Bacteroides.
+
+##Comparación de taxones presentes o ausentes utilizando
+
+###Prueba de chi-cuadrado
+
+Una prueba de chi-cuadrado, también conocida como prueba v2, a menudo utilizada como abreviatura de la prueba de chi-cuadrado de Pearson, fue propuesta e investigada por primera vez por Karl Pearson en 1900(Pearson 1900). La prueba 2 se aplica a conjuntos de datos categóricos para probar si la distribución de frecuencia observada difiere de una distribución teórica o propuesta (pruebas de bondad de ajuste) e investigar si la variable fila y la variable  columna en una tabla de contingencia son independientes entre sí (pruebas de
+independencia).
+El estadístico de prueba de bondad de ajuste viene dado por:
+
+$$
+X^2= \sum_{i = 1}^{n}\frac{(O_i-E_i)^2}{E_i}=N\sum_{i = 1}^{n}\frac{(O_i/N-p_i)^2}{p_i},
+$$
+Donde:
+$X^2$         La estadística de prueba de Pearson, que se acerca asintóticamente a v2
+$O_i$         número de observaciones de categoría i
+$N$           número total de observaciones
+$E_i=Np_i$    Frecuencia esperada(teórica) de la categoría i bajo la hipótesis nula
+$p_i$         probabilidad de categoría i en la población
+$n$           número de celdas en la tabla.
+
+El estadístico de prueba de independencia se da de la siguiente forma.
+$$
+X^2= \sum_{i = 1}^{r}\sum_{j = 1}^{c}\frac{(O_{ij}-E_{ij})^2}{E_{ij}}=N\sum_{i j}p_i.p._j(\frac{(O_{ij}/N)-p_i.p._j}{p_i.p._j})^2,
+$$
+Donde
+
+$N$                                                               Tamaño total de la muestra (la suma de todas las celdas de la tabla)
+$E_{ij}=Np_{i.}p{._j}$                                            Frecuencia esperada(teórica) bajo la hipótesis nula de independencia
+$p_{i.}=\frac{O_{i.}}{N}=\sum_{j=1}^{c}\frac{O_{ij.}}{N}$         Probabilidad de observaciones de categoría i ignorando el atributo de columna (probabilidad de totales de fila)
+$p_{.j}=\frac{O_{.j}}{N}=\sum_{i=1}^{r}\frac{O_{ij.}}{N}$         Probabilidad de observaciones de categoría j ignorando el atributo de fila (probabilidad de totales de columna)
+
+Como regla general, se requiere que todos los recuentos de celdas esperados sean iguales o superiores a 5 para proporcionar una aproximación adecuada a la distribución de la distribución de Chi-cuadrado (Wackerly et al. 2002), aunque Cochran (1952) señaló que este valor podría ser tan bajo como 1 para algunas situaciones. 
+En esta sección, ilustramos la prueba $X^2$ para comparar bacterias Parabacteroides en el conjunto de datos de ratones Vdr utilizando muestras cecales. Para ilustrar la prueba  $X^2$,  transformamos los datos de conteo de abundancia de Parabacteroides en una variable binaria. Los datos de conteo en la tabla de abundancia para el taxón Parabacteroides se transformarían a 0 si el taxón está ausente en la muestra o 1 si el taxón está presente en la muestra. Los datos transformados se resumen en la tabla 1.
+
+Primero, observe los datos de abundancia para identificar Parabacteroides y subdividirlas.
+
+```{r}
+#tabla 1
+#Distribution of the Parabacteroides rate across Vdr−/− and WT cecal samples obtained
+abund_table[1:16,1:27]
+(Parabacteroides <- abund_table[,27])
+```
+Luego, combine los datos subdivididos con el marco de datos de agrupación.
+
+```{r}
+#combina los datos subdivididos
+Parabacteroides_G <-cbind(Parabacteroides, grouping)
+rownames(Parabacteroides_G)<-NULL
+```
+Dado que el dataframe combinado incluye muestras fecales y cecales, subdividamos datos cecales de este dataframe
+
+```{r}
+Cecal_Parabacteroides_G <- subset(Parabacteroides_G, Location=="Cecal")
+Cecal_Parabacteroides_G
+```
+
+Antes, recodificamos una variable binaria: "Presente", para la prueba de Chi-cuadrado.
+```{r}
+Cecal_Parabacteroides_G$Present <- ifelse((Cecal_Parabacteroides_G$Parabacteroides > 0), "Present","Absent")
+Cecal_Parabacteroides_G
+```
+
+El siguiente código es usado para crear una prueba de Chi-cuadrado
+
+```{r}
+library(MASS) 
+tbl = table(Cecal_Parabacteroides_G$Group, Cecal_Parabacteroides_G$Present) 
+tbl                 
+chisq.test(tbl) 
+```
+
+La tabla 1 muestra la distribución de estas tasas: 3 de 5 muestras (60 %) cecales Vdr-/- tenían Parabacteroides, mientras que 3 de 3  (100 %) muestras de WT sí lo tenían. Para probar la hipótesis nula de que no hay diferencia en las tasas de ocurrencia entre los
+dos grupos, una prueba de chi-cuadrado dio un valor P de 0,7 (X-cuadrado = 0,18, df = 1), por lo que *no podemos rechazar la hipótesis nula de que no hay diferencia entre los dos grupos* y concluir que no tienen tasas diferentes de ocurrencia. Tenga en cuenta que debido al pequeño tamaño de la muestra, hay un mensaje de advertencia en la salida. Por lo general, si los valores de las celdas son pequeños (como <5) en la tabla de contingencia, la prueba de chi-cuadrado puede ser incorrecta, entonces se aplica una prueba de exactitud de Fisher:
+```{r}
+#prueba de exactitud de fisher
+fisher.test(tbl)
+```
+El resultado de la prueba de exactitud de Fisher tampoco es significativo con un valor de p de 0,5, *lo que es consistente con la prueba de Chi-cuadrado*. Sin embargo, es difícil tener conclusiones sobre la prueba con el intervalo de confianza infinito.
+
 ## Comparisons of a Taxon of Interest between Two Groups 
 
 
