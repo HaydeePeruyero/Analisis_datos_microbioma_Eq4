@@ -477,7 +477,7 @@ Para ilustrar la prueba de homogeneidad de varianzas, utilizamos las medidas de 
 ```{r}
 library(dplyr)
 
-df_CH_G4 <- select(df_CH_G, Group4, value)
+df_CH_G4 <- dplyr::select(df_CH_G, Group4, value)
 df_CH_G4
 ```
 
