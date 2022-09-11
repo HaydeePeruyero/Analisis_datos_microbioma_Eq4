@@ -185,9 +185,12 @@ En primer lugar, debemos cargar los paquetes `phyloseq` y `ggplot2`, y el conjun
 ```{r}
 # IMPORTANTE
 # Ajustamos path de trabajo según tu PC
-path <- "~/R_sites/"
-path <- paste0(path,"Equipo4/")
-setwd(path)
+# Mostramos directorio actual
+getwd()
+# Si es necesario, cambiar la ruta donde están los archivos almacenados. 
+# "." significa el directorio actual. 
+workingDir <-  "."
+setwd(workingDir)
 ```
 
 ```{r}
@@ -206,7 +209,7 @@ En la carpeta `data` se encuentra la base de datos a usar `VdrFecalGenusCounts.c
 ```{r}
 # Mandamos llamar los datos originales 
 # Fila es el taxón y columna la condición
-abund_table=read.csv(paste0(path,"data/VdrFecalGenusCounts.csv"), row.names=1,check.names=FALSE)
+abund_table=read.csv(paste0(workingDir,"/data/VdrFecalGenusCounts.csv"), row.names=1,check.names=FALSE)
 # Generamos la transpuesta, fila la condición, columna el taxón
 abund_table<-t(abund_table)
 ```
@@ -890,7 +893,7 @@ En este caso, utilizamos la función `rda()`. Las dos funciones de extensión: `
 
 ```{r}
 # Llamamos a nuestra tabla
-abund_table=read.csv(paste0(path,"data/VdrFecalGenusCounts.csv"),row.names=1,check.names=FALSE)
+abund_table=read.csv(paste0(workingDir,"/data/VdrFecalGenusCounts.csv"),row.names=1,check.names=FALSE)
 # Transpuesta de la tabla
 abund_table<-t(abund_table)
 #head(abund_table)
