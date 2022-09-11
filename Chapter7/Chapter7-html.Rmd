@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 
 # Datos de Ratones y Humanos
 
-## Conjuto de datos de ratón Vdr$-/-$ 
+## Conjuto de datos de ratón $Vdr^{-/-}$  
 
 Los datos del microbioma intestinal murino ([Jin et al.2015](https://www.researchgate.net/profile/Jun-Sun-44/publication/277727880_Lack_of_Vitamin_D_Receptor_Causes_Dysbiosis_and_Changes_the_Functions_of_the_Murine_Intestinal_Microbiome/links/5746152408ae9ace84243769/Lack-of-Vitamin-D-Receptor-Causes-Dysbiosis-and-Changes-the-Functions-of-the-Murine-Intestinal-Microbiome.pdf) se obtuvieron de muestras de heces fecales y cecales. Aquí, se utilizan las muestras fecales.
 
@@ -56,9 +56,12 @@ En primer lugar, debemos cargar los paquetes `phyloseq` y `ggplot2`, y el conjun
 ```{r}
 # IMPORTANTE
 # Ajustamos path de trabajo según tu PC
-path <- "~/R_sites/"
-path <- paste0(path,"Equipo4/")
-setwd(path)
+# Mostramos directorio actual
+getwd()
+# Si es necesario, cambiar la ruta donde están los archivos almacenados. 
+# "." significa el directorio actual. 
+workingDir <-  "."
+setwd(workingDir)
 ```
 
 ```{r}
@@ -78,7 +81,7 @@ En la carpeta `data` se encuentra la base de datos a usar `VdrFecalGenusCounts.c
 ```{r}
 # Mandamos llamar los datos originales 
 # Fila es el taxón y columna la condición
-abund_table=read.csv(paste0(path,"data/VdrFecalGenusCounts.csv"), row.names=1,check.names=FALSE)
+abund_table=read.csv(paste0(workingDir,"/data/VdrFecalGenusCounts.csv"), row.names=1,check.names=FALSE)
 # Generamos la transpuesta, fila la condición, columna el taxón
 abund_table<-t(abund_table)
 ```
@@ -607,7 +610,7 @@ En este caso, utilizamos la función `rda()`. Las dos funciones de extensión: `
 
 ```{r}
 # Llamamos a nuestra tabla
-abund_table=read.csv(paste0(path,"data/VdrFecalGenusCounts.csv"),row.names=1,check.names=FALSE)
+abund_table=read.csv(paste0(workingDir,"/data/VdrFecalGenusCounts.csv"),row.names=1,check.names=FALSE)
 # Transpuesta de la tabla
 abund_table<-t(abund_table)
 #head(abund_table)
