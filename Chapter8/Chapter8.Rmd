@@ -3,9 +3,9 @@
 # Se incluyen los comandos mínimos de LaTeX
 #title: Equipo4
 author:
- - Andrés Arredondo (email_1@gmail.com)
+ - Andrés Arredondo Cruz (andresabstract@gmail.com)
  - Adriana Haydé Contreras Peruyero (haydeeperuyero@gmail.com)
- - David Alberto García Estrada (@gmail.com)
+ - David Alberto García Estrada (david.garcia.e@cinvestav.mx)
 header-includes:
   - \usepackage{mathtools}
   - \usepackage{amsthm}
@@ -111,11 +111,12 @@ library(vegan)
           El nombre de los autores aparece al principio
 -->
 
-\title{ {\sc Centro de Ciencias Matemáticas}\\
-\vspace{1cm}{\sc CINVESTAV }\\ 
-\vspace{1cm}{\sc ENES}
-   \vspace{1.5cm} {Análisis univariado de comunidades} \\
-       \vspace{1.5cm} {Capítulo 8}\\[2cm]
+\title{ {\sc Escuela Nacional de Estudios Superiores Unidad León}\\
+\vspace{1cm}{\sc Centro de Ciencias Matemáticas }\\ 
+\vspace{1cm}{\sc UGA-LANGEBIO CINVESTAV}\\
+  \vspace{1cm} {Análisis estadístico de datos de Microbioma con R}\\
+   \vspace{1.5cm} {Capítulo 8: Análisis univariado de comunidades} \\[2cm]
+       \vspace{1.5cm} {Equipo 4}\\
        }
   
 \date{\vspace{5.5cm} Morelia\\
@@ -143,7 +144,7 @@ library(vegan)
 # Introducción
 ## Análisis univariado de comunidades
 
-Dividimos el estudio de la composición de las comunidades microbianas en dos grandes componentes: (a)Evaluación de hipótesis sobre diversidad taxonómica, OTU y Taxones  (b) Análisis de diferencias entre grupos. El primer componente pertenece principalmente a analisis univariado de comunidades. El segundo puede ser dividido en varias tecnicas multivariadas, como lo son "clustering" y  "ordinations", y la evaluacion de hipotesis de analisis multivariado de  dissimilitudes.  
+Dividimos el estudio de la composición de las comunidades microbianas en dos grandes componentes: (a)Evaluación de hipótesis sobre diversidad taxonómica, OTU y Taxones  (b) Análisis de diferencias entre grupos. El primer componente pertenece principalmente a análisis univariado de comunidades. El segundo puede ser dividido en varias técnicas multivariadas, como lo son "clustering" y  "ordinations", y la evaluación de hipótesis de análisis multivariado de  disimilitudes.  
 
 ##8.1 Comparaciones de diversidades entre dos grupos
 
@@ -159,7 +160,6 @@ donde, sp y s22 son el estimador imparcial de la varianza de las muestras 1 y 2,
 Por lo tanto, aquí usamos la prueba t de Welch para nuestros datos de ratón Vdr-/-.
 Primero, cargue y transponga el conjunto de datos:
 
-
 ```{r}
 # IMPORTANTE
 # Ajustamos path de trabajo según tu PC
@@ -172,6 +172,7 @@ setwd(path)
 abund_table=read.csv(paste0(path,"data/VdrGenusCounts.csv"),row.names=1,check.names=FALSE)
 abund_table<-t(abund_table)
 ```
+
 Para incorporar la información del grupo del conjunto de datos directamente a la comparación, necesitamos administrar los datos. En el conjunto de datos, la información de id de muestra y grupo está en una franja de caracteres. Primero los extraemos de allí.
 
 ```{r}
@@ -181,25 +182,30 @@ grouping$Group <- with(grouping,ifelse(as.factor(X2)%in% c(11,12,13,14,15),c("Vd
 grouping <- grouping[,c(4,5)]
 grouping
 ```
+
 Repetimos el calculo de la diversidad de Shannon para est tabla, igual que en el capitulo 6.
 
 ```{r}
 #library(vegan)
 H<-diversity(abund_table, "shannon") 
 ```
+
 Luego combinamos dataframes de diversidad y agrupación para crear un nuevo dataframe.
+
 ```{r}
 df_H<-data.frame(sample=names(H),value=H,measure=rep("Shannon",length(H)))
 df_G <-cbind(df_H, grouping)
 rownames(df_G)<-NULL
 df_G
 ```
+
 A continuación, creamos subconjuntos de datos fecales del nuevo dataframe.
 
 ```{r}
 Fecal_G<- subset(df_G, Location=="Fecal")
 Fecal_G
 ```
+
 Ahora los datos están listos para el análisis estadístico. Antes de realizar la prueba de hipótesis, exploremos la distribución de los valores de diversidad de Shannon usando la función ggplot() 
 
 ```{r}
@@ -211,6 +217,7 @@ p<-ggplot(Fecal_G, aes(x=value))+
 ```
 
 El paquete plyr se utiliza para calcular los valores promedio de diversidad de Shannon de cada grupo
+
 ```{r}
 #library(plyr)
 #la función ddply toma input un df y arroja un df de output
@@ -225,12 +232,12 @@ p+geom_vline(data=mu, aes(xintercept=grp.mean, color="red"),
 
 En el histograma anterior la eliminación de Vdr de este grupo se desplaza hacia la derecha en relación con el grupo WT (hacia valores de diversidad más altos),  lo que da como resultado una mayor diversidad. 
 
-
 ```{r}
 #Usamos la prueba t de Welch para probar la hipotesis nula
 fit_t <- t.test(value ~ Group, data=Fecal_G)
 fit_t
 ```
+
 Para probar la hipótesis nula de que no hay diferencia en la diversidad de Shannon, se utilizó una prueba t de Welch que dio como resultado un valor de p = 0,01 (t = 3,6, df = 5,9). Por lo tanto, rechazamos la hipótesis nula de no diferencia a favor de la alternativa de que las diversidades de Shannon son diferentes en los dos grupos.
 
 ##8.2 Comparisons of a Taxon of Interest between Two Groups 
