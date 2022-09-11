@@ -125,7 +125,7 @@ library("FSA")
        \vspace{1.5cm} {Equipo 4}\\
        }
   
-\date{\vspace{5.5cm} Morelia\\
+\date{\vspace{1.5cm} Morelia\\
       \vspace{1cm} Septiembre de 2022}
 
  \maketitle
@@ -148,21 +148,34 @@ library("FSA")
 
 # Análisis univariado de comunidades
 
-Dividimos el estudio de la composición de las comunidades microbianas en dos grandes componentes: (a)Evaluación de hipótesis sobre diversidad taxonómica, OTU y Taxones  (b) Análisis de diferencias entre grupos. El primer componente pertenece principalmente a análisis univariado de comunidades. El segundo puede ser dividido en varias técnicas multivariadas, como lo son "clustering" y  "ordinations", y la evaluación de hipótesis de análisis multivariado de  disimilitudes.  
+Dividimos el estudio de la composición de las comunidades microbianas en dos grandes componentes: 
+
+  (a)Evaluación de hipótesis sobre diversidad taxonómica, OTU y Taxones.  
+  (b) Análisis de diferencias entre grupos. 
+  
+El primer componente pertenece principalmente a análisis univariado de comunidades. El segundo puede ser dividido en varias técnicas multivariadas, como lo son "clustering" y  "ordinations", y la evaluación de hipótesis de análisis multivariado de  disimilitudes.  
 
 ## Comparaciones de diversidades entre dos grupos
 
-En nuestro estudio con ratones Vdr-/-, uno de los propósitos es probar la diferencia de diversidades entre dos grupos (Vdr-/- y ratones de tipo salvaje) en sitios fecales y cecales. Aquí ilustraremos el análisis de la comunidad univariante, y compararemos la diversidad de Shannon(calculado anteriormente en Cap. 6 en las muestras fecales) usando varias estadísticas de prueba.
+En nuestro estudio con ratones Vdr$-/-$, uno de los propósitos es probar la diferencia de diversidades entre dos grupos (Vdr$-/-$ y ratones de tipo salvaje) en sitios fecales y cecales. Aquí ilustraremos el análisis de la comunidad univariante, y compararemos la diversidad de Shannon (calculada anteriormente en el Cap. 6 en las muestras fecales) usando varios estadísticos de prueba.
 
-### Prueba t de Welch para dos muestras
+### Prueba $t$ de Welch para dos muestras
 
-El estadístico t fue introducido en 1908 por William Sealy Gosset. Una prueba t de dos muestras se utiliza para probar que las medias de dos poblaciones son iguales. Se aplica más comúnmente cuando el estadístico de prueba seguiría una distribución normal. Si los dos grupos tienen la misma varianza, el estadístico t se puede calcular de la siguiente manera:
+El estadístico $t$ fue introducido en 1908 por William Sealy Gosset. Una prueba $t$ de dos muestras se utiliza para probar que las medias de dos poblaciones son iguales. Se aplica más comúnmente cuando el estadístico de prueba sigue una distribución normal. Si los dos grupos tienen la misma varianza, el estadístico $t$ se puede calcular de la siguiente manera:
+
 $$
 t=\frac{\bar X_1 - \bar X_2}{^{Sp} \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}
 $$
-donde, sp y s22 son el estimador imparcial de la varianza de las muestras 1 y 2, respectivamente. Cuando las dos muestras tienen varianzas desiguales y tamaños de muestra desiguales, la prueba t de Welch se considera más confiable (Ruxton 2006).
-Por lo tanto, aquí usamos la prueba t de Welch para nuestros datos de ratón Vdr-/-.
-Primero, cargue y transponga el conjunto de datos:
+donde, $s_p = \sqrt{\frac{(n-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}$ es un estimador de desviación estándar de las dos muestras. La prueba $t$ de Welch o la prueba $t$ de varianzas desiguales es una adaptación de la prueba $t$. El estadístico de la prueba $t$ de Welch está dado por:
+
+\[ t\ =\ \frac{\bar{X}_1-\bar{X}_2}{s_{\bar{\Delta}}}, \]
+
+donde $s_{\bar{\Delta}}=\sqrt{\frac{s_{1}^2}{n_1}+\frac{s_2^2}{n_2}}$; $s_1^2$ y $s_2^2$ son los estimadores imparciales de la varianza de las muestras 1 y 2, respectivamente. Cuando las dos muestras tienen varianzas desiguales y tamaños de muestra desiguales, la prueba $t$ de Welch se considera más confiable (Ruxton 2006).
+
+Por lo tanto, aquí usamos la prueba $t$ de Welch para nuestros datos de ratón Vdr$-/-$.
+
+Primero, cargamos y calculamos la transpuesta del conjunto de datos:
+
 
 ```{r}
 # IMPORTANTE
@@ -181,7 +194,7 @@ abund_table <-  read.csv(paste0(workingDir,"/data/VdrGenusCounts.csv"),
 abund_table <- t(abund_table)
 ```
 
-Para incorporar la información del grupo del conjunto de datos directamente a la comparación, necesitamos administrar los datos. En el conjunto de datos, la información de ID se muestra y grupo está en una franja de caracteres. Primero los extraemos de allí.
+Para incorporar la información del grupo del conjunto de datos directamente a la comparación, necesitamos administrar los datos. En el conjunto de datos, la información del ID de la muestra y el grupo están en una franja de caracteres. Primero los extraemos de allí.
 
 ```{r}
 grouping <- data.frame(row.names = rownames(abund_table), 
@@ -193,14 +206,14 @@ grouping <- grouping[,c(4,5)]
 grouping
 ```
 
-Repetimos el calculo de la diversidad de Shannon para esta tabla, igual que en el capitulo 6.
+Repetimos el calculo de la diversidad de Shannon para esta tabla, igual que en el capítulo 6.
 
 ```{r}
 #library(vegan)
 H<-diversity(abund_table, "shannon") 
 ```
 
-Luego combinamos dataframes de diversidad y agrupación para crear un nuevo dataframe.
+Luego combinamos los dataframes de la diversidad de Shannon y agrupación para crear un nuevo dataframe.
 
 ```{r}
 df_H<-data.frame(sample=names(H),value=H,measure=rep("Shannon",length(H)))
@@ -216,31 +229,34 @@ Fecal_G<- subset(df_G, Location=="Fecal")
 Fecal_G
 ```
 
-Ahora los datos están listos para el análisis estadístico. Antes de realizar la prueba de hipótesis, exploremos la distribución de los valores de diversidad de Shannon usando la función ggplot() 
+Ahora, los datos están listos para el análisis estadístico. Antes de realizar la prueba de hipótesis, exploremos la distribución de los valores de diversidad de Shannon usando la función `ggplot()`. 
 
-```{r}
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diversidad de Shannon'}
 #library(ggplot2)
 #dividimos el gráfico en dos paneles usando facet_grid.
 p<-ggplot(Fecal_G, aes(x=value))+
   geom_histogram(color="black", fill="black")+
   facet_grid(Group ~ .)
+p
 ```
 
-El paquete plyr se utiliza para calcular los valores promedio de diversidad de Shannon de cada grupo
+El paquete `plyr` se utiliza para calcular los valores promedio de la diversidad de Shannon de cada grupo.
 
 ```{r}
 #library(plyr)
 #la función ddply toma input un df y arroja un df de output
 mu <- ddply(Fecal_G, "Group", summarise, grp.mean=mean(value))
 head(mu)
+```
 
+
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diversidad de Shannon con líneas de media.'}
 #Agregamos las líneas de la media a la gráfica
-
 p+geom_vline(data=mu, aes(xintercept=grp.mean, color="red"),
              linetype="dashed")
 ```
 
-En el histograma anterior la eliminación de Vdr de este grupo se desplaza hacia la derecha en relación con el grupo WT (hacia valores de diversidad más altos),  lo que da como resultado una mayor diversidad. 
+En el histograma anterior la eliminación de Vdr de este grupo se desplaza hacia la derecha en relación con el grupo WT (hacia valores de diversidad más altos), lo que da como resultado una mayor diversidad. 
 
 ```{r}
 #Usamos la prueba t de Welch para probar la hipotesis nula
@@ -248,7 +264,7 @@ fit_t <- t.test(value ~ Group, data=Fecal_G)
 fit_t
 ```
 
-Para probar la hipótesis nula de que no hay diferencia en la diversidad de Shannon, se utilizó una prueba t de Welch que dio como resultado un valor de p = 0,01 (t = 3,6, df = 5,9). Por lo tanto, rechazamos la hipótesis nula de no diferencia a favor de la alternativa de que las diversidades de Shannon son diferentes en los dos grupos.
+Para probar la hipótesis nula de que no hay diferencia en la diversidad de Shannon, se utilizó una prueba $t$ de Welch que dio como resultado un valor de p = `r fit_t$p.value` (t = `r fit_t$statistic`, df = `r fit_t$parameter`). Por lo tanto, rechazamos la hipótesis nula de no diferencia a favor de la alternativa de que las diversidades de Shannon son diferentes en los dos grupos.
 
 ## Comparaciones de un taxón de interés entre dos grupos
 
