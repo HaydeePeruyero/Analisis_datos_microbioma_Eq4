@@ -240,4 +240,73 @@ fit_t
 
 Para probar la hipótesis nula de que no hay diferencia en la diversidad de Shannon, se utilizó una prueba t de Welch que dio como resultado un valor de p = 0,01 (t = 3,6, df = 5,9). Por lo tanto, rechazamos la hipótesis nula de no diferencia a favor de la alternativa de que las diversidades de Shannon son diferentes en los dos grupos.
 
-##8.2 Comparisons of a Taxon of Interest between Two Groups 
+##8.2 Comparaciones de un taxón de interés entre dos grupos
+
+#8.2.1 Comparación de la abundancia relativa utilizando la prueba de la suma de rangos de Wilcoxon
+
+Cuando analizamos los datos de abundancia de microbiomas, no es apropiado sacar inferencias sobre la abundancia total en el ecosistema a partir de la abundancia de OTUs o abundancia de taxones en las muestras. Mas bien podemos usar la abundancia relativa en la muestra para inferir la abundancia relativa de un taxón en el ecosistema. La razón subyacente es que existe una restricción de composición: todas las abundancias relativas dentro de una muestra suman a uno, lo que da como resultado datos de composición residiendo en un simplex (Aitchison 1982, 1986) en lugar de residir en el espacio euclidiano. Por lo tanto, a menudo es necesario estandarizar los datos a una escala común para facilitar la comparación de la abundancia del taxón entre grupos. La forma es dividir el conteo de taxones por el número total de lecturas en 100 para convertir la abundancia en el porcentaje de lecturas en la muestra, escalar los datos a "el número de taxones por 100 lecturas".
+
+Cuando seleccionamos un solo taxón específico para probarlo en grupos, es importante asegúrarse de que el taxón especificado se base en una hipótesis o teoría para reducir la posibilidad de inflar la tasa de falsos positivos (es decir, rechaza la hipótesis nula cuando no debería ser rechazada).
+Vdr en ratones afecta sustancialmente la diversidad beta e influencia constantemente taxones bacterianos individuales, como los Parabacteroides (Wang et al. 2016). En esta sección, ilustramos la prueba de suma de rangos de Wilcoxon para comparar Bacteroides bacterianos en el conjunto de datos del ratón Vdr utilizando muestras fecales.
+
+Primero, verifique la abundancia total en cada muestra.
+```{r}
+apply(abund_table,1, sum)
+```
+Luego, calcule la abundancia relativa dividiendo cada valor por la abundancia total de la muestra:
+
+```{r}
+#Calculamos la abundancia relativa
+relative_abund_table <- decostand(abund_table, method = "total")
+```
+Compruebe la abundancia total en cada muestra para que los cálculos anteriores sean correctos
+```{r}
+apply(relative_abund_table, 1, sum)
+```
+Eche un vistazo a los datos transformados
+```{r}
+#Visualizamos los datos transformados
+relative_abund_table[1:16,1:8]
+```
+Nuestra bacteria de interés **Bacteroides** está en la columna 8, subdividamosla:
+
+```{r}
+#subdividimos a los bacterioides
+(Bacteroides <-relative_abund_table[,8]) 
+```
+Ahora, combine Bacteroides y los dataframes agrupados y crea subconjuntos de las muestras fecales para un uso posterior.
+
+```{r}
+#combine Bacterioides y los df agrupados y crea subconjuntos de las muestras
+Bacteroides_G <-cbind(Bacteroides, grouping)
+rownames(Bacteroides_G)<-NULL
+Fecal_Bacteroides_G <- subset(Bacteroides_G, Location=="Fecal")
+Fecal_Bacteroides_G
+```
+La función boxplot() se usa para generar un diagrama de caja simple de Bacteroides con el grupo
+```{r}
+#cramos un boxplot con los  grupos 
+#Diagrama de caja de Bacteroides bacterianos con grupos Vdr-/- y WT en muestras fecales
+boxplot(Bacteroides ~ Group,data=Fecal_Bacteroides_G, col=rainbow(2),main="Bacteroides in Vdr WT/KO mice")
+```
+```{r}
+#con ggplot generamos el boxplot con el siguente codigo
+ggplot(Fecal_Bacteroides_G, aes(x=Group, y=Bacteroides,col=factor(Group))) + 
+  geom_boxplot(notch=FALSE)
+```
+```{r}
+#Diagrama de caja  bacterias Bacteroides con Vdr−/− y WT en muestras fecales
+#generados usando ggplot
+ggplot(Fecal_Bacteroides_G, aes(x=Group, y=Bacteroides)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8, outlier.size=4) #+ 
+  #layer(stat_params = list(binwidth = 2))
+#el argumento bidwith=2 genera un error
+```
+Los diagramas de caja muestran taxones (**Bacteriodes**) en ratones de tipo salvaje (WT, n = 3) y para ratones  knockout de Vdr (KO, n = 5)
+
+```{r}
+#Hacemos una prueba de suma de rangos de Wilcoxon
+fit_w_b <- wilcox.test(Bacteroides ~ Group,data=Fecal_Bacteroides_G)
+fit_w_b
+```
+
