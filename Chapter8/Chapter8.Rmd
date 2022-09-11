@@ -296,8 +296,9 @@ Fecal_Bacteroides_G
 La función boxplot() se usa para generar un diagrama de caja simple de Bacteroides con el grupo
 ```{r}
 #cramos un boxplot con los  grupos 
-#Diagrama de caja de Bacteroides bacterianos con grupos Vdr-/- y WT en muestras fecales
-boxplot(Bacteroides ~ Group,data=Fecal_Bacteroides_G, col=rainbow(2),main="Bacteroides in Vdr WT/KO mice")
+#Diagrama de caja de Bacteroides con grupos Vdr-/- y WT en muestras fecales
+boxplot(Bacteroides ~ Group,data=Fecal_Bacteroides_G, col=rainbow(2),
+        main="Bacteroides in Vdr WT/KO mice")
 ```
 ```{r}
 #con ggplot generamos el boxplot con el siguente codigo
@@ -310,9 +311,9 @@ ggplot(Fecal_Bacteroides_G, aes(x=Group, y=Bacteroides,col=factor(Group))) +
 ggplot(Fecal_Bacteroides_G, aes(x=Group, y=Bacteroides)) + 
   geom_boxplot(outlier.colour="red", outlier.shape=8, outlier.size=4) #+ 
   #layer(stat_params = list(binwidth = 2))
-#el argumento bidwith=2 genera un error
+#el argumento bindwith=2 genera un error
 ```
-Los diagramas de caja muestran taxones (**Bacteriodes**) en ratones de tipo salvaje (WT, n = 3) y para ratones  knockout de Vdr (KO, n = 5)
+Los diagramas de caja muestran taxones (**Bacteriodes**) en ratones WT (WT, n = 3) y para ratones  knockout de Vdr (KO, n = 5)
 
 ```{r}
 #Hacemos una prueba de suma de rangos de Wilcoxon
@@ -359,11 +360,12 @@ Primero, observe los datos de abundancia para identificar Parabacteroides y subd
 
 ```{r}
 #tabla 1
-#Distribution of the Parabacteroides rate across Vdr−/− and WT cecal samples obtained
+#Distribution of the Parabacteroides rate 
+#across Vdr−/− and WT cecal samples obtained
 abund_table[1:16,1:27]
 (Parabacteroides <- abund_table[,27])
 ```
-Luego, combine los datos subdivididos con el marco de datos de agrupación.
+Luego, combinamos los datos subdivididos con el marco de datos de agrupación.
 
 ```{r}
 #combina los datos subdivididos
@@ -379,11 +381,13 @@ Cecal_Parabacteroides_G
 
 Antes, recodificamos una variable binaria: "Presente", para la prueba de Chi-cuadrado.
 ```{r}
-Cecal_Parabacteroides_G$Present <- ifelse((Cecal_Parabacteroides_G$Parabacteroides > 0), "Present","Absent")
+Cecal_Parabacteroides_G$Present <- ifelse((
+  Cecal_Parabacteroides_G$Parabacteroides > 0), "Present","Absent")
 Cecal_Parabacteroides_G
 ```
 
 El siguiente código es usado para crear una prueba de Chi-cuadrado
+
 
 ```{r}
 library(MASS) 

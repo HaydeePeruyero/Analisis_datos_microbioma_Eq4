@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.4)  11 SEP 2022 17:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.4)  11 SEP 2022 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -697,627 +697,627 @@ Overfull \hbox (70.99341pt too wide) in paragraph at lines 443--443
 <Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf, id=152, 469.755pt x 325.215pt>
 File: Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf  used on input line 642.
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf  used on input line 643.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [10 <./Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf>]
 <Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf, id=165, 469.755pt x 325.215pt>
 File: Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf  used on input line 652.
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf  used on input line 653.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf, id=166, 469.755pt x 325.215pt>
 File: Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf  used on input line 663.
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf  used on input line 664.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [11 <./Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf>] [12 <./Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf>] [13] [14] [15] [16] [17] [18] [19]
 <Chapter8_files/figure-latex/unnamed-chunk-29-1.pdf, id=225, 867.24pt x 578.16pt>
 File: Chapter8_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-29-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-29-1.pdf  used on input line 1259.
-(pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
-<Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf, id=226, 867.24pt x 578.16pt>
-File: Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
-<use Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf  used on input line 1281.
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-29-1.pdf  used on input line 1262.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
 [20 <./Chapter8_files/figure-latex/unnamed-chunk-29-1.pdf>]
+<Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf, id=237, 867.24pt x 578.16pt>
+File: Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
+<use Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf>
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf  used on input line 1284.
+(pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
 <Chapter8_files/figure-latex/unnamed-chunk-30-2.pdf, id=238, 867.24pt x 578.16pt>
 File: Chapter8_files/figure-latex/unnamed-chunk-30-2.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-30-2.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-30-2.pdf  used on input line 1297.
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-30-2.pdf  used on input line 1300.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
 [21 <./Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf>] [22 <./Chapter8_files/figure-latex/unnamed-chunk-30-2.pdf>] [23]
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1539--1539
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1542--1542
  []|\T1/lmr/m/n/10 83.16645|
  []
 
 
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1539--1539
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1542--1542
  []|\T1/lmr/m/n/10 11.583550|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1540--1540
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1543--1543
  []|\T1/lmr/m/n/10 0.2000000|
- []
-
-
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1540--1540
- []|\T1/lmr/m/n/10 17.43812|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1540--1540
- []|\T1/lmr/m/n/10 0.0358109|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1540--1541
- []|\T1/lmr/m/n/10 0.7569503|
- []
-
-
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 1541--1541
-[]|\T1/lmr/m/n/10 20_12_CeSt- 
- []
-
-
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1541--1541
- []|\T1/lmr/m/n/10 57.36833|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1542--1542
- []|\T1/lmr/m/n/10 0.2000000|
- []
-
-
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1542--1542
- []|\T1/lmr/m/n/10 17.85115|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1542--1542
- []|\T1/lmr/m/n/10 0.0015781|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1542--1543
- []|\T1/lmr/m/n/10 0.1589021|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1543--1543
- []|\T1/lmr/m/n/10 83.16645|
+ []|\T1/lmr/m/n/10 17.43812|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1544--1544
- []|\T1/lmr/m/n/10 0.2000000|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1543--1543
+ []|\T1/lmr/m/n/10 0.0358109|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1543--1544
+ []|\T1/lmr/m/n/10 0.7569503|
+ []
+
+
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 1544--1544
+[]|\T1/lmr/m/n/10 20_12_CeSt- 
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1544--1544
- []|\T1/lmr/m/n/10 17.74865|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1544--1544
- []|\T1/lmr/m/n/10 0.0101485|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1544--1545
- \T1/lmr/m/n/10 0.4029590|
+ []|\T1/lmr/m/n/10 57.36833|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1545--1545
- []|\T1/lmr/m/n/10 103.27273|
+ []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1545--1545
- []|\T1/lmr/m/n/10 83.16645|
+ []|\T1/lmr/m/n/10 17.85115|
  []
 
 
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1545--1545
- []|\T1/lmr/m/n/10 20.106277|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1545--1545
+ []|\T1/lmr/m/n/10 0.0015781|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1546--1546
- []|\T1/lmr/m/n/10 0.2000000|
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1545--1546
+ []|\T1/lmr/m/n/10 0.1589021|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1546--1546
- []|\T1/lmr/m/n/10 16.53471|
+ []|\T1/lmr/m/n/10 83.16645|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1546--1546
- []|\T1/lmr/m/n/10 0.1078934|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1546--1547
- []|\T1/lmr/m/n/10 1.3138850|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1547--1547
+ []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1547--1547
- []|\T1/lmr/m/n/10 83.16645|
+ []|\T1/lmr/m/n/10 17.74865|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1547--1547
+ []|\T1/lmr/m/n/10 0.0101485|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1547--1548
+ \T1/lmr/m/n/10 0.4029590|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1548--1548
- []|\T1/lmr/m/n/10 0.2000000|
+ []|\T1/lmr/m/n/10 103.27273|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1548--1548
- []|\T1/lmr/m/n/10 17.85007|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1548--1548
- []|\T1/lmr/m/n/10 0.0016683|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1548--1549
- []|\T1/lmr/m/n/10 0.1633817|
- []
-
-
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1549--1549
  []|\T1/lmr/m/n/10 83.16645|
  []
 
 
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1549--1549
- \T1/lmr/m/n/10 28.023593|
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1548--1548
+ []|\T1/lmr/m/n/10 20.106277|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1550--1550
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1549--1549
  []|\T1/lmr/m/n/10 0.2000000|
+ []
+
+
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1549--1549
+ []|\T1/lmr/m/n/10 16.53471|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1549--1549
+ []|\T1/lmr/m/n/10 0.1078934|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1549--1550
+ []|\T1/lmr/m/n/10 1.3138850|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1550--1550
- []|\T1/lmr/m/n/10 15.16886|
+ []|\T1/lmr/m/n/10 83.16645|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1550--1550
- []|\T1/lmr/m/n/10 0.2095941|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1550--1551
- \T1/lmr/m/n/10 1.8312579|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1551--1551
+ []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1551--1551
- []|\T1/lmr/m/n/10 70.30556|
+ []|\T1/lmr/m/n/10 17.85007|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1552--1552
- []|\T1/lmr/m/n/10 0.3333333|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1551--1551
+ []|\T1/lmr/m/n/10 0.0016683|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1551--1552
+ []|\T1/lmr/m/n/10 0.1633817|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1552--1552
- []|\T1/lmr/m/n/10 17.65081|
+ []|\T1/lmr/m/n/10 83.16645|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1552--1552
- []|\T1/lmr/m/n/10 0.0365658|
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1552--1552
+ \T1/lmr/m/n/10 28.023593|
  []
 
 
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1552--1553
- \T1/lmr/m/n/10 0.5408573|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1553--1553
+ []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1553--1553
- []|\T1/lmr/m/n/10 70.30556|
+ []|\T1/lmr/m/n/10 15.16886|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1554--1554
- []|\T1/lmr/m/n/10 0.3333333|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1553--1553
+ []|\T1/lmr/m/n/10 0.2095941|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1553--1554
+ \T1/lmr/m/n/10 1.8312579|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1554--1554
- []|\T1/lmr/m/n/10 17.84337|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1554--1554
- []|\T1/lmr/m/n/10 0.0044605|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1554--1555
- \T1/lmr/m/n/10 0.1889024|
- []
-
-
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1555--1555
  []|\T1/lmr/m/n/10 70.30556|
  []
 
 
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1555--1555
- []|\T1/lmr/m/n/10 10.194444|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1555--1555
+ []|\T1/lmr/m/n/10 0.3333333|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1556--1556
- []|\T1/lmr/m/n/10 0.3333333|
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1555--1555
+ []|\T1/lmr/m/n/10 17.65081|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1555--1555
+ []|\T1/lmr/m/n/10 0.0365658|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1555--1556
+ \T1/lmr/m/n/10 0.5408573|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1556--1556
- []|\T1/lmr/m/n/10 17.46893|
+ []|\T1/lmr/m/n/10 70.30556|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1556--1556
- []|\T1/lmr/m/n/10 0.0665687|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1556--1557
- []|\T1/lmr/m/n/10 0.7297597|
- []
-
-
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 1557--1557
-[]|\T1/lmr/m/n/10 19_11_CeSt- 
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1557--1557
+ []|\T1/lmr/m/n/10 0.3333333|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1557--1557
- []|\T1/lmr/m/n/10 57.36833|
+ []|\T1/lmr/m/n/10 17.84337|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1558--1558
- []|\T1/lmr/m/n/10 0.2000000|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1557--1557
+ []|\T1/lmr/m/n/10 0.0044605|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1557--1558
+ \T1/lmr/m/n/10 0.1889024|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1558--1558
- []|\T1/lmr/m/n/10 17.78372|
+ []|\T1/lmr/m/n/10 70.30556|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1558--1558
- []|\T1/lmr/m/n/10 0.0072213|
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1558--1558
+ []|\T1/lmr/m/n/10 10.194444|
  []
 
 
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1558--1559
- \T1/lmr/m/n/10 0.3399133|
- []
-
-
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 1559--1559
-[]|\T1/lmr/m/n/10 21_13_CeSt- 
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1559--1559
+ []|\T1/lmr/m/n/10 0.3333333|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1559--1559
- []|\T1/lmr/m/n/10 57.36833|
+ []|\T1/lmr/m/n/10 17.46893|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1560--1560
- []|\T1/lmr/m/n/10 0.2000000|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1559--1559
+ []|\T1/lmr/m/n/10 0.0665687|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1559--1560
+ []|\T1/lmr/m/n/10 0.7297597|
+ []
+
+
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 1560--1560
+[]|\T1/lmr/m/n/10 19_11_CeSt- 
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1560--1560
- []|\T1/lmr/m/n/10 17.85212|
+ []|\T1/lmr/m/n/10 57.36833|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1560--1560
- []|\T1/lmr/m/n/10 0.0014970|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1560--1561
- \T1/lmr/m/n/10 0.1547635|
- []
-
-
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 1561--1561
-[]|\T1/lmr/m/n/10 22_14_CeSt- 
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1561--1561
+ []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1561--1561
- []|\T1/lmr/m/n/10 57.36833|
+ []|\T1/lmr/m/n/10 17.78372|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1562--1562
- []|\T1/lmr/m/n/10 0.2000000|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1561--1561
+ []|\T1/lmr/m/n/10 0.0072213|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1561--1562
+ \T1/lmr/m/n/10 0.3399133|
+ []
+
+
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 1562--1562
+[]|\T1/lmr/m/n/10 21_13_CeSt- 
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1562--1562
- []|\T1/lmr/m/n/10 17.86149|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1562--1562
- []|\T1/lmr/m/n/10 0.0007105|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1562--1563
- []|\T1/lmr/m/n/10 0.1066245|
- []
-
-
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 1563--1563
-[]|\T1/lmr/m/n/10 23_15_CeSt- 
- []
-
-
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1563--1563
  []|\T1/lmr/m/n/10 57.36833|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1564--1564
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1563--1563
  []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1563--1563
+ []|\T1/lmr/m/n/10 17.85212|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1563--1563
+ []|\T1/lmr/m/n/10 0.0014970|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1563--1564
+ \T1/lmr/m/n/10 0.1547635|
+ []
+
+
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 1564--1564
+[]|\T1/lmr/m/n/10 22_14_CeSt- 
+ []
+
+
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1564--1564
- []|\T1/lmr/m/n/10 17.83082|
+ []|\T1/lmr/m/n/10 57.36833|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1564--1564
- []|\T1/lmr/m/n/10 0.0032819|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1564--1565
- []|\T1/lmr/m/n/10 0.2291502|
- []
-
-
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 1565--1565
-[]|\T1/lmr/m/n/10 25_22_CeSt- 
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1565--1565
+ []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1565--1565
- []|\T1/lmr/m/n/10 80.63866|
+ []|\T1/lmr/m/n/10 17.86149|
  []
 
 
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1565--1565
- \T1/lmr/m/n/10 29.638655|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1565--1565
+ []|\T1/lmr/m/n/10 0.0007105|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1566--1566
- []|\T1/lmr/m/n/10 0.3333333|
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1565--1566
+ []|\T1/lmr/m/n/10 0.1066245|
+ []
+
+
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 1566--1566
+[]|\T1/lmr/m/n/10 23_15_CeSt- 
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1566--1566
- []|\T1/lmr/m/n/10 14.12611|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1566--1566
- []|\T1/lmr/m/n/10 0.5626776|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1566--1567
- \T1/lmr/m/n/10 2.1216552|
- []
-
-
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 1567--1567
-[]|\T1/lmr/m/n/10 26_23_CeSt- 
+ []|\T1/lmr/m/n/10 57.36833|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1567--1567
- []|\T1/lmr/m/n/10 112.85714|
+ []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1567--1567
- []|\T1/lmr/m/n/10 80.63866|
+ []|\T1/lmr/m/n/10 17.83082|
  []
 
 
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1567--1567
- []|\T1/lmr/m/n/10 32.218487|
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1567--1567
+ []|\T1/lmr/m/n/10 0.0032819|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1568--1568
- []|\T1/lmr/m/n/10 0.3333333|
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1567--1568
+ []|\T1/lmr/m/n/10 0.2291502|
+ []
+
+
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 1568--1568
+[]|\T1/lmr/m/n/10 25_22_CeSt- 
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1568--1568
- []|\T1/lmr/m/n/10 13.33364|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1568--1568
- []|\T1/lmr/m/n/10 0.6648948|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1568--1569
- []|\T1/lmr/m/n/10 2.3063300|
- []
-
-
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 1569--1569
-[]|\T1/lmr/m/n/10 27_24_CeSt- 
- []
-
-
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1569--1569
  []|\T1/lmr/m/n/10 80.63866|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1570--1570
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1568--1568
+ \T1/lmr/m/n/10 29.638655|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1569--1569
  []|\T1/lmr/m/n/10 0.3333333|
  []
 
 
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1570--1570
- []|\T1/lmr/m/n/10 17.84455|
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1569--1569
+ []|\T1/lmr/m/n/10 14.12611|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1569--1569
+ []|\T1/lmr/m/n/10 0.5626776|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1569--1570
+ \T1/lmr/m/n/10 2.1216552|
+ []
+
+
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 1570--1570
+[]|\T1/lmr/m/n/10 26_23_CeSt- 
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1570--1570
+ []|\T1/lmr/m/n/10 112.85714|
+ []
+
+
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1570--1570
+ []|\T1/lmr/m/n/10 80.63866|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1570--1570
+ []|\T1/lmr/m/n/10 32.218487|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1571--1571
+ []|\T1/lmr/m/n/10 0.3333333|
+ []
+
+
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1571--1571
+ []|\T1/lmr/m/n/10 13.33364|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1571--1571
+ []|\T1/lmr/m/n/10 0.6648948|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1571--1572
+ []|\T1/lmr/m/n/10 2.3063300|
+ []
+
+
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 1572--1572
+[]|\T1/lmr/m/n/10 27_24_CeSt- 
+ []
+
+
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1572--1572
+ []|\T1/lmr/m/n/10 80.63866|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1573--1573
+ []|\T1/lmr/m/n/10 0.3333333|
+ []
+
+
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1573--1573
+ []|\T1/lmr/m/n/10 17.84455|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1573--1573
  []|\T1/lmr/m/n/10 0.0042631|
  []
 
 
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1570--1571
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1573--1574
  \T1/lmr/m/n/10 0.1846748|
  []
 
 [24] [25]
 
-LaTeX Warning: Command \' invalid in math mode on input line 1642.
+LaTeX Warning: Command \' invalid in math mode on input line 1645.
 
 [26] [27]
 <Chapter8_files/figure-latex/unnamed-chunk-43-1.pdf, id=286, 867.24pt x 578.16pt>
 File: Chapter8_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-43-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-43-1.pdf  used on input line 1790.
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-43-1.pdf  used on input line 1793.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
 [28 <./Chapter8_files/figure-latex/unnamed-chunk-43-1.pdf>] [29]
 <Chapter8_files/figure-latex/unnamed-chunk-46-1.pdf, id=306, 867.24pt x 578.16pt>
 File: Chapter8_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-46-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-46-1.pdf  used on input line 1932.
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-46-1.pdf  used on input line 1935.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
 [30 <./Chapter8_files/figure-latex/unnamed-chunk-46-1.pdf>] [31] [32]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 2122.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 2125.
 
-Overfull \hbox (91.99335pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (91.99335pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Eubacterium (Erysipelotrichaceae)::Eubacterium 21/248; p-value=0.372131642601125[] 
  []
 
 
-Overfull \hbox (7.99359pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (7.99359pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Adlercreutzia::Asaccharobacter 25/248; p-value=0.725073232872234[] 
  []
 
 
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Eubacterium (Erysipelotrichaceae) 28/248; p-value=0.899201554861072[] 
  []
 
 [33]
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium (Erysipelotrichaceae) 93/248; p-value=0.716038214215504[] 
  []
 
 [34]
-Overfull \hbox (7.99359pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (7.99359pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Asaccharobacter::Adlercreutzia 97/248; p-value=0.531948371210495[] 
  []
 
 
-Overfull \hbox (149.74318pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (149.74318pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium::Ruminococcus::Desulfotomaculum::Escherichia 100/248; p-value=0.227647113061301[] 
  []
 
 
-Overfull \hbox (2.7436pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (2.7436pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Parabacteroides::Bacteroides 109/248; p-value=0.531948371210495[] 
  []
 
 
-Overfull \hbox (91.99335pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (91.99335pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Adlercreutzia::Enterorhabdus::Asaccharobacter 128/248; p-value=0.531948371210495[] 
  []
 
 [35]
-Overfull \hbox (7.99359pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (7.99359pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Alkalitalea::Sphingobacterium 157/248; p-value=0.227647113061301[] 
  []
 
 
-Overfull \hbox (2.7436pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (2.7436pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Lachnobacterium::Coprococcus 160/248; p-value=0.227647113061301[] 
  []
 
 
-Overfull \hbox (34.24352pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (34.24352pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium::Ruminococcus::Blautia 170/248; p-value=0.227647113061301[] 
  []
 
 
-Overfull \hbox (60.49344pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (60.49344pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Slackia::Asaccharobacter::Adlercreutzia 189/248; p-value=0.531948371210495[] 
  []
 
 
-Overfull \hbox (60.49344pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (60.49344pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Bacteroides::Lactobacillus::Lachnospira 192/248; p-value=0.531948371210495[] 
  []
 
 
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium (Erysipelotrichaceae)::Clostridium 202/248; p-value=NaN[] 
  []
 
 [36]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Eubacterium (Erysipelotrichaceae)::Paenibacillus::Eubacterium 214/248; p-value=NaN[] 
  []
 
 
-Overfull \hbox (76.2434pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (76.2434pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Ruminococcus::Escherichia::Parabacteroides 221/248; p-value=0.531948371210495[] 
  []
 
 
-Overfull \hbox (7.99359pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (7.99359pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Desulfotomaculum::Clostridium 231/248; p-value=0.227647113061301[] 
  []
 
 
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Butyrivibrio::Pseudobutyrivibrio 235/248; p-value=0.531948371210495[] 
  []
 
 
-Overfull \hbox (55.24345pt too wide) in paragraph at lines 2385--2385
+Overfull \hbox (55.24345pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium::Blautia::Desulfotomaculum 241/248; p-value=0.531948371210495[] 
  []
 
@@ -1337,7 +1337,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  72i,11n,77p,620b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Chapter8.pdf (42 pages, 476109 bytes).
+Output written on Chapter8.pdf (42 pages, 476258 bytes).
 PDF statistics:
  498 PDF objects out of 1000 (max. 8388607)
  395 compressed objects within 4 object streams
