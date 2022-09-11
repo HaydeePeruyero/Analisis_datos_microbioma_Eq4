@@ -1,6 +1,6 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {section}{\numberline {1}Datos de Ratones y Humanos}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Conjuto de datos de ratón Vdr\(-/-\)}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.1}Conjuto de datos de ratón \(Vdr^{-/-}\)}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Conjuto de datos de fumadores de cigarro}{3}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Análisis exploratorio como resumen gráfico}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Gráficos de riqueza}{3}{subsection.2.1}%

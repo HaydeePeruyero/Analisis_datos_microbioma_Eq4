@@ -400,9 +400,6 @@ fisher.test(tbl)
 ```
 El resultado de la prueba de exactitud de Fisher tampoco es significativo con un valor de p de 0,5, *lo que es consistente con la prueba de Chi-cuadrado*. Sin embargo, es difícil tener conclusiones sobre la prueba con el intervalo de confianza infinito.
 
-## Comparisons of a Taxon of Interest between Two Groups 
-
-
 ## Comparación entre más de dos grupos usando ANOVA
 
 ### ANOVA de una vía 
