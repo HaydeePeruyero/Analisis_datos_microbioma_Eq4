@@ -430,7 +430,7 @@ pairwise.t.test(df_CH_G$value, df_CH_G$Group4,
 Los cuatro ajustes anteriores no ofrecen diferencias significativas en las comparaciones por pares. Los ajustes conservadores de Bonferroni y Benjamini & Yekutieli tienen los mayores valores $p$. Con el método de Benjamini y Hochberg ninguna de las comparaciones son significativas, pero sus valores p ajustados son menores. El método Benjamini & Hochberg es más potente en este caso. Tanto el método de Benjamini & Hochberg (BH) como el de Benjamini & Yekutieli (BY) son para ajustar la "tasa de falsos descubrimientos" (FDR). En realidad no es un verdadero control de error por familia. Los métodos de la Falsa Tasa de Descubrimiento encuentran los mismos resultados: todas las comparaciones por pares no presentan diferencias significativas.
 A continuación, vamos a mostrar el uso de la función `TukeyHSD()` para hacer comparaciones múltiples de Tukey de medias y obtener sus intervalos de confianza. La forma de llamar a esta función es similar a la función `summary()`. Toma la variable del cálculo original de ANOVA original como uno de sus argumentos.
 
-```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Gráfico de Tukey de comparaciones múltiples de medias y su intervalo de confianza en datos de ratón $Vdr^-/-}`.'}
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Gráfico de Tukey de comparaciones múltiples de medias y su intervalo de confianza en datos de ratón $Vdr^{-/-}$`.'}
 # Comparaciones multiple de medias Tukey
 TukeyHSD(aov_fit, conf.level=.95)  
 # Gráfico

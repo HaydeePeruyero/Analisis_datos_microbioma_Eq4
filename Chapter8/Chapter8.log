@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.4)  11 SEP 2022 10:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.4)  11 SEP 2022 11:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1205,112 +1205,107 @@ File: Chapter8_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-27-1.pdf>
 Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-27-1.pdf  used on input line 1174.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
-
-Overfull \hbox (5.00325pt too wide) in paragraph at lines 1174--1175
- []\T1/lmr/m/n/10 {[] 
- []
-
 [17 <./Chapter8_files/figure-latex/unnamed-chunk-27-1.pdf>] [18]
-<Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf, id=221, 867.24pt x 578.16pt>
+<Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf, id=222, 867.24pt x 578.16pt>
 File: Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf  used on input line 1318.
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf  used on input line 1316.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
 [19 <./Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf>] [20] [21]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1508.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1506.
 
-Overfull \hbox (91.99335pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (91.99335pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Eubacterium (Erysipelotrichaceae)::Eubacterium 21/248; p-value=0.372131642601125[] 
  []
 
 
-Overfull \hbox (7.99359pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (7.99359pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Adlercreutzia::Asaccharobacter 25/248; p-value=0.725073232872234[] 
  []
 
 
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Eubacterium (Erysipelotrichaceae) 28/248; p-value=0.899201554861072[] 
  []
 
-[22] [23]
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 1771--1771
+[22]
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium (Erysipelotrichaceae) 93/248; p-value=0.716038214215504[] 
  []
 
-
-Overfull \hbox (7.99359pt too wide) in paragraph at lines 1771--1771
+[23]
+Overfull \hbox (7.99359pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Asaccharobacter::Adlercreutzia 97/248; p-value=0.531948371210495[] 
  []
 
 
-Overfull \hbox (149.74318pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (149.74318pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium::Ruminococcus::Desulfotomaculum::Escherichia 100/248; p-value=0.227647113061301[] 
  []
 
 
-Overfull \hbox (2.7436pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (2.7436pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Parabacteroides::Bacteroides 109/248; p-value=0.531948371210495[] 
  []
 
 
-Overfull \hbox (91.99335pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (91.99335pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Adlercreutzia::Enterorhabdus::Asaccharobacter 128/248; p-value=0.531948371210495[] 
  []
 
 [24]
-Overfull \hbox (7.99359pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (7.99359pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Alkalitalea::Sphingobacterium 157/248; p-value=0.227647113061301[] 
  []
 
 
-Overfull \hbox (2.7436pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (2.7436pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Lachnobacterium::Coprococcus 160/248; p-value=0.227647113061301[] 
  []
 
 
-Overfull \hbox (34.24352pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (34.24352pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium::Ruminococcus::Blautia 170/248; p-value=0.227647113061301[] 
  []
 
 
-Overfull \hbox (60.49344pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (60.49344pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Slackia::Asaccharobacter::Adlercreutzia 189/248; p-value=0.531948371210495[] 
  []
 
 
-Overfull \hbox (60.49344pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (60.49344pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Bacteroides::Lactobacillus::Lachnospira 192/248; p-value=0.531948371210495[] 
  []
 
-[25]
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 1771--1771
+
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium (Erysipelotrichaceae)::Clostridium 202/248; p-value=NaN[] 
  []
 
-
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1771--1771
+[25]
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Eubacterium (Erysipelotrichaceae)::Paenibacillus::Eubacterium 214/248; p-value=NaN[] 
  []
 
 
-Overfull \hbox (76.2434pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (76.2434pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Ruminococcus::Escherichia::Parabacteroides 221/248; p-value=0.531948371210495[] 
  []
 
 
-Overfull \hbox (7.99359pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (7.99359pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Desulfotomaculum::Clostridium 231/248; p-value=0.227647113061301[] 
  []
 
 
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Butyrivibrio::Pseudobutyrivibrio 235/248; p-value=0.531948371210495[] 
  []
 
 
-Overfull \hbox (55.24345pt too wide) in paragraph at lines 1771--1771
+Overfull \hbox (55.24345pt too wide) in paragraph at lines 1769--1769
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium::Blautia::Desulfotomaculum 241/248; p-value=0.531948371210495[] 
  []
 
@@ -1322,18 +1317,18 @@ Package rerunfilecheck Info: File `Chapter8.out' has not changed.
 (rerunfilecheck)             Checksum: 881A8327FEBDBDDD73F4C3F843102381;3550.
  ) 
 Here is how much of TeX's memory you used:
- 15833 strings out of 477017
- 256697 string characters out of 5825792
- 654415 words of memory out of 5000000
+ 15834 strings out of 477017
+ 256705 string characters out of 5825792
+ 654369 words of memory out of 5000000
  36578 multiletter control sequences out of 15000+600000
  526678 words of font info for 79 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,11n,77p,498b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,11n,77p,498b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}<c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/alber/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Chapter8.pdf (31 pages, 435383 bytes).
+Output written on Chapter8.pdf (31 pages, 435761 bytes).
 PDF statistics:
- 404 PDF objects out of 1000 (max. 8388607)
- 320 compressed objects within 4 object streams
- 90 named destinations out of 1000 (max. 500000)
+ 406 PDF objects out of 1000 (max. 8388607)
+ 322 compressed objects within 4 object streams
+ 91 named destinations out of 1000 (max. 500000)
  135 words of extra memory for PDF output out of 10000 (max. 10000000)
 
