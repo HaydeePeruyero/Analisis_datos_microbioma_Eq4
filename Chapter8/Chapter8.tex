@@ -1,0 +1,671 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{eufrak}
+\usepackage{mathrsfs}
+\usepackage{color}
+\usepackage[spanish]{babel}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{subfigure} %para incluir mas de una figura en un solo espacio
+\usepackage{graphicx}
+\allowdisplaybreaks
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\newtheorem{teorema}{Teorema}
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{corolario}[teorema]{Corolario}
+\newtheorem{proposicion}[teorema]{Proposici\'on}
+\newtheorem{conjetura}[teorema]{Conjetura}
+\newtheorem{definicion}{Definici\'on}
+\newtheorem{ejemplo}[teorema]{Ejemplo}
+\newtheorem{nota}{Nota}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdfauthor={Andrés Arredondo Cruz (andresabstract@gmail.com); Adriana Haydé Contreras Peruyero (haydeeperuyero@gmail.com); David Alberto García Estrada (david.garcia.e@cinvestav.mx)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{Andrés Arredondo Cruz
+(\href{mailto:andresabstract@gmail.com}{\nolinkurl{andresabstract@gmail.com}}) \and Adriana
+Haydé Contreras Peruyero
+(\href{mailto:haydeeperuyero@gmail.com}{\nolinkurl{haydeeperuyero@gmail.com}}) \and David
+Alberto García Estrada
+(\href{mailto:david.garcia.e@cinvestav.mx}{\nolinkurl{david.garcia.e@cinvestav.mx}})}
+\date{}
+
+\begin{document}
+
+\newcommand{\cb}{\color{blue}}
+\newcommand{\cg}{\color{green}}
+\newcommand{\cvi}{\color{violet}}
+
+\title{ {\sc Escuela Nacional de Estudios Superiores Unidad León}\\
+\vspace{1cm}{\sc Centro de Ciencias Matemáticas }\\ 
+\vspace{1cm}{\sc UGA-LANGEBIO CINVESTAV}\\
+  \vspace{1cm} {Análisis estadístico de datos de Microbioma con R}\\
+   \vspace{1.5cm} {Capítulo 8: Análisis univariado de comunidades} \\[2cm]
+       \vspace{1.5cm} {Equipo 4}\\
+       }
+
+\date{\vspace{5.5cm} Morelia\\
+      \vspace{1cm} Septiembre de 2022}
+
+\maketitle
+
+\thispagestyle{fancy}
+\newpage
+
+\tableofcontents
+\newpage
+
+\hypertarget{introducciuxf3n}{%
+\section{Introducción}\label{introducciuxf3n}}
+
+\hypertarget{anuxe1lisis-univariado-de-comunidades}{%
+\subsection{Análisis univariado de
+comunidades}\label{anuxe1lisis-univariado-de-comunidades}}
+
+Dividimos el estudio de la composición de las comunidades microbianas en
+dos grandes componentes: (a)Evaluación de hipótesis sobre diversidad
+taxonómica, OTU y Taxones (b) Análisis de diferencias entre grupos. El
+primer componente pertenece principalmente a análisis univariado de
+comunidades. El segundo puede ser dividido en varias técnicas
+multivariadas, como lo son ``clustering'' y ``ordinations'', y la
+evaluación de hipótesis de análisis multivariado de disimilitudes.
+
+\#\#8.1 Comparaciones de diversidades entre dos grupos
+
+En nuestro estudio con ratones Vdr-/-, uno de los propósitos es probar
+la diferencia de diversidades entre dos grupos (Vdr-/- y ratones de tipo
+salvaje) en sitios fecales y cecales. Aquí ilustraremos el análisis de
+la comunidad univariante, y compararemos la diversidad de
+Shannon(calculado anteriormente en Cap. 6 en las muestras fecales)
+usando varias estadísticas de prueba.
+
+\#\#8.1.1 Prueba t de Welch para dos muestras
+
+El estadístico t fue introducido en 1908 por William Sealy Gosset. Una
+prueba t de dos muestras se utiliza para probar que las medias de dos
+poblaciones son iguales. Se aplica más comúnmente cuando el estadístico
+de prueba seguiría una distribución normal. Si los dos grupos tienen la
+misma varianza, el estadístico t se puede calcular de la siguiente
+manera: \[
+t=\frac{\bar X_1 - \bar X_2}{^{Sp} \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}
+\] donde, sp y s22 son el estimador imparcial de la varianza de las
+muestras 1 y 2, respectivamente. Cuando las dos muestras tienen
+varianzas desiguales y tamaños de muestra desiguales, la prueba t de
+Welch se considera más confiable (Ruxton 2006). Por lo tanto, aquí
+usamos la prueba t de Welch para nuestros datos de ratón Vdr-/-.
+Primero, cargue y transponga el conjunto de datos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# IMPORTANTE}
+\CommentTok{\# Ajustamos path de trabajo según tu PC}
+\NormalTok{path }\OtherTok{\textless{}{-}} \StringTok{"C:/Users/ANDRESARREDONDOCRUZ/"}
+\NormalTok{path }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(path,}\StringTok{"Equipo4/Chapter8/"}\NormalTok{)}
+\FunctionTok{setwd}\NormalTok{(path)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{abund\_table}\OtherTok{=}\FunctionTok{read.csv}\NormalTok{(}\FunctionTok{paste0}\NormalTok{(path,}\StringTok{"data/VdrGenusCounts.csv"}\NormalTok{),}\AttributeTok{row.names=}\DecValTok{1}\NormalTok{,}\AttributeTok{check.names=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{abund\_table}\OtherTok{\textless{}{-}}\FunctionTok{t}\NormalTok{(abund\_table)}
+\end{Highlighting}
+\end{Shaded}
+
+Para incorporar la información del grupo del conjunto de datos
+directamente a la comparación, necesitamos administrar los datos. En el
+conjunto de datos, la información de id de muestra y grupo está en una
+franja de caracteres. Primero los extraemos de allí.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grouping}\OtherTok{\textless{}{-}}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{row.names=}\FunctionTok{rownames}\NormalTok{(abund\_table),}\FunctionTok{t}\NormalTok{(}\FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{strsplit}\NormalTok{(}\FunctionTok{rownames}\NormalTok{(abund\_table),}\StringTok{"\_"}\NormalTok{))))}
+\NormalTok{grouping}\SpecialCharTok{$}\NormalTok{Location }\OtherTok{\textless{}{-}} \FunctionTok{with}\NormalTok{(grouping, }\FunctionTok{ifelse}\NormalTok{(X3}\SpecialCharTok{\%in\%}\StringTok{"drySt{-}28F"}\NormalTok{, }\StringTok{"Fecal"}\NormalTok{, }\StringTok{"Cecal"}\NormalTok{))}
+\NormalTok{grouping}\SpecialCharTok{$}\NormalTok{Group }\OtherTok{\textless{}{-}} \FunctionTok{with}\NormalTok{(grouping,}\FunctionTok{ifelse}\NormalTok{(}\FunctionTok{as.factor}\NormalTok{(X2)}\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{11}\NormalTok{,}\DecValTok{12}\NormalTok{,}\DecValTok{13}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{15}\NormalTok{),}\FunctionTok{c}\NormalTok{(}\StringTok{"Vdr{-}/{-}"}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\StringTok{"WT"}\NormalTok{)))}
+\NormalTok{grouping }\OtherTok{\textless{}{-}}\NormalTok{ grouping[,}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{)]}
+\NormalTok{grouping}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule()
+& Location & Group \\
+\midrule()
+\endhead
+5\_15\_drySt-28F & Fecal & Vdr-/- \\
+20\_12\_CeSt-28F & Cecal & Vdr-/- \\
+1\_11\_drySt-28F & Fecal & Vdr-/- \\
+2\_12\_drySt-28F & Fecal & Vdr-/- \\
+3\_13\_drySt-28F & Fecal & Vdr-/- \\
+4\_14\_drySt-28F & Fecal & Vdr-/- \\
+7\_22\_drySt-28F & Fecal & WT \\
+8\_23\_drySt-28F & Fecal & WT \\
+9\_24\_drySt-28F & Fecal & WT \\
+19\_11\_CeSt-28F & Cecal & Vdr-/- \\
+21\_13\_CeSt-28F & Cecal & Vdr-/- \\
+22\_14\_CeSt-28F & Cecal & Vdr-/- \\
+23\_15\_CeSt-28F & Cecal & Vdr-/- \\
+25\_22\_CeSt-28F & Cecal & WT \\
+26\_23\_CeSt-28F & Cecal & WT \\
+27\_24\_CeSt-28F & Cecal & WT \\
+\bottomrule()
+\end{longtable}
+
+Repetimos el calculo de la diversidad de Shannon para est tabla, igual
+que en el capitulo 6.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#library(vegan)}
+\NormalTok{H}\OtherTok{\textless{}{-}}\FunctionTok{diversity}\NormalTok{(abund\_table, }\StringTok{"shannon"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+Luego combinamos dataframes de diversidad y agrupación para crear un
+nuevo dataframe.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_H}\OtherTok{\textless{}{-}}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{sample=}\FunctionTok{names}\NormalTok{(H),}\AttributeTok{value=}\NormalTok{H,}\AttributeTok{measure=}\FunctionTok{rep}\NormalTok{(}\StringTok{"Shannon"}\NormalTok{,}\FunctionTok{length}\NormalTok{(H)))}
+\NormalTok{df\_G }\OtherTok{\textless{}{-}}\FunctionTok{cbind}\NormalTok{(df\_H, grouping)}
+\FunctionTok{rownames}\NormalTok{(df\_G)}\OtherTok{\textless{}{-}}\ConstantTok{NULL}
+\NormalTok{df\_G}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrlll@{}}
+\toprule()
+sample & value & measure & Location & Group \\
+\midrule()
+\endhead
+5\_15\_drySt-28F & 2.460729 & Shannon & Fecal & Vdr-/- \\
+20\_12\_CeSt-28F & 2.339725 & Shannon & Cecal & Vdr-/- \\
+1\_11\_drySt-28F & 2.228023 & Shannon & Fecal & Vdr-/- \\
+2\_12\_drySt-28F & 2.734405 & Shannon & Fecal & Vdr-/- \\
+3\_13\_drySt-28F & 2.077282 & Shannon & Fecal & Vdr-/- \\
+4\_14\_drySt-28F & 2.466830 & Shannon & Fecal & Vdr-/- \\
+7\_22\_drySt-28F & 1.777171 & Shannon & Fecal & WT \\
+8\_23\_drySt-28F & 1.999559 & Shannon & Fecal & WT \\
+9\_24\_drySt-28F & 1.971996 & Shannon & Fecal & WT \\
+19\_11\_CeSt-28F & 1.344813 & Shannon & Cecal & Vdr-/- \\
+21\_13\_CeSt-28F & 2.016113 & Shannon & Cecal & Vdr-/- \\
+22\_14\_CeSt-28F & 1.955432 & Shannon & Cecal & Vdr-/- \\
+23\_15\_CeSt-28F & 1.614456 & Shannon & Cecal & Vdr-/- \\
+25\_22\_CeSt-28F & 1.958839 & Shannon & Cecal & WT \\
+26\_23\_CeSt-28F & 2.270818 & Shannon & Cecal & WT \\
+27\_24\_CeSt-28F & 2.002195 & Shannon & Cecal & WT \\
+\bottomrule()
+\end{longtable}
+
+A continuación, creamos subconjuntos de datos fecales del nuevo
+dataframe.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Fecal\_G}\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(df\_G, Location}\SpecialCharTok{==}\StringTok{"Fecal"}\NormalTok{)}
+\NormalTok{Fecal\_G}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llrlll@{}}
+\toprule()
+& sample & value & measure & Location & Group \\
+\midrule()
+\endhead
+1 & 5\_15\_drySt-28F & 2.460729 & Shannon & Fecal & Vdr-/- \\
+3 & 1\_11\_drySt-28F & 2.228023 & Shannon & Fecal & Vdr-/- \\
+4 & 2\_12\_drySt-28F & 2.734405 & Shannon & Fecal & Vdr-/- \\
+5 & 3\_13\_drySt-28F & 2.077282 & Shannon & Fecal & Vdr-/- \\
+6 & 4\_14\_drySt-28F & 2.466830 & Shannon & Fecal & Vdr-/- \\
+7 & 7\_22\_drySt-28F & 1.777171 & Shannon & Fecal & WT \\
+8 & 8\_23\_drySt-28F & 1.999559 & Shannon & Fecal & WT \\
+9 & 9\_24\_drySt-28F & 1.971996 & Shannon & Fecal & WT \\
+\bottomrule()
+\end{longtable}
+
+Ahora los datos están listos para el análisis estadístico. Antes de
+realizar la prueba de hipótesis, exploremos la distribución de los
+valores de diversidad de Shannon usando la función ggplot()
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#library(ggplot2)}
+\CommentTok{\#dividimos el gráfico en dos paneles usando facet\_grid.}
+\NormalTok{p}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(Fecal\_G, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{value))}\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"black"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{facet\_grid}\NormalTok{(Group }\SpecialCharTok{\textasciitilde{}}\NormalTok{ .)}
+\end{Highlighting}
+\end{Shaded}
+
+El paquete plyr se utiliza para calcular los valores promedio de
+diversidad de Shannon de cada grupo
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#library(plyr)}
+\CommentTok{\#la función ddply toma input un df y arroja un df de output}
+\NormalTok{mu }\OtherTok{\textless{}{-}} \FunctionTok{ddply}\NormalTok{(Fecal\_G, }\StringTok{"Group"}\NormalTok{, summarise, }\AttributeTok{grp.mean=}\FunctionTok{mean}\NormalTok{(value))}
+\FunctionTok{head}\NormalTok{(mu)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule()
+Group & grp.mean \\
+\midrule()
+\endhead
+Vdr-/- & 2.393454 \\
+WT & 1.916242 \\
+\bottomrule()
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Agregamos las líneas de la media a la gráfica}
+
+\NormalTok{p}\SpecialCharTok{+}\FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{data=}\NormalTok{mu, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{xintercept=}\NormalTok{grp.mean, }\AttributeTok{color=}\StringTok{"red"}\NormalTok{),}
+             \AttributeTok{linetype=}\StringTok{"dashed"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{Chapter8_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+En el histograma anterior la eliminación de Vdr de este grupo se
+desplaza hacia la derecha en relación con el grupo WT (hacia valores de
+diversidad más altos), lo que da como resultado una mayor diversidad.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Usamos la prueba t de Welch para probar la hipotesis nula}
+\NormalTok{fit\_t }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(value }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Group, }\AttributeTok{data=}\NormalTok{Fecal\_G)}
+\NormalTok{fit\_t}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  value by Group
+## t = 3.5999, df = 5.9206, p-value = 0.01163
+## alternative hypothesis: true difference in means between group Vdr-/- and group WT is not equal to 0
+## 95 percent confidence interval:
+##  0.1517841 0.8026392
+## sample estimates:
+## mean in group Vdr-/-     mean in group WT 
+##             2.393454             1.916242
+\end{verbatim}
+
+Para probar la hipótesis nula de que no hay diferencia en la diversidad
+de Shannon, se utilizó una prueba t de Welch que dio como resultado un
+valor de p = 0,01 (t = 3,6, df = 5,9). Por lo tanto, rechazamos la
+hipótesis nula de no diferencia a favor de la alternativa de que las
+diversidades de Shannon son diferentes en los dos grupos.
+
+\#\#8.2 Comparaciones de un taxón de interés entre dos grupos
+
+\#8.2.1 Comparación de la abundancia relativa utilizando la prueba de la
+suma de rangos de Wilcoxon
+
+Cuando analizamos los datos de abundancia de microbiomas, no es
+apropiado sacar inferencias sobre la abundancia total en el ecosistema a
+partir de la abundancia de OTUs o abundancia de taxones en las muestras.
+Mas bien podemos usar la abundancia relativa en la muestra para inferir
+la abundancia relativa de un taxón en el ecosistema. La razón subyacente
+es que existe una restricción de composición: todas las abundancias
+relativas dentro de una muestra suman a uno, lo que da como resultado
+datos de composición residiendo en un simplex (Aitchison 1982, 1986) en
+lugar de residir en el espacio euclidiano. Por lo tanto, a menudo es
+necesario estandarizar los datos a una escala común para facilitar la
+comparación de la abundancia del taxón entre grupos. La forma es dividir
+el conteo de taxones por el número total de lecturas en 100 para
+convertir la abundancia en el porcentaje de lecturas en la muestra,
+escalar los datos a ``el número de taxones por 100 lecturas''.
+
+Cuando seleccionamos un solo taxón específico para probarlo en grupos,
+es importante asegúrarse de que el taxón especificado se base en una
+hipótesis o teoría para reducir la posibilidad de inflar la tasa de
+falsos positivos (es decir, rechaza la hipótesis nula cuando no debería
+ser rechazada). Vdr en ratones afecta sustancialmente la diversidad beta
+e influencia constantemente taxones bacterianos individuales, como los
+Parabacteroides (Wang et al.~2016). En esta sección, ilustramos la
+prueba de suma de rangos de Wilcoxon para comparar Bacteroides
+bacterianos en el conjunto de datos del ratón Vdr utilizando muestras
+fecales.
+
+Primero, verifique la abundancia total en cada muestra.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apply}\NormalTok{(abund\_table,}\DecValTok{1}\NormalTok{, sum)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 5_15_drySt-28F 20_12_CeSt-28F 1_11_drySt-28F 2_12_drySt-28F 3_13_drySt-28F 
+##           1853           3239           6211           5115           6016 
+## 4_14_drySt-28F 7_22_drySt-28F 8_23_drySt-28F 9_24_drySt-28F 19_11_CeSt-28F 
+##           2343           2262           7255           5502           5067 
+## 21_13_CeSt-28F 22_14_CeSt-28F 23_15_CeSt-28F 25_22_CeSt-28F 26_23_CeSt-28F 
+##           2397           3788           9264           2072           6903 
+## 27_24_CeSt-28F 
+##           6327
+\end{verbatim}
+
+Luego, calcule la abundancia relativa dividiendo cada valor por la
+abundancia total de la muestra:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Calculamos la abundancia relativa}
+\NormalTok{relative\_abund\_table }\OtherTok{\textless{}{-}} \FunctionTok{decostand}\NormalTok{(abund\_table, }\AttributeTok{method =} \StringTok{"total"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Compruebe la abundancia total en cada muestra para que los cálculos
+anteriores sean correctos
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apply}\NormalTok{(relative\_abund\_table, }\DecValTok{1}\NormalTok{, sum)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 5_15_drySt-28F 20_12_CeSt-28F 1_11_drySt-28F 2_12_drySt-28F 3_13_drySt-28F 
+##              1              1              1              1              1 
+## 4_14_drySt-28F 7_22_drySt-28F 8_23_drySt-28F 9_24_drySt-28F 19_11_CeSt-28F 
+##              1              1              1              1              1 
+## 21_13_CeSt-28F 22_14_CeSt-28F 23_15_CeSt-28F 25_22_CeSt-28F 26_23_CeSt-28F 
+##              1              1              1              1              1 
+## 27_24_CeSt-28F 
+##              1
+\end{verbatim}
+
+Eche un vistazo a los datos transformados
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Visualizamos los datos transformados}
+\NormalTok{relative\_abund\_table[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{16}\NormalTok{,}\DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 Tannerella Lactococcus Lactobacillus Lactobacillus::Lactococcus
+## 5_15_drySt-28F 0.256880734  0.17593092    0.05072855               0.0005396654
+## 20_12_CeSt-28F 0.020685397  0.22753936    0.18431615               0.0037048472
+## 1_11_drySt-28F 0.088391563  0.36982773    0.06987603               0.0040251167
+## 2_12_drySt-28F 0.113000978  0.10713587    0.14056696               0.0009775171
+## 3_13_drySt-28F 0.165558511  0.39527926    0.05352394               0.0028257979
+## 4_14_drySt-28F 0.172428510  0.20102433    0.08749466               0.0004268032
+## 7_22_drySt-28F 0.141025641  0.38992042    0.28470380               0.0057471264
+## 8_23_drySt-28F 0.072501723  0.27195038    0.32253618               0.0020675396
+## 9_24_drySt-28F 0.077062886  0.41948382    0.18175209               0.0025445293
+## 19_11_CeSt-28F 0.000000000  0.08328399    0.06512729               0.0013814881
+## 21_13_CeSt-28F 0.002503129  0.07217355    0.26658323               0.0000000000
+## 22_14_CeSt-28F 0.005279831  0.15311510    0.16710665               0.0007919747
+## 23_15_CeSt-28F 0.003993955  0.52536701    0.19635147               0.0026986183
+## 25_22_CeSt-28F 0.018339768  0.34121622    0.30164093               0.0043436293
+## 26_23_CeSt-28F 0.011734029  0.20338983    0.19716065               0.0014486455
+## 27_24_CeSt-28F 0.037142406  0.30235499    0.05768927               0.0020546863
+##                Parasutterella Helicobacter   Prevotella Bacteroides
+## 5_15_drySt-28F   0.0005396654  0.048030221 0.0652995143 0.147328656
+## 20_12_CeSt-28F   0.0000000000  0.000000000 0.0021611609 0.010497067
+## 1_11_drySt-28F   0.0001610047  0.000000000 0.0465303494 0.154242473
+## 2_12_drySt-28F   0.0007820137  0.002541544 0.0193548387 0.073704790
+## 3_13_drySt-28F   0.0003324468  0.003989362 0.0556848404 0.087433511
+## 4_14_drySt-28F   0.0000000000  0.013657704 0.0610328638 0.085360649
+## 7_22_drySt-28F   0.0000000000  0.001326260 0.0490716180 0.038019452
+## 8_23_drySt-28F   0.0016540317  0.000000000 0.0122674018 0.058442453
+## 9_24_drySt-28F   0.0001817521  0.000000000 0.0152671756 0.036713922
+## 19_11_CeSt-28F   0.0000000000  0.000000000 0.0000000000 0.000000000
+## 21_13_CeSt-28F   0.0000000000  0.000000000 0.0004171882 0.002085941
+## 22_14_CeSt-28F   0.0000000000  0.000000000 0.0007919747 0.005279831
+## 23_15_CeSt-28F   0.0002158895  0.000000000 0.0010794473 0.003346287
+## 25_22_CeSt-28F   0.0000000000  0.000000000 0.0033783784 0.009169884
+## 26_23_CeSt-28F   0.0002897291  0.000000000 0.0007243228 0.006663769
+## 27_24_CeSt-28F   0.0000000000  0.000000000 0.0039513197 0.019282440
+\end{verbatim}
+
+Nuestra bacteria de interés \textbf{Bacteroides} está en la columna 8,
+subdividamosla:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#subdividimos a los bacterioides}
+\NormalTok{(Bacteroides }\OtherTok{\textless{}{-}}\NormalTok{relative\_abund\_table[,}\DecValTok{8}\NormalTok{]) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 5_15_drySt-28F 20_12_CeSt-28F 1_11_drySt-28F 2_12_drySt-28F 3_13_drySt-28F 
+##    0.147328656    0.010497067    0.154242473    0.073704790    0.087433511 
+## 4_14_drySt-28F 7_22_drySt-28F 8_23_drySt-28F 9_24_drySt-28F 19_11_CeSt-28F 
+##    0.085360649    0.038019452    0.058442453    0.036713922    0.000000000 
+## 21_13_CeSt-28F 22_14_CeSt-28F 23_15_CeSt-28F 25_22_CeSt-28F 26_23_CeSt-28F 
+##    0.002085941    0.005279831    0.003346287    0.009169884    0.006663769 
+## 27_24_CeSt-28F 
+##    0.019282440
+\end{verbatim}
+
+Ahora, combine Bacteroides y los dataframes agrupados y crea
+subconjuntos de las muestras fecales para un uso posterior.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#combine Bacterioides y los df agrupados y crea subconjuntos de las muestras}
+\NormalTok{Bacteroides\_G }\OtherTok{\textless{}{-}}\FunctionTok{cbind}\NormalTok{(Bacteroides, grouping)}
+\FunctionTok{rownames}\NormalTok{(Bacteroides\_G)}\OtherTok{\textless{}{-}}\ConstantTok{NULL}
+\NormalTok{Fecal\_Bacteroides\_G }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(Bacteroides\_G, Location}\SpecialCharTok{==}\StringTok{"Fecal"}\NormalTok{)}
+\NormalTok{Fecal\_Bacteroides\_G}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrll@{}}
+\toprule()
+& Bacteroides & Location & Group \\
+\midrule()
+\endhead
+1 & 0.1473287 & Fecal & Vdr-/- \\
+3 & 0.1542425 & Fecal & Vdr-/- \\
+4 & 0.0737048 & Fecal & Vdr-/- \\
+5 & 0.0874335 & Fecal & Vdr-/- \\
+6 & 0.0853606 & Fecal & Vdr-/- \\
+7 & 0.0380195 & Fecal & WT \\
+8 & 0.0584425 & Fecal & WT \\
+9 & 0.0367139 & Fecal & WT \\
+\bottomrule()
+\end{longtable}
+
+La función boxplot() se usa para generar un diagrama de caja simple de
+Bacteroides con el grupo
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#cramos un boxplot con los  grupos }
+\CommentTok{\#Diagrama de caja de Bacteroides bacterianos con grupos Vdr{-}/{-} y WT en muestras fecales}
+\FunctionTok{boxplot}\NormalTok{(Bacteroides }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Group,}\AttributeTok{data=}\NormalTok{Fecal\_Bacteroides\_G, }\AttributeTok{col=}\FunctionTok{rainbow}\NormalTok{(}\DecValTok{2}\NormalTok{),}\AttributeTok{main=}\StringTok{"Bacteroides in Vdr WT/KO mice"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#con ggplot generamos el boxplot con el siguente codigo}
+\FunctionTok{ggplot}\NormalTok{(Fecal\_Bacteroides\_G, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{Group, }\AttributeTok{y=}\NormalTok{Bacteroides,}\AttributeTok{col=}\FunctionTok{factor}\NormalTok{(Group))) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{notch=}\ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Diagrama de caja  bacterias Bacteroides con Vdr−/− y WT en muestras fecales}
+\CommentTok{\#generados usando ggplot}
+\FunctionTok{ggplot}\NormalTok{(Fecal\_Bacteroides\_G, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{Group, }\AttributeTok{y=}\NormalTok{Bacteroides)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{outlier.colour=}\StringTok{"red"}\NormalTok{, }\AttributeTok{outlier.shape=}\DecValTok{8}\NormalTok{, }\AttributeTok{outlier.size=}\DecValTok{4}\NormalTok{) }\CommentTok{\#+ }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{\#layer(stat\_params = list(binwidth = 2))}
+\CommentTok{\#el argumento bidwith=2 genera un error}
+\end{Highlighting}
+\end{Shaded}
+
+Los diagramas de caja muestran taxones (\textbf{Bacteriodes}) en ratones
+de tipo salvaje (WT, n = 3) y para ratones knockout de Vdr (KO, n = 5)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Hacemos una prueba de suma de rangos de Wilcoxon}
+\NormalTok{fit\_w\_b }\OtherTok{\textless{}{-}} \FunctionTok{wilcox.test}\NormalTok{(Bacteroides }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Group,}\AttributeTok{data=}\NormalTok{Fecal\_Bacteroides\_G)}
+\NormalTok{fit\_w\_b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum exact test
+## 
+## data:  Bacteroides by Group
+## W = 15, p-value = 0.03571
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+\end{document}

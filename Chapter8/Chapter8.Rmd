@@ -164,7 +164,7 @@ Primero, cargue y transponga el conjunto de datos:
 # IMPORTANTE
 # Ajustamos path de trabajo según tu PC
 path <- "C:/Users/ANDRESARREDONDOCRUZ/"
-path <- paste0(path,"Equipo4/")
+path <- paste0(path,"Equipo4/Chapter8/")
 setwd(path)
 ```
 

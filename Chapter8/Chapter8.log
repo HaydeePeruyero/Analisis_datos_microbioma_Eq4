@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.4)  6 SEP 2022 17:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.4)  11 SEP 2022 03:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -558,30 +558,28 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: l3backend-pdftex.def 2022-08-30 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count325
 \l__pdf_internal_box=\box75
-) (./Chapter8.aux
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
 )
+No file Chapter8.aux.
 \openout1 = `Chapter8.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
 (c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -622,96 +620,119 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \. on input line 157.
-LaTeX Info: Redefining \% on input line 157.
-Package hyperref Info: Link coloring OFF on input line 157.
-(./Chapter8.out) (./Chapter8.out)
+LaTeX Info: Redefining \. on input line 158.
+LaTeX Info: Redefining \% on input line 158.
+Package hyperref Info: Link coloring OFF on input line 158.
 \@outlinefile=\write4
 \openout4 = `Chapter8.out'.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 174.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 176.
 (c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 174.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 176.
 (c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 174.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 176.
 (c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 174.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 176.
 (c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 174.
+(Font)              <12> on input line 176.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 174.
+(Font)              <8> on input line 176.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 174.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 174.
+(Font)              <6> on input line 176.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 176.
 (c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 174.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 176.
 (c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 174.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 176.
 (c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
-{c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Chapter8.toc
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 3.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 3.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 3.
-)
+{c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+No file Chapter8.toc.
 \tf@toc=\write5
 \openout5 = `Chapter8.toc'.
 
-[2]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 222.
+[3]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 214.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 214.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 214.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 224.
 (c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [3] [4]
-<Chapter8_files/figure-latex/unnamed-chunk-9-1.pdf, id=53, 469.755pt x 325.215pt>
+) [4]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1 on input line 282.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 2 on input line 328.
+
+[5]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3 on input line 354.
+
+<Chapter8_files/figure-latex/unnamed-chunk-9-1.pdf, id=49, 469.755pt x 325.215pt>
 File: Chapter8_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-9-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-9-1.pdf  used on input line 398.
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-9-1.pdf  used on input line 405.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[5]
-Overfull \hbox (70.99341pt too wide) in paragraph at lines 424--424
+[6]
+Overfull \hbox (70.99341pt too wide) in paragraph at lines 431--431
 []\T1/lmtt/m/n/10 ## alternative hypothesis: true difference in means between group Vdr-/- and group WT is not equal to 0[] 
  []
 
-[6 <./Chapter8_files/figure-latex/unnamed-chunk-9-1.pdf>] (./Chapter8.aux
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
-)
-Package rerunfilecheck Info: File `Chapter8.out' has not changed.
-(rerunfilecheck)             Checksum: 21ABCB659618D5D2A54048DF5299A11D;345.
- ) 
+[7 <./Chapter8_files/figure-latex/unnamed-chunk-9-1.pdf>] [8] [9]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 5 on input line 613.
+
+<Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf, id=75, 469.755pt x 325.215pt>
+File: Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
+<use Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf>
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf  used on input line 626.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[10 <./Chapter8_files/figure-latex/unnamed-chunk-17-1.pdf>]
+<Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf, id=87, 469.755pt x 325.215pt>
+File: Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
+<use Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf>
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf  used on input line 636.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+! LaTeX Error: Unicode character − (U+2212)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.640 ... con Vdr−/− y WT en muestras fecales}
+                                                   
 Here is how much of TeX's memory you used:
- 15635 strings out of 477017
- 255142 string characters out of 5824518
- 619412 words of memory out of 5000000
- 36461 multiletter control sequences out of 15000+600000
+ 15644 strings out of 477017
+ 255935 string characters out of 5824518
+ 621168 words of memory out of 5000000
+ 36472 multiletter control sequences out of 15000+600000
  522097 words of font info for 77 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,11n,77p,540b,564s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}<c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/ANDRESARREDONDOCRUZ/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Chapter8.pdf (6 pages, 281332 bytes).
-PDF statistics:
- 140 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
- 22 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 72i,11n,77p,540b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
+!  ==> Fatal error occurred, no output PDF file produced!
