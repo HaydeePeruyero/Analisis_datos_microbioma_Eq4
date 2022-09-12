@@ -216,7 +216,9 @@ H<-diversity(abund_table, "shannon")
 Luego combinamos los dataframes de la diversidad de Shannon y agrupación para crear un nuevo dataframe.
 
 ```{r}
+#hacems un df de la diversidad de shannon
 df_H<-data.frame(sample=names(H),value=H,measure=rep("Shannon",length(H)))
+#combinamos la diversidad y los dataframes agrupados para crear un nuevo df
 df_G <-cbind(df_H, grouping)
 rownames(df_G)<-NULL
 df_G
@@ -233,7 +235,8 @@ Ahora, los datos están listos para el análisis estadístico. Antes de realizar
 
 ```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diversidad de Shannon'}
 #library(ggplot2)
-#dividimos el gráfico en dos paneles usando facet_grid.
+
+#Ahora dividimos el gráfico en dos paneles usando facet_grid.
 p<-ggplot(Fecal_G, aes(x=value))+
   geom_histogram(color="black", fill="black")+
   facet_grid(Group ~ .)
@@ -250,13 +253,16 @@ head(mu)
 ```
 
 
+
 ```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diversidad de Shannon con líneas de media.'}
 #Agregamos las líneas de la media a la gráfica
 p+geom_vline(data=mu, aes(xintercept=grp.mean, color="red"),
              linetype="dashed")
 ```
 
-En el histograma anterior la eliminación de Vdr de este grupo se desplaza hacia la derecha en relación con el grupo WT (hacia valores de diversidad más altos), lo que da como resultado una mayor diversidad. 
+En el histograma anterior (figura 2) la eliminación de Vdr de este grupo se desplaza hacia la derecha en relación con el grupo WT (hacia valores de diversidad más altos),  lo que da como resultado una mayor diversidad. 
+
+Hacemos la prueba $t$ de Welch.
 
 ```{r}
 #Usamos la prueba t de Welch para probar la hipotesis nula
@@ -265,6 +271,37 @@ fit_t
 ```
 
 Para probar la hipótesis nula de que no hay diferencia en la diversidad de Shannon, se utilizó una prueba $t$ de Welch que dio como resultado un valor de p = `r fit_t$p.value` (t = `r fit_t$statistic`, df = `r fit_t$parameter`). Por lo tanto, rechazamos la hipótesis nula de no diferencia a favor de la alternativa de que las diversidades de Shannon son diferentes en los dos grupos.
+
+
+### La prueba de la suma de rangos de Wilcoxon
+
+
+*La prueba de la suma de rangos de Wilcoxon* es equivalente a la prueba “U de Mann-Whitney” desarrollada por Mann y Whitney (1947). Es una alternativa no paramétrica a la prueba t para dos muestras que utiliza rangos de datos de dos muestras que son independientes, para probar la hipótesis nula: las dos muestras independientes provienen de poblaciones con la misma distribución (es decir, las dos poblaciones son idénticas). A diferencia de la prueba t, *la prueba de suma de rangos de Wilcoxon* no requiere la suposición de distribuciones normales y es casi tan eficiente como la prueba t.
+Por lo tanto, es ampliamente utilizado en el estudio del microbioma. Se necesitan tres pasos principales para realizar *la prueba de suma de rangos de Wilcoxon* para encontrar el valor de la estadística de prueba:
+
+Paso 1. Asigne rangos a todas las observaciones, el valor más pequeño obtiene un rango de 1.
+Cuando los valores estén empatados, asigne la media de los rangos involucrados en el empate.
+
+Paso 2. Sume los rangos de cualquiera de las dos muestras. La suma de rangos en otra muestra se puede determinar mientras que la suma de todos los rangos sea igual a N(N + 1)/2, donde N es el número total de observaciones.
+
+Si las dos poblaciones de prueba tienen la misma distribución, entonces el rango R tiene la media de $\mu_R=\frac{n_1(n_1+n_2+1)}{2}$ y la desviación estándar de $\sigma_R=\sqrt\frac{n_1n_2(n_1+n_2+1)}{12}$. *La prueba de la suma de rangos de Wilcoxon* rechaza la hipótesis de que las dos poblaciones tienen distribuciones idénticas cuando la suma de rangos R está lejos de su media. El valor calculado de la suma de rangos se vuelve aproximadamente normal a medida que los dos tamaños de muestra aumentan. Podemos formar el valor estadístico  estandarizando la suma de rangos.
+
+Paso 3. Calcule el valor estadístico de la  *prueba z* usando la fórmula a continuación:
+$$z=\frac{R-\mu_R}{\sigma_R},$$
+donde
+$R$     la suma de rangos de la muestra con número n1
+$n_1$   el tamaño de la muestra para el que se encuentra la suma de rangos R (como la muestra 1)
+$n_2$   otro tamaño de muestra (como la muestra 2).
+
+El siguiente código se usa para realizar la prueba de suma de rangos de Wilcoxon.
+```{r}
+##8.1.2 Wilcoxon Rank Sum Test
+fit_w <- wilcox.test(value ~ Group, data=Fecal_G)
+fit_w 
+```
+
+La Figura 1.1 muestra que las distribuciones están sesgadas con el pequeño tamaño de la muestra. La prueba de la suma de rangos de Wilcoxon puede ser más apropiada; sin embargo, el resultado p = 0.04 dado por *la prueba de la suma de rangos de Wilcoxon* conduce a la misma conclusión que la prueba t de Welch con p = 0,01 a un nivel de significancia de 0,05.
+
 
 ## Comparaciones de un taxón de interés entre dos grupos
 
@@ -339,9 +376,7 @@ fit_w_b
 
 La prueba de Wilcoxon anterior indica que  existe una abundancia relativa estadísticamente significativa de Bacteroides entre los ratones Vdr-/- y WT. Podemos concluir que Vdr knockout enriquece Bacteroides.
 
-##Comparación de taxones presentes o ausentes utilizando
-
-###Prueba de chi-cuadrado
+### Comparación de taxones presentes o ausentes utilizando la prueba de chi-cuadrado
 
 Una prueba de chi-cuadrado, también conocida como prueba v2, a menudo utilizada como abreviatura de la prueba de chi-cuadrado de Pearson, fue propuesta e investigada por primera vez por Karl Pearson en 1900(Pearson 1900). La prueba 2 se aplica a conjuntos de datos categóricos para probar si la distribución de frecuencia observada difiere de una distribución teórica o propuesta (pruebas de bondad de ajuste) e investigar si la variable fila y la variable  columna en una tabla de contingencia son independientes entre sí (pruebas de
 independencia).
