@@ -12,21 +12,34 @@ output: html_document
 
 # Análisis univariado de comunidades
 
-Dividimos el estudio de la composición de las comunidades microbianas en dos grandes componentes: (a)Evaluación de hipótesis sobre diversidad taxonómica, OTU y Taxones  (b) Análisis de diferencias entre grupos. El primer componente pertenece principalmente a análisis univariado de comunidades. El segundo puede ser dividido en varias técnicas multivariadas, como lo son "clustering" y  "ordinations", y la evaluación de hipótesis de análisis multivariado de  disimilitudes.  
+Dividimos el estudio de la composición de las comunidades microbianas en dos grandes componentes: 
+
+  (a)Evaluación de hipótesis sobre diversidad taxonómica, OTU y Taxones.  
+  (b) Análisis de diferencias entre grupos. 
+  
+El primer componente pertenece principalmente a análisis univariado de comunidades. El segundo puede ser dividido en varias técnicas multivariadas, como lo son "clustering" y  "ordinations", y la evaluación de hipótesis de análisis multivariado de  disimilitudes.  
 
 ## Comparaciones de diversidades entre dos grupos
 
-En nuestro estudio con ratones Vdr-/-, uno de los propósitos es probar la diferencia de diversidades entre dos grupos (Vdr-/- y ratones de tipo salvaje) en sitios fecales y cecales. Aquí ilustraremos el análisis de la comunidad univariante, y compararemos la diversidad de Shannon(calculado anteriormente en Cap. 6 en las muestras fecales) usando varias estadísticas de prueba.
+En nuestro estudio con ratones Vdr$-/-$, uno de los propósitos es probar la diferencia de diversidades entre dos grupos (Vdr$-/-$ y ratones de tipo salvaje) en sitios fecales y cecales. Aquí ilustraremos el análisis de la comunidad univariante, y compararemos la diversidad de Shannon (calculada anteriormente en el Cap. 6 en las muestras fecales) usando varios estadísticos de prueba.
 
-### Prueba t de Welch para dos muestras
+### Prueba $t$ de Welch para dos muestras
 
-El estadístico t fue introducido en 1908 por William Sealy Gosset. Una prueba t de dos muestras se utiliza para probar que las medias de dos poblaciones son iguales. Se aplica más comúnmente cuando el estadístico de prueba seguiría una distribución normal. Si los dos grupos tienen la misma varianza, el estadístico t se puede calcular de la siguiente manera:
+El estadístico $t$ fue introducido en 1908 por William Sealy Gosset. Una prueba $t$ de dos muestras se utiliza para probar que las medias de dos poblaciones son iguales. Se aplica más comúnmente cuando el estadístico de prueba sigue una distribución normal. Si los dos grupos tienen la misma varianza, el estadístico $t$ se puede calcular de la siguiente manera:
+
 $$
 t=\frac{\bar X_1 - \bar X_2}{^{Sp} \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}
 $$
-donde, sp y s22 son el estimador imparcial de la varianza de las muestras 1 y 2, respectivamente. Cuando las dos muestras tienen varianzas desiguales y tamaños de muestra desiguales, la prueba t de Welch se considera más confiable (Ruxton 2006).
-Por lo tanto, aquí usamos la prueba t de Welch para nuestros datos de ratón Vdr-/-.
-Primero, cargue y transponga el conjunto de datos:
+donde, $s_p = \sqrt{\frac{(n-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}$ es un estimador de desviación estándar de las dos muestras. La prueba $t$ de Welch o la prueba $t$ de varianzas desiguales es una adaptación de la prueba $t$. El estadístico de la prueba $t$ de Welch está dado por:
+
+\[ t\ =\ \frac{\bar{X}_1-\bar{X}_2}{s_{\bar{\Delta}}}, \]
+
+donde $s_{\bar{\Delta}}=\sqrt{\frac{s_{1}^2}{n_1}+\frac{s_2^2}{n_2}}$; $s_1^2$ y $s_2^2$ son los estimadores imparciales de la varianza de las muestras 1 y 2, respectivamente. Cuando las dos muestras tienen varianzas desiguales y tamaños de muestra desiguales, la prueba $t$ de Welch se considera más confiable (Ruxton 2006).
+
+Por lo tanto, aquí usamos la prueba $t$ de Welch para nuestros datos de ratón Vdr$-/-$.
+
+Primero, cargamos y calculamos la transpuesta del conjunto de datos:
+
 
 ```{r}
 # IMPORTANTE
@@ -45,7 +58,7 @@ abund_table <-  read.csv(paste0(workingDir,"/data/VdrGenusCounts.csv"),
 abund_table <- t(abund_table)
 ```
 
-Para incorporar la información del grupo del conjunto de datos directamente a la comparación, necesitamos administrar los datos. En el conjunto de datos, la información de ID se muestra y grupo está en una franja de caracteres. Primero los extraemos de allí.
+Para incorporar la información del grupo del conjunto de datos directamente a la comparación, necesitamos administrar los datos. En el conjunto de datos, la información del ID de la muestra y el grupo están en una franja de caracteres. Primero los extraemos de allí.
 
 ```{r}
 grouping <- data.frame(row.names = rownames(abund_table), 
@@ -57,14 +70,14 @@ grouping <- grouping[,c(4,5)]
 grouping
 ```
 
-Repetimos el calculo de la diversidad de Shannon para esta tabla, igual que en el capitulo 6.
+Repetimos el calculo de la diversidad de Shannon para esta tabla, igual que en el capítulo 6.
 
 ```{r}
-library("vegan")
+library(vegan)
 H<-diversity(abund_table, "shannon") 
 ```
 
-Luego combinamos dataframes de diversidad y agrupación para crear un nuevo dataframe.
+Luego combinamos los dataframes de la diversidad de Shannon y agrupación para crear un nuevo dataframe.
 
 ```{r}
 df_H<-data.frame(sample=names(H),value=H,measure=rep("Shannon",length(H)))
@@ -80,31 +93,34 @@ Fecal_G<- subset(df_G, Location=="Fecal")
 Fecal_G
 ```
 
-Ahora los datos están listos para el análisis estadístico. Antes de realizar la prueba de hipótesis, exploremos la distribución de los valores de diversidad de Shannon usando la función ggplot() 
+Ahora, los datos están listos para el análisis estadístico. Antes de realizar la prueba de hipótesis, exploremos la distribución de los valores de diversidad de Shannon usando la función `ggplot()`. 
 
-```{r}
-library("ggplot2")
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diversidad de Shannon'}
+library(ggplot2)
 #dividimos el gráfico en dos paneles usando facet_grid.
 p<-ggplot(Fecal_G, aes(x=value))+
   geom_histogram(color="black", fill="black")+
   facet_grid(Group ~ .)
+p
 ```
 
-El paquete plyr se utiliza para calcular los valores promedio de diversidad de Shannon de cada grupo
+El paquete `plyr` se utiliza para calcular los valores promedio de la diversidad de Shannon de cada grupo.
 
 ```{r}
-library("plyr")
+library(plyr)
 #la función ddply toma input un df y arroja un df de output
 mu <- ddply(Fecal_G, "Group", summarise, grp.mean=mean(value))
 head(mu)
+```
 
+
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diversidad de Shannon con líneas de media.'}
 #Agregamos las líneas de la media a la gráfica
-
 p+geom_vline(data=mu, aes(xintercept=grp.mean, color="red"),
              linetype="dashed")
 ```
 
-En el histograma anterior la eliminación de Vdr de este grupo se desplaza hacia la derecha en relación con el grupo WT (hacia valores de diversidad más altos),  lo que da como resultado una mayor diversidad. 
+En el histograma anterior la eliminación de Vdr de este grupo se desplaza hacia la derecha en relación con el grupo WT (hacia valores de diversidad más altos), lo que da como resultado una mayor diversidad. 
 
 ```{r}
 #Usamos la prueba t de Welch para probar la hipotesis nula
@@ -112,32 +128,38 @@ fit_t <- t.test(value ~ Group, data=Fecal_G)
 fit_t
 ```
 
-Para probar la hipótesis nula de que no hay diferencia en la diversidad de Shannon, se utilizó una prueba t de Welch que dio como resultado un valor de p = 0,01 (t = 3,6, df = 5,9). Por lo tanto, rechazamos la hipótesis nula de no diferencia a favor de la alternativa de que las diversidades de Shannon son diferentes en los dos grupos.
+Para probar la hipótesis nula de que no hay diferencia en la diversidad de Shannon, se utilizó una prueba $t$ de Welch que dio como resultado un valor de p = `r fit_t$p.value` (t = `r fit_t$statistic`, df = `r fit_t$parameter`). Por lo tanto, rechazamos la hipótesis nula de no diferencia a favor de la alternativa de que las diversidades de Shannon son diferentes en los dos grupos.
 
 ## Comparaciones de un taxón de interés entre dos grupos
 
 ### Comparación de la abundancia relativa utilizando la prueba de la suma de rangos de Wilcoxon
 
-Cuando analizamos los datos de abundancia de microbiomas, no es apropiado sacar inferencias sobre la abundancia total en el ecosistema a partir de la abundancia de OTUs o abundancia de taxones en las muestras. Mas bien podemos usar la abundancia relativa en la muestra para inferir la abundancia relativa de un taxón en el ecosistema. La razón subyacente es que existe una restricción de composición: todas las abundancias relativas dentro de una muestra suman a uno, lo que da como resultado datos de composición residiendo en un simplex (Aitchison 1982, 1986) en lugar de residir en el espacio euclidiano. Por lo tanto, a menudo es necesario estandarizar los datos a una escala común para facilitar la comparación de la abundancia del taxón entre grupos. La forma es dividir el conteo de taxones por el número total de lecturas en 100 para convertir la abundancia en el porcentaje de lecturas en la muestra, escalar los datos a "el número de taxones por 100 lecturas".
+Cuando analizamos los datos de abundancia de microbiomas, no es apropiado sacar inferencias sobre la abundancia total en el ecosistema a partir de la abundancia de OTUs o abundancia de taxones en las muestras. Más bien podemos usar la abundancia relativa en la muestra para inferir la abundancia relativa de un taxón en el ecosistema. La razón subyacente es que existe una restricción de composición: todas las abundancias relativas dentro de una muestra suman a uno, lo que da como resultado datos de composición residiendo en un **simplejo** (Aitchison 1982, 1986) en lugar de residir en el espacio euclidiano. Por lo tanto, a menudo es necesario estandarizar los datos a una escala común para facilitar la comparación de la abundancia del taxón entre grupos. La forma es dividir el conteo de taxones por el número total de lecturas en 100 para convertir la abundancia en el porcentaje de lecturas en la muestra, escalar los datos a "el número de taxones por 100 lecturas".
 
-Cuando seleccionamos un solo taxón específico para probarlo en grupos, es importante asegúrarse de que el taxón especificado se base en una hipótesis o teoría para reducir la posibilidad de inflar la tasa de falsos positivos (es decir, rechaza la hipótesis nula cuando no debería ser rechazada).
-Vdr en ratones afecta sustancialmente la diversidad beta e influencia constantemente taxones bacterianos individuales, como los Parabacteroides (Wang et al. 2016). En esta sección, ilustramos la prueba de suma de rangos de Wilcoxon para comparar Bacteroides bacterianos en el conjunto de datos del ratón Vdr utilizando muestras fecales.
+Cuando seleccionamos un solo taxón específico para probarlo en grupos, es importante asegurarse de que el taxón especificado se base en una hipótesis o teoría para reducir la posibilidad de inflar la tasa de falsos positivos (es decir, rechazar la hipótesis nula cuando no debería ser rechazada).
 
-Primero, verifique la abundancia total en cada muestra.
+Vdr en ratones afecta sustancialmente la diversidad beta e influencia constantemente taxones bacterianos individuales, como los Parabacteroides (Wang et al. 2016). En esta sección, se ilustra la prueba de suma de rangos de Wilcoxon para comparar Bacteroides bacterianos en el conjunto de datos de ratones Vdr utilizando muestras fecales.
+
+Primero, verificamos la abundancia total en cada muestra.
+
 ```{r}
 apply(abund_table,1, sum)
 ```
-Luego, calcule la abundancia relativa dividiendo cada valor por la abundancia total de la muestra:
+Luego, calculamos la abundancia relativa dividiendo cada valor por la abundancia total de la muestra:
 
 ```{r}
 #Calculamos la abundancia relativa
 relative_abund_table <- decostand(abund_table, method = "total")
 ```
-Compruebe la abundancia total en cada muestra para que los cálculos anteriores sean correctos
+
+Comprobamos la abundancia total en cada muestra para comprobar que los cálculos anteriores sean correctos.
+
 ```{r}
 apply(relative_abund_table, 1, sum)
 ```
+
 Eche un vistazo a los datos transformados
+
 ```{r}
 #Visualizamos los datos transformados
 relative_abund_table[1:16,1:8]
@@ -148,7 +170,7 @@ Nuestra bacteria de interés **Bacteroides** está en la columna 8, subdividamos
 #subdividimos a los bacterioides
 (Bacteroides <-relative_abund_table[,8]) 
 ```
-Ahora, combine Bacteroides y los dataframes agrupados y crea subconjuntos de las muestras fecales para un uso posterior.
+Ahora, combinamos Bacteroides y los dataframes agrupados y creamos subconjuntos de las muestras fecales para un uso posterior.
 
 ```{r}
 #combine Bacterioides y los df agrupados y crea subconjuntos de las muestras
@@ -158,25 +180,30 @@ Fecal_Bacteroides_G <- subset(Bacteroides_G, Location=="Fecal")
 Fecal_Bacteroides_G
 ```
 La función boxplot() se usa para generar un diagrama de caja simple de Bacteroides con el grupo
-```{r}
+
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diagrama de caja  de Bacteroides con Vdr-/- y grupos WT en muestras fecales.'}
 #cramos un boxplot con los  grupos 
-#Diagrama de caja de Bacteroides bacterianos con grupos Vdr-/- y WT en muestras fecales
-boxplot(Bacteroides ~ Group,data=Fecal_Bacteroides_G, col=rainbow(2),main="Bacteroides in Vdr WT/KO mice")
+#Diagrama de caja de Bacteroides con grupos Vdr-/- y WT en muestras fecales
+boxplot(Bacteroides ~ Group,data=Fecal_Bacteroides_G, col=rainbow(2),
+        main="Bacteroides in Vdr WT/KO mice")
 ```
-```{r}
+
+
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diagrama de caja  de Bacteroides con Vdr-/- y grupos WT en muestras fecales generadas usando ggplot.'}
 #con ggplot generamos el boxplot con el siguente codigo
 ggplot(Fecal_Bacteroides_G, aes(x=Group, y=Bacteroides,col=factor(Group))) + 
   geom_boxplot(notch=FALSE)
 ```
-```{r}
+
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diagrama de caja  de Bacteroides con Vdr-/- y grupos WT en muestras fecales generadas usando ggplot con otro formato.'}
 #Diagrama de caja  bacterias Bacteroides con Vdr−/− y WT en muestras fecales
 #generados usando ggplot
 ggplot(Fecal_Bacteroides_G, aes(x=Group, y=Bacteroides)) + 
   geom_boxplot(outlier.colour="red", outlier.shape=8, outlier.size=4) #+ 
   #layer(stat_params = list(binwidth = 2))
-#el argumento bidwith=2 genera un error
+#el argumento bindwith=2 genera un error
 ```
-Los diagramas de caja muestran taxones (**Bacteriodes**) en ratones de tipo salvaje (WT, n = 3) y para ratones  knockout de Vdr (KO, n = 5)
+Los diagramas de caja muestran taxones (**Bacteriodes**) en ratones WT (WT, n = 3) y para ratones  knockout de Vdr (KO, n = 5)
 
 ```{r}
 #Hacemos una prueba de suma de rangos de Wilcoxon
@@ -184,56 +211,109 @@ fit_w_b <- wilcox.test(Bacteroides ~ Group,data=Fecal_Bacteroides_G)
 fit_w_b
 ```
 
-La prueba de Wilcoxon anterior indica que  existe una abundancia relativa estadísticamente significativa de Bacteroides entre los ratones Vdr-/- y WT. Podemos concluir que Vdr knockout enriquece Bacteroides.
+La prueba de Wilcoxon anterior indica que  existe una abundancia relativa estadísticamente significativa de Bacteroides entre los ratones Vdr$-/-$ y WT. Podemos concluir que Vdr knockout enriquece Bacteroides.
 
-##Comparación de taxones presentes o ausentes utilizando
+### Comparación de taxones presentes o ausentes utilizando la Prueba de chi-cuadrado
 
-###Prueba de chi-cuadrado
-
-Una prueba de chi-cuadrado, también conocida como prueba v2, a menudo utilizada como abreviatura de la prueba de chi-cuadrado de Pearson, fue propuesta e investigada por primera vez por Karl Pearson en 1900(Pearson 1900). La prueba 2 se aplica a conjuntos de datos categóricos para probar si la distribución de frecuencia observada difiere de una distribución teórica o propuesta (pruebas de bondad de ajuste) e investigar si la variable fila y la variable  columna en una tabla de contingencia son independientes entre sí (pruebas de
-independencia).
+Una prueba de chi-cuadrado, también conocida como prueba $\chi^2$, a menudo utilizada como abreviatura de la prueba de chi-cuadrado de Pearson, fué propuesta e investigada por primera vez por Karl Pearson en 1900 (Pearson 1900). La prueba $\chi^2$ se aplica a conjuntos de datos categóricos para probar si la distribución de frecuencia observada difiere de una distribución teórica o propuesta (pruebas de bondad de ajuste) e investigar si la variable fila y la variable  columna en una tabla de contingencia son independientes entre sí (pruebas de independencia).
 El estadístico de prueba de bondad de ajuste viene dado por:
 
 $$
-X^2= \sum_{i = 1}^{n}\frac{(O_i-E_i)^2}{E_i}=N\sum_{i = 1}^{n}\frac{(O_i/N-p_i)^2}{p_i},
+\chi^2= \sum_{i = 1}^{n}\frac{(O_i-E_i)^2}{E_i}=N\sum_{i = 1}^{n}\frac{(O_i/N-p_i)^2}{p_i},
 $$
 Donde:
-$X^2$         La estadística de prueba de Pearson, que se acerca asintóticamente a v2
-$O_i$         número de observaciones de categoría i
-$N$           número total de observaciones
-$E_i=Np_i$    Frecuencia esperada(teórica) de la categoría i bajo la hipótesis nula
-$p_i$         probabilidad de categoría i en la población
-$n$           número de celdas en la tabla.
+
+<table>
+    <tr>
+        <td>$X^2$</td>
+        <td>El estadístico de prueba de Pearson, que se acerca asintóticamente a la distribución $\chi^2$</td>
+    </tr>
+    <tr>
+        <td>$O_i$</td>
+        <td>número de observaciones de categoría $i$</td>
+    </tr>
+    <tr>
+        <td>$N$</td>
+        <td>Número total de observaciones</td>
+    </tr>
+    <tr>
+        <td>$E_i=Np_i$</td>
+        <td>Frecuencia esperada(teórica) de la categoría $i$ bajo la hipótesis nula</td>
+    </tr>
+    <tr>
+        <td>$p_i$</td>
+        <td>probabilidad de categoría $i$ en la población</td>
+    </tr>
+    <tr>
+        <td>$n$</td>
+        <td>número de celdas en la tabla</td>
+    </tr>
+</table>
+
 
 El estadístico de prueba de independencia se da de la siguiente forma.
+
 $$
-X^2= \sum_{i = 1}^{r}\sum_{j = 1}^{c}\frac{(O_{ij}-E_{ij})^2}{E_{ij}}=N\sum_{i j}p_i.p._j(\frac{(O_{ij}/N)-p_i.p._j}{p_i.p._j})^2,
+\chi^2= \sum_{i = 1}^{r}\sum_{j = 1}^{c}\frac{(O_{i,j}-E_{i,j})^2}{E_{i,j}}=N\sum_{i,j}p_{i.}p_{.j}\left(\frac{(O_{i,j}/N)-p_{i.}p_{.j}}{p_{i.}p_{.j}}\right)^2,
 $$
+
 Donde
 
-$N$                                                               Tamaño total de la muestra (la suma de todas las celdas de la tabla)
-$E_{ij}=Np_{i.}p{._j}$                                            Frecuencia esperada(teórica) bajo la hipótesis nula de independencia
-$p_{i.}=\frac{O_{i.}}{N}=\sum_{j=1}^{c}\frac{O_{ij.}}{N}$         Probabilidad de observaciones de categoría i ignorando el atributo de columna (probabilidad de totales de fila)
-$p_{.j}=\frac{O_{.j}}{N}=\sum_{i=1}^{r}\frac{O_{ij.}}{N}$         Probabilidad de observaciones de categoría j ignorando el atributo de fila (probabilidad de totales de columna)
+<table>
+    <tr>
+        <td>$N$</td>
+        <td>Tamaño total de la muestra (la suma de todas las celdas de la tabla)</td>
+    </tr>
+    <tr>
+        <td>$E_{ij}=Np_{i.}p_{.j}$</td>
+        <td>Frecuencia esperada(teórica) bajo la hipótesis nula de independencia</td>
+    </tr>
+    <tr>
+        <td>$p_{i.}=\frac{O_{i.}}{N}=\sum_{j=1}^{c}\frac{O_{ij}}{N}$</td>
+        <td>Probabilidad de observaciones de categoría $i$ ignorando el atributo</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>de columna (probabilidad de totales de fila)</td>
+    </tr>
+    <tr>
+        <td>$p_{.j}=\frac{O_{.j}}{N}=\sum_{i=1}^{r}\frac{O_{ij}}{N}$</td>
+        <td>Probabilidad de observaciones de categoría $j$ ignorando el atributo de</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>fila (probabilidad de totales de columna)</td>
+    </tr>
+</table>
 
-Como regla general, se requiere que todos los recuentos de celdas esperados sean iguales o superiores a 5 para proporcionar una aproximación adecuada a la distribución de la distribución de Chi-cuadrado (Wackerly et al. 2002), aunque Cochran (1952) señaló que este valor podría ser tan bajo como 1 para algunas situaciones. 
-En esta sección, ilustramos la prueba $X^2$ para comparar bacterias Parabacteroides en el conjunto de datos de ratones Vdr utilizando muestras cecales. Para ilustrar la prueba  $X^2$,  transformamos los datos de conteo de abundancia de Parabacteroides en una variable binaria. Los datos de conteo en la tabla de abundancia para el taxón Parabacteroides se transformarían a 0 si el taxón está ausente en la muestra o 1 si el taxón está presente en la muestra. Los datos transformados se resumen en la tabla 1.
+Como regla general, se requiere que todos los recuentos de celdas esperados sean iguales o superiores a $5$ para proporcionar una aproximación adecuada a la distribución de la distribución de Chi-cuadrado (Wackerly et al. 2002), aunque Cochran (1952) señaló que este valor podría ser tan bajo como $1$ para algunas situaciones.
+
+En esta sección, ilustramos la prueba $\chi^2$ para comparar bacterias Parabacteroides en el conjunto de datos de ratones Vdr utilizando muestras cecales. Para ilustrar la prueba  $\chi^2$,  transformamos los datos de conteo de abundancia de Parabacteroides en una variable binaria. Los datos de conteo en la tabla de abundancia para el taxón Parabacteroides se transformarían a $0$ si el taxón está ausente en la muestra o $1$ si el taxón está presente en la muestra. Los datos transformados se resumen en la tabla 1.
+
+| **Grupo**  | **Presencia** | **Ausencia** | **Total** |
+|:----------:|:-------------:|:------------:|:---------:|
+| **Vdr-/-** | 3 (60%)       | 2 (40%)      | 5         |
+| **WT**     | 3 (100%)      | 0 (0%)       | 3         |
+
+Tabla1: Distribución de la tasa de Parabacteroides en muestras Vdr $-/-$ y WT obtenidas del conjunto de datos de ratones Vdr.
 
 Primero, observe los datos de abundancia para identificar Parabacteroides y subdividirlas.
 
 ```{r}
-#tabla 1
-#Distribution of the Parabacteroides rate across Vdr−/− and WT cecal samples obtained
+#Distribution of the Parabacteroides rate 
+#across Vdr−/− and WT cecal samples obtained
 abund_table[1:16,1:27]
 (Parabacteroides <- abund_table[,27])
 ```
-Luego, combine los datos subdivididos con el marco de datos de agrupación.
+
+Luego, combinamos los datos subdivididos con el marco de datos de agrupación.
 
 ```{r}
 #combina los datos subdivididos
 Parabacteroides_G <-cbind(Parabacteroides, grouping)
 rownames(Parabacteroides_G)<-NULL
 ```
+
 Dado que el dataframe combinado incluye muestras fecales y cecales, subdividamos datos cecales de este dataframe
 
 ```{r}
@@ -242,8 +322,10 @@ Cecal_Parabacteroides_G
 ```
 
 Antes, recodificamos una variable binaria: "Presente", para la prueba de Chi-cuadrado.
+
 ```{r}
-Cecal_Parabacteroides_G$Present <- ifelse((Cecal_Parabacteroides_G$Parabacteroides > 0), "Present","Absent")
+Cecal_Parabacteroides_G$Present <- ifelse((
+  Cecal_Parabacteroides_G$Parabacteroides > 0), "Present","Absent")
 Cecal_Parabacteroides_G
 ```
 
@@ -253,16 +335,20 @@ El siguiente código es usado para crear una prueba de Chi-cuadrado
 library(MASS) 
 tbl = table(Cecal_Parabacteroides_G$Group, Cecal_Parabacteroides_G$Present) 
 tbl                 
-chisq.test(tbl) 
+chi <- chisq.test(tbl)
+chi
 ```
 
-La tabla 1 muestra la distribución de estas tasas: 3 de 5 muestras (60 %) cecales Vdr-/- tenían Parabacteroides, mientras que 3 de 3  (100 %) muestras de WT sí lo tenían. Para probar la hipótesis nula de que no hay diferencia en las tasas de ocurrencia entre los
-dos grupos, una prueba de chi-cuadrado dio un valor P de 0,7 (X-cuadrado = 0,18, df = 1), por lo que *no podemos rechazar la hipótesis nula de que no hay diferencia entre los dos grupos* y concluir que no tienen tasas diferentes de ocurrencia. Tenga en cuenta que debido al pequeño tamaño de la muestra, hay un mensaje de advertencia en la salida. Por lo general, si los valores de las celdas son pequeños (como <5) en la tabla de contingencia, la prueba de chi-cuadrado puede ser incorrecta, entonces se aplica una prueba de exactitud de Fisher:
+
+La tabla \ref{tab:tabla1} muestra la distribución de estas tasas: 3(60%) de 5 muestras cecales Vdr$-/-$ tenían Parabacteroides, mientras que 3(100%) de 3  muestras de WT sí lo tenían. Para probar la hipótesis nula de que no hay diferencia en las tasas de ocurrencia entre los dos grupos, una prueba de chi-cuadrado dio un $p-$valor de `r chi$p.value` ($X$-cuadrado = `r chi$statistic`, df = `r chi$parameter`), por lo que *no podemos rechazar la hipótesis nula de que no hay diferencia entre los dos grupos* y concluir que no tienen tasas diferentes de ocurrencia. Tenga en cuenta que debido al pequeño tamaño de la muestra, hay un mensaje de advertencia en la salida. Por lo general, si los valores de las celdas son pequeños (como $<5$) en la tabla de contingencia, la prueba de chi-cuadrado puede ser incorrecta, entonces se aplica una prueba de exactitud de Fisher [ver](http://www.biostathandbook.com/small.html):
+
 ```{r}
 #prueba de exactitud de fisher
-fisher.test(tbl)
+fisher <- fisher.test(tbl)
+fisher
 ```
-El resultado de la prueba de exactitud de Fisher tampoco es significativo con un valor de p de 0,5, *lo que es consistente con la prueba de Chi-cuadrado*. Sin embargo, es difícil tener conclusiones sobre la prueba con el intervalo de confianza infinito.
+
+El resultado de la prueba de exactitud de Fisher tampoco es significativo con un $p-$valor de `r fisher$p.value`, *lo que es consistente con la prueba de Chi-cuadrado*. Sin embargo, es difícil tener conclusiones sobre la prueba con el intervalo de confianza infinito.
 
 ## Comparación entre más de dos grupos usando ANOVA
 
