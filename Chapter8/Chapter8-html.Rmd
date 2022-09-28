@@ -10,7 +10,7 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-# Análisis univariado de comunidades
+# Introducción
 
 Dividimos el estudio de la composición de las comunidades microbianas en dos grandes componentes: 
 
@@ -19,11 +19,11 @@ Dividimos el estudio de la composición de las comunidades microbianas en dos gr
   
 El primer componente pertenece principalmente a análisis univariado de comunidades. El segundo puede ser dividido en varias técnicas multivariadas, como lo son "clustering" y  "ordinations", y la evaluación de hipótesis de análisis multivariado de  disimilitudes.  
 
-## Comparaciones de diversidades entre dos grupos
+# Comparaciones de diversidades entre dos grupos
 
 En nuestro estudio con ratones Vdr$-/-$, uno de los propósitos es probar la diferencia de diversidades entre dos grupos (Vdr$-/-$ y ratones de tipo salvaje) en sitios fecales y cecales. Aquí ilustraremos el análisis de la comunidad univariante, y compararemos la diversidad de Shannon (calculada anteriormente en el Cap. 6 en las muestras fecales) usando varios estadísticos de prueba.
 
-### Prueba $t$ de Welch para dos muestras
+## Prueba $t$ de Welch para dos muestras
 
 El estadístico $t$ fue introducido en 1908 por William Sealy Gosset. Una prueba $t$ de dos muestras se utiliza para probar que las medias de dos poblaciones son iguales. Se aplica más comúnmente cuando el estadístico de prueba sigue una distribución normal. Si los dos grupos tienen la misma varianza, el estadístico $t$ se puede calcular de la siguiente manera:
 
@@ -34,7 +34,7 @@ donde, $s_p = \sqrt{\frac{(n-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}$ es un estimador 
 
 \[ t\ =\ \frac{\bar{X}_1-\bar{X}_2}{s_{\bar{\Delta}}}, \]
 
-donde $s_{\bar{\Delta}}=\sqrt{\frac{s_{1}^2}{n_1}+\frac{s_2^2}{n_2}}$; $s_1^2$ y $s_2^2$ son los estimadores imparciales de la varianza de las muestras 1 y 2, respectivamente. Cuando las dos muestras tienen varianzas desiguales y tamaños de muestra desiguales, la prueba $t$ de Welch se considera más confiable (Ruxton 2006).
+donde $s_{\bar{\Delta}}=\sqrt{\frac{s_{1}^2}{n_1}+\frac{s_2^2}{n_2}}$; $s_1^2$ y $s_2^2$ son los estimadores imparciales de la varianza de las muestras 1 y 2, respectivamente. Cuando las dos muestras tienen varianzas desiguales y tamaños de muestra desiguales, la prueba $t$ de Welch se considera más confiable.
 
 Por lo tanto, aquí usamos la prueba $t$ de Welch para nuestros datos de ratón Vdr$-/-$.
 
@@ -43,7 +43,7 @@ Primero, cargamos y calculamos la transpuesta del conjunto de datos:
 
 ```{r}
 # IMPORTANTE
-# Ajustamos path de trabajo según tu PC
+# Ajusta el directorio de trabajo según tu PC
 # Mostramos directorio actual
 getwd()
 # Si es necesario, cambiar la ruta donde están los archivos almacenados. 
@@ -80,7 +80,9 @@ H<-diversity(abund_table, "shannon")
 Luego combinamos los dataframes de la diversidad de Shannon y agrupación para crear un nuevo dataframe.
 
 ```{r}
+#hacemos un df de la diversidad de shannon
 df_H<-data.frame(sample=names(H),value=H,measure=rep("Shannon",length(H)))
+#combinamos la diversidad y los dataframes agrupados para crear un nuevo df
 df_G <-cbind(df_H, grouping)
 rownames(df_G)<-NULL
 df_G
@@ -95,9 +97,10 @@ Fecal_G
 
 Ahora, los datos están listos para el análisis estadístico. Antes de realizar la prueba de hipótesis, exploremos la distribución de los valores de diversidad de Shannon usando la función `ggplot()`. 
 
-```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diversidad de Shannon'}
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = '8.1 Diversidad de Shannon'}
 library(ggplot2)
-#dividimos el gráfico en dos paneles usando facet_grid.
+
+#Ahora dividimos el gráfico en dos paneles usando facet_grid.
 p<-ggplot(Fecal_G, aes(x=value))+
   geom_histogram(color="black", fill="black")+
   facet_grid(Group ~ .)
@@ -114,27 +117,63 @@ head(mu)
 ```
 
 
-```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diversidad de Shannon con líneas de media.'}
+
+```{r div_Shannon, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = '8.2 Diversidad de Shannon con líneas de media.'}
 #Agregamos las líneas de la media a la gráfica
 p+geom_vline(data=mu, aes(xintercept=grp.mean, color="red"),
              linetype="dashed")
 ```
 
-En el histograma anterior la eliminación de Vdr de este grupo se desplaza hacia la derecha en relación con el grupo WT (hacia valores de diversidad más altos), lo que da como resultado una mayor diversidad. 
+En el histograma anterior (Figura '8.2') la eliminación de Vdr de este grupo se desplaza hacia la derecha en relación con el grupo WT (hacia valores de diversidad más altos),  lo que da como resultado una mayor diversidad. 
+
+Hacemos la prueba $t$ de Welch.
 
 ```{r}
-#Usamos la prueba t de Welch para probar la hipotesis nula
+#Usamos la prueba t de Welch para probar la hipótesis nula
 fit_t <- t.test(value ~ Group, data=Fecal_G)
 fit_t
 ```
 
 Para probar la hipótesis nula de que no hay diferencia en la diversidad de Shannon, se utilizó una prueba $t$ de Welch que dio como resultado un valor de p = `r fit_t$p.value` (t = `r fit_t$statistic`, df = `r fit_t$parameter`). Por lo tanto, rechazamos la hipótesis nula de no diferencia a favor de la alternativa de que las diversidades de Shannon son diferentes en los dos grupos.
 
-## Comparaciones de un taxón de interés entre dos grupos
 
-### Comparación de la abundancia relativa utilizando la prueba de la suma de rangos de Wilcoxon
+## La prueba de la suma de rangos de Wilcoxon
 
-Cuando analizamos los datos de abundancia de microbiomas, no es apropiado sacar inferencias sobre la abundancia total en el ecosistema a partir de la abundancia de OTUs o abundancia de taxones en las muestras. Más bien podemos usar la abundancia relativa en la muestra para inferir la abundancia relativa de un taxón en el ecosistema. La razón subyacente es que existe una restricción de composición: todas las abundancias relativas dentro de una muestra suman a uno, lo que da como resultado datos de composición residiendo en un **simplejo** (Aitchison 1982, 1986) en lugar de residir en el espacio euclidiano. Por lo tanto, a menudo es necesario estandarizar los datos a una escala común para facilitar la comparación de la abundancia del taxón entre grupos. La forma es dividir el conteo de taxones por el número total de lecturas en 100 para convertir la abundancia en el porcentaje de lecturas en la muestra, escalar los datos a "el número de taxones por 100 lecturas".
+
+*La prueba de la suma de rangos de Wilcoxon* es equivalente a la prueba “U de Mann-Whitney” desarrollada por Mann y Whitney en 1947. Es una alternativa no paramétrica a la prueba $t$ para dos muestras que utiliza rangos de datos de dos muestras que son independientes, para probar la hipótesis nula: las dos muestras independientes provienen de poblaciones con la misma distribución (es decir, las dos poblaciones son idénticas). A diferencia de la prueba $t$, *la prueba de suma de rangos de Wilcoxon* no requiere la suposición de distribuciones normales y es casi tan eficiente como la prueba $t$.
+Por lo tanto, es ampliamente utilizado en el estudio del microbioma. Se necesitan tres pasos principales para realizar *la prueba de suma de rangos de Wilcoxon* para encontrar el valor de la estadística de prueba:
+
+**Paso 1**: Asignar rangos a todas las observaciones, el valor más pequeño obtiene un rango de 1. Cuando los valores estén empatados, asignar la media de los rangos involucrados en el empate.
+
+**Paso 2**: Sumar los rangos de cualquiera de las dos muestras. La suma de rangos en otra muestra se puede determinar ya que la suma de todos los rangos es igual a $N(N + 1)/2$, donde $N$ es el número total de observaciones.
+
+Si las dos poblaciones de prueba tienen la misma distribución, entonces el rango $R$ tiene la media de $\mu_R=\frac{n_1(n_1+n_2+1)}{2}$ y la desviación estándar de $\sigma_R=\sqrt\frac{n_1n_2(n_1+n_2+1)}{12}$. *La prueba de la suma de rangos de Wilcoxon* rechaza la hipótesis de que las dos poblaciones tienen distribuciones idénticas cuando la suma de rangos $R$ está lejos de su media. El valor calculado de la suma de rangos se vuelve aproximadamente normal a medida que los dos tamaños de muestra aumentan. Podemos formar el valor estadístico  estandarizando la suma de rangos.
+
+**Paso 3**: Calcular el valor estadístico de la  *prueba $z$* usando la fórmula siguiente:
+\[z=\frac{R-\mu_R}{\sigma_R},\]
+
+donde:
+
+  - $R$: la suma de rangos de la muestra con número $n_1$.
+  - $n_1$: el tamaño de la muestra para el que se encuentra la suma de rangos $R$ (como la muestra 1).
+  - $n_2$: otro tamaño de muestra (como la muestra 2).
+
+
+El siguiente código se usa para realizar la prueba de suma de rangos de Wilcoxon.
+
+```{r}
+##8.1.2 Wilcoxon Rank Sum Test
+fit_w <- wilcox.test(value ~ Group, data=Fecal_G)
+fit_w 
+```
+
+La Figura 8.2 muestra que las distribuciones están sesgadas con el pequeño tamaño de la muestra. La prueba de la suma de rangos de Wilcoxon puede ser más apropiada; sin embargo, el resultado $p =$ `r fit_w$p.value` dado por *la prueba de la suma de rangos de Wilcoxon* conduce a la misma conclusión que la prueba $t$ de Welch con $p =$ `r fit_t$p.value` a un nivel de significancia de $0,05$.
+
+# Comparaciones de un taxón de interés entre dos grupos
+
+## Comparación de la abundancia relativa utilizando la prueba de la suma de rangos de Wilcoxon
+
+Cuando analizamos los datos de abundancia de microbiomas, no es apropiado sacar inferencias sobre la abundancia total en el ecosistema a partir de la abundancia de OTUs o abundancia de taxones en las muestras. Más bien podemos usar la abundancia relativa en la muestra para inferir la abundancia relativa de un taxón en el ecosistema. La razón subyacente es que existe una restricción de composición: todas las abundancias relativas dentro de una muestra suman a uno, lo que da como resultado datos de composición residiendo en un **simplejo** en lugar de residir en el espacio euclidiano. Por lo tanto, a menudo es necesario estandarizar los datos a una escala común para facilitar la comparación de la abundancia del taxón entre grupos. La forma es dividir el conteo de taxones por el número total de lecturas en 100 para convertir la abundancia en el porcentaje de lecturas en la muestra, escalar los datos a "el número de taxones por 100 lecturas".
 
 Cuando seleccionamos un solo taxón específico para probarlo en grupos, es importante asegurarse de que el taxón especificado se base en una hipótesis o teoría para reducir la posibilidad de inflar la tasa de falsos positivos (es decir, rechazar la hipótesis nula cuando no debería ser rechazada).
 
@@ -158,7 +197,7 @@ Comprobamos la abundancia total en cada muestra para comprobar que los cálculos
 apply(relative_abund_table, 1, sum)
 ```
 
-Eche un vistazo a los datos transformados
+Eche un vistazo a los datos transformados.
 
 ```{r}
 #Visualizamos los datos transformados
@@ -179,13 +218,13 @@ rownames(Bacteroides_G)<-NULL
 Fecal_Bacteroides_G <- subset(Bacteroides_G, Location=="Fecal")
 Fecal_Bacteroides_G
 ```
-La función boxplot() se usa para generar un diagrama de caja simple de Bacteroides con el grupo
+La función `boxplot()` se usa para generar un diagrama de caja simple de Bacteroides con el grupo.
 
 ```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Diagrama de caja  de Bacteroides con Vdr-/- y grupos WT en muestras fecales.'}
-#cramos un boxplot con los  grupos 
+#creamos un boxplot con los  grupos 
 #Diagrama de caja de Bacteroides con grupos Vdr-/- y WT en muestras fecales
 boxplot(Bacteroides ~ Group,data=Fecal_Bacteroides_G, col=rainbow(2),
-        main="Bacteroides in Vdr WT/KO mice")
+        main="Bacteroides en ratones Vdr WT/KO")
 ```
 
 
@@ -203,6 +242,7 @@ ggplot(Fecal_Bacteroides_G, aes(x=Group, y=Bacteroides)) +
   #layer(stat_params = list(binwidth = 2))
 #el argumento bindwith=2 genera un error
 ```
+
 Los diagramas de caja muestran taxones (**Bacteriodes**) en ratones WT (WT, n = 3) y para ratones  knockout de Vdr (KO, n = 5)
 
 ```{r}
@@ -213,7 +253,7 @@ fit_w_b
 
 La prueba de Wilcoxon anterior indica que  existe una abundancia relativa estadísticamente significativa de Bacteroides entre los ratones Vdr$-/-$ y WT. Podemos concluir que Vdr knockout enriquece Bacteroides.
 
-### Comparación de taxones presentes o ausentes utilizando la Prueba de chi-cuadrado
+## Comparación de taxones presentes o ausentes utilizando la Prueba de chi-cuadrado
 
 Una prueba de chi-cuadrado, también conocida como prueba $\chi^2$, a menudo utilizada como abreviatura de la prueba de chi-cuadrado de Pearson, fué propuesta e investigada por primera vez por Karl Pearson en 1900 (Pearson 1900). La prueba $\chi^2$ se aplica a conjuntos de datos categóricos para probar si la distribución de frecuencia observada difiere de una distribución teórica o propuesta (pruebas de bondad de ajuste) e investigar si la variable fila y la variable  columna en una tabla de contingencia son independientes entre sí (pruebas de independencia).
 El estadístico de prueba de bondad de ajuste viene dado por:
@@ -350,9 +390,9 @@ fisher
 
 El resultado de la prueba de exactitud de Fisher tampoco es significativo con un $p-$valor de `r fisher$p.value`, *lo que es consistente con la prueba de Chi-cuadrado*. Sin embargo, es difícil tener conclusiones sobre la prueba con el intervalo de confianza infinito.
 
-## Comparación entre más de dos grupos usando ANOVA
+# Comparación entre más de dos grupos usando ANOVA
 
-### ANOVA de una vía 
+## ANOVA de una vía 
 
 El análisis de varinza (ANOVA) fue propuesto por Ronal Fisher en 1918 y se hizo bien conocido después de la publicación del libro de Fisher, *"Statitiscal Methods for Research Workers"* en 1925. El ANOVA generaliza la prueba de t de dos muestras a más de dos grupos. La **Hipótesis nula** del ANOVA es: *Todas las medias de grupos comparados son iguales*. El análisis usando ANOVA se basa en un supuesto de *Normalidad* de los datos subyacentes. Sin embargo, la composición de la mayoría de los datos de comunidades microbiana, especialmente datos multivariados, no están normalmente distribuidos, por lo tanto, ANOVA solo es usaod para comparar análisis univariado de mediciones de alfa diversidad. Para datos de composición comunitaria multivariante, se aplica una versión no paramétrica La formación de la estadística de prueba se realiza mediante la partición tradicional de la suma de cuadrados (división de la variación). La ecuación de definición de la muestra varianza es
 
@@ -490,7 +530,7 @@ augment(aov_fit)
 glance(aov_fit)
 ```
 
-### Comparaciones múltiples Pareadas y de Tukey
+## Comparaciones múltiples Pareadas y de Tukey
 
 Los resultados del ANOVA dan la prueba global de diferencia de grupos (en este caso, 4 grupos con combinación fecal, cecal, $Vdr^{-/-}$ y WT). Nuestro propósito es probar también cada diferencia de pares asociada a la riqueza de Chao 1. Los siguientes pasos sirven para ilustrar las capacidades de la prueba t por pares y las comparaciones múltiples ad hoc de Tukey en R.
 Vamos a ejecutar la prueba t por pares no ajustada para los cuatro grupos. La configuración por defecto en R para esta prueba es ajustar los valores p como post hoc usando el método Holm, así que para obtener valores p no ajustados, debe especificar `p.adjust = "none"`. El valor por defecto de R asume la homogeneidad de la varianza, por lo que no es necesario especificar `pool. sd = T`. Si sus datos tienen una varianza desigual, debe utilizar `pool.sd = F`.
@@ -536,9 +576,9 @@ plot(TukeyHSD(aov(df_CH_G$value~df_CH_G$Group4), conf.level=.95))
 
 Este gráfico representa todas las pruebas posibles por pares y los valores $p$, así como los intervalos de confianza del 95%. El nivel de confianza del 95% por defecto puede cambiarse según su elección. Dado que todas las líneas de confianza cruzan 0, para este ejemplo, no hay términos significativamente diferentes tras el ajuste mediante comparaciones múltiples de Tukey.
 
-## Comparaciones entre más de dos grupos usando la prueba de Kruskal-Wallis
+# Comparaciones entre más de dos grupos usando la prueba de Kruskal-Wallis
 
-### Prueba de Kruskal-Wallis
+## Prueba de Kruskal-Wallis
 
 La prueba de Kruskal-Wallis o ANOVA unidireccional sobre rangos, llamada así por William Kruskal y W.Allen Wallis, es un método no paramétrico para comprobar si las muestras proceden de la misma distribución (Kruskal y Wallis 1952; Daniel 1990). *El equivalente paramétrico de la prueba de Kruskal-Wallis es el ANOVA de una vía*. 
 La ampliación es la prueba $U$ de Mann-Whitney a más de dos grupos. La hipótesis nula de la prueba de Kruskal-Wallis es que los *rangos medios de los grupos son los mismos*. A diferencia del ANOVA unidireccional análogo, la prueba no paramétrica de *Kruskal-Wallis no asume una distribución normal de los datos subyacentes*. Se ha utilizado ampliamente en investigación del microbioma. Por ejemplo, los datos del microbioma posteriores a la secuenciación no están distribuidos normalmente y contienen algunos valores atípicos importantes. Por lo tanto, es conveniente utilizar rangos en lugar de valores reales para evitar que las pruebas se vean afectadas por la presencia de valores atípicos o por una distribución no normal. La estadística de la prueba consta de cuatro pasos principales:
@@ -559,7 +599,7 @@ donde
 
 El estadístico de la prueba de Kruskal-Wallis es aproximadamente una distribución chi-cuadrado, con k - 1 grados de libertad si los valores de $n_{i}$ son "grandes". La aproximación se acepta generalmente como adecuada cuando cada uno de los valores de $n_{i}$ es mayor o igual a 5.
 
-### Comparación de diversidades entre grupos
+## Comparación de diversidades entre grupos
 
 La prueba de Kruskal-Wallis o ANOVA de una vía se realiza para comparar grupos múltiples cuyos datos no siguen una distribución normal. Esta prueba es similar a la prueba de suma de rangos de Wilcoxon para dos muestras. Primero utilizamos los datos de nuestros ratones $Vdr^{-/-}$ para
 ilustrar esta prueba.
@@ -601,8 +641,8 @@ qchisq(0.950, 3)
 Por tanto, aceptamos la hipótesis nula $H_0$: las medianas de los 4 grupos son estadísticamente iguales a un nivel significativo del 5%.
 Generalmente, se realiza un análisis post hoc para encontrar qué niveles de los grupos son diferentes entre sí si la prueba de Kruskal-Wallis es significativa. En este caso, la prueba de Kruskal-Wallis no es significativa. A modo de ilustración, realizamos dos pruebas post hoc: La prueba de Nemenyi y la prueba de Dunn. De forma similar al ANOVA, podemos elegir un método para ajustar los valores $p$ para controlar la tasa de error familiar o para controlar la tasa de falsos descubrimientos. Al introducir `?p.adjust` en R o RStudio, aparece un enlace al documento "Adjust P-values for Multiple Comparisons". Puede consultar los detalles de los métodos de ajuste desde este enlace.
 
-#### Prueba de Nemenyi para comparaciones múltiples \
-\
+### Prueba de Nemenyi para comparaciones múltiples 
+
 La prueba de Nemenyi se realiza mediante la función `NemenyiTest()` del paquete DescTools. Primero cargamos el paquete DescTools y llamamos a la función `NemenyiTest()`. El método para ajustar los valores $p$ debe ser uno de "tukey", "chisq". En este caso elegimos el método Tukey
 
 ```{r}
@@ -616,8 +656,8 @@ Test_N
 
 La prueba de Nemenyi muestra que no hay diferencias significativas en el rango medio de la diversidad Chao 1 entre localizaciones y genotipos en las muestras fecales y cecales de vdr knockout utilizando el método de ajuste de Tukey. Sin embargo, cuando los grupos tienen números desiguales de observaciones, la prueba de Nemenyi es inadecuada, y la prueba de Dunn es apropiada (Zar 2010). 
 
-#### Prueba de Dunn para comparaciones múltiples \
-\
+### Prueba de Dunn para comparaciones múltiples 
+
 La prueba post hoc de Kruskal-Wallis más popular es la prueba de Dunn. Podemos realizar la prueba de Dunn utilizando la función `dunnTest()` del paquete FSA. A continuación, llamamos a la función función `dunnTest()` y utilizamos el método de Benjamini y Hochberg para ajustar los valores $p$.
 
 ```{r}
@@ -630,7 +670,7 @@ Test_N
 
 La prueba de Dunn muestra que hay una diferencia estadísticamente significativa de la diversidad Chao 1 entre las muestras cecales y fecales de $Vdr^{-/-}$. Sin embargo, después de ajustar los valores comparación múltiple con el método Benjamini-Hochberg, no hay términos estadísticamente términos estadísticamente significativos entre las localizaciones y los genotipos de las muestras.
 
-### Encontrar taxones significativos entre los grupos
+## Encontrar taxones significativos entre los grupos
 
 En esta sección, utilizamos la prueba de Kruskal-Wallis para ilustrar cómo encontrar taxones significativos entre los grupos. Supongamos que queremos saber si existen taxones significativos entre muestras de ratones $Vdr^{-/-}$ y WT de ubicaciones fecales y cecales. Usamos el test de prueba de Kruskal-Wallis para cada uno de los 248 taxones (bacterias) en el conjunto de datos.
 Primero, normalizamos los datos de abundancia y los convertimos en un marco de datos. Un método de normalización de método de normalización es utilizar la transformación logarítmica.
@@ -673,12 +713,12 @@ Revisamos la tabla del data.frame para asegurarnos que la función trabaja
 head(KW_table)
 ```
 
-### Pruebas múltiples y valor E, FWER y FDR
+## Pruebas múltiples y valor E, FWER y FDR
 
 En la literatura existen varios tipos diferentes de correcciones de pruebas múltiples. Entre ellas, la corrección de Bonferroni es la más conservadora. La corrección consiste simplemente en *dividir el alfa por el número de pruebas*. Aquí pesentamos las correcciones generales de las pruebas múltiples: *Valor E*, *Tasa de error por familia (FWER)* y *FDR*.
 
-#### Valor E \
-\
+### Valor E 
+
 El valor E es el número esperado de falsos positivos por azar cuando se hacen múltiples pruebas. Simplemente se puede multiplicar el valor $p$ por el número de taxones en que se realiza la prueba para obtenerlo: Valor E = valor p epor el número de pruebas. Tenga en cuenta que en el valor E, la corrección de base es utilizar el alfa original, el valor $p$ de las pruebas en lugar del valor $p$ nominal.
 
 ```{r}
@@ -693,8 +733,8 @@ Dado que el valor E no es más que multiplicar el valor $p$ por el número de pr
 head(KW_table)
 ```
 
-#### FWER \
-\
+### FWER 
+
 La FWER es la probabilidad de obtener al menos un falso positivo (error de tipo I). En En otras palabras, es la probabilidad de no rechazar la hipótesis nula $H_0$: no hay diferencias entre los grupos mientras se realizan pruebas múltiples. La fórmula es dada por:
 $$
 FWER = 1-(1-p-value)^T
@@ -713,8 +753,8 @@ Revisamos el dataframe para ver si FWER son añadidos al data.frame de resultado
 head(KW_table)
 ```
 
-#### FDR \
-\
+### FDR 
+
 Por último, pero no por ello menos importante, está el FDR. Benjamini y Hochberg (1995) definieron la tasa de falsos descubrimientos de la siguiente manera: *FDR = proporción esperada de rechazos erróneos entre todos los rechazos*. En este caso, el FDR es la proporción de falsos positivos entre los taxones aceptados como positivos cuando se hacen múltiples pruebas. La corrección de Benjamini-Hochberg consiste en los siguientes pasos.
 En primer lugar, se ordenan los valores $p$ de menor a mayor y se hace un rango (1, 2, 3,..., k,...,T); 
 
@@ -768,6 +808,6 @@ diff.taxa
 Debido a que en este caso no hay ningún valor $q$ menor o igual al alfa especificado = 0,05, los 5 taxones mostrados arriba no se basan en el FDR. Son los taxones elegidos con valores $p$ más pequeños. La corrección de Benjamini-Hochberg es menos estricta que las otras correcciones de pruebas múltiples presentadas anteriormente y, por lo tanto, tiene una mayor sensibilidad.
 El FDR se utiliza ampliamente en el microbioma (Le Chatelier et al. 2013; Ballou et al. 2016) y en otros campos de estudio (Jungquist et al. 2010) y en muchas funciones de R.
 
-## Resumen
+# Resumen
 
 En este capítulo, presentamos una variedad de métodos comunes y clásicos en todos los campos de investigación. Algunos de ellos se aplican ampliamente en los estudios del microbioma. Ilustramos estos métodos para analizar los datos del microbioma con una implementación paso a paso en el sistema R. Los lectores pueden utilizar los códigos de R y las explicaciones proporcionadas en este capítulo para analizar sus propios datos del microbioma. Nos centramos en las pruebas de hipótesis para los datos del microbioma comunitario univariante. 

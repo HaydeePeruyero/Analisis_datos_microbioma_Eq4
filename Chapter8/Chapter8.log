@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.3)  11 SEP 2022 22:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.27)  27 SEP 2022 22:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -147,7 +147,9 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 227.
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+\stockwidth=\dimen148
+\stockheight=\dimen149
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
@@ -169,14 +171,14 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@cnth=\count271
 \Gm@cntv=\count272
 \c@Gm@tempcnt=\count273
-\Gm@bindingoffset=\dimen148
-\Gm@wd@mp=\dimen149
-\Gm@odd@mp=\dimen150
-\Gm@even@mp=\dimen151
-\Gm@layoutwidth=\dimen152
-\Gm@layoutheight=\dimen153
-\Gm@layouthoffset=\dimen154
-\Gm@layoutvoffset=\dimen155
+\Gm@bindingoffset=\dimen150
+\Gm@wd@mp=\dimen151
+\Gm@odd@mp=\dimen152
+\Gm@even@mp=\dimen153
+\Gm@layoutwidth=\dimen154
+\Gm@layoutheight=\dimen155
+\Gm@layouthoffset=\dimen156
+\Gm@layoutvoffset=\dimen157
 \Gm@dimlist=\toks24
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2022/06/06 4.5 verbatim text (tvz,hv)
@@ -189,10 +191,10 @@ Package: fancyvrb 2022/06/06 4.5 verbatim text (tvz,hv)
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip52
-\fb@frw=\dimen156
-\fb@frh=\dimen157
-\FrameRule=\dimen158
-\FrameSep=\dimen159
+\fb@frw=\dimen158
+\fb@frh=\dimen159
+\FrameRule=\dimen160
+\FrameSep=\dimen161
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTleft=\skip53
@@ -200,7 +202,7 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTpre=\skip55
 \LTpost=\skip56
 \LTchunksize=\count277
-\LTcapwidth=\dimen160
+\LTcapwidth=\dimen162
 \LT@head=\box54
 \LT@firsthead=\box55
 \LT@foot=\box56
@@ -213,28 +215,28 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LT@p@ftn=\toks25
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen161
-\lightrulewidth=\dimen162
-\cmidrulewidth=\dimen163
-\belowrulesep=\dimen164
-\belowbottomsep=\dimen165
-\aboverulesep=\dimen166
-\abovetopsep=\dimen167
-\cmidrulesep=\dimen168
-\cmidrulekern=\dimen169
-\defaultaddspace=\dimen170
+\heavyrulewidth=\dimen163
+\lightrulewidth=\dimen164
+\cmidrulewidth=\dimen165
+\belowrulesep=\dimen166
+\belowbottomsep=\dimen167
+\aboverulesep=\dimen168
+\abovetopsep=\dimen169
+\cmidrulesep=\dimen170
+\cmidrulekern=\dimen171
+\defaultaddspace=\dimen172
 \@cmidla=\count282
 \@cmidlb=\count283
-\@aboverulesep=\dimen171
-\@belowrulesep=\dimen172
+\@aboverulesep=\dimen173
+\@belowrulesep=\dimen174
 \@thisruleclass=\count284
 \@lastruleclass=\count285
-\@thisrulewidth=\dimen173
+\@thisrulewidth=\dimen175
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen174
+\col@sep=\dimen176
 \ar@mcellbox=\box59
-\extrarowheight=\dimen175
+\extrarowheight=\dimen177
 \NC@list=\toks26
 \extratabsurround=\skip57
 \backup@length=\skip58
@@ -243,8 +245,8 @@ Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count286
 \calc@Bcount=\count287
-\calc@Adimen=\dimen176
-\calc@Bdimen=\dimen177
+\calc@Adimen=\dimen178
+\calc@Bdimen=\dimen179
 \calc@Askip=\skip59
 \calc@Bskip=\skip60
 LaTeX Info: Redefining \setlength on input line 80.
@@ -257,7 +259,7 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
 \fn@notes=\box61
-\fn@width=\dimen178
+\fn@width=\dimen180
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
@@ -269,24 +271,24 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen179
-\Gin@req@width=\dimen180
+\Gin@req@height=\dimen181
+\Gin@req@width=\dimen182
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
 \g_MT_multlinerow_int=\count290
-\l_MT_multwidth_dim=\dimen181
+\l_MT_multwidth_dim=\dimen183
 \origjot=\skip62
-\l_MT_shortvdotswithinadjustabove_dim=\dimen182
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen183
-\l_MT_above_intertext_sep=\dimen184
-\l_MT_below_intertext_sep=\dimen185
-\l_MT_above_shortintertext_sep=\dimen186
-\l_MT_below_shortintertext_sep=\dimen187
+\l_MT_shortvdotswithinadjustabove_dim=\dimen184
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen185
+\l_MT_above_intertext_sep=\dimen186
+\l_MT_below_intertext_sep=\dimen187
+\l_MT_above_shortintertext_sep=\dimen188
+\l_MT_below_shortintertext_sep=\dimen189
 \xmathstrut@box=\box62
-\xmathstrut@dim=\dimen188
+\xmathstrut@dim=\dimen190
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks27
@@ -306,9 +308,9 @@ Package eufrak Warning: The eufrak package is redundant if the amsfonts package 
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2022/08/29 3.79 The Babel package
+Package: babel 2022/09/17 3.80 The Babel package
 \babel@savecnt=\count291
-\U@D=\dimen189
+\U@D=\dimen191
 \l@unhyphenated=\language4
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
@@ -339,9 +341,9 @@ Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and footer
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip75
 \subfigcapskip=\skip76
-\subfigcaptopadj=\dimen190
+\subfigcaptopadj=\dimen192
 \subfigbottomskip=\skip77
-\subfigcapmargin=\dimen191
+\subfigcapmargin=\dimen193
 \subfiglabelskip=\skip78
 \c@subfigure=\count294
 \c@lofdepth=\count295
@@ -365,10 +367,10 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip81
 \multirow@cntb=\count299
 \multirow@dima=\skip82
-\bigstrutjot=\dimen192
+\bigstrutjot=\dimen194
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen193
-\WF@size=\dimen194
+\wrapoverhang=\dimen195
+\WF@size=\dimen196
 \c@WF@wrappedlines=\count300
 \WF@box=\box65
 \WF@everypar=\toks36
@@ -390,8 +392,8 @@ Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box66
 \sift@deathcycles=\count302
-\@vwid@loff=\dimen195
-\@vwid@roff=\dimen196
+\@vwid@loff=\dimen197
+\@vwid@roff=\dimen198
 )
 \c@taburow=\count303
 \tabu@nbcols=\count304
@@ -399,15 +401,15 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@Xcol=\count306
 \tabu@alloc=\count307
 \tabu@nested=\count308
-\tabu@target=\dimen197
-\tabu@spreadtarget=\dimen198
-\tabu@naturalX=\dimen199
-\tabucolX=\dimen256
-\tabu@Xsum=\dimen257
-\extrarowdepth=\dimen258
-\abovetabulinesep=\dimen259
-\belowtabulinesep=\dimen260
-\tabustrutrule=\dimen261
+\tabu@target=\dimen199
+\tabu@spreadtarget=\dimen256
+\tabu@naturalX=\dimen257
+\tabucolX=\dimen258
+\tabu@Xsum=\dimen259
+\extrarowdepth=\dimen260
+\abovetabulinesep=\dimen261
+\belowtabulinesep=\dimen262
+\tabustrutrule=\dimen263
 \tabu@thebody=\toks38
 \tabu@footnotes=\toks39
 \tabu@box=\box67
@@ -431,15 +433,15 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \UL@hyphenbox=\box73
 \UL@skip=\skip86
 \UL@hook=\toks40
-\UL@height=\dimen262
+\UL@height=\dimen264
 \UL@pe=\count309
-\UL@pixel=\dimen263
+\UL@pixel=\dimen265
 \ULC@box=\box74
 Package: ulem 2019/11/18
-\ULdepth=\dimen264
+\ULdepth=\dimen266
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen265
+\rotheadsize=\dimen267
 \c@nlinenum=\count310
 \TeXr@lab=\toks41
 )
@@ -448,7 +450,7 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \c@nota=\count313
    defining Unicode char U+2212 (decimal 8722)
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2022-06-20 v7.00s Hypertext links for LaTeX
+Package: hyperref 2022-09-22 v7.00t Hypertext links for LaTeX
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
@@ -482,11 +484,11 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count314
 )
-\@linkdim=\dimen266
+\@linkdim=\dimen268
 \Hy@linkcounter=\count315
 \Hy@pagecounter=\count316
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2022-06-20 v7.00s Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2022-09-22 v7.00t Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -496,7 +498,7 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count317
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2022-06-20 v7.00s Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2022-09-22 v7.00t Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -507,29 +509,29 @@ Package hyperref Info: Hyper index ON on input line 4170.
 Package hyperref Info: Plain pages OFF on input line 4177.
 Package hyperref Info: Backreferencing OFF on input line 4182.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4408.
+Package hyperref Info: Bookmarks ON on input line 4410.
 \c@Hy@tempcnt=\count318
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4746.
-\XeTeXLinkMargin=\dimen267
+LaTeX Info: Redefining \url on input line 4748.
+\XeTeXLinkMargin=\dimen269
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count319
-\Field@Width=\dimen268
-\Fld@charsize=\dimen269
-Package hyperref Info: Hyper figures OFF on input line 6024.
-Package hyperref Info: Link nesting OFF on input line 6029.
-Package hyperref Info: Hyper index ON on input line 6032.
-Package hyperref Info: backreferencing OFF on input line 6039.
-Package hyperref Info: Link coloring OFF on input line 6044.
-Package hyperref Info: Link coloring with OCG OFF on input line 6049.
-Package hyperref Info: PDF/A mode OFF on input line 6054.
+\Field@Width=\dimen270
+\Fld@charsize=\dimen271
+Package hyperref Info: Hyper figures OFF on input line 6027.
+Package hyperref Info: Link nesting OFF on input line 6032.
+Package hyperref Info: Hyper index ON on input line 6035.
+Package hyperref Info: backreferencing OFF on input line 6042.
+Package hyperref Info: Link coloring OFF on input line 6047.
+Package hyperref Info: Link coloring with OCG OFF on input line 6052.
+Package hyperref Info: PDF/A mode OFF on input line 6057.
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
@@ -540,7 +542,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2022-06-20 v7.00s Hyperref driver for pdfTeX
+File: hpdftex.def 2022-09-22 v7.00t Hyperref driver for pdfTeX
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -669,142 +671,87 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 3.
+(Font)              <10> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 3.
+(Font)              <7> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 3.
+(Font)              <5> on input line 4.
 )
 \tf@toc=\write5
 \openout5 = `Chapter8.toc'.
 
 [2]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 243.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 242.
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [3] [4]
-<Chapter8_files/figure-latex/unnamed-chunk-8-1.pdf, id=126, 867.24pt x 578.16pt>
+<Chapter8_files/figure-latex/unnamed-chunk-8-1.pdf, id=151, 867.24pt x 578.16pt>
 File: Chapter8_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-8-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-8-1.pdf  used on input line 405.
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-8-1.pdf  used on input line 404.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
 [5]
-<Chapter8_files/figure-latex/unnamed-chunk-10-1.pdf, id=133, 867.24pt x 578.16pt>
-File: Chapter8_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
-<use Chapter8_files/figure-latex/unnamed-chunk-10-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-10-1.pdf  used on input line 444.
+<Chapter8_files/figure-latex/div_Shannon-1.pdf, id=158, 867.24pt x 578.16pt>
+File: Chapter8_files/figure-latex/div_Shannon-1.pdf Graphic file (type pdf)
+<use Chapter8_files/figure-latex/div_Shannon-1.pdf>
+Package pdftex.def Info: Chapter8_files/figure-latex/div_Shannon-1.pdf  used on input line 443.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
 [6 <./Chapter8_files/figure-latex/unnamed-chunk-8-1.pdf>]
 Overfull \hbox (70.99341pt too wide) in paragraph at lines 477--477
 []\T1/lmtt/m/n/10 ## alternative hypothesis: true difference in means between group Vdr-/- and group WT is not equal to 0[] 
  []
 
-[7 <./Chapter8_files/figure-latex/unnamed-chunk-10-1.pdf>]
+[7 <./Chapter8_files/figure-latex/div_Shannon-1.pdf>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 532.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 537.
 
 LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 532.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 537.
 
 [8] [9] [10]
-<Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf, id=174, 867.24pt x 578.16pt>
-File: Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (type pdf)
-<use Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf  used on input line 750.
+<Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf, id=201, 867.24pt x 578.16pt>
+File: Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
+<use Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf>
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf  used on input line 755.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
 [11]
-<Chapter8_files/figure-latex/unnamed-chunk-20-1.pdf, id=180, 867.24pt x 578.16pt>
+<Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf, id=207, 867.24pt x 578.16pt>
+File: Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (type pdf)
+<use Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf>
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf  used on input line 772.
+(pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
+[12 <./Chapter8_files/figure-latex/unnamed-chunk-18-1.pdf>]
+<Chapter8_files/figure-latex/unnamed-chunk-20-1.pdf, id=219, 867.24pt x 578.16pt>
 File: Chapter8_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
 <use Chapter8_files/figure-latex/unnamed-chunk-20-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-20-1.pdf  used on input line 767.
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-20-1.pdf  used on input line 790.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
-[12 <./Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf>]
-<Chapter8_files/figure-latex/unnamed-chunk-21-1.pdf, id=192, 867.24pt x 578.16pt>
-File: Chapter8_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file (type pdf)
-<use Chapter8_files/figure-latex/unnamed-chunk-21-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-21-1.pdf  used on input line 785.
-(pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
-[13 <./Chapter8_files/figure-latex/unnamed-chunk-20-1.pdf>] [14 <./Chapter8_files/figure-latex/unnamed-chunk-21-1.pdf>] [15] [16] [17] [18] [19] [20] [21]
-<Chapter8_files/figure-latex/unnamed-chunk-31-1.pdf, id=254, 867.24pt x 578.16pt>
-File: Chapter8_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
-<use Chapter8_files/figure-latex/unnamed-chunk-31-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-31-1.pdf  used on input line 1416.
+[13 <./Chapter8_files/figure-latex/unnamed-chunk-19-1.pdf>] [14 <./Chapter8_files/figure-latex/unnamed-chunk-20-1.pdf>] [15] [16] [17] [18] [19] [20] [21]
+<Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf, id=281, 867.24pt x 578.16pt>
+File: Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
+<use Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf>
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf  used on input line 1420.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
 [22]
-<Chapter8_files/figure-latex/unnamed-chunk-32-1.pdf, id=260, 867.24pt x 578.16pt>
-File: Chapter8_files/figure-latex/unnamed-chunk-32-1.pdf Graphic file (type pdf)
-<use Chapter8_files/figure-latex/unnamed-chunk-32-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-32-1.pdf  used on input line 1438.
+<Chapter8_files/figure-latex/unnamed-chunk-31-1.pdf, id=287, 867.24pt x 578.16pt>
+File: Chapter8_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
+<use Chapter8_files/figure-latex/unnamed-chunk-31-1.pdf>
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-31-1.pdf  used on input line 1442.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
-[23 <./Chapter8_files/figure-latex/unnamed-chunk-31-1.pdf>]
-<Chapter8_files/figure-latex/unnamed-chunk-32-2.pdf, id=272, 867.24pt x 578.16pt>
-File: Chapter8_files/figure-latex/unnamed-chunk-32-2.pdf Graphic file (type pdf)
-<use Chapter8_files/figure-latex/unnamed-chunk-32-2.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-32-2.pdf  used on input line 1454.
+[23 <./Chapter8_files/figure-latex/unnamed-chunk-30-1.pdf>]
+<Chapter8_files/figure-latex/unnamed-chunk-31-2.pdf, id=300, 867.24pt x 578.16pt>
+File: Chapter8_files/figure-latex/unnamed-chunk-31-2.pdf Graphic file (type pdf)
+<use Chapter8_files/figure-latex/unnamed-chunk-31-2.pdf>
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-31-2.pdf  used on input line 1458.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
-[24 <./Chapter8_files/figure-latex/unnamed-chunk-32-1.pdf>] [25 <./Chapter8_files/figure-latex/unnamed-chunk-32-2.pdf>] [26]
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1696--1696
- []|\T1/lmr/m/n/10 83.16645|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1696--1696
- []|\T1/lmr/m/n/10 11.583550|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1697--1697
- []|\T1/lmr/m/n/10 0.2000000|
- []
-
-
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1697--1697
- []|\T1/lmr/m/n/10 17.43812|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1697--1697
- []|\T1/lmr/m/n/10 0.0358109|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1697--1698
- []|\T1/lmr/m/n/10 0.7569503|
- []
-
-
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 1698--1698
-[]|\T1/lmr/m/n/10 20_12_CeSt- 
- []
-
-
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1698--1698
- []|\T1/lmr/m/n/10 57.36833|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1699--1699
- []|\T1/lmr/m/n/10 0.2000000|
- []
-
-
-Overfull \hbox (3.46822pt too wide) in paragraph at lines 1699--1699
- []|\T1/lmr/m/n/10 17.85115|
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1699--1699
- []|\T1/lmr/m/n/10 0.0015781|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1699--1700
- []|\T1/lmr/m/n/10 0.1589021|
- []
-
-
+[24 <./Chapter8_files/figure-latex/unnamed-chunk-31-1.pdf>] [25 <./Chapter8_files/figure-latex/unnamed-chunk-31-2.pdf>] [26]
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1700--1700
  []|\T1/lmr/m/n/10 83.16645|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1700--1700
+ []|\T1/lmr/m/n/10 11.583550|
  []
 
 
@@ -814,32 +761,27 @@ Overfull \hbox (4.65288pt too wide) in paragraph at lines 1701--1701
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1701--1701
- []|\T1/lmr/m/n/10 17.74865|
+ []|\T1/lmr/m/n/10 17.43812|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1701--1701
- []|\T1/lmr/m/n/10 0.0101485|
+ []|\T1/lmr/m/n/10 0.0358109|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1701--1702
- \T1/lmr/m/n/10 0.4029590|
+ []|\T1/lmr/m/n/10 0.7569503|
  []
 
 
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1702--1702
- []|\T1/lmr/m/n/10 103.27273|
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 1702--1702
+[]|\T1/lmr/m/n/10 20_12_CeSt- 
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1702--1702
- []|\T1/lmr/m/n/10 83.16645|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1702--1702
- []|\T1/lmr/m/n/10 20.106277|
+ []|\T1/lmr/m/n/10 57.36833|
  []
 
 
@@ -849,17 +791,17 @@ Overfull \hbox (4.65288pt too wide) in paragraph at lines 1703--1703
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1703--1703
- []|\T1/lmr/m/n/10 16.53471|
+ []|\T1/lmr/m/n/10 17.85115|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1703--1703
- []|\T1/lmr/m/n/10 0.1078934|
+ []|\T1/lmr/m/n/10 0.0015781|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1703--1704
- []|\T1/lmr/m/n/10 1.3138850|
+ []|\T1/lmr/m/n/10 0.1589021|
  []
 
 
@@ -874,17 +816,22 @@ Overfull \hbox (4.65288pt too wide) in paragraph at lines 1705--1705
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1705--1705
- []|\T1/lmr/m/n/10 17.85007|
+ []|\T1/lmr/m/n/10 17.74865|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1705--1705
- []|\T1/lmr/m/n/10 0.0016683|
+ []|\T1/lmr/m/n/10 0.0101485|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1705--1706
- []|\T1/lmr/m/n/10 0.1633817|
+ \T1/lmr/m/n/10 0.4029590|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1706--1706
+ []|\T1/lmr/m/n/10 103.27273|
  []
 
 
@@ -894,7 +841,7 @@ Overfull \hbox (3.46822pt too wide) in paragraph at lines 1706--1706
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1706--1706
- \T1/lmr/m/n/10 28.023593|
+ []|\T1/lmr/m/n/10 20.106277|
  []
 
 
@@ -904,77 +851,77 @@ Overfull \hbox (4.65288pt too wide) in paragraph at lines 1707--1707
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1707--1707
- []|\T1/lmr/m/n/10 15.16886|
+ []|\T1/lmr/m/n/10 16.53471|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1707--1707
- []|\T1/lmr/m/n/10 0.2095941|
+ []|\T1/lmr/m/n/10 0.1078934|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1707--1708
- \T1/lmr/m/n/10 1.8312579|
+ []|\T1/lmr/m/n/10 1.3138850|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1708--1708
- []|\T1/lmr/m/n/10 70.30556|
+ []|\T1/lmr/m/n/10 83.16645|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1709--1709
- []|\T1/lmr/m/n/10 0.3333333|
+ []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1709--1709
- []|\T1/lmr/m/n/10 17.65081|
+ []|\T1/lmr/m/n/10 17.85007|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1709--1709
- []|\T1/lmr/m/n/10 0.0365658|
+ []|\T1/lmr/m/n/10 0.0016683|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1709--1710
- \T1/lmr/m/n/10 0.5408573|
+ []|\T1/lmr/m/n/10 0.1633817|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1710--1710
- []|\T1/lmr/m/n/10 70.30556|
+ []|\T1/lmr/m/n/10 83.16645|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1710--1710
+ \T1/lmr/m/n/10 28.023593|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1711--1711
- []|\T1/lmr/m/n/10 0.3333333|
+ []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1711--1711
- []|\T1/lmr/m/n/10 17.84337|
+ []|\T1/lmr/m/n/10 15.16886|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1711--1711
- []|\T1/lmr/m/n/10 0.0044605|
+ []|\T1/lmr/m/n/10 0.2095941|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1711--1712
- \T1/lmr/m/n/10 0.1889024|
+ \T1/lmr/m/n/10 1.8312579|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1712--1712
  []|\T1/lmr/m/n/10 70.30556|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1712--1712
- []|\T1/lmr/m/n/10 10.194444|
  []
 
 
@@ -984,82 +931,77 @@ Overfull \hbox (4.65288pt too wide) in paragraph at lines 1713--1713
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1713--1713
- []|\T1/lmr/m/n/10 17.46893|
+ []|\T1/lmr/m/n/10 17.65081|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1713--1713
- []|\T1/lmr/m/n/10 0.0665687|
+ []|\T1/lmr/m/n/10 0.0365658|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1713--1714
- []|\T1/lmr/m/n/10 0.7297597|
- []
-
-
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 1714--1714
-[]|\T1/lmr/m/n/10 19_11_CeSt- 
+ \T1/lmr/m/n/10 0.5408573|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1714--1714
- []|\T1/lmr/m/n/10 57.36833|
+ []|\T1/lmr/m/n/10 70.30556|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1715--1715
- []|\T1/lmr/m/n/10 0.2000000|
+ []|\T1/lmr/m/n/10 0.3333333|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1715--1715
- []|\T1/lmr/m/n/10 17.78372|
+ []|\T1/lmr/m/n/10 17.84337|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1715--1715
- []|\T1/lmr/m/n/10 0.0072213|
+ []|\T1/lmr/m/n/10 0.0044605|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1715--1716
- \T1/lmr/m/n/10 0.3399133|
- []
-
-
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 1716--1716
-[]|\T1/lmr/m/n/10 21_13_CeSt- 
+ \T1/lmr/m/n/10 0.1889024|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1716--1716
- []|\T1/lmr/m/n/10 57.36833|
+ []|\T1/lmr/m/n/10 70.30556|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1716--1716
+ []|\T1/lmr/m/n/10 10.194444|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1717--1717
- []|\T1/lmr/m/n/10 0.2000000|
+ []|\T1/lmr/m/n/10 0.3333333|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1717--1717
- []|\T1/lmr/m/n/10 17.85212|
+ []|\T1/lmr/m/n/10 17.46893|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1717--1717
- []|\T1/lmr/m/n/10 0.0014970|
+ []|\T1/lmr/m/n/10 0.0665687|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1717--1718
- \T1/lmr/m/n/10 0.1547635|
+ []|\T1/lmr/m/n/10 0.7297597|
  []
 
 
 Overfull \hbox (2.21996pt too wide) in paragraph at lines 1718--1718
-[]|\T1/lmr/m/n/10 22_14_CeSt- 
+[]|\T1/lmr/m/n/10 19_11_CeSt- 
  []
 
 
@@ -1074,22 +1016,22 @@ Overfull \hbox (4.65288pt too wide) in paragraph at lines 1719--1719
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1719--1719
- []|\T1/lmr/m/n/10 17.86149|
+ []|\T1/lmr/m/n/10 17.78372|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1719--1719
- []|\T1/lmr/m/n/10 0.0007105|
+ []|\T1/lmr/m/n/10 0.0072213|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1719--1720
- []|\T1/lmr/m/n/10 0.1066245|
+ \T1/lmr/m/n/10 0.3399133|
  []
 
 
 Overfull \hbox (2.21996pt too wide) in paragraph at lines 1720--1720
-[]|\T1/lmr/m/n/10 23_15_CeSt- 
+[]|\T1/lmr/m/n/10 21_13_CeSt- 
  []
 
 
@@ -1104,102 +1046,92 @@ Overfull \hbox (4.65288pt too wide) in paragraph at lines 1721--1721
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1721--1721
- []|\T1/lmr/m/n/10 17.83082|
+ []|\T1/lmr/m/n/10 17.85212|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1721--1721
- []|\T1/lmr/m/n/10 0.0032819|
+ []|\T1/lmr/m/n/10 0.0014970|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1721--1722
- []|\T1/lmr/m/n/10 0.2291502|
+ \T1/lmr/m/n/10 0.1547635|
  []
 
 
 Overfull \hbox (2.21996pt too wide) in paragraph at lines 1722--1722
-[]|\T1/lmr/m/n/10 25_22_CeSt- 
+[]|\T1/lmr/m/n/10 22_14_CeSt- 
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1722--1722
- []|\T1/lmr/m/n/10 80.63866|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1722--1722
- \T1/lmr/m/n/10 29.638655|
+ []|\T1/lmr/m/n/10 57.36833|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1723--1723
- []|\T1/lmr/m/n/10 0.3333333|
+ []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1723--1723
- []|\T1/lmr/m/n/10 14.12611|
+ []|\T1/lmr/m/n/10 17.86149|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1723--1723
- []|\T1/lmr/m/n/10 0.5626776|
+ []|\T1/lmr/m/n/10 0.0007105|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1723--1724
- \T1/lmr/m/n/10 2.1216552|
+ []|\T1/lmr/m/n/10 0.1066245|
  []
 
 
 Overfull \hbox (2.21996pt too wide) in paragraph at lines 1724--1724
-[]|\T1/lmr/m/n/10 26_23_CeSt- 
- []
-
-
-Overfull \hbox (4.65288pt too wide) in paragraph at lines 1724--1724
- []|\T1/lmr/m/n/10 112.85714|
+[]|\T1/lmr/m/n/10 23_15_CeSt- 
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1724--1724
- []|\T1/lmr/m/n/10 80.63866|
- []
-
-
-Overfull \hbox (0.84325pt too wide) in paragraph at lines 1724--1724
- []|\T1/lmr/m/n/10 32.218487|
+ []|\T1/lmr/m/n/10 57.36833|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1725--1725
- []|\T1/lmr/m/n/10 0.3333333|
+ []|\T1/lmr/m/n/10 0.2000000|
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1725--1725
- []|\T1/lmr/m/n/10 13.33364|
+ []|\T1/lmr/m/n/10 17.83082|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1725--1725
- []|\T1/lmr/m/n/10 0.6648948|
+ []|\T1/lmr/m/n/10 0.0032819|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1725--1726
- []|\T1/lmr/m/n/10 2.3063300|
+ []|\T1/lmr/m/n/10 0.2291502|
  []
 
 
 Overfull \hbox (2.21996pt too wide) in paragraph at lines 1726--1726
-[]|\T1/lmr/m/n/10 27_24_CeSt- 
+[]|\T1/lmr/m/n/10 25_22_CeSt- 
  []
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1726--1726
  []|\T1/lmr/m/n/10 80.63866|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1726--1726
+ \T1/lmr/m/n/10 29.638655|
  []
 
 
@@ -1209,36 +1141,106 @@ Overfull \hbox (4.65288pt too wide) in paragraph at lines 1727--1727
 
 
 Overfull \hbox (3.46822pt too wide) in paragraph at lines 1727--1727
- []|\T1/lmr/m/n/10 17.84455|
+ []|\T1/lmr/m/n/10 14.12611|
  []
 
 
 Overfull \hbox (4.65288pt too wide) in paragraph at lines 1727--1727
- []|\T1/lmr/m/n/10 0.0042631|
+ []|\T1/lmr/m/n/10 0.5626776|
  []
 
 
 Overfull \hbox (0.84325pt too wide) in paragraph at lines 1727--1728
+ \T1/lmr/m/n/10 2.1216552|
+ []
+
+
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 1728--1728
+[]|\T1/lmr/m/n/10 26_23_CeSt- 
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1728--1728
+ []|\T1/lmr/m/n/10 112.85714|
+ []
+
+
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1728--1728
+ []|\T1/lmr/m/n/10 80.63866|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1728--1728
+ []|\T1/lmr/m/n/10 32.218487|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1729--1729
+ []|\T1/lmr/m/n/10 0.3333333|
+ []
+
+
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1729--1729
+ []|\T1/lmr/m/n/10 13.33364|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1729--1729
+ []|\T1/lmr/m/n/10 0.6648948|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1729--1730
+ []|\T1/lmr/m/n/10 2.3063300|
+ []
+
+
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 1730--1730
+[]|\T1/lmr/m/n/10 27_24_CeSt- 
+ []
+
+
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1730--1730
+ []|\T1/lmr/m/n/10 80.63866|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1731--1731
+ []|\T1/lmr/m/n/10 0.3333333|
+ []
+
+
+Overfull \hbox (3.46822pt too wide) in paragraph at lines 1731--1731
+ []|\T1/lmr/m/n/10 17.84455|
+ []
+
+
+Overfull \hbox (4.65288pt too wide) in paragraph at lines 1731--1731
+ []|\T1/lmr/m/n/10 0.0042631|
+ []
+
+
+Overfull \hbox (0.84325pt too wide) in paragraph at lines 1731--1732
  \T1/lmr/m/n/10 0.1846748|
  []
 
 [27] [28]
 
-LaTeX Warning: Command \' invalid in math mode on input line 1799.
+LaTeX Warning: Command \' invalid in math mode on input line 1803.
 
 [29] [30]
-<Chapter8_files/figure-latex/unnamed-chunk-45-1.pdf, id=321, 867.24pt x 578.16pt>
-File: Chapter8_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pdf)
-<use Chapter8_files/figure-latex/unnamed-chunk-45-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-45-1.pdf  used on input line 1947.
+<Chapter8_files/figure-latex/unnamed-chunk-44-1.pdf, id=348, 867.24pt x 578.16pt>
+File: Chapter8_files/figure-latex/unnamed-chunk-44-1.pdf Graphic file (type pdf)
+<use Chapter8_files/figure-latex/unnamed-chunk-44-1.pdf>
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-44-1.pdf  used on input line 1951.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
-[31 <./Chapter8_files/figure-latex/unnamed-chunk-45-1.pdf>] [32]
-<Chapter8_files/figure-latex/unnamed-chunk-48-1.pdf, id=341, 867.24pt x 578.16pt>
-File: Chapter8_files/figure-latex/unnamed-chunk-48-1.pdf Graphic file (type pdf)
-<use Chapter8_files/figure-latex/unnamed-chunk-48-1.pdf>
-Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-48-1.pdf  used on input line 2089.
+[31 <./Chapter8_files/figure-latex/unnamed-chunk-44-1.pdf>] [32]
+<Chapter8_files/figure-latex/unnamed-chunk-47-1.pdf, id=368, 867.24pt x 578.16pt>
+File: Chapter8_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (type pdf)
+<use Chapter8_files/figure-latex/unnamed-chunk-47-1.pdf>
+Package pdftex.def Info: Chapter8_files/figure-latex/unnamed-chunk-47-1.pdf  used on input line 2092.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
-[33 <./Chapter8_files/figure-latex/unnamed-chunk-48-1.pdf>] [34] [35]
+[33 <./Chapter8_files/figure-latex/unnamed-chunk-47-1.pdf>] [34] [35]
 Overfull \hbox (91.99335pt too wide) in paragraph at lines 2542--2542
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Eubacterium (Erysipelotrichaceae)::Eubacterium 21/248; p-value=0.372131642601125[] 
  []
@@ -1253,12 +1255,12 @@ Overfull \hbox (23.74355pt too wide) in paragraph at lines 2542--2542
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Eubacterium (Erysipelotrichaceae) 28/248; p-value=0.899201554861072[] 
  []
 
-[36]
+[36] [37]
 Overfull \hbox (23.74355pt too wide) in paragraph at lines 2542--2542
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium (Erysipelotrichaceae) 93/248; p-value=0.716038214215504[] 
  []
 
-[37]
+
 Overfull \hbox (7.99359pt too wide) in paragraph at lines 2542--2542
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Asaccharobacter::Adlercreutzia 97/248; p-value=0.531948371210495[] 
  []
@@ -1303,12 +1305,12 @@ Overfull \hbox (60.49344pt too wide) in paragraph at lines 2542--2542
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Bacteroides::Lactobacillus::Lachnospira 192/248; p-value=0.531948371210495[] 
  []
 
-
+[39]
 Overfull \hbox (23.74355pt too wide) in paragraph at lines 2542--2542
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Clostridium (Erysipelotrichaceae)::Clostridium 202/248; p-value=NaN[] 
  []
 
-[39]
+
 Overfull \hbox (102.49332pt too wide) in paragraph at lines 2542--2542
 []\T1/lmtt/m/n/10 ## Kruskal-Wallis test for Eubacterium (Erysipelotrichaceae)::Paenibacillus::Eubacterium 214/248; p-value=NaN[] 
  []
@@ -1338,21 +1340,21 @@ LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `Chapter8.out' has not changed.
-(rerunfilecheck)             Checksum: D6EF5245EE7D87864D6F9F28D08670B0;4927.
+(rerunfilecheck)             Checksum: 6B6C64377E036D540EC671DAA462037F;5532.
  ) 
 Here is how much of TeX's memory you used:
- 15927 strings out of 477017
- 259754 string characters out of 5825792
- 659691 words of memory out of 5000000
- 36637 multiletter control sequences out of 15000+600000
+ 15944 strings out of 477017
+ 259915 string characters out of 5825791
+ 659947 words of memory out of 5000000
+ 36654 multiletter control sequences out of 15000+600000
  526998 words of font info for 80 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,12n,77p,620b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtko10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Chapter8.pdf (45 pages, 523960 bytes).
+ 72i,12n,77p,605b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtko10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on Chapter8.pdf (45 pages, 529934 bytes).
 PDF statistics:
- 539 PDF objects out of 1000 (max. 8388607)
- 428 compressed objects within 5 object streams
+ 565 PDF objects out of 1000 (max. 8388607)
+ 452 compressed objects within 5 object streams
  120 named destinations out of 1000 (max. 500000)
- 179 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 219 words of extra memory for PDF output out of 10000 (max. 10000000)
 
