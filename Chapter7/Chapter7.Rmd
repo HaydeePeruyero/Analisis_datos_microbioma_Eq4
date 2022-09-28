@@ -481,13 +481,13 @@ Existen otras distancias, como la distancia de Gower que puede ser utilizada par
 
 Informalmente, una **similitud** es una medida entre dos objetos de que tanto se parecen. Por lo cual entre más parecidos sean los dos objetos su medida de similitud será más grande. Usualmente toma valores positivos entre 0 y 1.
 
-Formalmente, una similitud es una función $s: \mathcal{X}\times \mathcal{X} \to \mathbb{R}$ que tipicamente satisface las siguientes dos condiciones:
+Formalmente, una similitud es una función $s: \mathcal{X}\times \mathcal{X} \to \mathbb{R}$ que típicamente satisface las siguientes dos condiciones:
   \begin{enumerate}
     \item $s(x,y)=1$ si y sólo si $x=y$. Además $0\leq s\leq 1$.
     \item $s(x,y)=s(y,x)$ para todo $x$ y $y$ (condición de simetría).
   \end{enumerate}
 
-Usualmente, la función de similitud satisface $s(x,y)\geq 0$ pero existen ejemplos de similitudes que no lo satisfacen, por ejemplo: el coeficiente de correlación y los productos escalares. Sin embargo, si la función de similitud no es positiva y está acotada siempre es posible transformarla en una función de similitud positiva añadiendo una constante, es decir, podemos escribir nuestra nueva función de similitud $\tilde{s}$ como $\tilde{s}(x,y)=s(x,y)+c$, donde $c$ es una constante positva lo suficientemente grande (ver \cite{luxburg04} y \cite{tan14}).
+Usualmente, la función de similitud satisface $s(x,y)\geq 0$ pero existen ejemplos de similitudes que no lo satisfacen, por ejemplo: el coeficiente de correlación y los productos escalares. Sin embargo, si la función de similitud no es positiva y está acotada siempre es posible transformarla en una función de similitud positiva añadiendo una constante, es decir, podemos escribir nuestra nueva función de similitud $\tilde{s}$ como $\tilde{s}(x,y)=s(x,y)+c$, donde $c$ es una constante positiva lo suficientemente grande (ver \cite{luxburg04} y \cite{tan14}).
 
 A diferencia de una distancia o una disimilitud, no existe un análogo para la desigualdad del triángulo para la similitud. 
 
@@ -499,7 +499,7 @@ De manera precisa, una disimilitud es una función $d: \mathcal{X}\times \mathca
     \item Para cualesquiera $x,y \in \mathcal{X}$ se cumple que $d(x,y)\geq 0$ (condición de no negatividad).
   \end{enumerate}
   
-Es importante mencionar que, en la literatura de análisis de datos como _data mining_ y algunos textos de estadística (ver \cite{luxburg04} y \cite{tan14}), a las disimilitudes también se les nombra _distancias_, lo cual es incorrecto en virtud de la definición dada en la primera pregunta. Lo que si ocurre es que toda distancia (o métrica) es una disimilitud, pero no toda disimilitud es una distancia.
+Es importante mencionar que, en la literatura de análisis de datos como _data mining_ y algunos textos de estadística (ver \cite{luxburg04} y \cite{tan14}), a las disimilitudes también se les nombra _distancias_, lo cual es incorrecto. Lo que si ocurre es que toda distancia (o métrica) es una disimilitud, pero no toda disimilitud es una distancia.
 
 En \cite{tan14} se menciona que las disimilitudes usuales de acuerdo al tipo de dato que se esté trabajando son las siguientes:
 

@@ -14,7 +14,7 @@
 <meta name="author" content="Adriana Haydé Contreras Peruyero (haydeeperuyero@gmail.com)" />
 <meta name="author" content="David Alberto García Estrada (david.garcia.e@cinvestav.mx)" />
 
-<meta name="date" content="2022-09-11" />
+<meta name="date" content="2022-09-27" />
 
 <title>Análisis estadístico de datos de Microbioma con R</title>
 
@@ -598,7 +598,7 @@ microbiomas</h3>
 <h4 class="author">Andrés Arredondo Cruz (<a href="mailto:andresabstract@gmail.com" class="email">andresabstract@gmail.com</a>)</h4>
 <h4 class="author">Adriana Haydé Contreras Peruyero (<a href="mailto:haydeeperuyero@gmail.com" class="email">haydeeperuyero@gmail.com</a>)</h4>
 <h4 class="author">David Alberto García Estrada (<a href="mailto:david.garcia.e@cinvestav.mx" class="email">david.garcia.e@cinvestav.mx</a>)</h4>
-<h4 class="date">2022-09-11</h4>
+<h4 class="date">2022-09-27</h4>
 
 </div>
 
@@ -664,7 +664,7 @@ estimadas.</p>
 # Ajustamos path de trabajo según tu PC
 # Mostramos directorio actual
 getwd()</code></pre>
-<pre><code>## [1] &quot;C:/Users/alber/OneDrive - CINVESTAV/Documentos/Doctorado/Materias/BioestadísticaMicrobiomas/Equipo4/Chapter7&quot;</code></pre>
+<pre><code>## [1] &quot;D:/Users/hayde/Documents/R_sites/Equipo4/Chapter7&quot;</code></pre>
 <pre class="r"><code># Si es necesario, cambiar la ruta donde están los archivos almacenados. 
 # &quot;.&quot; significa el directorio actual. 
 workingDir &lt;-  &quot;.&quot;
@@ -1118,14 +1118,14 @@ objetos de que tanto se parecen. Por lo cual entre más parecidos sean
 los dos objetos su medida de similitud será más grande. Usualmente toma
 valores positivos entre 0 y 1.</p>
 Formalmente, una similitud es una función <span class="math inline">\(s:
-\mathcal{X}\times \mathcal{X} \to \mathbb{R}\)</span> que tipicamente
+\mathcal{X}\times \mathcal{X} \to \mathbb{R}\)</span> que típicamente
 satisface las siguientes dos condiciones:
 <p>Usualmente, la función de similitud satisface <span class="math inline">\(s(x,y)\geq 0\)</span> pero existen ejemplos de
 similitudes que no lo satisfacen, por ejemplo: el coeficiente de
 correlación y los productos escalares. Sin embargo, si la función de
 similitud no es positiva y está acotada siempre es posible transformarla
 en una función de similitud positiva añadiendo una constante, es decir,
-podemos escribir nuestra nueva función de similitud <span class="math inline">\(\tilde{s}\)</span> como <span class="math inline">\(\tilde{s}(x,y)=s(x,y)+c\)</span>, donde <span class="math inline">\(c\)</span> es una constante positva lo
+podemos escribir nuestra nueva función de similitud <span class="math inline">\(\tilde{s}\)</span> como <span class="math inline">\(\tilde{s}(x,y)=s(x,y)+c\)</span>, donde <span class="math inline">\(c\)</span> es una constante positiva lo
 suficientemente grande (ver y ).</p>
 <p>A diferencia de una distancia o una disimilitud, no existe un análogo
 para la desigualdad del triángulo para la similitud.</p>
@@ -1138,9 +1138,8 @@ De manera precisa, una disimilitud es una función <span class="math inline">\(d
 <p>Es importante mencionar que, en la literatura de análisis de datos
 como <em>data mining</em> y algunos textos de estadística (ver y ), a
 las disimilitudes también se les nombra <em>distancias</em>, lo cual es
-incorrecto en virtud de la definición dada en la primera pregunta. Lo
-que si ocurre es que toda distancia (o métrica) es una disimilitud, pero
-no toda disimilitud es una distancia.</p>
+incorrecto. Lo que si ocurre es que toda distancia (o métrica) es una
+disimilitud, pero no toda disimilitud es una distancia.</p>
 <p>En se menciona que las disimilitudes usuales de acuerdo al tipo de
 dato que se esté trabajando son las siguientes:</p>
 <ul>
