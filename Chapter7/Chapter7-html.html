@@ -2213,16 +2213,16 @@ total de los valores propios disminuye secuencialmente con los ejes PCoA
 ordenados. Evaluamos el rendimiento de PCoA utilizando estos dos
 criterios con los siguientes gráficos:</p>
 <pre class="r"><code># Correr todo junto
-# Define Plot Parameters
+# Definir parámetros
 par(mar = c(5, 5, 1, 2) + 0.1)
-# Plot Eigenvalues
+# Graficar eigenvalores
 plot(PCoA$eig, xlab = &quot;PCoA&quot;, ylab = &quot;Eigenvalue&quot;,
      las = 1, cex.lab = 1.5, pch = 16)
-# Add Expectation based on Kaiser-Guttman criterion and Broken Stick Model
+#Añadir expextación del criterio de Kaiser-Guttman  y el modelo Broken Stick
 abline(h = mean(PCoA$eig), lty = 2, lwd = 2, col = &quot;blue&quot;)
 b_stick &lt;- bstick(8, sum(PCoA$eig))
 lines(1:8, b_stick, type = &quot;l&quot;, lty = 4, lwd = 2, col = &quot;red&quot;)
-# Add Legend
+# Añadir legendas
 legend(&quot;topright&quot;, legend = c(&quot;Avg Eigenvalue&quot;, &quot;Broken-Stick&quot;),
        lty = c(2, 4), bty = &quot;n&quot;, col = c(&quot;blue&quot;, &quot;red&quot;))</code></pre>
 <div class="figure" style="text-align: center">
@@ -2237,19 +2237,19 @@ y son mayores que las expectativas del el modelo Broken-Stick. Después
 de evaluar el resultado del PCoA, crearemos un de ordenación para los
 dos ejes del PCoA.</p>
 <pre class="r"><code># Correr todo junto
-# Define Plot Parameters
+# Definir parámetros
 par(mar = c(5, 5, 1, 2) + 0.1)
-# Initiate Plot
+# Inicializar el plot
 plot(PCoA$points[ ,1], PCoA$points[ ,2], ylim = c(-0.5, 0.5),
      xlab = paste(&quot;PCoA 1 (&quot;, explainedvar1, &quot;%)&quot;, sep = &quot;&quot;),
      ylab = paste(&quot;PCoA 2 (&quot;, explainedvar2, &quot;%)&quot;, sep = &quot;&quot;),
      pch = 5, cex = 1.0, type = &quot;n&quot;, cex.lab = 1.0, cex.axis = 1.2, axes = FALSE)
-# Add Axes
+# Añadir ejes
 axis(side = 1, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 axis(side = 2, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 abline(h = 0, v = 0, lty = 3)
 box(lwd = 2)
-# Add Points &amp; Labels
+# Añadir puntos y etiquetas
 points(PCoA$points[ ,1], PCoA$points[ ,2],
        pch = 19, cex = 3, bg = &quot;blue&quot;, col = &quot;blue&quot;)
 text(PCoA$points[ ,1], PCoA$points[ ,2],
@@ -2271,19 +2271,19 @@ información utilizando la función <code>add.spec.scores()</code> del
 paquete BiodiversityR. En primer lugar, la abundancia relativa se
 calcula como sigue:</p>
 <pre class="r"><code># Correr todo junto
-# Define Plot Parameters
+# Definir parámetros del plot
 par(mar = c(5, 5, 1, 2) + 0.1)
-# Initiate Plot
+# Inicializar el plot
 plot(PCoA$points[ ,1], PCoA$points[ ,2], ylim = c(-0.5, 0.5),
      xlab = paste(&quot;PCoA 1 (&quot;, explainedvar1, &quot;%)&quot;, sep = &quot;&quot;),
      ylab = paste(&quot;PCoA 2 (&quot;, explainedvar2, &quot;%)&quot;, sep = &quot;&quot;),
      pch = 5, cex = 1.0, type = &quot;n&quot;, cex.lab = 1.0, cex.axis = 1.2, axes = FALSE)
-# Add Axes
+# Añadir ejes
 axis(side = 1, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 axis(side = 2, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 abline(h = 0, v = 0, lty = 3)
 box(lwd = 2)
-# Add Points &amp; Labels
+# Añadir puntos y etiquetas
 points(PCoA$points[ ,1], PCoA$points[ ,2],
        pch = 19, cex = 3, bg = &quot;blue&quot;, col = &quot;blue&quot;)
 text(PCoA$points[ ,1], PCoA$points[ ,2],
@@ -2298,7 +2298,7 @@ for(i in 1:nrow(abund_table)){
 library(&quot;pbkrtest&quot;)
 library(&quot;BiodiversityR&quot;)
 
-# Calculate and Add Species Scores
+# Calcular y añadir el score de las especies
 PCoA &lt;- add.spec.scores(PCoA,fecalREL,method = &quot;pcoa.scores&quot;,Rscale=TRUE,scaling=1, multi=1)
 text(PCoA$cproj[ ,1], PCoA $cproj[ ,2],
      labels = row.names(PCoA$cproj),cex=0.5, col = &quot;blue&quot;)</code></pre>
@@ -2311,11 +2311,11 @@ Ordination plot para los dos ejes de PCoA con influencia de genero
 <p>La función <code>add.spec.scores()</code> también puede utilizarse
 para determinar la correlación de cada taxón a lo largo de los ejes
 PCoA. Este es un enfoque más efectivamente cuantitativo de identificar
-los taxones influyentes. Además, para identificary obtener el taxón más
+los taxones influyentes. Además, para identificar y obtener el taxón más
 importante, es necesario definir un coeficiente de correlación de corte,
 en este caso, vamos a tomar <span class="math inline">\(0.7\)</span>.</p>
 <pre class="r"><code>genus_corr &lt;- add.spec.scores(PCoA, fecalREL, method = &quot;cor.scores&quot;)$cproj
-corrcut &lt;- 0.7 # user defined cutoff  
+corrcut &lt;- 0.7 # definir el cutoff  
 import_genus &lt;- genus_corr[abs(genus_corr[, 1]) &gt;= corrcut | abs(genus_corr[, 2]) &gt;= corrcut, ]</code></pre>
 <p>Los 12 géneros importantes con correlación mayor o igual a 0,7 a lo
 largo de los ejes PCoA se imprimen a continuación:</p>
@@ -2479,7 +2479,7 @@ Anaerophaga
 <p>Por último, utilizamos la función <code>envfit()</code> del paquete
 <code>vegan</code> para realizar una prueba de permutación para las
 abundancias generales a través de los ejes en estas correlaciones.</p>
-<pre class="r"><code># Permutation Test for Species Abundances Across Axes
+<pre class="r"><code># Test de permutación para abundancia de especies en los ejes
 envfit(PCoA, fecalREL, perm = 999)</code></pre>
 <pre><code>## 
 ## ***VECTORS
@@ -2990,19 +2990,19 @@ envfit(PCoA, fecalREL, perm = 999)</code></pre>
 a <span class="math inline">\(0.05\)</span> se muestran con el siguiente
 gráfico.</p>
 <pre class="r"><code># Correr todo junto
-# Define Plot Parameters
+# Definir los parámetros del plot
 par(mar = c(5, 5, 1, 2) + 0.1)
-# Initiate Plot
+# Inicializar el plot
 plot(PCoA$points[ ,1], PCoA$points[ ,2], ylim = c(-0.5, 0.5),
      xlab = paste(&quot;PCoA 1 (&quot;, explainedvar1, &quot;%)&quot;, sep = &quot;&quot;),
      ylab = paste(&quot;PCoA 2 (&quot;, explainedvar2, &quot;%)&quot;, sep = &quot;&quot;),
      pch = 5, cex = 1.0, type = &quot;n&quot;, cex.lab = 1.0, cex.axis = 1.2, axes = FALSE)
-# Add Axes
+# Añadir ejes
 axis(side = 1, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 axis(side = 2, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 abline(h = 0, v = 0, lty = 3)
 box(lwd = 2)
-# Add Points &amp; Labels
+# Añadir puntos y etiquetas
 points(PCoA$points[ ,1], PCoA$points[ ,2],
        pch = 19, cex = 3, bg = &quot;blue&quot;, col = &quot;blue&quot;)
 text(PCoA$points[ ,1], PCoA$points[ ,2],
@@ -3017,14 +3017,14 @@ for(i in 1:nrow(abund_table)){
 library(&quot;pbkrtest&quot;)
 library(&quot;BiodiversityR&quot;)
 
-# Calculate and Add Species Scores
+# Calcular y añadir el score de las especies
 PCoA &lt;- add.spec.scores(PCoA,fecalREL,method = &quot;pcoa.scores&quot;,Rscale=TRUE,scaling=1, multi=1)
 text(PCoA$cproj[ ,1], PCoA $cproj[ ,2],
      labels = row.names(PCoA$cproj),cex=0.5, col = &quot;blue&quot;)
 
 
 genus_corr &lt;- add.spec.scores(PCoA, fecalREL, method = &quot;cor.scores&quot;)$cproj
-corrcut &lt;- 0.7 # user defined cutoff  
+corrcut &lt;- 0.7 # definir el cutoff  
 import_genus &lt;- genus_corr[abs(genus_corr[, 1]) &gt;= corrcut | abs(genus_corr[, 2]) &gt;= corrcut, ]
 
 # Código para los generos con un p-valor&lt;0.05
@@ -3262,7 +3262,7 @@ función.</p>
   bsm$p[1] &lt;- 1/n
   for (i in 2:n) bsm$p[i] &lt;- bsm$p[i-1] + (1/(n + 1 - i))
   bsm$p &lt;- 100*bsm$p/n
-  # Plot eigenvalues and % of variation for each axis
+  # Graficar eigenvalores y porcentaje de varianza en cada eje
   op &lt;- par(mfrow=c(2,1))
   barplot(ev, main=&quot;Eigenvalues&quot;, col=&quot;bisque&quot;, las=2)
   abline(h=mean(ev), col=&quot;red&quot;)
@@ -3274,7 +3274,7 @@ función.</p>
   par(op)
 }
       
-# Plot eigenvalues and % of variance for each axis
+# Plot de eigenvalores y porcentaje de varianza en cada eje
 ev &lt;- fecal_genus_cca$CA$eig
 
 windows(title=&quot;CA eigenvalues&quot;)
@@ -3362,7 +3362,7 @@ library(&quot;dplyr&quot;)</code></pre>
 <pre class="r"><code>throat_meta &lt;- select(throat.meta, SmokingStatus, Age, Sex, PackYears)</code></pre>
 <p>A efectos de RDA, transformamos los datos de los taxones utilizando
 la transformación de Hellinger:</p>
-<pre class="r"><code>library(&quot;vegan&quot;)  # if you haven&#39;t use it up to now
+<pre class="r"><code>library(&quot;vegan&quot;)  # Solo si no se ha cargado antes
 abund_hell &lt;- decostand (throat.otu.tab, &#39;hell&#39;) </code></pre>
 <p>La RDA se calcula con la función <code>rda()</code> si se suministra
 la matriz de variables ambientales (si no, se calculará el ACP)</p>

@@ -457,7 +457,7 @@ Una **distancia** es una función $d: \mathcal{X}\times \mathcal{X}\to \mathbb{R
   \begin{enumerate}
      \item Para cualesquiera $x,y\in\mathcal{X}$ se tiene que $d(x,y)\geq 0$.
      \item Se cumple que $d(x,y)=0$ si y sólo si $x=y$.
-     \item Para cualesquiera $x,y\in\mathcal{X}$ se cumple que $d(x,y) = d(yx)$ (condición de simetría).
+     \item Para cualesquiera $x,y\in\mathcal{X}$ se cumple que $d(x,y) = d(y,x)$ (condición de simetría).
      \item Para cualesquiera $x,y,z\in\mathcal{X}$ se cumple la desigualdad del triángulo:
      \[
           d(x,y)\leq d(x,z) + d(z,y).
@@ -497,6 +497,7 @@ De manera precisa, una disimilitud es una función $d: \mathcal{X}\times \mathca
   \begin{enumerate}
     \item Para cualquier $x\in\mathcal{X}$ se tiene que $d(x,x) = 0$.
     \item Para cualesquiera $x,y \in \mathcal{X}$ se cumple que $d(x,y)\geq 0$ (condición de no negatividad).
+    \item Para cualesquiera $x,y\in\mathcal{X}$ se cumple que $d(x,y) = d(y,x)$.
   \end{enumerate}
   
 Es importante mencionar que, en la literatura de análisis de datos como _data mining_ y algunos textos de estadística (ver \cite{luxburg04} y \cite{tan14}), a las disimilitudes también se les nombra _distancias_, lo cual es incorrecto. Lo que si ocurre es que toda distancia (o métrica) es una disimilitud, pero no toda disimilitud es una distancia.
@@ -1125,16 +1126,16 @@ Existen dos criterios para evaluar si los primeros ejes del PCoA captan o no una
 
 ```{r PCoA_1, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'PCoA con el criterio de Kaiser-Guttman y el modelo de broken-stick'}
 # Correr todo junto
-# Define Plot Parameters
+# Definir los parametros del plot
 par(mar = c(5, 5, 1, 2) + 0.1)
-# Plot Eigenvalues
+# Fraficar eigenvalores
 plot(PCoA$eig, xlab = "PCoA", ylab = "Eigenvalue",
      las = 1, cex.lab = 1.5, pch = 16)
-# Add Expectation based on Kaiser-Guttman criterion and Broken Stick Model
+# Añadir expextación del criterio de Kaiser-Guttman  y el modelo Broken Stick
 abline(h = mean(PCoA$eig), lty = 2, lwd = 2, col = "blue")
 b_stick <- bstick(8, sum(PCoA$eig))
 lines(1:8, b_stick, type = "l", lty = 4, lwd = 2, col = "red")
-# Add Legend
+# Añadir legendas
 legend("topright", legend = c("Avg Eigenvalue", "Broken-Stick"),
        lty = c(2, 4), bty = "n", col = c("blue", "red"))
 ```
@@ -1144,19 +1145,19 @@ La figura anterior muestra que los valores propios asociados a los tres primeros
 
 ```{r Ordination_plot1, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Ordination plot para los dos ejes de PCoA'}
 # Correr todo junto
-# Define Plot Parameters
+# Definir parámetros
 par(mar = c(5, 5, 1, 2) + 0.1)
 # Initiate Plot
 plot(PCoA$points[ ,1], PCoA$points[ ,2], ylim = c(-0.5, 0.5),
      xlab = paste("PCoA 1 (", explainedvar1, "%)", sep = ""),
      ylab = paste("PCoA 2 (", explainedvar2, "%)", sep = ""),
      pch = 5, cex = 1.0, type = "n", cex.lab = 1.0, cex.axis = 1.2, axes = FALSE)
-# Add Axes
+# Añadir ejes
 axis(side = 1, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 axis(side = 2, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 abline(h = 0, v = 0, lty = 3)
 box(lwd = 2)
-# Add Points & Labels
+# Añadir puntos y texto
 points(PCoA$points[ ,1], PCoA$points[ ,2],
        pch = 19, cex = 3, bg = "blue", col = "blue")
 text(PCoA$points[ ,1], PCoA$points[ ,2],
@@ -1166,19 +1167,19 @@ Los gráficos de ordenación básicos nos permiten ver cómo se separan las mues
 
 ```{r Ordination_plot2, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Ordination plot para los dos ejes de PCoA con influencia de genero'}
 # Correr todo junto
-# Define Plot Parameters
+# Definir parámetros
 par(mar = c(5, 5, 1, 2) + 0.1)
-# Initiate Plot
+# Inicializar el plot
 plot(PCoA$points[ ,1], PCoA$points[ ,2], ylim = c(-0.5, 0.5),
      xlab = paste("PCoA 1 (", explainedvar1, "%)", sep = ""),
      ylab = paste("PCoA 2 (", explainedvar2, "%)", sep = ""),
      pch = 5, cex = 1.0, type = "n", cex.lab = 1.0, cex.axis = 1.2, axes = FALSE)
-# Add Axes
+# Añadir ejes
 axis(side = 1, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 axis(side = 2, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 abline(h = 0, v = 0, lty = 3)
 box(lwd = 2)
-# Add Points & Labels
+# Añadir puntos y etiquetas
 points(PCoA$points[ ,1], PCoA$points[ ,2],
        pch = 19, cex = 3, bg = "blue", col = "blue")
 text(PCoA$points[ ,1], PCoA$points[ ,2],
@@ -1193,16 +1194,16 @@ for(i in 1:nrow(abund_table)){
 library("pbkrtest")
 library("BiodiversityR")
 
-# Calculate and Add Species Scores
+# Calcular y añadir el score de las especies
 PCoA <- add.spec.scores(PCoA,fecalREL,method = "pcoa.scores",Rscale=TRUE,scaling=1, multi=1)
 text(PCoA$cproj[ ,1], PCoA $cproj[ ,2],
      labels = row.names(PCoA$cproj),cex=0.5, col = "blue")
 ```
-La función `add.spec.scores()` también puede utilizarse para determinar la correlación de cada taxón a lo largo de los ejes PCoA. Este es un enfoque más efectivamente cuantitativo de identificar los taxones influyentes. Además, para identificary obtener el taxón más importante, es necesario definir un coeficiente de correlación de corte, en este caso, vamos a tomar $0.7$.
+La función `add.spec.scores()` también puede utilizarse para determinar la correlación de cada taxón a lo largo de los ejes PCoA. Este es un enfoque más efectivamente cuantitativo de identificar los taxones influyentes. Además, para identificar y obtener el taxón más importante, es necesario definir un coeficiente de correlación de corte, en este caso, vamos a tomar $0.7$.
 
 ```{r}
 genus_corr <- add.spec.scores(PCoA, fecalREL, method = "cor.scores")$cproj
-corrcut <- 0.7 # user defined cutoff  
+corrcut <- 0.7 #definir el cutoff  
 import_genus <- genus_corr[abs(genus_corr[, 1]) >= corrcut | abs(genus_corr[, 2]) >= corrcut, ]
 ```
 
@@ -1221,7 +1222,7 @@ import_genus[complete.cases(import_genus),] %>%
 Por último, utilizamos la función `envfit()` del paquete `vegan` para realizar una prueba de permutación para las abundancias generales a través de los ejes en estas correlaciones.
 
 ```{r}
-# Permutation Test for Species Abundances Across Axes
+# Test de permutación para abundancia de especies en los ejes
 envfit(PCoA, fecalREL, perm = 999)
 ```
 
@@ -1229,19 +1230,19 @@ Los géneros con un $p-$valor menor a $0.05$ se muestran con el siguiente gráfi
 
 ```{r Ordination_plot3, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Ordination plot para los dos ejes de PCoA de influencia de genero con un $p-$valor $<0.05$'}
 # Correr todo junto
-# Define Plot Parameters
+# Definir parámetros
 par(mar = c(5, 5, 1, 2) + 0.1)
-# Initiate Plot
+# Inicializar el plot
 plot(PCoA$points[ ,1], PCoA$points[ ,2], ylim = c(-0.5, 0.5),
      xlab = paste("PCoA 1 (", explainedvar1, "%)", sep = ""),
      ylab = paste("PCoA 2 (", explainedvar2, "%)", sep = ""),
      pch = 5, cex = 1.0, type = "n", cex.lab = 1.0, cex.axis = 1.2, axes = FALSE)
-# Add Axes
+# Añadir ejes
 axis(side = 1, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 axis(side = 2, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
 abline(h = 0, v = 0, lty = 3)
 box(lwd = 2)
-# Add Points & Labels
+# Añadir puntos y etiquetas
 points(PCoA$points[ ,1], PCoA$points[ ,2],
        pch = 19, cex = 3, bg = "blue", col = "blue")
 text(PCoA$points[ ,1], PCoA$points[ ,2],
@@ -1256,14 +1257,14 @@ for(i in 1:nrow(abund_table)){
 library("pbkrtest")
 library("BiodiversityR")
 
-# Calculate and Add Species Scores
+# Calcular y añadir el score de las especies
 PCoA <- add.spec.scores(PCoA,fecalREL,method = "pcoa.scores",Rscale=TRUE,scaling=1, multi=1)
 text(PCoA$cproj[ ,1], PCoA $cproj[ ,2],
      labels = row.names(PCoA$cproj),cex=0.5, col = "blue")
 
 
 genus_corr <- add.spec.scores(PCoA, fecalREL, method = "cor.scores")$cproj
-corrcut <- 0.7 # user defined cutoff  
+corrcut <- 0.7 # definir el cutoff  
 import_genus <- genus_corr[abs(genus_corr[, 1]) >= corrcut | abs(genus_corr[, 2]) >= corrcut, ]
 
 # Código para los generos con un p-valor<0.05
@@ -1345,7 +1346,7 @@ evplot <- function(ev)
   bsm$p[1] <- 1/n
   for (i in 2:n) bsm$p[i] <- bsm$p[i-1] + (1/(n + 1 - i))
   bsm$p <- 100*bsm$p/n
-  # Plot eigenvalues and % of variation for each axis
+  # Graficar eigenvalores y porcentaje de varianza en cada eje
   op <- par(mfrow=c(2,1))
   barplot(ev, main="Eigenvalues", col="bisque", las=2)
   abline(h=mean(ev), col="red")
@@ -1357,7 +1358,7 @@ evplot <- function(ev)
   par(op)
 }
       
-# Plot eigenvalues and % of variance for each axis
+# Plot de eigenvalores y porcentaje de varianza en cada eje
 ev <- fecal_genus_cca$CA$eig
 
 windows(title="CA eigenvalues")
@@ -1400,7 +1401,7 @@ throat_meta <- select(throat.meta, SmokingStatus, Age, Sex, PackYears)
 A efectos de RDA, transformamos los datos de los taxones utilizando la transformación de Hellinger:
 
 ```{r}
-library("vegan")  # if you haven't use it up to now
+library("vegan")  # Solo si no se ha cargado antes
 abund_hell <- decostand (throat.otu.tab, 'hell') 
 ```
 
