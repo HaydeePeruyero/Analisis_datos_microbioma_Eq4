@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 
 ## Conjuto de datos de ratón $Vdr^{-/-}$  
 
-Los datos del microbioma intestinal murino ([Jin et al.2015](https://www.researchgate.net/profile/Jun-Sun-44/publication/277727880_Lack_of_Vitamin_D_Receptor_Causes_Dysbiosis_and_Changes_the_Functions_of_the_Murine_Intestinal_Microbiome/links/5746152408ae9ace84243769/Lack-of-Vitamin-D-Receptor-Causes-Dysbiosis-and-Changes-the-Functions-of-the-Murine-Intestinal-Microbiome.pdf) se obtuvieron de muestras de heces fecales y cecales. Aquí, se utilizan las muestras fecales.
+Los datos del microbioma intestinal murino ([Jin et al.2015](https://www.researchgate.net/profile/Jun-Sun-44/publication/277727880_Lack_of_Vitamin_D_Receptor_Causes_Dysbiosis_and_Changes_the_Functions_of_the_Murine_Intestinal_Microbiome/links/5746152408ae9ace84243769/Lack-of-Vitamin-D-Receptor-Causes-Dysbiosis-and-Changes-the-Functions-of-the-Murine-Intestinal-Microbiome.pdf)) se obtuvieron de muestras de heces fecales y cecales. Aquí, se utilizan las muestras fecales.
 
 ## Conjuto de datos de fumadores de cigarro
 
@@ -404,7 +404,7 @@ En \cite{tan14} se menciona que las disimilitudes usuales de acuerdo al tipo de 
 En el Cuadro siguiente, se muestra cómo se calculan distancias y disimilitudes entre individuos con datos numéricos, binarios, categóricos y mixtos.
 
 
-![tabla de distancias](tabla-distancias.svg "Distancias y disimilitudes entre distintos tipos de datos")
+![tabla de distancias](tabla-distancias.png "Distancias y disimilitudes entre distintos tipos de datos")
 
 
 ## Agrupamiento (Clústers)
