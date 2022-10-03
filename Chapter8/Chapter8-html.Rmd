@@ -394,14 +394,14 @@ El resultado de la prueba de exactitud de Fisher tampoco es significativo con un
 
 ## ANOVA de una vía 
 
-El análisis de varinza (ANOVA) fue propuesto por Ronal Fisher en 1918 y se hizo bien conocido después de la publicación del libro de Fisher, *"Statitiscal Methods for Research Workers"* en 1925. El ANOVA generaliza la prueba de t de dos muestras a más de dos grupos. La **Hipótesis nula** del ANOVA es: *Todas las medias de grupos comparados son iguales*. El análisis usando ANOVA se basa en un supuesto de *Normalidad* de los datos subyacentes. Sin embargo, la composición de la mayoría de los datos de comunidades microbiana, especialmente datos multivariados, no están normalmente distribuidos, por lo tanto, ANOVA solo es usaod para comparar análisis univariado de mediciones de alfa diversidad. Para datos de composición comunitaria multivariante, se aplica una versión no paramétrica La formación de la estadística de prueba se realiza mediante la partición tradicional de la suma de cuadrados (división de la variación). La ecuación de definición de la muestra varianza es
+El análisis de varianza (ANOVA) fue propuesto por Ronal Fisher en 1918 y se hizo bien conocido después de la publicación del libro de Fisher, *"Statitiscal Methods for Research Workers"* en 1925. El ANOVA generaliza la prueba $t$ de dos muestras a más de dos grupos. La **hipótesis nula** del ANOVA es: *Todas las medias de grupos comparados son iguales*. El análisis usando ANOVA se basa en un supuesto de *normalidad* de los datos subyacentes. Sin embargo, la composición de la mayoría de los datos de comunidades microbiana, especialmente datos multivariados, no están normalmente distribuidos, por lo tanto, ANOVA solo es usado para comparar análisis univariado de mediciones de alfa diversidad. Para datos de composición comunitaria multivariante, se aplica una versión no paramétrica La formación de la estadística de prueba se realiza mediante la partición tradicional de la suma de cuadrados (división de la variación). La ecuación de definición de la muestra varianza es;
 
 $$
 s^{2} = \frac{1}{n - 1} 
 {\sum^{n}_{i=1}(y_{i} - \bar y)^{2}}
 $$
 
-donde $s^{2} = $ varianza de la muestra. La varianza de la muestra es calculada por la suma de cuadados (SS) dividido por $n-1$ (grados de libertad, DF). El resultado es llamado media cuadrada (MS) y los términos cuadrados son desviaciones de la media simple. 
+donde $s^{2} = $ varianza de la muestra. La varianza de la muestra es calculada por la suma de cuadrados (SS) dividido por $n-1$ (grados de libertad, DF). El resultado es llamado media cuadrada (MS) y los términos cuadrados son desviaciones de la media simple. 
 La técnica fundamental del ANOVA divide la suma total de cuadrados (SS) de desviaciones en dos componentes: suma de cuadrados relacionados con el tratamiento y suma de cuadrados relacionados con el error:
 
 $$
@@ -433,17 +433,17 @@ rownames(df_G) <- NULL
 df_CH_G
 ```
 
-Los nuevos 4 niveles de grupo son generados usando interacción de Locación y Grupo
+Los nuevos 4 niveles de grupo son generados usando interacción de Locación y Grupo.
 
 ```{r}
 df_CH_G$Group4 <- with(df_CH_G, interaction(Location,Group))
 df_CH_G
 ```
 
-Exploramos el índice de Chao usando `boxplot()`
+Exploramos el índice de Chao usando `boxplot().`
 
 ```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Boxplot del índice Chao 1 con cuatro grupos generados usando la función `boxplot()`.'}
-boxplot(value~Group4, data=df_CH_G, col = rainbow(4), main="Chao1 index")
+boxplot(value~Group4, data=df_CH_G, col = rainbow(4), main="Índice de Chao1")
 ```
 
 El siguiente `ggplot()` genera una alta calidad de boxplot para publicarlo
@@ -451,7 +451,7 @@ El siguiente `ggplot()` genera una alta calidad de boxplot para publicarlo
 ```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Boxplot del índice Chao 1 con cuatro grupos generados usando la función `ggplot()`.'}
 library(ggplot2)
 p <- ggplot(df_CH_G, aes(x=Group4, y=value), 
-            col=rainbow(4), main="Chao1 index") + 
+            col=rainbow(4), main="Índice de Chao1") + 
   geom_boxplot()
 p + coord_flip()
 ggplot(df_CH_G, aes(x = Group4, y = value, col = factor(Group4))) + 
@@ -471,21 +471,27 @@ df_CH_G4
 Los códigos R siguientes conducen a la prueba Barlett de homogeneidad de varanzas:
 
 ```{r}
-# No corre
-# bartlett.test(df_CH_G4, Group4) 
+# No corre así
+# bartlett.test(df_CH_G4, Group4)
+# Se modificó pero aquí marca 3 grados de libertad y en el libro 1.
+bartlett.test(df_CH_G4$value ~ df_CH_G4$Group4) 
 ```
 
-La función nos da el valor K al cuadrado de las pruebas estadísticas y el valor $p$. Muestra que la hipótesis nula puede rechazarse al nivel del 5%. Como alternativa, podemos comparar el K-cuadrado de Bartlett con el valor de las tablas de chi-cuadrado, utilizando el mismo nivel de alfa y grados de libertad en la función `qchisq()`. Si Chi-cuadrado > K-cuadrado de Bartlett, aceptamos la hipótesis nula $H_0$ (homogeneidad de varianzas), de lo contrario rechazamos la hipótesis nula.
+La función nos da el valor K al cuadrado de las pruebas estadísticas y el $p-$valor. Muestra que la hipótesis nula puede rechazarse al nivel del 5%. Como alternativa, podemos comparar el K-cuadrado de Bartlett con el valor de las tablas de chi-cuadrado, utilizando el mismo nivel de alfa y grados de libertad en la función `qchisq()`. Si Chi-cuadrado > K-cuadrado de Bartlett, aceptamos la hipótesis nula $H_0$ (homogeneidad de varianzas), de lo contrario rechazamos la hipótesis nula.
 
 ```{r}
-qchisq(0.95, 1)
+# En el libro usan qchisq(0.95, 1)
+# Pero en este ejemplo nos salieron 3 grados de libertad, por eso se modifico.
+qchisq(0.95, 3)
 ```
 
 Como la Chi-cuadrado es menor que la K-cuadrado de Bartlett, rechazamos la hipótesis nula $H_0$ y concluimos que las varianzas no son iguales. 
 Ahora utilizamos la prueba de Fligner-Killeen para comprobar la homocedasticidad. La sintaxis como a continuación es bastante similar.
 
 ```{r}
-fligner.test(df_CH_G4, Group4)
+# En el libro usa este pero sale un grado de libertad y nosotros tenemos 4 muestras
+#fligner.test(df_CH_G4, Group4)
+fligner.test(df_CH_G4$value ~ df_CH_G4$Group4)
 ```
 
 Las conclusiones son similares a las de la prueba de Bartlett: las varianzas no son iguales. Sin embargo, a efectos de ilustración, procedemos a analizar los datos mediante ANOVA independientemente de los resultados de la prueba de homegeneidad de varianzas. Los siguientes códigos R se ajustan al modelo:
@@ -497,16 +503,17 @@ fit = lm(formula = value~Group4, data = df_CH_G)
 Entonces analizamos el modelo de ANOVA
 
 ```{r}
-anova(fit)
+anova1 <- anova(fit)
+anova1
 ```
 
-O solo usamos el siguiente codigo: la función `aov()` anidade dentro de la función `summary()`.
+O solo usamos el siguiente código: la función `aov()` anidado dentro de la función `summary()`.
 
 ```{r}
 summary(aov(value~Group4, data=df_CH_G))
 ```
 
-Podemos imprimir el intercepto usando lo siguiente
+Podemos imprimir el [intercepto](https://rpubs.com/hllinas/R_Reg_Lineal_Simpl_Test_Parametro) usando lo siguiente.
 
 ```{r}
 aov_fit <- aov(value~Group4, data = df_CH_G) 
@@ -530,10 +537,11 @@ augment(aov_fit)
 glance(aov_fit)
 ```
 
-## Comparaciones múltiples Pareadas y de Tukey
+## Comparaciones a pares y comparaciones multiples de Tukey
 
-Los resultados del ANOVA dan la prueba global de diferencia de grupos (en este caso, 4 grupos con combinación fecal, cecal, $Vdr^{-/-}$ y WT). Nuestro propósito es probar también cada diferencia de pares asociada a la riqueza de Chao 1. Los siguientes pasos sirven para ilustrar las capacidades de la prueba t por pares y las comparaciones múltiples ad hoc de Tukey en R.
-Vamos a ejecutar la prueba t por pares no ajustada para los cuatro grupos. La configuración por defecto en R para esta prueba es ajustar los valores p como post hoc usando el método Holm, así que para obtener valores p no ajustados, debe especificar `p.adjust = "none"`. El valor por defecto de R asume la homogeneidad de la varianza, por lo que no es necesario especificar `pool. sd = T`. Si sus datos tienen una varianza desigual, debe utilizar `pool.sd = F`.
+Los resultados del ANOVA dan la prueba global de diferencia de grupos (en este caso, 4 grupos con combinación fecal, cecal, $Vdr^{-/-}$ y WT). Nuestro propósito es probar también cada diferencia de pares asociada a la riqueza de Chao 1. Los siguientes pasos sirven para ilustrar las capacidades de la prueba $t$ por pares y las comparaciones múltiples ad hoc de Tukey en R.
+
+Vamos a ejecutar la prueba $t$ por pares no ajustada para los cuatro grupos. La configuración por defecto en R para esta prueba es ajustar los $p-$valores como post hoc usando el método Holm, así que para obtener $p$valores no ajustados, debe especificar `p.adjust = "none"`. El valor por defecto de R asume la homogeneidad de la varianza, por lo que no es necesario especificar `pool. sd = T`. Si sus datos tienen una varianza desigual, debe utilizar `pool.sd = F`.
 
 ```{r}
 # Pruebas de diferencias de medias por pares
@@ -547,7 +555,7 @@ $$
 p.adjust(p, method = p.adjust.methods, n =  length(p))
 $$
 
-donde, $p =$ vector numérico de valores $p$, $método =$ método de corrección, $n =$ número de comparaciones, debe ser al menos $length(p)$. Los métodos de ajuste incluyen `c("bonferroni", "holm", "hochberg", "hommel", "BH", "BY", "fdr", "none")`. Donde "bonferroni" es la corrección de Bonferroni en la que los valores $p$ se multiplican por el número de comparaciones; "holm", "hochberg", "hommel", "BH", "BY", "fdr" se refieren a Holm (1979), Hochberg (1988), Hommel (1988), Benjamini y Hochberg (1995) y Benjamini y Yekutieli (2001), y "fdr" es un alias de "BH". Son correcciones menos conservadoras.
+donde, $p =$ vector numérico de valores $p$, $método =$ método de corrección, $n =$ número de comparaciones, debe ser al menos $length(p)$. Los métodos de ajuste incluyen `c("bonferroni", "holm", "hochberg", "hommel", "BH", "BY", "fdr", "none")`. Donde "bonferroni" es la corrección de Bonferroni en la que los $p-$valores se multiplican por el número de comparaciones; "holm", "hochberg", "hommel", "BH", "BY", "fdr" se refieren a Holm (1979), Hochberg (1988), Hommel (1988), Benjamini y Hochberg (1995) y Benjamini y Yekutieli (2001), y "fdr" es un alias de "BH". Son correcciones menos conservadoras.
 
 ```{r}
 # Ajuste conservador de Bonferroni
@@ -564,7 +572,7 @@ pairwise.t.test(df_CH_G$value, df_CH_G$Group4,
                 p.adjust = "BY", pool.sd = T)
 ```
 
-Los cuatro ajustes anteriores no ofrecen diferencias significativas en las comparaciones por pares. Los ajustes conservadores de Bonferroni y Benjamini & Yekutieli tienen los mayores valores $p$. Con el método de Benjamini y Hochberg ninguna de las comparaciones son significativas, pero sus valores p ajustados son menores. El método Benjamini & Hochberg es más potente en este caso. Tanto el método de Benjamini & Hochberg (BH) como el de Benjamini & Yekutieli (BY) son para ajustar la "tasa de falsos descubrimientos" (FDR). En realidad no es un verdadero control de error por familia. Los métodos de la Falsa Tasa de Descubrimiento encuentran los mismos resultados: todas las comparaciones por pares no presentan diferencias significativas.
+Los cuatro ajustes anteriores no ofrecen diferencias significativas en las comparaciones por pares. Los ajustes conservadores de Bonferroni y Benjamini & Yekutieli tienen los mayores $p-$valores. Con el método de Benjamini y Hochberg ninguna de las comparaciones son significativas, pero sus valores p ajustados son menores. El método Benjamini & Hochberg es más potente en este caso. Tanto el método de Benjamini & Hochberg (BH) como el de Benjamini & Yekutieli (BY) son para ajustar la "tasa de falsos descubrimientos" (FDR). En realidad no es un verdadero control de error por familia. Los métodos de la Falsa Tasa de Descubrimiento encuentran los mismos resultados: todas las comparaciones por pares no presentan diferencias significativas.
 A continuación, vamos a mostrar el uso de la función `TukeyHSD()` para hacer comparaciones múltiples de Tukey de medias y obtener sus intervalos de confianza. La forma de llamar a esta función es similar a la función `summary()`. Toma la variable del cálculo original de ANOVA original como uno de sus argumentos.
 
 ```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Gráfico de Tukey de comparaciones múltiples de medias y su intervalo de confianza en datos de ratón $Vdr^{-/-}$`.'}
@@ -574,7 +582,7 @@ TukeyHSD(aov_fit, conf.level=.95)
 plot(TukeyHSD(aov(df_CH_G$value~df_CH_G$Group4), conf.level=.95))
 ```
 
-Este gráfico representa todas las pruebas posibles por pares y los valores $p$, así como los intervalos de confianza del 95%. El nivel de confianza del 95% por defecto puede cambiarse según su elección. Dado que todas las líneas de confianza cruzan 0, para este ejemplo, no hay términos significativamente diferentes tras el ajuste mediante comparaciones múltiples de Tukey.
+Este gráfico representa todas las pruebas posibles por pares y los $p-$valores, así como los intervalos de confianza del 95%. El nivel de confianza del 95% por defecto puede cambiarse según su elección. Dado que todas las líneas de confianza cruzan 0, para este ejemplo, no hay términos significativamente diferentes tras el ajuste mediante comparaciones múltiples de Tukey. También podemos ver que el $p-$valor es muy grande en todos los casos.
 
 # Comparaciones entre más de dos grupos usando la prueba de Kruskal-Wallis
 
@@ -582,22 +590,25 @@ Este gráfico representa todas las pruebas posibles por pares y los valores $p$,
 
 La prueba de Kruskal-Wallis o ANOVA unidireccional sobre rangos, llamada así por William Kruskal y W.Allen Wallis, es un método no paramétrico para comprobar si las muestras proceden de la misma distribución (Kruskal y Wallis 1952; Daniel 1990). *El equivalente paramétrico de la prueba de Kruskal-Wallis es el ANOVA de una vía*. 
 La ampliación es la prueba $U$ de Mann-Whitney a más de dos grupos. La hipótesis nula de la prueba de Kruskal-Wallis es que los *rangos medios de los grupos son los mismos*. A diferencia del ANOVA unidireccional análogo, la prueba no paramétrica de *Kruskal-Wallis no asume una distribución normal de los datos subyacentes*. Se ha utilizado ampliamente en investigación del microbioma. Por ejemplo, los datos del microbioma posteriores a la secuenciación no están distribuidos normalmente y contienen algunos valores atípicos importantes. Por lo tanto, es conveniente utilizar rangos en lugar de valores reales para evitar que las pruebas se vean afectadas por la presencia de valores atípicos o por una distribución no normal. La estadística de la prueba consta de cuatro pasos principales:
+
 + *Paso 1*. Clasificar todos los datos de todos los grupos juntos en una única serie en orden ascendente, es decir, clasificar los datos de 1 a N ignorando la pertenencia a un grupo.
 + *Paso 2*. Asignar los valores empatados promediando su posición en el ranking.
 + *Paso 3*. Sumar los diferentes rangos, por ejemplo, $R_1$ $R_2$ $R_3$... para cada uno de los diferentes grupos.
 + *Paso 4*. Calcula la estadística de la prueba aplicando la siguiente fórmula:
+
 $$
 H = \frac{12}{n(n+1)}\sum^k_{i=1}\frac{R^{2}_{i}}{n_{i}}-3(n+1)
 $$
 
 donde
-+ $H$ Prueba estadística de Kruskal-Wallis
-+ $n$ número total de mediiones en todas las muestras
-+ $n_{i}$ número de mediciones en la muestra de la población $i$
-+ $k$ número de poblaciones
+
++ $H$ Prueba estadística de Kruskal-Wallis.
++ $n$ número total de mediciones en todas las muestras.
++ $n_{i}$ número de mediciones en la muestra de la población $i$.
++ $k$ número de poblaciones.
 + $R_{i}$ rango de sumas para la muestra $i$.
 
-El estadístico de la prueba de Kruskal-Wallis es aproximadamente una distribución chi-cuadrado, con k - 1 grados de libertad si los valores de $n_{i}$ son "grandes". La aproximación se acepta generalmente como adecuada cuando cada uno de los valores de $n_{i}$ es mayor o igual a 5.
+El estadístico de la prueba de Kruskal-Wallis es aproximadamente una distribución chi-cuadrado, con $k - 1$ grados de libertad si los valores de $n_{i}$ son "grandes". La aproximación se acepta generalmente como adecuada cuando cada uno de los valores de $n_{i}$ es mayor o igual a 5.
 
 ## Comparación de diversidades entre grupos
 
@@ -620,7 +631,7 @@ Summarize(value ~ Group4, data = df_CH_G)
 Generamos Histograma por grupo
 
 ```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Distribuciones de los valores entre los grupos`.'}
-# Gráficos individulaes en un panel de 2X2
+# Gráficos individuales en un panel de 2X2
 library("lattice")
 histogram(~ value|Group4, data=df_CH_G,layout=c(2,2)) 
 ```
@@ -629,10 +640,11 @@ El histograma muestra que las distribuciones de los valores entre los grupos son
 
 ```{r}
 # Prueba de Kruskal-Wallis de la riqueza de Chao1
-kruskal.test(value ~ Group4, data = df_CH_G) 
+kruskal_test <- kruskal.test(value ~ Group4, data = df_CH_G) 
+kruskal_test
 ```
 
-El valor de la estadística de la prueba es 5,2 con un valor $p$ superior a 0,05 y también es inferior a la tabulación chi-cuadrado:
+El valor de la estadística de la prueba es `r kruskal_test$statistic` con un $p-$valor superior a 0,05 y también es inferior a la tabulación chi-cuadrado:
 
 ```{r}
 qchisq(0.950, 3)
@@ -643,7 +655,7 @@ Generalmente, se realiza un análisis post hoc para encontrar qué niveles de lo
 
 ### Prueba de Nemenyi para comparaciones múltiples 
 
-La prueba de Nemenyi se realiza mediante la función `NemenyiTest()` del paquete DescTools. Primero cargamos el paquete DescTools y llamamos a la función `NemenyiTest()`. El método para ajustar los valores $p$ debe ser uno de "tukey", "chisq". En este caso elegimos el método Tukey
+La prueba de Nemenyi se realiza mediante la función `NemenyiTest()` del paquete DescTools. Primero cargamos el paquete DescTools y llamamos a la función `NemenyiTest()`. El método para ajustar los $p-$valores debe ser uno de "tukey", "chisq". En este caso elegimos el método Tukey
 
 ```{r}
 library("DescTools")
@@ -668,28 +680,29 @@ Test_N <- dunnTest(df_CH_G$value ~ df_CH_G$Group4,
 Test_N
 ```
 
-La prueba de Dunn muestra que hay una diferencia estadísticamente significativa de la diversidad Chao 1 entre las muestras cecales y fecales de $Vdr^{-/-}$. Sin embargo, después de ajustar los valores comparación múltiple con el método Benjamini-Hochberg, no hay términos estadísticamente términos estadísticamente significativos entre las localizaciones y los genotipos de las muestras.
+La prueba de Dunn muestra que hay una diferencia estadísticamente significativa de la diversidad Chao 1 entre las muestras cecales y fecales de $Vdr^{-/-}$. Sin embargo, después de ajustar los valores comparación múltiple con el método Benjamini-Hochberg, no hay términos estadísticamente significativos entre las localizaciones y los genotipos de las muestras.
 
 ## Encontrar taxones significativos entre los grupos
 
 En esta sección, utilizamos la prueba de Kruskal-Wallis para ilustrar cómo encontrar taxones significativos entre los grupos. Supongamos que queremos saber si existen taxones significativos entre muestras de ratones $Vdr^{-/-}$ y WT de ubicaciones fecales y cecales. Usamos el test de prueba de Kruskal-Wallis para cada uno de los 248 taxones (bacterias) en el conjunto de datos.
-Primero, normalizamos los datos de abundancia y los convertimos en un marco de datos. Un método de normalización de método de normalización es utilizar la transformación logarítmica.
+Primero, normalizamos los datos de abundancia y los convertimos en un marco de datos. Un método de normalización es utilizar la transformación logarítmica.
 
 ```{r}
 data <- log((abund_table+1)/(rowSums(abund_table)+dim(abund_table)[2]))
 df <- as.data.frame(data)
 ```
 
-Otro método de normalización es convertir las cuentas de abundancia en abudancia relativa
+Otro método de normalización es convertir las cuentas de abundancia en abundancia relativa
 
 ```{r}
 df <- as.data.frame(abund_table/rowSums(abund_table))
 ```
 
-A continuación, utilice la función `kruskal.test()` y una función iterativa de R para realizar 248 pruebas (cada una para una bacteria). La función `kruskal.test()` tiene varios componentes componentes clave:
-+ La prueba es un bucle para todos los taxones (columnas) con los códigos "`for (i in 1:dim(df)[2])`".
+A continuación, utilizamos la función `kruskal.test()` y una función iterativa de R para realizar 248 pruebas (cada una para una bacteria). La función `kruskal.test()` tiene varios componentes componentes clave:
+
+- La prueba es un bucle para todos los taxones (columnas) con los códigos "`for (i in 1:dim(df)[2])`".
 - Para cada bucle, ejecuta la prueba de Kruskal-Wallis con los códigos "`KW_test <- kruskal.test(df[,i], g=Grupo4)`".
-- Los resultados se almacenan en un marco de datos con una fila por muestra y una columna por cada valor $p$ de la prueba KW.
+- Los resultados se almacenan en un marco de datos con una fila por muestra y una columna por cada $p-$valor de la prueba KW.
 - Informe el número de pruebas con la función cat "`cat(paste("Kruskal-Wallis test for ", names(df)[i], " ", i, "/", dim(df)[2], "; p-value=", KW_test$p.value,"\n")", sep="")`".
 
 ```{r}
@@ -715,18 +728,18 @@ head(KW_table)
 
 ## Pruebas múltiples y valor E, FWER y FDR
 
-En la literatura existen varios tipos diferentes de correcciones de pruebas múltiples. Entre ellas, la corrección de Bonferroni es la más conservadora. La corrección consiste simplemente en *dividir el alfa por el número de pruebas*. Aquí pesentamos las correcciones generales de las pruebas múltiples: *Valor E*, *Tasa de error por familia (FWER)* y *FDR*.
+En la literatura existen varios tipos diferentes de correcciones de pruebas múltiples. Entre ellas, la corrección de Bonferroni es la más conservadora. La corrección consiste simplemente en *dividir el alfa por el número de pruebas*. Aquí presentamos las correcciones generales de las pruebas múltiples: *Valor E*, *Tasa de error por familia (FWER)* y *FDR*.
 
 ### Valor E 
 
-El valor E es el número esperado de falsos positivos por azar cuando se hacen múltiples pruebas. Simplemente se puede multiplicar el valor $p$ por el número de taxones en que se realiza la prueba para obtenerlo: Valor E = valor p epor el número de pruebas. Tenga en cuenta que en el valor E, la corrección de base es utilizar el alfa original, el valor $p$ de las pruebas en lugar del valor $p$ nominal.
+El valor E es el número esperado de falsos positivos por azar cuando se hacen múltiples pruebas. Simplemente se puede multiplicar el $p-$valor por el número de taxones en que se realiza la prueba para obtenerlo: Valor E = valor p epor el número de pruebas. Tenga en cuenta que en el valor E, la corrección de base es utilizar el alfa original, el $p-$valor de las pruebas en lugar del $p-$valor nominal.
 
 ```{r}
 KW_table$E.value <- KW_table$p.value * dim(KW_table)[1]
 KW_table$E.value
 ```
 
-Dado que el valor E no es más que multiplicar el valor $p$ por el número de pruebas, puede ser mayor que 1. Si hay muchos taxones en el marco de datos para las pruebas, este método de corrección no es fácil de encontrar los taxones significativos. Los taxones significativos son aquellos para los que el valor E es mucho menor que 1. Los siguientes códigos se utilizan para comprobar si o no los valores E se añaden al marco de datos resultante:
+Dado que el valor E no es más que multiplicar el $p-$valor por el número de pruebas, puede ser mayor que 1. Si hay muchos taxones en el marco de datos para las pruebas, este método de corrección no es fácil de encontrar los taxones significativos. Los taxones significativos son aquellos para los que el valor E es mucho menor que 1. Los siguientes códigos se utilizan para comprobar si o no los valores E se añaden al marco de datos resultante:
 
 ```{r}
 # Revisamos el data.frame de resultados
@@ -740,7 +753,7 @@ $$
 FWER = 1-(1-p-value)^T
 $$
 
-donde, T = el número de pruebas. Para evitar los errores de redondeo causados por el cálculo directo utilizando la fórmula anterior, en R es mejor calcular la FWER con una prueba de distribución binomial de cola derecha. 
+donde, $T =$ el número de pruebas. Para evitar los errores de redondeo causados por el cálculo directo utilizando la fórmula anterior, en R es mejor calcular la FWER con una prueba de distribución binomial de cola derecha. 
 
 ```{r}
 KW_table$FWER <- pbinom(q=0, p=KW_table$p.value, size=dim(KW_table)[1],
@@ -756,10 +769,10 @@ head(KW_table)
 ### FDR 
 
 Por último, pero no por ello menos importante, está el FDR. Benjamini y Hochberg (1995) definieron la tasa de falsos descubrimientos de la siguiente manera: *FDR = proporción esperada de rechazos erróneos entre todos los rechazos*. En este caso, el FDR es la proporción de falsos positivos entre los taxones aceptados como positivos cuando se hacen múltiples pruebas. La corrección de Benjamini-Hochberg consiste en los siguientes pasos.
-En primer lugar, se ordenan los valores $p$ de menor a mayor y se hace un rango (1, 2, 3,..., k,...,T); 
+En primer lugar, se ordenan los valores $p$ de menor a mayor y se hace un rango $(1, 2, 3,..., k,...,T)$; 
 
 ```{r}
-# Ordenamos los valores p de menor a mayor
+# Ordenamos los p-valores de menor a mayor
 KW_table <- KW_table[order(KW_table$p.value, decreasing=FALSE), ]
 head(KW_table)
 ```
