@@ -912,6 +912,7 @@ PCA
 Con el siguiente código podemos pedir los valores de los eigenvalores.
 ```{r}
 eig <- PCA$CA$eig
+eig
 ```
 
 En lenguaje `vegan`, **"Inertia"** es el término general de **"variación"** en los datos. El total de variación de todo el conjunto de datos es de `r PCA$CA$tot.chi` en este caso, y el primer eje explica el `r 100*(PCA$CA$eig[1]/PCA$CA$tot.chi)`% de la variación total (0,02029/0,0408 = 0,4973). La **variación total** es la suma de las variaciones de cada género en la matriz analizada. Los siguientes códigos R comprueban la variación total:
@@ -946,7 +947,7 @@ head(sort(abs(PCA$CA$v[,2]),decreasing = TRUE))
 A continuación, vamos a dibujar los diagramas utilizando la función `biplot()`. La opción de visualización "species" es la etiqueta del paquete `vegan` para OTUs/taxa. Por defecto es "sites" (etiqueta para muestras).
 
 ```{r bibiplot_PCA, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Biplot de las primeras dos componentes principales de los datos de materia fecal de ratones Vdr$-/-$'}
-biplot(PCA, display = 'species')
+biplot(PCA, display = 'species', type = c("text"))
 ```
 
 Otros argumentos que uno puede incluir en el biplot son por ejemplo mostrar también los `sites` y agregar etiquetas a los datos, (Ver [vegan](https://cran.r-project.org/web/packages/vegan/vegan.pdf) pag. 37)

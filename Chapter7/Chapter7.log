@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.27)  27 SEP 2022 22:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.3)  3 OCT 2022 11:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Chapter7.tex
 (./Chapter7.tex
 LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-08-30> (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2022-09-28> (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
@@ -550,7 +550,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip87
 ) (c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-08-30 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count324
 \l__pdf_internal_box=\box74
 ) (./Chapter7.aux
@@ -942,99 +942,99 @@ Package pdftex.def Info: Chapter7_files/figure-latex/dendograma_complete-1.pdf  
 <PCA_3.png, id=656, 1328.965pt x 792.9625pt>
 File: PCA_3.png Graphic file (type png)
 <use PCA_3.png>
-Package pdftex.def Info: PCA_3.png  used on input line 1853.
+Package pdftex.def Info: PCA_3.png  used on input line 1861.
 (pdftex.def)             Requested size: 441.01349pt x 263.14249pt.
 [43 <./PCA_3.png>]
 <Chapter7_files/figure-latex/bibiplot_PCA-1.pdf, id=663, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/bibiplot_PCA-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/bibiplot_PCA-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/bibiplot_PCA-1.pdf  used on input line 1898.
+Package pdftex.def Info: Chapter7_files/figure-latex/bibiplot_PCA-1.pdf  used on input line 1906.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 <Chapter7_files/figure-latex/bibiplot_PCA_2-1.pdf, id=665, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/bibiplot_PCA_2-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/bibiplot_PCA_2-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/bibiplot_PCA_2-1.pdf  used on input line 1919.
+Package pdftex.def Info: Chapter7_files/figure-latex/bibiplot_PCA_2-1.pdf  used on input line 1927.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [44 <./Chapter7_files/figure-latex/bibiplot_PCA-1.pdf>]
 <Chapter7_files/figure-latex/ordiplot_PCA-1.pdf, id=676, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/ordiplot_PCA-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/ordiplot_PCA-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/ordiplot_PCA-1.pdf  used on input line 1940.
+Package pdftex.def Info: Chapter7_files/figure-latex/ordiplot_PCA-1.pdf  used on input line 1948.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [45 <./Chapter7_files/figure-latex/bibiplot_PCA_2-1.pdf>] [46 <./Chapter7_files/figure-latex/ordiplot_PCA-1.pdf>]
 <Chapter7_files/figure-latex/PCA_1_2-1.pdf, id=698, 867.24pt x 578.16pt>
 File: Chapter7_files/figure-latex/PCA_1_2-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/PCA_1_2-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/PCA_1_2-1.pdf  used on input line 2036.
+Package pdftex.def Info: Chapter7_files/figure-latex/PCA_1_2-1.pdf  used on input line 2044.
 (pdftex.def)             Requested size: 469.75827pt x 313.17216pt.
 [47] [48 <./Chapter7_files/figure-latex/PCA_1_2-1.pdf>] [49] [50] [51]
 <Chapter7_files/figure-latex/PCoA_1-1.pdf, id=733, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/PCoA_1-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/PCoA_1-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/PCoA_1-1.pdf  used on input line 2309.
+Package pdftex.def Info: Chapter7_files/figure-latex/PCoA_1-1.pdf  used on input line 2317.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [52 <./Chapter7_files/figure-latex/PCoA_1-1.pdf>]
 <Chapter7_files/figure-latex/Ordination_plot1-1.pdf, id=744, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/Ordination_plot1-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/Ordination_plot1-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/Ordination_plot1-1.pdf  used on input line 2347.
+Package pdftex.def Info: Chapter7_files/figure-latex/Ordination_plot1-1.pdf  used on input line 2355.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [53 <./Chapter7_files/figure-latex/Ordination_plot1-1.pdf>]
 <Chapter7_files/figure-latex/Ordination_plot2-1.pdf, id=755, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/Ordination_plot2-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/Ordination_plot2-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/Ordination_plot2-1.pdf  used on input line 2404.
+Package pdftex.def Info: Chapter7_files/figure-latex/Ordination_plot2-1.pdf  used on input line 2412.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [54 <./Chapter7_files/figure-latex/Ordination_plot2-1.pdf>] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64]
 <Chapter7_files/figure-latex/Ordination_plot3-1.pdf, id=809, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/Ordination_plot3-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/Ordination_plot3-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/Ordination_plot3-1.pdf  used on input line 3038.
+Package pdftex.def Info: Chapter7_files/figure-latex/Ordination_plot3-1.pdf  used on input line 3046.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [65] [66 <./Chapter7_files/figure-latex/Ordination_plot3-1.pdf>]
 <Chapter7_files/figure-latex/Ordiplot_1-1.pdf, id=825, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/Ordiplot_1-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/Ordiplot_1-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/Ordiplot_1-1.pdf  used on input line 3161.
+Package pdftex.def Info: Chapter7_files/figure-latex/Ordiplot_1-1.pdf  used on input line 3169.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [67]
 <Chapter7_files/figure-latex/Ordiplot_2-1.pdf, id=831, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/Ordiplot_2-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/Ordiplot_2-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/Ordiplot_2-1.pdf  used on input line 3178.
+Package pdftex.def Info: Chapter7_files/figure-latex/Ordiplot_2-1.pdf  used on input line 3186.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [68 <./Chapter7_files/figure-latex/Ordiplot_1-1.pdf> <./Chapter7_files/figure-latex/Ordiplot_2-1.pdf>]
 <Chapter7_files/figure-latex/Shepards_stress_plot-1.pdf, id=848, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/Shepards_stress_plot-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/Shepards_stress_plot-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/Shepards_stress_plot-1.pdf  used on input line 3208.
+Package pdftex.def Info: Chapter7_files/figure-latex/Shepards_stress_plot-1.pdf  used on input line 3216.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [69 <./Chapter7_files/figure-latex/Shepards_stress_plot-1.pdf>]
 <Chapter7_files/figure-latex/ordination_plot_NMDS-1.pdf, id=863, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/ordination_plot_NMDS-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/ordination_plot_NMDS-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/ordination_plot_NMDS-1.pdf  used on input line 3295.
+Package pdftex.def Info: Chapter7_files/figure-latex/ordination_plot_NMDS-1.pdf  used on input line 3303.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [70]
 <Chapter7_files/figure-latex/ordination_plot_NMDS_2-1.pdf, id=868, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/ordination_plot_NMDS_2-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/ordination_plot_NMDS_2-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/ordination_plot_NMDS_2-1.pdf  used on input line 3314.
+Package pdftex.def Info: Chapter7_files/figure-latex/ordination_plot_NMDS_2-1.pdf  used on input line 3322.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [71 <./Chapter7_files/figure-latex/ordination_plot_NMDS-1.pdf> <./Chapter7_files/figure-latex/ordination_plot_NMDS_2-1.pdf>]
 <Chapter7_files/figure-latex/ordination_plot_NMDS_3-1.pdf, id=885, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/ordination_plot_NMDS_3-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/ordination_plot_NMDS_3-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/ordination_plot_NMDS_3-1.pdf  used on input line 3332.
+Package pdftex.def Info: Chapter7_files/figure-latex/ordination_plot_NMDS_3-1.pdf  used on input line 3340.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [72 <./Chapter7_files/figure-latex/ordination_plot_NMDS_3-1.pdf>]
 <Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf, id=896, 867.24pt x 722.7pt>
 File: Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf  used on input line 3376.
+Package pdftex.def Info: Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf  used on input line 3384.
 (pdftex.def)             Requested size: 469.75827pt x 391.46521pt.
 [73 <./Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf>]
-Overfull \hbox (18.49356pt too wide) in paragraph at lines 3597--3597
+Overfull \hbox (18.49356pt too wide) in paragraph at lines 3605--3605
 []\T1/lmtt/m/n/10 ## rda(formula = abund_hell ~ SmokingStatus + Age + Sex + PackYears,      data = throat_meta)[] 
  []
 
@@ -1042,13 +1042,13 @@ Overfull \hbox (18.49356pt too wide) in paragraph at lines 3597--3597
 <Chapter7_files/figure-latex/triplot_RDA-1.pdf, id=927, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/triplot_RDA-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/triplot_RDA-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/triplot_RDA-1.pdf  used on input line 3743.
+Package pdftex.def Info: Chapter7_files/figure-latex/triplot_RDA-1.pdf  used on input line 3751.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [78] [79 <./Chapter7_files/figure-latex/triplot_RDA-1.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 3806.
+(Font)              <9> on input line 3814.
 [80] [81] [82] [83] [84]
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 4326--4326
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 4334--4334
 []\T1/lmtt/m/n/10 ## cca(formula = throat.otu.tab ~ SmokingStatus + Age + Sex + PackYears,      data = throat_meta)[] 
  []
 
@@ -1056,7 +1056,7 @@ Overfull \hbox (39.4935pt too wide) in paragraph at lines 4326--4326
 <Chapter7_files/figure-latex/unnamed-chunk-66-1.pdf, id=990, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-66-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-66-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-66-1.pdf  used on input line 4353.
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-66-1.pdf  used on input line 4361.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [87 <./Chapter7_files/figure-latex/unnamed-chunk-66-1.pdf>]
 
@@ -1070,13 +1070,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <Chapter7_files/figure-latex/unnamed-chunk-73-1.pdf, id=1025, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-73-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-73-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-73-1.pdf  used on input line 4703.
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-73-1.pdf  used on input line 4711.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [92 <./Chapter7_files/figure-latex/unnamed-chunk-73-1.pdf>]
 <Chapter7_files/figure-latex/unnamed-chunk-75-1.pdf, id=1037, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-75-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-75-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-75-1.pdf  used on input line 4752.
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-75-1.pdf  used on input line 4760.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1096,15 +1096,15 @@ Package rerunfilecheck Info: File `Chapter7.out' has not changed.
 (rerunfilecheck)             Checksum: 5FC81C889B29609B450AE61CF595E086;7410.
  ) 
 Here is how much of TeX's memory you used:
- 16214 strings out of 477017
- 277304 string characters out of 5825791
- 678188 words of memory out of 5000000
- 36742 multiletter control sequences out of 15000+600000
+ 16212 strings out of 477013
+ 277283 string characters out of 5825698
+ 678320 words of memory out of 5000000
+ 36744 multiletter control sequences out of 15000+600000
  541125 words of font info for 92 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,11n,77p,866b,596s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}<c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Chapter7.pdf (96 pages, 1418142 bytes).
+Output written on Chapter7.pdf (96 pages, 1421858 bytes).
 PDF statistics:
  1248 PDF objects out of 1440 (max. 8388607)
  968 compressed objects within 10 object streams

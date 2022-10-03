@@ -513,7 +513,7 @@ s^{2} = \frac{1}{n - 1}
 {\sum^{n}_{i=1}(y_{i} - \bar y)^{2}}
 $$
 
-donde $s^{2} = $ varianza de la muestra. La varianza de la muestra es calculada por la suma de cuadrados (SS) dividido por $n-1$ (grados de libertad, DF). El resultado es llamado media cuadrada (MS) y los términos cuadrados son desviaciones de la media simple. 
+donde $s^2=$ varianza de la muestra. La varianza de la muestra es calculada por la suma de cuadrados (SS) dividido por $n-1$ (grados de libertad, DF). El resultado es llamado media cuadrada (MS) y los términos cuadrados son desviaciones de la media simple. 
 La técnica fundamental del ANOVA divide la suma total de cuadrados (SS) de desviaciones en dos componentes: suma de cuadrados relacionados con el tratamiento y suma de cuadrados relacionados con el error:
 
 $$
