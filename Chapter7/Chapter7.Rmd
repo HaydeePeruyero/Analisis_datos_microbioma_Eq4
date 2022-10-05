@@ -294,6 +294,49 @@ Otra opción que podríamos especificar dentro del parámetro `fill` es `Genus` 
 # plot_bar(Top5Genus, fill="Genus", facet_grid=~Group)
 ```
 
+### Abundancias relativas
+
+Calculamos las abundancias relativas con la función $x/sum(x)*100$. Después convertimos nuestro objeto `top_5_relativo` a un data frame para poder usar como factores los OTU y muestras y de esta forma poder llenar por OTU nuestro gráfico de barras.
+
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Gráfico de barras de abundancia de los 5 taxones con mayor abundacia relativa.'}
+#Abundancias relativas
+top_5_relativo <- transform_sample_counts(Top5Genus, function(x) x/sum(x)*100)
+
+#Grafico de barras con abundancias relativas
+plot_bar(top_5_relativo, fill="Group", facet_grid = ~Group)
+```
+
+
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', fig.dim = c(12,8), fig.align = "center", message=FALSE, fig.cap = 'Gráfico de barras de abundancia de los 5 taxones con mayor abundacia relativa por OTU.'}
+#Convertimos a dataframe
+top_5_relativo_df <- psmelt(top_5_relativo)
+
+#Damos formato como caracter y factor a los OTU
+top_5_relativo_df$OTU <- as.character(top_5_relativo_df$OTU)
+
+top_5_relativo_df$OTU <- as.factor(top_5_relativo_df$OTU)
+
+#Convertimos a factor las muestras, no fue necesario determinar los niveles, ya los
+#detecta como tal
+
+top_5_relativo_df$Sample <- as.factor(top_5_relativo_df$Sample ) #, levels =c("5_15_drySt-28F", "1_11_drySt-28F", "2_12_drySt-28F", "3_13_drySt-28F", "4_14_drySt-28F", "7_22_drySt-28F", "8_23_drySt-28F", "9_24_drySt-28F"))
+
+#Damos formato con ggplot
+
+library(RColorBrewer)
+#definimos paleta de colores por niveles de OTU
+OTU_colors<- brewer.pal(length(levels(top_5_relativo_df$OTU)),"Dark2") 
+#especificamos los aes de ggplot
+global_rel_plot<-ggplot(top_5_relativo_df, aes(x=Sample, y=Abundance, fill=OTU)) +
+  geom_bar(aes(), stat="identity", position="stack") +
+  scale_fill_manual(values=OTU_colors) + 
+  labs(x= "Sample", y = "Relative abundance") +
+  facet_grid(~Group, scales = "free_x")+
+  ggtitle("Relative abundance by Groups")+
+  theme(axis.title = element_text(size = 14), axis.text.x = element_text(size = 5), plot.title = element_text(size = 20))
+
+global_rel_plot
+```
 
 ## Gráfico de mapa de calor
 
@@ -312,6 +355,10 @@ TopNGenus <- names(sort(taxa_sums(physeq), TRUE)[1:5])
 Top5Genus <- prune_taxa(TopNGenus, physeq)
 # Graficamos
 plot_heatmap(Top5Genus) 
+```
+
+```{r, include = TRUE, echo = TRUE, fig.pos = 'H', out.width="80%", fig.align = "center", message=FALSE, fig.cap = 'Mapa de calor de los 5 taxones con mayor abundancia relativa.'}
+plot_heatmap(top_5_relativo)
 ```
 
 Vamos a especificar otros parámetros como la distancia y métodos.
