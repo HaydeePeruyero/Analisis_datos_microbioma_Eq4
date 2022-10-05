@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.3)  4 OCT 2022 19:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.3)  4 OCT 2022 22:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1052,10 +1052,10 @@ Package pdftex.def Info: Chapter7_files/figure-latex/ordination_plot_NMDS_3-1.pd
 <Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf, id=938, 867.24pt x 722.7pt>
 File: Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf  used on input line 3468.
+Package pdftex.def Info: Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf  used on input line 3474.
 (pdftex.def)             Requested size: 469.75827pt x 391.46521pt.
 [76 <./Chapter7_files/figure-latex/r eigenvalores_NMDS_1-1.pdf>]
-Overfull \hbox (18.49356pt too wide) in paragraph at lines 3689--3689
+Overfull \hbox (18.49356pt too wide) in paragraph at lines 3695--3695
 []\T1/lmtt/m/n/10 ## rda(formula = abund_hell ~ SmokingStatus + Age + Sex + PackYears,      data = throat_meta)[] 
  []
 
@@ -1063,13 +1063,13 @@ Overfull \hbox (18.49356pt too wide) in paragraph at lines 3689--3689
 <Chapter7_files/figure-latex/triplot_RDA-1.pdf, id=969, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/triplot_RDA-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/triplot_RDA-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/triplot_RDA-1.pdf  used on input line 3835.
+Package pdftex.def Info: Chapter7_files/figure-latex/triplot_RDA-1.pdf  used on input line 3841.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [81] [82 <./Chapter7_files/figure-latex/triplot_RDA-1.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 3898.
+(Font)              <9> on input line 3904.
 [83] [84] [85] [86] [87]
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 4418--4418
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 4424--4424
 []\T1/lmtt/m/n/10 ## cca(formula = throat.otu.tab ~ SmokingStatus + Age + Sex + PackYears,      data = throat_meta)[] 
  []
 
@@ -1077,7 +1077,7 @@ Overfull \hbox (39.4935pt too wide) in paragraph at lines 4418--4418
 <Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf, id=1031, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf  used on input line 4445.
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf  used on input line 4451.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [90 <./Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf>]
 
@@ -1091,13 +1091,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf, id=1066, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf  used on input line 4795.
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf  used on input line 4801.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [95 <./Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf>]
 <Chapter7_files/figure-latex/unnamed-chunk-78-1.pdf, id=1078, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-78-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-78-1.pdf>
-Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-78-1.pdf  used on input line 4844.
+Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-78-1.pdf  used on input line 4850.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1125,7 +1125,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  72i,11n,77p,866b,596s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}<c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Chapter7.pdf (99 pages, 1440277 bytes).
+Output written on Chapter7.pdf (99 pages, 1440382 bytes).
 PDF statistics:
  1291 PDF objects out of 1440 (max. 8388607)
  1000 compressed objects within 10 object streams

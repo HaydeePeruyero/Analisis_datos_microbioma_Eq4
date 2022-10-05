@@ -899,7 +899,7 @@ fviz_dend(x = hc_complete, k=2,
 
 # Ordenación 
 
-El principal objetivo de la ordenación fue la "exploración" con la introducciónm de un análisis canonico de correspondencia (CCA), la ordenación ha ido más allá de meramente un análisis "exploratorio" y se ha convertido en una prueba de hipótesis.
+El principal objetivo de la ordenación fue la "exploración" con la introducciónm de un análisis canónico de correspondencia (CCA), la ordenación ha ido más allá de meramente un análisis "exploratorio" y se ha convertido en una prueba de hipótesis.
 
 La estructura de los datos de dos variables suele revelarse mediante un gráfico de dispersión de las muestras. Los datos multivariantes del microbioma son multidimensionales, generalmente tienen más de dos variables. El conjunto de datos del microbioma puede verse como una colección de muestras (sujetos) situadas en un espacio en el que *cada variable o especie (o OTU/taxa) define una dimensión*. Por lo tanto, *hay tantas dimensiones como variables o especies (u OTU/taxa)*. Por ejemplo, en nuestro conjunto de datos fecales de ratón Vdr$-/-$ hay 8 muestras y 248 géneros. Por tanto, la dimensión de los datos es 248. Para un conjunto de datos con n variables, el número de gráficos de dispersión que hay que dibujar sería $n (n - 1)/2$. En nuestro caso, los 248 géneros necesitarán $(248*247)/2 = 30628$ gráficos de dispersión. Un número tan grande de gráficos de dispersión no es informativo para conocer la estructura de los datos; también es tedioso trabajar con ellos.
 
@@ -922,7 +922,7 @@ En este apartado se tratan las ordenaciones no restringidas más comunes:
   
 Y las ordenaciones restringidas:
   
-  - Análisis de redundancia redundancia (RDA).
+  - Análisis de redundancia (RDA).
   - Análisis de correspondencia restringido (CCA).
   - Análisis restringido de coordenadas principales (CAP)*.
 
@@ -1382,7 +1382,8 @@ plot(fecal_genus_cca, display="sites", type="p")
 El siguiente diagrama de ordenación revela el patrón de muestras y géneros en diagrama de ordenación:
 
 ```{r ordination_plot_NMDS_3, include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'Plot de ordenación, muestra los patrones de las muestras y generos en el diagrama de ordenación. Los círculos representan las muestras y los signos + representan los géneros.'}
-ordiplot(fecal_genus_cca)
+ordiplot(fecal_genus_cca)  
+         #,type="text")
 ```
 El siguiente análisis posterior a la CA utilizando la función `evplot()` es para ilustrar cómo decidir qué eje de CA debe utilizarse para la interpretación de los resultados. La sintaxis de la función función `evplot()` es `evplot(ev)`, donde ev es un vector de valores propios. En primer lugar, ejecutamos la función.
 
