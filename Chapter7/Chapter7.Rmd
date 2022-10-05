@@ -899,7 +899,7 @@ fviz_dend(x = hc_complete, k=2,
 
 # Ordenación 
 
-El principal objetivo de la ordenación fue la "exploración" con la introducciónm de un análisis canónico de correspondencia (CCA), la ordenación ha ido más allá de meramente un análisis "exploratorio" y se ha convertido en una prueba de hipótesis.
+El principal objetivo de la ordenación fue la "exploración" con la introducción de un análisis canónico de correspondencia (CCA), la ordenación ha ido más allá de meramente un análisis "exploratorio" y se ha convertido en una prueba de hipótesis.
 
 La estructura de los datos de dos variables suele revelarse mediante un gráfico de dispersión de las muestras. Los datos multivariantes del microbioma son multidimensionales, generalmente tienen más de dos variables. El conjunto de datos del microbioma puede verse como una colección de muestras (sujetos) situadas en un espacio en el que *cada variable o especie (o OTU/taxa) define una dimensión*. Por lo tanto, *hay tantas dimensiones como variables o especies (u OTU/taxa)*. Por ejemplo, en nuestro conjunto de datos fecales de ratón Vdr$-/-$ hay 8 muestras y 248 géneros. Por tanto, la dimensión de los datos es 248. Para un conjunto de datos con n variables, el número de gráficos de dispersión que hay que dibujar sería $n (n - 1)/2$. En nuestro caso, los 248 géneros necesitarán $(248*247)/2 = 30628$ gráficos de dispersión. Un número tan grande de gráficos de dispersión no es informativo para conocer la estructura de los datos; también es tedioso trabajar con ellos.
 
@@ -911,7 +911,7 @@ Los métodos de ordenación incluyen *ordenaciones restringidas* y *no restringi
 
 Desde el punto de vista de la *comprobación de hipótesis*, el análisis de ordenación sin restricciones per se es un método principalmente descriptivo y no implica realmente la comprobación de hipótesis en datos multivariados. Aunque implica la formulación de hipótesis sobre la explicación de los ejes mediante variables ambientales, como la función `envfit()` del paquete `vegan`, la ordenación sin restricciones es sencilla. Analiza una matriz de datos; su objetivo es revelar la estructura principal de los datos en un gráfico a partir de un conjunto reducido de ejes ortogonales. Por el contrario, la ordenación restringida es una ordenación "impulsada por la hipótesis": un método de comprobación de hipótesis, que pone a prueba directamente la hipótesis sobre la influencia de los factores ambientales en la composición de las especies (o OTU/taxa). 
 
-La ordenación restringida está relacionada con los modelos lineales multivariantes, de esta manera con las variables "dependientes" (o la comunidad) en el lado izquierdo como respuestas, las "indenpendientes" (o restricciones) en el lado derecho como factores explicados. Así, la ordenación restringida no es simétrica. 
+La ordenación restringida está relacionada con los modelos lineales multivariantes, de esta manera con las variables "dependientes" (o la comunidad) en el lado izquierdo como respuestas, las "independientes" (o restricciones) en el lado derecho como factores explicados. Así, la ordenación restringida no es simétrica. 
 
 En este apartado se tratan las ordenaciones no restringidas más comunes: 
 
