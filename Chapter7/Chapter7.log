@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.3)  4 OCT 2022 22:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.3)  11 OCT 2022 20:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1074,7 +1074,7 @@ Overfull \hbox (39.4935pt too wide) in paragraph at lines 4424--4424
  []
 
 [88] [89]
-<Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf, id=1031, 469.755pt x 325.215pt>
+<Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf, id=1030, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf>
 Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-69-1.pdf  used on input line 4451.
@@ -1088,13 +1088,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [94]
-<Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf, id=1066, 469.755pt x 325.215pt>
+<Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf, id=1065, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf>
 Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf  used on input line 4801.
 (pdftex.def)             Requested size: 375.80452pt x 260.17235pt.
 [95 <./Chapter7_files/figure-latex/unnamed-chunk-76-1.pdf>]
-<Chapter7_files/figure-latex/unnamed-chunk-78-1.pdf, id=1078, 469.755pt x 325.215pt>
+<Chapter7_files/figure-latex/unnamed-chunk-78-1.pdf, id=1077, 469.755pt x 325.215pt>
 File: Chapter7_files/figure-latex/unnamed-chunk-78-1.pdf Graphic file (type pdf)
 <use Chapter7_files/figure-latex/unnamed-chunk-78-1.pdf>
 Package pdftex.def Info: Chapter7_files/figure-latex/unnamed-chunk-78-1.pdf  used on input line 4850.
@@ -1117,18 +1117,18 @@ Package rerunfilecheck Info: File `Chapter7.out' has not changed.
 (rerunfilecheck)             Checksum: 93AB0C249ED5D34E1293D3AE9381325F;7586.
  ) 
 Here is how much of TeX's memory you used:
- 16252 strings out of 477013
- 278924 string characters out of 5825698
+ 16251 strings out of 477013
+ 278919 string characters out of 5825698
  678836 words of memory out of 5000000
  36773 multiletter control sequences out of 15000+600000
- 541125 words of font info for 92 fonts, out of 8000000 for 9000
+ 540804 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,11n,77p,866b,596s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}<c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Chapter7.pdf (99 pages, 1440382 bytes).
+{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}<c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users/hayde/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Chapter7.pdf (99 pages, 1420802 bytes).
 PDF statistics:
- 1291 PDF objects out of 1440 (max. 8388607)
- 1000 compressed objects within 10 object streams
+ 1286 PDF objects out of 1440 (max. 8388607)
+ 997 compressed objects within 10 object streams
  261 named destinations out of 1000 (max. 500000)
  532 words of extra memory for PDF output out of 10000 (max. 10000000)
 

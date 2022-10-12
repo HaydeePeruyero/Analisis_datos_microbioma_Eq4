@@ -1502,10 +1502,10 @@ plot(rda_hell, display=c("sp", "lc", "cn"),main="Triplot RDA - scaling 2")
 taxa_scores <- scores(rda_hell, choices=c(1,2), display="sp")
 arrows(0, 0, taxa_scores[,1], taxa_scores[,2], length=0, lty=1, col="red")
 ```
-En los códigos anteriores, "sp" representa las especies (`display = "sp"`), y "cn" las restricciones o las variables explicativas (`display = "cn"`). Hay dos puntuaciones muestrales en el paquete `vegan`: sumas ponderadas de especies/taxa (`display = "wa"`), y puntuaciones muestrales ajustadas o "LC scores" (`display = "lc"`), es decir, combinaciones lineales de variables explicativas. Se puede elegir una de ellas para mostrarla en un gráfico. La segunda línea de código de R se utilizan para añadir flechas para mostrar especies/taxa. El argumento de la función `scores()` `"choices=c(1,2)"` es los ejes a trazar. Los valores por defecto trazan los ejes 1 y 2. Por lo tanto, podemos omitir la opción `"choices=c(1,2)"`. 
+En los códigos anteriores, "sp" representa las especies (`display = "sp"`), y "cn" las restricciones o las variables explicativas (`display = " "`). Hay dos puntuaciones muestrales en el paquete `vegan`: sumas ponderadas de especies/taxa (`display = "wa"`), y puntuaciones muestrales ajustadas o "LC scores" (`display = "lc"`), es decir, combinaciones lineales de variables explicativas. Se puede elegir una de ellas para mostrarla en un gráfico. La segunda línea de código de R se utilizan para añadir flechas para mostrar especies/taxa. El argumento de la función `scores()` `" choices=c(1,2)"` es los ejes a trazar. Los valores por defecto trazan los ejes 1 y 2. Por lo tanto, podemos omitir la opción `"choices=c(1,2)"`. 
 En el gráfico \ref{fig:triplot_RDA}, los triángulos huecos verdes representan muestras, las cruces azules representan los estados de una variable explicativa categórica (por ejemplo, hombre, mujer o fumador, no fumador), y las flechas azules para las variables explicativas cuantitativas (en este caso, PackYears y Edad) con puntas de flecha que indican su dirección de aumento, y las especies/taxas se muestran en rojo.
 
-Para comprobar la importancia de la variación de los datos de la comunidad de fumadores explicada por las variables explicativas, podemos realizar una prueba de permutación de Monte Carlo mediante la función función `anova.cca()` del paquete `vegan`. Esta función puede probar la significancia  del modelo global (por defecto), todos los ejes (`by = "axis"`), las variables explicativas individuales (`by = "terms"`), el primer eje restringido (`first = TRUE`), o la variación explicada por variables explicativas individuales después de eliminar la variación de todas las demás variables en el modelo (`by = "margin"`). Ilustramos su capacidad probando el modelo global, cada eje y cada variable explicativa, respectivamente.
+Para comprobar la importancia de la variación de los datos de la comunidad de fumadores explicada por las variables explicativas, podemos realizar una prueba de permutación de Monte Carlo mediante la función función `anova.cca()` del paquete `vegan`. Esta función puede probar la significancia  del modelo global (por defecto), todos los ejes (`by = " axis"`), las variables explicativas individuales (`by = "terms"`), el primer eje restringido (`first = TRUE`), o la variación explicada por variables explicativas individuales después de eliminar la variación de todas las demás variables en el modelo (`by = "margin"`). Ilustramos su capacidad probando el modelo global, cada eje y cada variable explicativa, respectivamente.
 
 Para asegurarnos de obtener el mismo resultado de la prueba de permutación cada vez que se ejecute, establecemos primero la misma semilla. Los siguientes códigos R prueban la significación del modelo global. El argumento "paso" especifica el número mínimo de permutaciones.
 
@@ -1626,15 +1626,15 @@ smoker_cca
 
 La primera sección después de la "Call:" da los *coeficientes de contingencia media al cuadrado* del análisis. En el CCA desempeñan el mismo papel que la varianza total en la RDA. Como la matriz de comunidad se convierte en distancia $\chi^{2}$, las entradas son coeficientes de contingencia. La variación total antes de someter la matriz a regresión ponderada es de `r smoker_cca$tot.chi`; ésta es la variación que podría explicarse. La variación en la matriz de la comunidad que se explica después de la regresión ponderada es `r smoker_cca$CCA$tot.chi`; esta es la variación que será explicada por los ejes en el CCA. La varianza de los residuos de la regresión es de `r smoker_cca$CA$tot.chi`; se trata de la variación que no será explicada por los ejes en el CCA, que puede ser sometida a CA. 
 
-Aquí, observamos que el CCA no tiene mucho éxito porque sólo `r smoker_cca$CCA$tot.chi/smoker_cca$tot.chi` o $0.0767$ (véase la columna Proporción y la fila Restringida) de la variación total de datos fue capturada en el CCA por las cuatro variables. La varianza explicada por ejes particulares puede encontrarse mediante la función `summary()`:
+Aquí, observamos que el CCA no tiene mucho éxito porque sólo `r smoker_cca$CCA$tot.chi/smoker_cca$tot.chi` (véase la columna Proporción y la fila Restringida) de la variación total de datos fue capturada en el CCA por las cuatro variables. La varianza explicada por ejes particulares puede encontrarse mediante la función `summary()`:
 
 ```{r}
 head(summary(smoker_cca))
 ```
 
-La varianza explicada por los cuatro primeros ejes restringidos (CCA1, CCA2, CCA3, CCA4): 3,07, 1,85 1,58 y 1,16%, respectivamente. La varianza explicada por el primer eje no restringido (CCA1) es del 9,26%. La sección de "Valores propios restringidos acumulados" proporciona los valores propios asociados a la proyección. Como tenemos cuatro variables en nuestro marco de datos ambiental, hay cuatro valores propios limitados. Como se muestra aquí, el primer eje representa aproximadamente el 40% de la variación restringida, con el segundo eje el segundo eje con un 24%, el tercero con un 21% y el cuarto con un 15%.
+La varianza explicada por los cuatro primeros ejes restringidos (CCA1, CCA2, CCA3, CCA4): 3,07, 1,85 1,58 y 1,16%, respectivamente. La varianza explicada por el primer eje no restringido (CA1) es del 9,26%. La sección de "Valores propios restringidos acumulados" proporciona los valores propios asociados a la proyección. Como tenemos cuatro variables en nuestro marco de datos ambiental, hay cuatro valores propios limitados. Como se muestra aquí, el primer eje representa aproximadamente el 40% de la variación restringida, con el segundo eje el segundo eje con un 24%, el tercero con un 21% y el cuarto con un 15%.
 
-A continuación, trazamos los resultados del CCA para el escalado de tipo 1 utilizando la función `plot()`. En el gráfico, queremos mostrar las restricciones lineales o "puntuaciones LC" (`display = "lc"`) y los centroides de los niveles de las variables factoriales (`display = "cn"`).
+A continuación, trazamos los resultados del CCA para el escalado de tipo 1 utilizando la función `plot()`. En el gráfico, queremos mostrar las restricciones lineales o "puntuaciones LC" (`display = "lc"`) y los centroides de los niveles de las variables factoriales (`display = " cn"`).
 
 ```{r include = TRUE, echo = TRUE, fig.pos = 'H', fig.align = "center",out.width="80%", warning=FALSE, message=FALSE, fig.cap = 'CCA biplot de la abundancia de la base smoker.throat restringido por las variables SmokingStatus, Age, Sex, PackYear con escalado tipo 1'}
 plot(smoker_cca, scaling=1, display = c("lc","cn"), main="Biplot CCA - scaling 1") 
@@ -1727,7 +1727,7 @@ Los tres primeros ejes se denominan "CAP1", "CAP2" y "CAP3", y el siguiente es e
 ```{r}
 set.seed(123)
 anova1 <- anova(throat_cap)
-p_valor1 <- anova1$`Pr(>F)`
+p_valor1 <- anova1$`Pr(>F)`[1]
 
 anova1 %>% kbl(booktabs = TRUE, align = "c",
     caption = "ANOVA test")%>%
@@ -1759,13 +1759,13 @@ ordispider(throat_cap, groups, lty=2, col="grey", label=T)
 ordiellipse(throat_cap, groups, lty=2, col="grey", label=F) 
 ```
 
-Al igual que en RDA y CCA, vamos a realizar una prueba de permutación para el modelo global global, cada eje y cada variable explicativa.
+Al igual que en RDA y CCA, vamos a realizar una prueba de permutación para el modelo global, cada eje y cada variable explicativa.
 Para asegurarse de obtener el mismo resultado de la prueba de permutación cada vez que se ejecute, establezca la misma semilla.
 
 ```{r}
 set.seed (123)
 anova_global <- anova(throat_cap, step=1000) 
-pvalue_global <- anova_global$`Pr(>F)`
+pvalue_global <- anova_global$`Pr(>F)`[1]
 
 anova_global %>% kbl(booktabs = TRUE, align = "c",
     caption = "ANOVA test global")%>%
@@ -1774,7 +1774,7 @@ anova_global %>% kbl(booktabs = TRUE, align = "c",
                 font_size = 9)
 ```
 
-Observamos que el resultado es estadísticamente significativocon un $p-$valor de `r pvalue_global`. Entonces probamos significancia con cada eje.
+Observamos que el resultado es estadísticamente significativo con un $p-$valor de `r pvalue_global`. Entonces probamos significancia con cada eje.
 
 ```{r}
 set.seed (123)
@@ -1790,7 +1790,7 @@ anova_ejes %>%
                 font_size = 9)
 ```
 
-Hay significancia en el primer eje con un $p-$valor de `r pvalue_CA1` y es margialmente significativo en el segundo eje con un $p-$valor de `r pvalue_CA2`. Ahora probamos con cada valiable explicativa.
+Hay significancia en el primer eje con un $p-$valor de `r pvalue_CA1` y es marginalmente significativo en el segundo eje con un $p-$valor de `r pvalue_CA2`. Ahora probamos con cada variable explicativa.
 
 ```{r}
 set.seed (123)
@@ -1817,7 +1817,7 @@ step_forward <- ordistep(capscale(throat.otu.tab ~ 1, data=throat_meta),
 cap_final<- capscale(throat.otu.tab ~ SmokingStatus, throat_meta, dist="bray")
 set.seed(123)
 anova_M <- anova(cap_final, step=1000)
-p_valueM <- anova_M$`Pr(>F)`
+p_valueM <- anova_M$`Pr(>F)`[1]
 
 anova_M %>%
   kbl(booktabs = TRUE, align = "c",
